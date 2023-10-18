@@ -55,9 +55,9 @@ interface DevBoxes {
     @convenientAPI(false)
     GetRemoteConnection is DevCenterService.DevBoxesOperations.GetRemoteConnection;
     @convenientAPI(false)
-    ListActions is DevCenterService.DevBoxesOperations.ListActions;
+    ListActions is DevCenterService.DevBoxesOperations.ListDevBoxActions;
     @convenientAPI(false)
-    GetAction is DevCenterService.DevBoxesOperations.GetAction;
+    GetAction is DevCenterService.DevBoxesOperations.GetDevBoxAction;
     @convenientAPI(false)
     SkipAction is DevCenterService.DevBoxesOperations.SkipAction;
     @convenientAPI(false)
