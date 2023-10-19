@@ -1,0 +1,140 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Face Service",
+    "version": "v1.0",
+    "x-typespec-generated": [
+      {
+        "emitter": "@azure-tools/typespec-autorest"
+      }
+    ]
+  },
+  "schemes": [
+    "https"
+  ],
+  "x-ms-parameterized-host": {
+    "hostTemplate": "{endpoint}/face/{apiVersion}",
+    "useSchemePrefix": false,
+    "parameters": [
+      {
+        "name": "endpoint",
+        "in": "path",
+        "description": "Supported Cognitive Services endpoints (protocol and hostname, for example:\nhttps://<resource-name>.cognitiveservices.azure.com).",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "apiVersion",
+        "in": "path",
+        "description": "The Face service versions.",
+        "required": true,
+        "type": "string",
+        "enum": [
+          "v1.0"
+        ],
+        "x-ms-enum": {
+          "name": "Versions",
+          "modelAsString": true,
+          "values": [
+            {
+              "name": "v1_0",
+              "value": "v1.0",
+              "description": "The v1.0 version of the Face service."
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "produces": [
+    "application/json"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "security": [
+    {
+      "ApiKeyAuth": []
+    }
+  ],
+  "securityDefinitions": {
+    "ApiKeyAuth": {
+      "type": "apiKey",
+      "name": "Ocp-Apim-Subscription-Key",
+      "in": "header"
+    }
+  },
+  "tags": [],
+  "paths": {
+    "/detect": {
+      "post": {
+        "operationId": "Detect",
+        "parameters": [
+          {
+            "name": "urlImage",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UrlImage"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DetectedFace"
+              },
+              "x-ms-identifiers": []
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "DetectedFace": {
+      "type": "object",
+      "properties": {
+        "faceId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "faceId"
+      ]
+    },
+    "UrlImage": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "url"
+      ]
+    },
+    "Versions": {
+      "type": "string",
+      "description": "The Face service versions.",
+      "enum": [
+        "v1.0"
+      ],
+      "x-ms-enum": {
+        "name": "Versions",
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "v1_0",
+            "value": "v1.0",
+            "description": "The v1.0 version of the Face service."
+          }
+        ]
+      }
+    }
+  },
+  "parameters": {}
+}
