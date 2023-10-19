@@ -10,24 +10,22 @@ using DevCenterService;
 using Azure.ClientGenerator.Core;
 
 @useDependency(APIVersions.v2023_04_01)
-namespace SDKCustomizations;
-
 @client({
     name: "DevCenterClient",
     service: DevCenterService,
 })
-interface DevCenterClientOperations {
+namespace SDKCustomizations;
+
+@operationGroup
+interface DevCenter {
     @convenientAPI(false)
     ListProjects is DevCenterService.DevCenterOperations.ListProjects;
     @convenientAPI(false)
     GetProject is DevCenterService.DevCenterOperations.GetProject;
 }
 
-@client({
-    name: "DevBoxesClient",
-    service: DevCenterService,
-})
-interface DevBoxesClientOperations {
+@operationGroup
+interface DevBoxes {
     @convenientAPI(false)
     ListPools is DevCenterService.DevBoxesOperations.ListPools;
     @convenientAPI(false)
@@ -68,11 +66,8 @@ interface DevBoxesClientOperations {
     DelayAllActions is DevCenterService.DevBoxesOperations.DelayAllActions;
 }
 
-@client({
-    name: "DeploymentEnvironmentsClient",
-    service: DevCenterService,
-})
-interface EnvironmentClientOperations {
+@operationGroup
+interface DeploymentEnvironments {
     @convenientAPI(false)
     ListAllEnvironments is DevCenterService.EnvironmentsOperations.ListAllEnvironments;
     @convenientAPI(false)
