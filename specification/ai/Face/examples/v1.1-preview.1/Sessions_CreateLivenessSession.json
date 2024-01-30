@@ -1,0 +1,20 @@
+{
+  "operationId": "Sessions_CreateLivenessSession",
+  "title": "Create session of detect liveness single model",
+  "parameters": {
+    "endpoint": "{endpoint}",
+    "apiVersion": "v1.1-preview.1",
+    "body": {
+      "livenessOperationMode": "Passive",
+      "deviceCorrelationId": "5a53f935-8d93-4399-b0e1-d8c3a255c978"
+    }
+  },
+  "responses": {
+    "200": {
+      "body": {
+        "sessionId": "1eaab1ee-8d2f-49de-82b7-297bab802f35",
+        "authToken": "eyJhbGciOiJFUzI1NiIsImtpZCI6ImtleTEiLCJ0eXAiOiJKV1QifQ.eyJyZWdpb24iOiJ3ZXN0dXMiLCJzdWJzY3JpcHRpb24taWQiOiIyZGNmNzllMzAwZjU0ZjgxOTVkMGViMmMyYTc4YTdjNSIsInByb2R1Y3QtaWQiOiJGYWNlLkUwIiwiYWxsb3dlZC1wYXRocyI6Ilt7XCJwYXRoXCI6XCJmYWNlL3YxLjEtcHJldmlldy4xL3Nlc3Npb24vc3RhcnRcIixcIm1ldGhvZFwiOlwiUE9TVFwiLFwicXVvdGFcIjoxLFwiY2FsbFJhdGVSZW5ld2FsUGVyaW9kXCI6NjAsXCJjYWxsUmF0ZUxpbWl0XCI6MX0se1wicGF0aFwiOlwiZmFjZS92MS4xLXByZXZpZXcuMS9kZXRlY3RMaXZlbmVzcy9zaW5nbGVNb2RhbFwiLFwibWV0aG9kXCI6XCJwb3N0XCIsXCJxdW90YVwiOjMsXCJjYWxsUmF0ZVJlbmV3YWxQZXJpb2RcIjo1LFwiY2FsbFJhdGVMaW1pdFwiOjF9XSIsImF6dXJlLXJlc291cmNlLWlkIjoiL3N1YnNjcmlwdGlvbnMvMjMxNTQzMDItYzJiMS00OWI5LTg2MzItNDM3MjgzM2M3ZjY5L3Jlc291cmNlR3JvdXBzL2ZhY2VhcGl0cGUvcHJvdmlkZXJzL01pY3Jvc29mdC5Db2duaXRpdmVTZXJ2aWNlcy9hY2NvdW50cy9GYWNlLVRlc3QtRTAtVVNXIiwic2lkIjoiMWVhYWIxZWUtOGQyZi00OWRlLTgyYjctMjk3YmFiODAyZjM1IiwibmJmIjoiMTY5ODY0NzAxOSIsImZhY2UiOiJ7XCJlbmRwb2ludFwiOlwiaHR0cHM6Ly9jb2duaXRpdmV3dXBwZS5henVyZS1hcGkubmV0XCIsXCJzZXNzaW9uVHlwZVwiOlwiTGl2ZW5lc3NcIixcImNsaWVudENsYWltc1wiOntcImxpdmVuZXNzT3BlcmF0aW9uTW9kZVwiOlwiUGFzc2l2ZVwifX0iLCJhdWQiOiJ1cm46bXMuZmFjZVNlc3Npb25Ub2tlbiIsImV4cCI6MTY5ODY0NzYxOSwiaXNzIjoidXJuOm1zLmNvZ25pdGl2ZXNlcnZpY2VzIn0.3RzyYBww_UhQleqxSYBWP4FQ5VyhlBbsUk-8w_H7N-76i0Qig-9pX1C_olLkymMVTH2HdiaXfPQMbQi1f1ta1w"
+      }
+    }
+  }
+}

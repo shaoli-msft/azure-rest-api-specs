@@ -1,0 +1,21 @@
+{
+  "operationId": "Sessions_GetLivenessWithVerifySession",
+  "title": "Get session of detect liveness with verify single model",
+  "parameters": {
+    "endpoint": "{endpoint}",
+    "apiVersion": "v1.1-preview.1",
+    "sessionId": "1eaab1ee-8d2f-49de-82b7-297bab802f35"
+  },
+  "responses": {
+    "200": {
+      "body": {
+        "status": "NotStarted",
+        "id": "1eaab1ee-8d2f-49de-82b7-297bab802f35",
+        "createdDateTime": "2023-10-30T06:23:39.0544401+00:00",
+        "authTokenTimeToLiveInSeconds": 600,
+        "deviceCorrelationId": "5a53f935-8d93-4399-b0e1-d8c3a255c978",
+        "sessionExpired": false
+      }
+    }
+  }
+}

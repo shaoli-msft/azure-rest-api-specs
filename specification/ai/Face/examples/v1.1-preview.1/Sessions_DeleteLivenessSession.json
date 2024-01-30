@@ -1,0 +1,12 @@
+{
+  "operationId": "Sessions_DeleteLivenessSession",
+  "title": "Delete session of detect liveness single model",
+  "parameters": {
+    "endpoint": "{endpoint}",
+    "apiVersion": "v1.1-preview.1",
+    "sessionId": "1eaab1ee-8d2f-49de-82b7-297bab802f35"
+  },
+  "responses": {
+    "200": {}
+  }
+}

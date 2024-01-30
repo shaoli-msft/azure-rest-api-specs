@@ -1,0 +1,114 @@
+{
+  "operationId": "Sessions_ListLivenessSessionAuditEntries",
+  "title": "Delete session of detect liveness single model",
+  "parameters": {
+    "endpoint": "{endpoint}",
+    "apiVersion": "v1.1-preview.1",
+    "sessionId": "67659c22-1265-4e05-b2ee-f2e11a81bb64"
+  },
+  "responses": {
+    "200": {
+      "body": [
+        {
+          "id": 3,
+          "sessionId": "67659c22-1265-4e05-b2ee-f2e11a81bb64",
+          "requestId": "adfbff0a-bf7e-48c3-b1af-10514e72721a",
+          "clientRequestId": "16e66ec0-32d3-460d-82fc-c03432a5c423",
+          "receivedDateTime": "2023-10-30T07:41:47.4012984+00:00",
+          "request": {
+            "url": "/face/v1.1-preview.1/detectliveness/singlemodal",
+            "method": "POST",
+            "contentLength": 156102,
+            "contentType": "multipart/form-data; boundary=\"a553ebf0-b6cb-4665-990f-f9597287ec42\""
+          },
+          "response": {
+            "body": {
+              "livenessDecision": "realface",
+              "target": {
+                "faceRectangle": {
+                  "top": 179,
+                  "left": 138,
+                  "width": 379,
+                  "height": 295
+                },
+                "fileName": "verifiedid-synthetic.webp",
+                "timeOffsetWithinFile": 0,
+                "imageType": "Color"
+              },
+              "modelVersionUsed": "2022-10-15-preview.04"
+            },
+            "statusCode": 200,
+            "latencyInMilliseconds": 969
+          },
+          "digest": "F299462530D1D1721EBA048F71481FF1FB9E1677201211B351A0200AD248D12E"
+        },
+        {
+          "id": 2,
+          "sessionId": "67659c22-1265-4e05-b2ee-f2e11a81bb64",
+          "requestId": "20cb6dfe-a275-40be-ac5f-974366275e3a",
+          "clientRequestId": "8b906d22-4b6a-4b16-a822-9365ef2bfc84",
+          "receivedDateTime": "2023-10-30T07:41:40.4019774+00:00",
+          "request": {
+            "url": "/face/v1.1-preview.1/detectliveness/singlemodal",
+            "method": "POST",
+            "contentLength": 156102,
+            "contentType": "multipart/form-data; boundary=\"24e3036e-4255-4a89-9833-5f6c20b33fae\""
+          },
+          "response": {
+            "body": {
+              "livenessDecision": "realface",
+              "target": {
+                "faceRectangle": {
+                  "top": 179,
+                  "left": 138,
+                  "width": 379,
+                  "height": 295
+                },
+                "fileName": "verifiedid-synthetic.webp",
+                "timeOffsetWithinFile": 0,
+                "imageType": "Color"
+              },
+              "modelVersionUsed": "2022-10-15-preview.04"
+            },
+            "statusCode": 200,
+            "latencyInMilliseconds": 1012
+          },
+          "digest": "5A9A77AA30908D1065DFD607D5F0F0F9E93E862A0B99A84C4AB964D2B3378A90"
+        },
+        {
+          "id": 1,
+          "sessionId": "67659c22-1265-4e05-b2ee-f2e11a81bb64",
+          "requestId": "64a9c694-ab39-4ef7-adc6-2bf9757968f1",
+          "clientRequestId": "944502c4-6389-4024-8b9a-38d3cc46d96f",
+          "receivedDateTime": "2023-10-30T07:41:33.2706743+00:00",
+          "request": {
+            "url": "/face/v1.1-preview.1/detectliveness/singlemodal",
+            "method": "POST",
+            "contentLength": 156102,
+            "contentType": "multipart/form-data; boundary=\"802a4bb8-64a4-4642-9877-83efc1dd3b72\""
+          },
+          "response": {
+            "body": {
+              "livenessDecision": "realface",
+              "target": {
+                "faceRectangle": {
+                  "top": 179,
+                  "left": 138,
+                  "width": 379,
+                  "height": 295
+                },
+                "fileName": "verifiedid-synthetic.webp",
+                "timeOffsetWithinFile": 0,
+                "imageType": "Color"
+              },
+              "modelVersionUsed": "2022-10-15-preview.04"
+            },
+            "statusCode": 200,
+            "latencyInMilliseconds": 941
+          },
+          "digest": "2CAF3A98059FF5736733DB2E346A339238FFFA8F1CFE38D31A60EED024915D06"
+        }
+      ]
+    }
+  }
+}

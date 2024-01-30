@@ -1,0 +1,35 @@
+{
+  "operationId": "Sessions_ListLivenessSessions",
+  "title": "List sessions of detect liveness single model",
+  "parameters": {
+    "endpoint": "{endpoint}",
+    "apiVersion": "v1.1-preview.1"
+  },
+  "responses": {
+    "200": {
+      "body": [
+        {
+          "id": "1eaab1ee-8d2f-49de-82b7-297bab802f35",
+          "createdDateTime": "2023-10-30T06:23:39.0544401+00:00",
+          "authTokenTimeToLiveInSeconds": 600,
+          "deviceCorrelationId": "5a53f935-8d93-4399-b0e1-d8c3a255c978",
+          "sessionExpired": false
+        },
+        {
+          "id": "9b20795e-2a18-487c-89ae-5c210bc084d8",
+          "createdDateTime": "2023-10-30T03:49:47.5869915+00:00",
+          "authTokenTimeToLiveInSeconds": 600,
+          "deviceCorrelationId": "d2f7be09-bfe0-42eb-a2e2-46ea38e9831c",
+          "sessionExpired": true
+        },
+        {
+          "id": "a9b3205b-39eb-4c1c-ba13-25f5c20d35b2",
+          "createdDateTime": "2023-10-30T06:23:04.4031757+00:00",
+          "authTokenTimeToLiveInSeconds": 600,
+          "deviceCorrelationId": "723d6d03-ef33-40a8-9682-23a1feb7bccd",
+          "sessionExpired": true
+        }
+      ]
+    }
+  }
+}

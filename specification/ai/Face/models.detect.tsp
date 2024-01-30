@@ -1,0 +1,332 @@
+import "@typespec/http";
+import "@typespec/rest";
+import "@azure-tools/typespec-azure-core";
+import "./models.common.tsp";
+
+using Azure.Core;
+using TypeSpec.Http;
+using TypeSpec.Rest;
+
+namespace Face;
+
+@doc("Query parameters for detect API.")
+model FaceDetectionQuery {
+    @doc("Return faceIds of the detected faces or not. The default value is true.")
+    @query returnFaceId?: boolean;
+    @doc("Return face landmarks of the detected faces or not. The default value is false.")
+    @query returnFaceLandmarks?: boolean;
+    @doc("Analyze and return the one or more specified face attributes in the comma-separated string like 'returnFaceAttributes=headPose,glasses'. Supported face attributes include headPose, glasses, occlusion, accessories, blur, exposure, noise, mask, and qualityForRecognition. Face attribute analysis has additional computational and time cost.")
+    @query returnFaceAttributes?: string;
+    @doc("The 'recognitionModel' associated with the detected faceIds.")
+    @query recognitionModel?: RecognitionModel;
+    @doc("Return 'recognitionModel' or not. The default value is false.")
+    @query returnRecognitionModel?: boolean;
+    @doc("The 'detectionModel' associated with the detected faceIds.")
+    @query detectionModel?: DetectionModel;
+    @doc("The number of seconds for the face ID being cached. Supported range from 60 seconds up to 86400 seconds. The default value is 86400 (24 hours).")
+    @query faceIdTimeToLive?: int32;
+}
+
+@doc("Response for detect API.")
+model FaceDetectionResult {
+    @doc("Unique faceId of the detected face, created by detection API and it will expire 24 hours after the detection call.")
+    faceId: string;
+    @doc("The 'recognitionModel' associated with this faceId. This is only returned when 'returnRecognitionModel' is explicitly set as true.")
+    recognitionModel?: string;
+    @doc("A rectangle area for the face location on image.")
+    faceRectangle?: FaceRectangle;
+    @doc("An array of 27-point face landmarks pointing to the important positions of face components. To return this, it requires 'returnFaceLandmarks' parameter to be true.")
+    faceLandmarks?: FaceLandmarks;
+    @doc("Face attributes fore detected face.")
+    faceAttributes?: FaceAttributes;
+}
+
+@doc("A rectangle within which a face can be found.")
+model FaceRectangle {
+    @doc("The distance from the top edge if the image to the top edge of the rectangle, in pixels.")
+    top: int32;
+    @doc("The distance from the left edge if the image to the left edge of the rectangle, in pixels.")
+    left: int32;
+    @doc("The width of the rectangle, in pixels.")
+    width: int32;
+    @doc("The height of the rectangle, in pixels.")
+    height: int32;
+}
+
+@doc("A collection of 27-point face landmarks pointing to the important positions of face components.")
+model FaceLandmarks {
+    @doc("Coordinates within an image")
+    pupilLeft: Coordinate;
+    @doc("Coordinates within an image")
+    pupilRight: Coordinate;
+    @doc("Coordinates within an image")
+    noseTip: Coordinate;
+    @doc("Coordinates within an image")
+    mouthLeft: Coordinate;
+    @doc("Coordinates within an image")
+    mouthRight: Coordinate;
+    @doc("Coordinates within an image")
+    eyebrowLeftOuter: Coordinate;
+    @doc("Coordinates within an image")
+    eyebrowLeftInner: Coordinate;
+    @doc("Coordinates within an image")
+    eyeLeftOuter: Coordinate;
+    @doc("Coordinates within an image")
+    eyeLeftTop: Coordinate;
+    @doc("Coordinates within an image")
+    eyeLeftBottom: Coordinate;
+    @doc("Coordinates within an image")
+    eyeLeftInner: Coordinate;
+    @doc("Coordinates within an image")
+    eyebrowRightInner: Coordinate;
+    @doc("Coordinates within an image")
+    eyebrowRightOuter: Coordinate;
+    @doc("Coordinates within an image")
+    eyeRightInner: Coordinate;
+    @doc("Coordinates within an image")
+    eyeRightTop: Coordinate;
+    @doc("Coordinates within an image")
+    eyeRightBottom: Coordinate;
+    @doc("Coordinates within an image")
+    eyeRightOuter: Coordinate;
+    @doc("Coordinates within an image")
+    noseRootLeft: Coordinate;
+    @doc("Coordinates within an image")
+    noseRootRight: Coordinate;
+    @doc("Coordinates within an image")
+    noseLeftAlarTop: Coordinate;
+    @doc("Coordinates within an image")
+    noseRightAlarTop: Coordinate;
+    @doc("Coordinates within an image")
+    noseLeftAlarOutTip: Coordinate;
+    @doc("Coordinates within an image")
+    noseRightAlarOutTip: Coordinate;
+    @doc("Coordinates within an image")
+    upperLipTop: Coordinate;
+    @doc("Coordinates within an image")
+    upperLipBottom: Coordinate;
+    @doc("Coordinates within an image")
+    underLipTop: Coordinate;
+    @doc("Coordinates within an image")
+    underLipBottom: Coordinate;
+}
+
+@doc("Coordinates within an image.")
+model Coordinate {
+    @doc("The horizontal component, in pixels.")
+    x: float32;
+    @doc("The vertical component, in pixels.")
+    y: float32;
+}
+
+@doc("Face attributes for the detected face.")
+model FaceAttributes {
+    @doc("Age in years")
+    age?: int32;
+    @doc("Smile intensity, a number between [0,1]")
+    smile?: float32;
+    @doc("Properties describing facial hair attributes.")
+    facialHair?: FacialHair;
+    @doc("Glasses type if any of the face.")
+    glasses?: Glasses;
+    @doc("3-D roll/yaw/pitch angles for face direction.")
+    headPose?: HeadPose;
+    @doc("Properties describing hair attributes.")
+    hair?: Hair;
+    @doc("Properties describing occlusions on a given face.")
+    occlusion?: Occlusion;
+    @doc("Properties describing any accessories on a given face.")
+    accessories?: Accessory[];
+    @doc("Properties describing any presence of blur within the image.")
+    blur?: Blur;
+    @doc("Properties describing exposure level of the image.")
+    exposure?: Exposure;
+    @doc("Properties describing noise level of the image.")
+    noise?: Noise;
+    @doc("Properties describing the presence of a mask on a given face.")
+    mask?: Mask;
+    @doc("Properties describing the overall image quality regarding whether the image being used in the detection is of sufficient quality to attempt face recognition on.")
+    qualityForRecognition?: QualityForRecognition;
+}
+
+@doc("Properties describing facial hair attributes.")
+model FacialHair {
+    @doc("A number ranging from 0 to 1 indicating a level of confidence associated with a property.")
+    moustache: float32;
+    @doc("A number ranging from 0 to 1 indicating a level of confidence associated with a property.")
+    beard: float32;
+    @doc("A number ranging from 0 to 1 indicating a level of confidence associated with a property.")
+    sideburns: float32;
+}
+
+@doc("Glasses type of the face.")
+enum Glasses {
+    @doc("No glasses on the face.")
+    noGlasses,
+    @doc("Normal glasses on the face.")
+    readingGlasses,
+    @doc("Sunglasses on the face.")
+    sunglasses,
+    @doc("Swimming goggles on the face.")
+    swimmingGoggles
+}
+
+@doc("3-D roll/yaw/pitch angles for face direction.")
+model HeadPose {
+    @doc("Value of angles.")
+    pitch: float32;
+    @doc("Value of angles.")
+    roll: float32;
+    @doc("Value of angles.")
+    yaw: float32;
+}
+
+@doc("Properties describing hair attributes.")
+model Hair {
+    @doc("A number describing confidence level of whether the person is bald.")
+    bald: float32;
+    @doc("A boolean value describing whether the hair is visible in the image.")
+    invisible: boolean;
+    @doc("An array of candidate colors and confidence level in the presence of each.")
+    hairColor: HairColor[];
+}
+
+@doc("An array of candidate colors and confidence level in the presence of each.")
+model HairColor {
+    @doc("Name of the hair color.")
+    color: HairColorType;
+    @doc("Confidence level of the color.")
+    confidence: float32;
+}
+
+@doc("Name of the hair color.")
+enum HairColorType {
+    @doc("Unknown")
+    unknownHairColor: "unknown",
+    @doc("White")
+    white,
+    @doc("Gray")
+    gray,
+    @doc("Blond")
+    blond,
+    @doc("Brown")
+    brown,
+    @doc("Red")
+    red,
+    @doc("Black")
+    black,
+    @doc("Other")
+    other
+}
+
+@doc("Properties describing occlusions on a given face.")
+model Occlusion {
+    @doc("A boolean value indicating whether forehead is occluded.")
+    foreheadOccluded: boolean;
+    @doc("A boolean value indicating whether eyes are occluded.")
+    eyeOccluded: boolean;
+    @doc("A boolean value indicating whether the mouth is occluded.")
+    mouthOccluded: boolean;
+}
+
+@doc("Accessory item and corresponding confidence level.")
+model Accessory {
+    @doc("Type of the accessory.")
+    type: AccessoryType;
+    @doc("Confidence level of the accessory type.")
+    confidence: float32;
+}
+
+@doc("Type of the accessory.")
+enum AccessoryType {
+    @doc("Headwear")
+    headwear,
+    @doc("Glasses")
+    glasses,
+    @doc("Mask")
+    mask
+}
+
+@doc("Properties describing any presence of blur within the image.")
+model Blur {
+    @doc("An enum value indicating level of blurriness.")
+    blurLevel: BlurLevel;
+    @doc("A number indicating level of blurriness ranging from 0 to 1.")
+    value: float32;
+}
+
+@doc("Indicates level of blurriness.")
+enum BlurLevel {
+    @doc("Low blur level.")
+    low,
+    @doc("Medium blur level.")
+    medium,
+    @doc("High blur level.")
+    high
+}
+
+@doc("Properties describing exposure level of the image.")
+model Exposure {
+    @doc("An enum value indicating level of exposure.")
+    exposureLevel: ExposureLevel;
+    @doc("A number indicating level of exposure level ranging from 0 to 1. [0, 0.25) is under exposure. [0.25, 0.75) is good exposure. [0.75, 1] is over exposure.")
+    value: float32;
+}
+
+@doc("Indicates level of exposure.")
+enum ExposureLevel {
+    @doc("Low exposure level.")
+    underExposure,
+    @doc("Good exposure level.")
+    goodExposure,
+    @doc("High exposure level.")
+    overExposure
+}
+
+@doc("Properties describing noise level of the image.")
+model Noise {
+    @doc("An enum value indicating level of noise.")
+    noiseLevel: NoiseLevel;
+    @doc("A number indicating level of noise level ranging from 0 to 1. [0, 0.25) is under exposure. [0.25, 0.75) is good exposure. [0.75, 1] is over exposure. [0, 0.3) is low noise level. [0.3, 0.7) is medium noise level. [0.7, 1] is high noise level.")
+    value: float32;
+}
+
+@doc("Indicates level of noise.")
+enum NoiseLevel {
+    @doc("Low noise level.")
+    low,
+    @doc("Medium noise level.")
+    medium,
+    @doc("High noise level.")
+    high
+}
+
+@doc("Properties describing the presence of a mask on a given face.")
+model Mask {
+    @doc("A boolean value indicating whether nose and mouth are covered.")
+    noseAndMouthCovered: boolean;
+    @doc("Mask type if any of the face")
+    type: MaskType;
+}
+
+@doc("Mask type if any of the face")
+enum MaskType {
+    @doc("Face mask.")
+    faceMask,
+    @doc("No mask.")
+    noMask,
+    @doc("Other types of mask or occlusion.")
+    otherMaskOrOcclusion,
+    @doc("Uncertain")
+    uncertain
+}
+
+@doc("Indicates quality of image for recognition.")
+enum QualityForRecognition {
+    @doc("Low quality.")
+    low,
+    @doc("Medium quality.")
+    medium,
+    @doc("High quality.")
+    high
+}
