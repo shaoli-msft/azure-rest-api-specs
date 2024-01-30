@@ -1159,6 +1159,12 @@
                 "VPC's",
                 "wihtin"
             ]
+        },
+        {
+            "filename": "**/specification/ai/data-plane/Face/**/*.json",
+            "words": [
+                "headwear"
+            ]
         }
     ],
     "enableFiletypes": [
