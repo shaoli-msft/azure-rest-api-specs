@@ -9,50 +9,59 @@ using TypeSpec.Rest;
 namespace Face;
 
 #suppress "@azure-tools/typespec-autorest/unsupported-multipart-type" "Provide convienient interface for multipart/form-data in SDK"
-@doc("Data for creating liveness session.")
-model LivenessSessionCreationContent {
+@doc("Request for creating liveness session.")
+model LivenessSessionParameters {
+    @doc("The operation mode for the liveness modal.")
+    livenessOperationMode: string;
+
+    @doc("Whether or not send back the operation response to client.")
+    sendResultsToClient?: boolean;
+
+    @doc("Whether or not the device correlation id is set by the client.")
+    deviceCorrelationIdSetInClient?: boolean;
+
+    ...LivenessSessionData;
+}
+
+@doc("Data for liveness session.")
+model LivenessSessionData {
     @doc("Device Correlation Id to use for linking multiple sessions together.")
     deviceCorrelationId: string;
 
     @doc("Session length in seconds. Range is 60 to 86400 seconds.")
     authTokenTimeToLiveInSeconds?: int32;
-
-    @doc("The operation mode for the liveness modal.")
-    @visibility("create")
-    livenessOperationMode: string;
-
-    @doc("Whether or not send back the operation response to client.")
-    @visibility("create")
-    sendResultsToClient?: boolean;
-
-    @doc("Whether or not the device correlation id is set by the client.")
-    @visibility("create")
-    deviceCorrelationIdSetInClient?: boolean;
 }
 
 @doc("Session data returned for enumeration.")
-model LivenessSessionItem is LivenessSessionCreationContent {
+model LivenessSessionItem {
     @doc("Unique ID to reference this session.")
     @key("sessionId")
     @visibility("read")
     id: string;
 
     @doc("Session creation time in millisecond from epoch.")
+    @visibility("read")
     createdDateTime: utcDateTime;
 
     @doc("Session started time from session auth token.")
+    @visibility("read")
     sessionStartDateTime?: utcDateTime;
 
     @doc("Whether or not the session is expired.")
+    @visibility("read")
     sessionExpired: boolean;
+
+    ...LivenessSessionData;
 }
 
 @doc("Session details data.")
 model LivenessSessionDetails<T extends BaseSessionAuditEntry> {
     @doc("The session status.")
+    @visibility("read")
     status: SessionStatus;
 
     @doc("The last result of session.")
+    @visibility("read")
     result?: T;
 }
 
@@ -157,14 +166,14 @@ model LivenessSessionAuditEntry is BaseSessionAuditEntry;
 model LivenessWithVerifySessionAuditEntry is BaseSessionAuditEntry;
 
 @doc("Request of liveness with verify session creation.")
-model LivenessWithVerifySessionCreationContent {
+model LivenessWithVerifySessionParameters {
     @doc("The content type for the operation. Always multipart/form-data for this operation.")
     @header("content-type")
     contentType: "multipart/form-data";
 
     #suppress "@azure-tools/typespec-azure-core/casing-style"
-    @doc("The json for creating liveness session.")
-    Parameters: LivenessSessionCreationContent;
+    @doc("The parameters for creating session.")
+    Parameters: LivenessSessionParameters;
 
     #suppress "@azure-tools/typespec-azure-core/casing-style"
     @doc("The image stream for verify.")

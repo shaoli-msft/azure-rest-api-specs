@@ -11,7 +11,7 @@ namespace Face;
 
 @resource("persons")
 @doc("Person resource for person directory")
-model Person {
+model PersonDirectoryPerson {
     @key
     @visibility("read")
     @doc("Person ID of the person.")
@@ -48,9 +48,9 @@ enum OperationStatus {
 }
 
 @resource("recognitionModels")
-@parentResource(Person)
+@parentResource(PersonDirectoryPerson)
 @doc("Middle tier resource for person directory.")
-model FaceRecognitionModel {
+model PersonDirectoryRecognitionModel {
     @key
     @doc("The 'recognitionModel' associated with faces.")
     @visibility("all")
@@ -58,9 +58,9 @@ model FaceRecognitionModel {
 }
 
 @resource("persistedfaces")
-@parentResource(FaceRecognitionModel)
+@parentResource(PersonDirectoryRecognitionModel)
 @doc("Face resource for person directory person.")
-model Face is BaseFace;
+model PersonDirectoryFace is BaseFace;
 
 @doc("A container that references PersonDirectory Person - Create.")
 @resource("dynamicpersongroups")
@@ -75,4 +75,30 @@ model DynamicPersonGroup {
     @doc("Array of personIds created by PersonDirectory Person - Create to add.")
     @visibility("create")
     addPersonIds?: string[];
+}
+
+@doc("Response of create person.")
+model CreatePersonResult {
+    @doc("Person ID of the person.")
+    personId: string;
+}
+
+@doc("Response of list dynamic person group of person.")
+model ListGroupReferenceResult {
+    @doc("Array of PersonDirectory DynamicPersonGroup ids.")
+    dynamicPersonGroupIds: string[];
+}
+
+@doc("Response of list face of person.")
+model ListFaceResult {
+    @doc("Id of person.")
+    personId: string;
+    @doc("Array of persisted face ids.")
+    persistedFaceIds: string[];
+}
+
+@doc("Response of list dynamic person group person.")
+model ListPersonResult {
+    @doc("Array of PersonDirectory Person ids.")
+    personIds: string[];
 }

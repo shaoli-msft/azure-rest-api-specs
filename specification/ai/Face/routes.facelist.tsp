@@ -11,7 +11,7 @@ using Foundations;
 
 namespace Face;
 
-interface BaseFaceListOps<
+interface BaseFaceLists<
     TList extends BaseFaceList,
     TFace extends BaseFace>
 {
@@ -21,7 +21,7 @@ interface BaseFaceListOps<
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
   deleteList is FaceResourceDeleteOperation<TList>;
 
-  getList is Operations.ResourceRead<TList, QueryParametersTrait<ReturnRecognitionModelQuery>>;
+  getList is Operations.ResourceRead<TList, QueryParametersTrait<ReturnRecognitionModelOptions>>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
   updateList is FaceResourceUpdateOperation<TList>;
@@ -39,12 +39,12 @@ interface BaseFaceListOps<
   deleteFace is FaceResourceDeleteOperation<TFace>;
 }
 
-interface FaceListOps extends BaseFaceListOps<FaceList, FaceListFace>
+interface FaceLists extends BaseFaceLists<FaceList, FaceListFace>
 { 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
   listList is Foundations.ResourceList<
     FaceList,
-    ReturnRecognitionModelQuery,
+    ReturnRecognitionModelOptions,
     Body<FaceList[]>,
     ServiceTraits>;
 
@@ -56,10 +56,10 @@ interface FaceListOps extends BaseFaceListOps<FaceList, FaceListFace>
   }>;
 }
 
-interface LargeFaceListOps extends BaseFaceListOps<LargeFaceList, LargeFaceListFace>
+interface LargeFaceLists extends BaseFaceLists<LargeFaceList, LargeFaceListFace>
 {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
-  listList is FaceResourceListOperation<LargeFaceList, LargeFaceList, ReturnRecognitionModelQuery>;
+  listList is FaceResourceListOperation<LargeFaceList, LargeFaceList, ReturnRecognitionModelOptions>;
 
   @action("train")
   @actionSeparator("/")

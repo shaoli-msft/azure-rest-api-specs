@@ -68,25 +68,25 @@
             "$ref": "#/parameters/ApiVersionPathParameter"
           },
           {
-            "$ref": "#/parameters/FaceDetectionQuery.returnFaceId"
+            "$ref": "#/parameters/FaceDetectionOptions.returnFaceId"
           },
           {
-            "$ref": "#/parameters/FaceDetectionQuery.returnFaceLandmarks"
+            "$ref": "#/parameters/FaceDetectionOptions.returnFaceLandmarks"
           },
           {
-            "$ref": "#/parameters/FaceDetectionQuery.returnFaceAttributes"
+            "$ref": "#/parameters/FaceDetectionOptions.returnFaceAttributes"
           },
           {
-            "$ref": "#/parameters/FaceDetectionQuery.recognitionModel"
+            "$ref": "#/parameters/FaceDetectionOptions.recognitionModel"
           },
           {
-            "$ref": "#/parameters/FaceDetectionQuery.returnRecognitionModel"
+            "$ref": "#/parameters/FaceDetectionOptions.returnRecognitionModel"
           },
           {
-            "$ref": "#/parameters/FaceDetectionQuery.detectionModel"
+            "$ref": "#/parameters/FaceDetectionOptions.detectionModel"
           },
           {
-            "$ref": "#/parameters/FaceDetectionQuery.faceIdTimeToLive"
+            "$ref": "#/parameters/FaceDetectionOptions.faceIdTimeToLive"
           },
           {
             "name": "body",
@@ -134,7 +134,7 @@
     },
     "/face/{apiVersion}/detectLiveness/singleModal/sessions": {
       "get": {
-        "operationId": "SessionOperations_ListLivenessSessions",
+        "operationId": "LivenessSessions_ListSessions",
         "description": "Operation that lists resources in a paginated way.",
         "parameters": [
           {
@@ -172,7 +172,7 @@
         }
       },
       "post": {
-        "operationId": "SessionOperations_CreateLivenessSession",
+        "operationId": "LivenessSessions_CreateSession",
         "description": "Operation that applies to a collection of resources.",
         "parameters": [
           {
@@ -183,7 +183,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/LivenessSessionCreationContent"
+              "$ref": "#/definitions/LivenessSessionParameters"
             }
           }
         ],
@@ -211,7 +211,7 @@
     },
     "/face/{apiVersion}/detectLiveness/singleModal/sessions/{sessionId}": {
       "get": {
-        "operationId": "SessionOperations_GetLivenessSession",
+        "operationId": "LivenessSessions_GetSession",
         "description": "Resource read operation template.",
         "parameters": [
           {
@@ -247,7 +247,7 @@
         }
       },
       "delete": {
-        "operationId": "SessionOperations_DeleteLivenessSession",
+        "operationId": "LivenessSessions_DeleteSession",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -282,7 +282,7 @@
     },
     "/face/{apiVersion}/detectLiveness/singleModal/sessions/{sessionId}/audit": {
       "get": {
-        "operationId": "SessionOperations_ListLivenessSessionAuditEntries",
+        "operationId": "LivenessSessions_ListSessionAuditEntries",
         "description": "Operation that lists resources in a non-paginated way.",
         "parameters": [
           {
@@ -329,7 +329,7 @@
     },
     "/face/{apiVersion}/detectLivenessWithVerify/singleModal/sessions": {
       "get": {
-        "operationId": "SessionOperations_ListLivenessWithVerifySessions",
+        "operationId": "LivenessWithVerifySessions_ListSessions",
         "description": "Operation that lists resources in a paginated way.",
         "parameters": [
           {
@@ -367,7 +367,7 @@
         }
       },
       "post": {
-        "operationId": "SessionOperations_CreateLivenessWithVerifySessionByJson",
+        "operationId": "LivenessWithVerifySessions_CreateSession",
         "description": "Operation that applies to a collection of resources.",
         "parameters": [
           {
@@ -378,7 +378,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/LivenessSessionCreationContent"
+              "$ref": "#/definitions/LivenessSessionParameters"
             }
           }
         ],
@@ -406,7 +406,7 @@
     },
     "/face/{apiVersion}/detectLivenessWithVerify/singleModal/sessions/{sessionId}": {
       "get": {
-        "operationId": "SessionOperations_GetLivenessWithVerifySession",
+        "operationId": "LivenessWithVerifySessions_GetSession",
         "description": "Resource read operation template.",
         "parameters": [
           {
@@ -442,7 +442,7 @@
         }
       },
       "delete": {
-        "operationId": "SessionOperations_DeleteLivenessWithVerifySession",
+        "operationId": "LivenessWithVerifySessions_DeleteSession",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -477,7 +477,7 @@
     },
     "/face/{apiVersion}/detectLivenessWithVerify/singleModal/sessions/{sessionId}/audit": {
       "get": {
-        "operationId": "SessionOperations_ListLivenessWithVerifySessionAuditEntries",
+        "operationId": "LivenessWithVerifySessions_ListSessionAuditEntries",
         "description": "Operation that lists resources in a non-paginated way.",
         "parameters": [
           {
@@ -524,7 +524,7 @@
     },
     "/face/{apiVersion}/dynamicpersongroups": {
       "get": {
-        "operationId": "PersonDirectoryDynamicPersonGroup_ListGroup",
+        "operationId": "PersonDirectoryDynamicPersonGroups_ListGroup",
         "description": "Operation that lists resources in a paginated way.",
         "parameters": [
           {
@@ -565,7 +565,7 @@
     },
     "/face/{apiVersion}/dynamicpersongroups/{dynamicPersonGroupId}": {
       "get": {
-        "operationId": "PersonDirectoryDynamicPersonGroup_GetGroup",
+        "operationId": "PersonDirectoryDynamicPersonGroups_GetGroup",
         "description": "Resource read operation template.",
         "parameters": [
           {
@@ -601,7 +601,7 @@
         }
       },
       "put": {
-        "operationId": "PersonDirectoryDynamicPersonGroup_CreateGroup",
+        "operationId": "PersonDirectoryDynamicPersonGroups_CreateGroup",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -654,7 +654,7 @@
         "x-ms-long-running-operation": true
       },
       "patch": {
-        "operationId": "PersonDirectoryDynamicPersonGroup_UpdateGroup",
+        "operationId": "PersonDirectoryDynamicPersonGroups_UpdateGroup",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -724,7 +724,7 @@
         "x-ms-long-running-operation": true
       },
       "delete": {
-        "operationId": "PersonDirectoryDynamicPersonGroup_DeleteGroup",
+        "operationId": "PersonDirectoryDynamicPersonGroups_DeleteGroup",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -767,7 +767,7 @@
     },
     "/face/{apiVersion}/dynamicpersongroups/{dynamicPersonGroupId}/persons": {
       "get": {
-        "operationId": "PersonDirectoryDynamicPersonGroup_ListGroupPerson",
+        "operationId": "PersonDirectoryDynamicPersonGroups_ListGroupPerson",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -791,19 +791,7 @@
           "200": {
             "description": "The request has succeeded.",
             "schema": {
-              "type": "object",
-              "properties": {
-                "personIds": {
-                  "type": "array",
-                  "description": "Array of PersonDirectory Person ids.",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              },
-              "required": [
-                "personIds"
-              ]
+              "$ref": "#/definitions/ListPersonResult"
             }
           },
           "default": {
@@ -823,14 +811,14 @@
     },
     "/face/{apiVersion}/facelists": {
       "get": {
-        "operationId": "FaceListOps_ListList",
+        "operationId": "FaceLists_ListList",
         "description": "Operation that lists resources in a paginated way.",
         "parameters": [
           {
             "$ref": "#/parameters/ApiVersionPathParameter"
           },
           {
-            "$ref": "#/parameters/ReturnRecognitionModelQuery"
+            "$ref": "#/parameters/ReturnRecognitionModelOptions"
           }
         ],
         "responses": {
@@ -861,7 +849,7 @@
     },
     "/face/{apiVersion}/facelists/{faceListId}": {
       "get": {
-        "operationId": "FaceListOps_GetList",
+        "operationId": "FaceLists_GetList",
         "description": "Resource read operation template.",
         "parameters": [
           {
@@ -875,7 +863,7 @@
             "type": "string"
           },
           {
-            "$ref": "#/parameters/ReturnRecognitionModelQuery"
+            "$ref": "#/parameters/ReturnRecognitionModelOptions"
           }
         ],
         "responses": {
@@ -900,7 +888,7 @@
         }
       },
       "put": {
-        "operationId": "FaceListOps_CreateList",
+        "operationId": "FaceLists_CreateList",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -942,7 +930,7 @@
         }
       },
       "patch": {
-        "operationId": "FaceListOps_UpdateList",
+        "operationId": "FaceLists_UpdateList",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -984,7 +972,7 @@
         }
       },
       "delete": {
-        "operationId": "FaceListOps_DeleteList",
+        "operationId": "FaceLists_DeleteList",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -1019,7 +1007,7 @@
     },
     "/face/{apiVersion}/facelists/{faceListId}/persistedfaces": {
       "post": {
-        "operationId": "FaceListOps_AddFaceFromUrl",
+        "operationId": "FaceLists_AddFaceFromUrl",
         "description": "Operation that applies to a collection of resources.",
         "parameters": [
           {
@@ -1044,18 +1032,10 @@
           {
             "name": "body",
             "in": "body",
+            "description": "The body type of the operation request or response.",
             "required": true,
             "schema": {
-              "type": "object",
-              "properties": {
-                "url": {
-                  "type": "string",
-                  "description": "URL of input image."
-                }
-              },
-              "required": [
-                "url"
-              ]
+              "$ref": "#/definitions/AddFaceFromUrlContent"
             }
           }
         ],
@@ -1063,16 +1043,7 @@
           "200": {
             "description": "The request has succeeded.",
             "schema": {
-              "type": "object",
-              "properties": {
-                "persistedFaceId": {
-                  "type": "string",
-                  "description": "Persisted face ID"
-                }
-              },
-              "required": [
-                "persistedFaceId"
-              ]
+              "$ref": "#/definitions/AddFaceResult"
             }
           },
           "default": {
@@ -1092,7 +1063,7 @@
     },
     "/face/{apiVersion}/facelists/{faceListId}/persistedfaces/{persistedFaceId}": {
       "delete": {
-        "operationId": "FaceListOps_DeleteFace",
+        "operationId": "FaceLists_DeleteFace",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -1254,7 +1225,7 @@
     },
     "/face/{apiVersion}/identify": {
       "post": {
-        "operationId": "PersonDirectoryPerson_IdentifyFromPersonDirectory",
+        "operationId": "PersonDirectoryPersons_IdentifyFromPersonDirectory",
         "description": "A remote procedure call (RPC) operation.",
         "parameters": [
           {
@@ -1327,7 +1298,7 @@
     },
     "/face/{apiVersion}/largefacelists": {
       "get": {
-        "operationId": "LargeFaceListOps_ListList",
+        "operationId": "LargeFaceLists_ListList",
         "description": "Operation that lists resources in a paginated way.",
         "parameters": [
           {
@@ -1340,7 +1311,7 @@
             "$ref": "#/parameters/ListRequestOptions.top"
           },
           {
-            "$ref": "#/parameters/ReturnRecognitionModelQuery"
+            "$ref": "#/parameters/ReturnRecognitionModelOptions"
           }
         ],
         "responses": {
@@ -1371,7 +1342,7 @@
     },
     "/face/{apiVersion}/largefacelists/{largeFaceListId}": {
       "get": {
-        "operationId": "LargeFaceListOps_GetList",
+        "operationId": "LargeFaceLists_GetList",
         "description": "Resource read operation template.",
         "parameters": [
           {
@@ -1385,7 +1356,7 @@
             "type": "string"
           },
           {
-            "$ref": "#/parameters/ReturnRecognitionModelQuery"
+            "$ref": "#/parameters/ReturnRecognitionModelOptions"
           }
         ],
         "responses": {
@@ -1410,7 +1381,7 @@
         }
       },
       "put": {
-        "operationId": "LargeFaceListOps_CreateList",
+        "operationId": "LargeFaceLists_CreateList",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -1452,7 +1423,7 @@
         }
       },
       "patch": {
-        "operationId": "LargeFaceListOps_UpdateList",
+        "operationId": "LargeFaceLists_UpdateList",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -1494,7 +1465,7 @@
         }
       },
       "delete": {
-        "operationId": "LargeFaceListOps_DeleteList",
+        "operationId": "LargeFaceLists_DeleteList",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -1529,7 +1500,7 @@
     },
     "/face/{apiVersion}/largefacelists/{largeFaceListId}/persistedfaces": {
       "get": {
-        "operationId": "LargeFaceListOps_ListFace",
+        "operationId": "LargeFaceLists_ListFace",
         "description": "Operation that lists resources in a paginated way.",
         "parameters": [
           {
@@ -1575,7 +1546,7 @@
         }
       },
       "post": {
-        "operationId": "LargeFaceListOps_AddFaceFromUrl",
+        "operationId": "LargeFaceLists_AddFaceFromUrl",
         "description": "Operation that applies to a collection of resources.",
         "parameters": [
           {
@@ -1600,18 +1571,10 @@
           {
             "name": "body",
             "in": "body",
+            "description": "The body type of the operation request or response.",
             "required": true,
             "schema": {
-              "type": "object",
-              "properties": {
-                "url": {
-                  "type": "string",
-                  "description": "URL of input image."
-                }
-              },
-              "required": [
-                "url"
-              ]
+              "$ref": "#/definitions/AddFaceFromUrlContent"
             }
           }
         ],
@@ -1619,16 +1582,7 @@
           "200": {
             "description": "The request has succeeded.",
             "schema": {
-              "type": "object",
-              "properties": {
-                "persistedFaceId": {
-                  "type": "string",
-                  "description": "Persisted face ID"
-                }
-              },
-              "required": [
-                "persistedFaceId"
-              ]
+              "$ref": "#/definitions/AddFaceResult"
             }
           },
           "default": {
@@ -1648,7 +1602,7 @@
     },
     "/face/{apiVersion}/largefacelists/{largeFaceListId}/persistedfaces/{persistedFaceId}": {
       "get": {
-        "operationId": "LargeFaceListOps_GetFace",
+        "operationId": "LargeFaceLists_GetFace",
         "description": "Resource read operation template.",
         "parameters": [
           {
@@ -1691,7 +1645,7 @@
         }
       },
       "patch": {
-        "operationId": "LargeFaceListOps_UpdateFace",
+        "operationId": "LargeFaceLists_UpdateFace",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -1740,7 +1694,7 @@
         }
       },
       "delete": {
-        "operationId": "LargeFaceListOps_DeleteFace",
+        "operationId": "LargeFaceLists_DeleteFace",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -1782,7 +1736,7 @@
     },
     "/face/{apiVersion}/largefacelists/{largeFaceListId}/train": {
       "post": {
-        "operationId": "LargeFaceListOps_TrainList",
+        "operationId": "LargeFaceLists_TrainList",
         "description": "Resource action operation template.",
         "parameters": [
           {
@@ -1817,7 +1771,7 @@
     },
     "/face/{apiVersion}/largefacelists/{largeFaceListId}/training": {
       "get": {
-        "operationId": "LargeFaceListOps_GetListTrainingStatus",
+        "operationId": "LargeFaceLists_GetListTrainingStatus",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -1855,7 +1809,7 @@
     },
     "/face/{apiVersion}/largepersongroups": {
       "get": {
-        "operationId": "LargePersonGroupOps_ListGroup",
+        "operationId": "LargePersonGroups_ListGroup",
         "description": "Operation that lists resources in a paginated way.",
         "parameters": [
           {
@@ -1868,7 +1822,7 @@
             "$ref": "#/parameters/ListRequestOptions.top"
           },
           {
-            "$ref": "#/parameters/ReturnRecognitionModelQuery"
+            "$ref": "#/parameters/ReturnRecognitionModelOptions"
           }
         ],
         "responses": {
@@ -1899,7 +1853,7 @@
     },
     "/face/{apiVersion}/largepersongroups/{largePersonGroupId}": {
       "get": {
-        "operationId": "LargePersonGroupOps_GetGroup",
+        "operationId": "LargePersonGroups_GetGroup",
         "description": "Resource read operation template.",
         "parameters": [
           {
@@ -1913,7 +1867,7 @@
             "type": "string"
           },
           {
-            "$ref": "#/parameters/ReturnRecognitionModelQuery"
+            "$ref": "#/parameters/ReturnRecognitionModelOptions"
           }
         ],
         "responses": {
@@ -1938,7 +1892,7 @@
         }
       },
       "put": {
-        "operationId": "LargePersonGroupOps_CreateGroup",
+        "operationId": "LargePersonGroups_CreateGroup",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -1980,7 +1934,7 @@
         }
       },
       "patch": {
-        "operationId": "LargePersonGroupOps_UpdateGroup",
+        "operationId": "LargePersonGroups_UpdateGroup",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -2022,7 +1976,7 @@
         }
       },
       "delete": {
-        "operationId": "LargePersonGroupOps_DeleteGroup",
+        "operationId": "LargePersonGroups_DeleteGroup",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -2057,7 +2011,7 @@
     },
     "/face/{apiVersion}/largepersongroups/{largePersonGroupId}/persons": {
       "get": {
-        "operationId": "LargePersonGroupOps_ListPerson",
+        "operationId": "LargePersonGroups_ListPerson",
         "description": "Operation that lists resources in a paginated way.",
         "parameters": [
           {
@@ -2103,7 +2057,7 @@
         }
       },
       "post": {
-        "operationId": "LargePersonGroupOps_CreatePerson",
+        "operationId": "LargePersonGroups_CreatePerson",
         "description": "Operation that applies to a collection of resources.",
         "parameters": [
           {
@@ -2150,7 +2104,7 @@
     },
     "/face/{apiVersion}/largepersongroups/{largePersonGroupId}/persons/{personId}": {
       "get": {
-        "operationId": "LargePersonGroupOps_GetPerson",
+        "operationId": "LargePersonGroups_GetPerson",
         "description": "Resource read operation template.",
         "parameters": [
           {
@@ -2193,7 +2147,7 @@
         }
       },
       "patch": {
-        "operationId": "LargePersonGroupOps_UpdatePerson",
+        "operationId": "LargePersonGroups_UpdatePerson",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -2242,7 +2196,7 @@
         }
       },
       "delete": {
-        "operationId": "LargePersonGroupOps_DeletePerson",
+        "operationId": "LargePersonGroups_DeletePerson",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -2284,7 +2238,7 @@
     },
     "/face/{apiVersion}/largepersongroups/{largePersonGroupId}/persons/{personId}/persistedfaces": {
       "post": {
-        "operationId": "LargePersonGroupOps_AddFaceFromUrl",
+        "operationId": "LargePersonGroups_AddFaceFromUrl",
         "description": "Operation that applies to a collection of resources.",
         "parameters": [
           {
@@ -2316,18 +2270,10 @@
           {
             "name": "body",
             "in": "body",
+            "description": "The body type of the operation request or response.",
             "required": true,
             "schema": {
-              "type": "object",
-              "properties": {
-                "url": {
-                  "type": "string",
-                  "description": "URL of input image."
-                }
-              },
-              "required": [
-                "url"
-              ]
+              "$ref": "#/definitions/AddFaceFromUrlContent"
             }
           }
         ],
@@ -2335,16 +2281,7 @@
           "200": {
             "description": "The request has succeeded.",
             "schema": {
-              "type": "object",
-              "properties": {
-                "persistedFaceId": {
-                  "type": "string",
-                  "description": "Persisted face ID"
-                }
-              },
-              "required": [
-                "persistedFaceId"
-              ]
+              "$ref": "#/definitions/AddFaceResult"
             }
           },
           "default": {
@@ -2364,7 +2301,7 @@
     },
     "/face/{apiVersion}/largepersongroups/{largePersonGroupId}/persons/{personId}/persistedfaces/{persistedFaceId}": {
       "get": {
-        "operationId": "LargePersonGroupOps_GetFace",
+        "operationId": "LargePersonGroups_GetFace",
         "description": "Resource read operation template.",
         "parameters": [
           {
@@ -2414,7 +2351,7 @@
         }
       },
       "patch": {
-        "operationId": "LargePersonGroupOps_UpdateFace",
+        "operationId": "LargePersonGroups_UpdateFace",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -2470,7 +2407,7 @@
         }
       },
       "delete": {
-        "operationId": "LargePersonGroupOps_DeleteFace",
+        "operationId": "LargePersonGroups_DeleteFace",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -2519,7 +2456,7 @@
     },
     "/face/{apiVersion}/largepersongroups/{largePersonGroupId}/train": {
       "post": {
-        "operationId": "LargePersonGroupOps_TrainGroup",
+        "operationId": "LargePersonGroups_TrainGroup",
         "description": "Resource action operation template.",
         "parameters": [
           {
@@ -2554,7 +2491,7 @@
     },
     "/face/{apiVersion}/largepersongroups/{largePersonGroupId}/training": {
       "get": {
-        "operationId": "LargePersonGroupOps_GetGroupTrainingStatus",
+        "operationId": "LargePersonGroups_GetGroupTrainingStatus",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -2630,7 +2567,7 @@
     },
     "/face/{apiVersion}/persongroups": {
       "get": {
-        "operationId": "PersonGroupOps_ListGroup",
+        "operationId": "PersonGroups_ListGroup",
         "description": "Operation that lists resources in a paginated way.",
         "parameters": [
           {
@@ -2643,7 +2580,7 @@
             "$ref": "#/parameters/ListRequestOptions.top"
           },
           {
-            "$ref": "#/parameters/ReturnRecognitionModelQuery"
+            "$ref": "#/parameters/ReturnRecognitionModelOptions"
           }
         ],
         "responses": {
@@ -2674,7 +2611,7 @@
     },
     "/face/{apiVersion}/persongroups/{personGroupId}": {
       "get": {
-        "operationId": "PersonGroupOps_GetGroup",
+        "operationId": "PersonGroups_GetGroup",
         "description": "Resource read operation template.",
         "parameters": [
           {
@@ -2688,7 +2625,7 @@
             "type": "string"
           },
           {
-            "$ref": "#/parameters/ReturnRecognitionModelQuery"
+            "$ref": "#/parameters/ReturnRecognitionModelOptions"
           }
         ],
         "responses": {
@@ -2713,7 +2650,7 @@
         }
       },
       "put": {
-        "operationId": "PersonGroupOps_CreateGroup",
+        "operationId": "PersonGroups_CreateGroup",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -2755,7 +2692,7 @@
         }
       },
       "patch": {
-        "operationId": "PersonGroupOps_UpdateGroup",
+        "operationId": "PersonGroups_UpdateGroup",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -2797,7 +2734,7 @@
         }
       },
       "delete": {
-        "operationId": "PersonGroupOps_DeleteGroup",
+        "operationId": "PersonGroups_DeleteGroup",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -2832,7 +2769,7 @@
     },
     "/face/{apiVersion}/persongroups/{personGroupId}/persons": {
       "get": {
-        "operationId": "PersonGroupOps_ListPerson",
+        "operationId": "PersonGroups_ListPerson",
         "description": "Operation that lists resources in a paginated way.",
         "parameters": [
           {
@@ -2878,7 +2815,7 @@
         }
       },
       "post": {
-        "operationId": "PersonGroupOps_CreatePerson",
+        "operationId": "PersonGroups_CreatePerson",
         "description": "Operation that applies to a collection of resources.",
         "parameters": [
           {
@@ -2925,7 +2862,7 @@
     },
     "/face/{apiVersion}/persongroups/{personGroupId}/persons/{personId}": {
       "get": {
-        "operationId": "PersonGroupOps_GetPerson",
+        "operationId": "PersonGroups_GetPerson",
         "description": "Resource read operation template.",
         "parameters": [
           {
@@ -2968,7 +2905,7 @@
         }
       },
       "patch": {
-        "operationId": "PersonGroupOps_UpdatePerson",
+        "operationId": "PersonGroups_UpdatePerson",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -3017,7 +2954,7 @@
         }
       },
       "delete": {
-        "operationId": "PersonGroupOps_DeletePerson",
+        "operationId": "PersonGroups_DeletePerson",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -3059,7 +2996,7 @@
     },
     "/face/{apiVersion}/persongroups/{personGroupId}/persons/{personId}/persistedfaces": {
       "post": {
-        "operationId": "PersonGroupOps_AddFaceFromUrl",
+        "operationId": "PersonGroups_AddFaceFromUrl",
         "description": "Operation that applies to a collection of resources.",
         "parameters": [
           {
@@ -3091,18 +3028,10 @@
           {
             "name": "body",
             "in": "body",
+            "description": "The body type of the operation request or response.",
             "required": true,
             "schema": {
-              "type": "object",
-              "properties": {
-                "url": {
-                  "type": "string",
-                  "description": "URL of input image."
-                }
-              },
-              "required": [
-                "url"
-              ]
+              "$ref": "#/definitions/AddFaceFromUrlContent"
             }
           }
         ],
@@ -3110,16 +3039,7 @@
           "200": {
             "description": "The request has succeeded.",
             "schema": {
-              "type": "object",
-              "properties": {
-                "persistedFaceId": {
-                  "type": "string",
-                  "description": "Persisted face ID"
-                }
-              },
-              "required": [
-                "persistedFaceId"
-              ]
+              "$ref": "#/definitions/AddFaceResult"
             }
           },
           "default": {
@@ -3139,7 +3059,7 @@
     },
     "/face/{apiVersion}/persongroups/{personGroupId}/persons/{personId}/persistedfaces/{persistedFaceId}": {
       "get": {
-        "operationId": "PersonGroupOps_GetFace",
+        "operationId": "PersonGroups_GetFace",
         "description": "Resource read operation template.",
         "parameters": [
           {
@@ -3189,7 +3109,7 @@
         }
       },
       "patch": {
-        "operationId": "PersonGroupOps_UpdateFace",
+        "operationId": "PersonGroups_UpdateFace",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -3245,7 +3165,7 @@
         }
       },
       "delete": {
-        "operationId": "PersonGroupOps_DeleteFace",
+        "operationId": "PersonGroups_DeleteFace",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -3294,7 +3214,7 @@
     },
     "/face/{apiVersion}/persongroups/{personGroupId}/train": {
       "post": {
-        "operationId": "PersonGroupOps_TrainGroup",
+        "operationId": "PersonGroups_TrainGroup",
         "description": "Resource action operation template.",
         "parameters": [
           {
@@ -3329,7 +3249,7 @@
     },
     "/face/{apiVersion}/persongroups/{personGroupId}/training": {
       "get": {
-        "operationId": "PersonGroupOps_GetGroupTrainingStatus",
+        "operationId": "PersonGroups_GetGroupTrainingStatus",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -3367,7 +3287,7 @@
     },
     "/face/{apiVersion}/persons": {
       "get": {
-        "operationId": "PersonDirectoryPerson_ListPerson",
+        "operationId": "PersonDirectoryPersons_ListPerson",
         "description": "Operation that lists resources in a paginated way.",
         "parameters": [
           {
@@ -3386,7 +3306,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/Person"
+                "$ref": "#/definitions/PersonDirectoryPerson"
               },
               "x-ms-identifiers": []
             }
@@ -3406,7 +3326,7 @@
         }
       },
       "post": {
-        "operationId": "PersonDirectoryPerson_CreatePerson",
+        "operationId": "PersonDirectoryPersons_CreatePerson",
         "description": "Operation that applies to a collection of resources.",
         "parameters": [
           {
@@ -3418,7 +3338,7 @@
             "description": "The resource instance.",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/Person"
+              "$ref": "#/definitions/PersonDirectoryPerson"
             }
           }
         ],
@@ -3426,16 +3346,7 @@
           "202": {
             "description": "The request has been accepted for processing, but processing has not yet completed.",
             "schema": {
-              "type": "object",
-              "properties": {
-                "personId": {
-                  "type": "string",
-                  "description": "Person ID"
-                }
-              },
-              "required": [
-                "personId"
-              ]
+              "$ref": "#/definitions/CreatePersonResult"
             },
             "headers": {
               "operation-Location": {
@@ -3463,7 +3374,7 @@
     },
     "/face/{apiVersion}/persons/{personId}": {
       "get": {
-        "operationId": "PersonDirectoryPerson_GetPerson",
+        "operationId": "PersonDirectoryPersons_GetPerson",
         "description": "Resource read operation template.",
         "parameters": [
           {
@@ -3481,7 +3392,7 @@
           "200": {
             "description": "The request has succeeded.",
             "schema": {
-              "$ref": "#/definitions/Person"
+              "$ref": "#/definitions/PersonDirectoryPerson"
             }
           },
           "default": {
@@ -3499,7 +3410,7 @@
         }
       },
       "patch": {
-        "operationId": "PersonDirectoryPerson_UpdatePerson",
+        "operationId": "PersonDirectoryPersons_UpdatePerson",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -3518,7 +3429,7 @@
             "description": "The resource instance.",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/PersonUpdate"
+              "$ref": "#/definitions/PersonDirectoryPersonUpdate"
             }
           }
         ],
@@ -3541,7 +3452,7 @@
         }
       },
       "delete": {
-        "operationId": "PersonDirectoryPerson_DeletePerson",
+        "operationId": "PersonDirectoryPersons_DeletePerson",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -3584,7 +3495,7 @@
     },
     "/face/{apiVersion}/persons/{personId}/dynamicPersonGroupReferences": {
       "get": {
-        "operationId": "PersonDirectoryPerson_ListGroupReference",
+        "operationId": "PersonDirectoryPersons_ListGroupReference",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -3608,19 +3519,7 @@
           "200": {
             "description": "The request has succeeded.",
             "schema": {
-              "type": "object",
-              "properties": {
-                "dynamicPersonGroupIds": {
-                  "type": "array",
-                  "description": "Array of PersonDirectory DynamicPersonGroup ids.",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              },
-              "required": [
-                "dynamicPersonGroupIds"
-              ]
+              "$ref": "#/definitions/ListGroupReferenceResult"
             }
           },
           "default": {
@@ -3640,7 +3539,7 @@
     },
     "/face/{apiVersion}/persons/{personId}/recognitionModels/{recognitionModel}/persistedfaces": {
       "get": {
-        "operationId": "PersonDirectoryPerson_ListFaces",
+        "operationId": "PersonDirectoryPersons_ListFace",
         "description": "Operation that lists resources in a paginated way.",
         "parameters": [
           {
@@ -3697,22 +3596,7 @@
           "200": {
             "description": "The request has succeeded.",
             "schema": {
-              "type": "object",
-              "properties": {
-                "personId": {
-                  "type": "string"
-                },
-                "persistedFaceIds": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              },
-              "required": [
-                "personId",
-                "persistedFaceIds"
-              ]
+              "$ref": "#/definitions/ListFaceResult"
             }
           },
           "default": {
@@ -3730,7 +3614,7 @@
         }
       },
       "post": {
-        "operationId": "PersonDirectoryPerson_AddFaceFromUrl",
+        "operationId": "PersonDirectoryPersons_AddFaceFromUrl",
         "description": "Operation that applies to a collection of resources.",
         "parameters": [
           {
@@ -3794,18 +3678,10 @@
           {
             "name": "body",
             "in": "body",
+            "description": "The body type of the operation request or response.",
             "required": true,
             "schema": {
-              "type": "object",
-              "properties": {
-                "url": {
-                  "type": "string",
-                  "description": "URL of input image."
-                }
-              },
-              "required": [
-                "url"
-              ]
+              "$ref": "#/definitions/AddFaceFromUrlContent"
             }
           }
         ],
@@ -3813,16 +3689,7 @@
           "202": {
             "description": "The request has been accepted for processing, but processing has not yet completed.",
             "schema": {
-              "type": "object",
-              "properties": {
-                "persistedFaceId": {
-                  "type": "string",
-                  "description": "Persisted face ID"
-                }
-              },
-              "required": [
-                "persistedFaceId"
-              ]
+              "$ref": "#/definitions/AddFaceResult"
             },
             "headers": {
               "operation-Location": {
@@ -3850,7 +3717,7 @@
     },
     "/face/{apiVersion}/persons/{personId}/recognitionModels/{recognitionModel}/persistedfaces/{persistedFaceId}": {
       "get": {
-        "operationId": "PersonDirectoryPerson_GetFace",
+        "operationId": "PersonDirectoryPersons_GetFace",
         "description": "Resource read operation template.",
         "parameters": [
           {
@@ -3914,7 +3781,7 @@
           "200": {
             "description": "The request has succeeded.",
             "schema": {
-              "$ref": "#/definitions/Face"
+              "$ref": "#/definitions/PersonDirectoryFace"
             }
           },
           "default": {
@@ -3932,7 +3799,7 @@
         }
       },
       "patch": {
-        "operationId": "PersonDirectoryPerson_UpdateFace",
+        "operationId": "PersonDirectoryPersons_UpdateFace",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -3997,7 +3864,7 @@
             "description": "The resource instance.",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/FaceUpdate"
+              "$ref": "#/definitions/PersonDirectoryFaceUpdate"
             }
           }
         ],
@@ -4020,7 +3887,7 @@
         }
       },
       "delete": {
-        "operationId": "PersonDirectoryPerson_DeleteFace",
+        "operationId": "PersonDirectoryPersons_DeleteFace",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -4174,25 +4041,25 @@
             "$ref": "#/parameters/ApiVersionPathParameter"
           },
           {
-            "$ref": "#/parameters/FaceDetectionQuery.returnFaceId"
+            "$ref": "#/parameters/FaceDetectionOptions.returnFaceId"
           },
           {
-            "$ref": "#/parameters/FaceDetectionQuery.returnFaceLandmarks"
+            "$ref": "#/parameters/FaceDetectionOptions.returnFaceLandmarks"
           },
           {
-            "$ref": "#/parameters/FaceDetectionQuery.returnFaceAttributes"
+            "$ref": "#/parameters/FaceDetectionOptions.returnFaceAttributes"
           },
           {
-            "$ref": "#/parameters/FaceDetectionQuery.recognitionModel"
+            "$ref": "#/parameters/FaceDetectionOptions.recognitionModel"
           },
           {
-            "$ref": "#/parameters/FaceDetectionQuery.returnRecognitionModel"
+            "$ref": "#/parameters/FaceDetectionOptions.returnRecognitionModel"
           },
           {
-            "$ref": "#/parameters/FaceDetectionQuery.detectionModel"
+            "$ref": "#/parameters/FaceDetectionOptions.detectionModel"
           },
           {
-            "$ref": "#/parameters/FaceDetectionQuery.faceIdTimeToLive"
+            "$ref": "#/parameters/FaceDetectionOptions.faceIdTimeToLive"
           },
           {
             "name": "imageContent",
@@ -4231,9 +4098,9 @@
         }
       }
     },
-    "/face/{apiVersion}/detectLivenessWithVerify/singleModal/sessions?_overload=createLivenessWithVerifySessionByFormData": {
+    "/face/{apiVersion}/detectLivenessWithVerify/singleModal/sessions?_overload=createSessionWithVerifyImage": {
       "post": {
-        "operationId": "SessionOperations_CreateLivenessWithVerifySessionByFormData",
+        "operationId": "LivenessWithVerifySessions_CreateSessionWithVerifyImage",
         "description": "Operation that applies to a collection of resources.",
         "consumes": [
           "multipart/form-data"
@@ -4243,10 +4110,10 @@
             "$ref": "#/parameters/ApiVersionPathParameter"
           },
           {
-            "$ref": "#/parameters/LivenessWithVerifySessionCreationContent.Parameters"
+            "$ref": "#/parameters/LivenessWithVerifySessionParameters.Parameters"
           },
           {
-            "$ref": "#/parameters/LivenessWithVerifySessionCreationContent.VerifyImage"
+            "$ref": "#/parameters/LivenessWithVerifySessionParameters.VerifyImage"
           }
         ],
         "responses": {
@@ -4273,7 +4140,7 @@
     },
     "/face/{apiVersion}/facelists/{faceListId}/persistedfaces?_overload=addFaceFromStream": {
       "post": {
-        "operationId": "FaceListOps_AddFaceFromStream",
+        "operationId": "FaceLists_AddFaceFromStream",
         "description": "Operation that applies to a collection of resources.",
         "consumes": [
           "application/octet-stream"
@@ -4313,16 +4180,7 @@
           "200": {
             "description": "The request has succeeded.",
             "schema": {
-              "type": "object",
-              "properties": {
-                "persistedFaceId": {
-                  "type": "string",
-                  "description": "Persisted face ID"
-                }
-              },
-              "required": [
-                "persistedFaceId"
-              ]
+              "$ref": "#/definitions/AddFaceResult"
             }
           },
           "default": {
@@ -4342,7 +4200,7 @@
     },
     "/face/{apiVersion}/findsimilars?_overload=findSimilarFromFaceList": {
       "post": {
-        "operationId": "FaceListOps_FindSimilarFromFaceList",
+        "operationId": "FaceLists_FindSimilarFromFaceList",
         "description": "A remote procedure call (RPC) operation.",
         "parameters": [
           {
@@ -4408,7 +4266,7 @@
     },
     "/face/{apiVersion}/findsimilars?_overload=findSimilarFromLargeFaceList": {
       "post": {
-        "operationId": "LargeFaceListOps_FindSimilarFromLargeFaceList",
+        "operationId": "LargeFaceLists_FindSimilarFromLargeFaceList",
         "description": "A remote procedure call (RPC) operation.",
         "parameters": [
           {
@@ -4474,7 +4332,7 @@
     },
     "/face/{apiVersion}/identify?_overload=identifyFromDynamicPersonGroup": {
       "post": {
-        "operationId": "PersonDirectoryDynamicPersonGroup_IdentifyFromDynamicPersonGroup",
+        "operationId": "PersonDirectoryDynamicPersonGroups_IdentifyFromDynamicPersonGroup",
         "description": "A remote procedure call (RPC) operation.",
         "parameters": [
           {
@@ -4544,7 +4402,7 @@
     },
     "/face/{apiVersion}/identify?_overload=identifyFromLargePersonGroup": {
       "post": {
-        "operationId": "LargePersonGroupOps_IdentifyFromLargePersonGroup",
+        "operationId": "LargePersonGroups_IdentifyFromLargePersonGroup",
         "description": "A remote procedure call (RPC) operation.",
         "parameters": [
           {
@@ -4614,7 +4472,7 @@
     },
     "/face/{apiVersion}/identify?_overload=identifyFromPersonGroup": {
       "post": {
-        "operationId": "PersonGroupOps_IdentifyFromPersonGroup",
+        "operationId": "PersonGroups_IdentifyFromPersonGroup",
         "description": "A remote procedure call (RPC) operation.",
         "parameters": [
           {
@@ -4684,7 +4542,7 @@
     },
     "/face/{apiVersion}/largefacelists/{largeFaceListId}/persistedfaces?_overload=addFaceFromStream": {
       "post": {
-        "operationId": "LargeFaceListOps_AddFaceFromStream",
+        "operationId": "LargeFaceLists_AddFaceFromStream",
         "description": "Operation that applies to a collection of resources.",
         "consumes": [
           "application/octet-stream"
@@ -4724,16 +4582,7 @@
           "200": {
             "description": "The request has succeeded.",
             "schema": {
-              "type": "object",
-              "properties": {
-                "persistedFaceId": {
-                  "type": "string",
-                  "description": "Persisted face ID"
-                }
-              },
-              "required": [
-                "persistedFaceId"
-              ]
+              "$ref": "#/definitions/AddFaceResult"
             }
           },
           "default": {
@@ -4753,7 +4602,7 @@
     },
     "/face/{apiVersion}/largepersongroups/{largePersonGroupId}/persons/{personId}/persistedfaces?_overload=addFaceFromStream": {
       "post": {
-        "operationId": "LargePersonGroupOps_AddFaceFromStream",
+        "operationId": "LargePersonGroups_AddFaceFromStream",
         "description": "Operation that applies to a collection of resources.",
         "consumes": [
           "application/octet-stream"
@@ -4800,16 +4649,7 @@
           "200": {
             "description": "The request has succeeded.",
             "schema": {
-              "type": "object",
-              "properties": {
-                "persistedFaceId": {
-                  "type": "string",
-                  "description": "Persisted face ID"
-                }
-              },
-              "required": [
-                "persistedFaceId"
-              ]
+              "$ref": "#/definitions/AddFaceResult"
             }
           },
           "default": {
@@ -4829,7 +4669,7 @@
     },
     "/face/{apiVersion}/persongroups/{personGroupId}/persons/{personId}/persistedfaces?_overload=addFaceFromStream": {
       "post": {
-        "operationId": "PersonGroupOps_AddFaceFromStream",
+        "operationId": "PersonGroups_AddFaceFromStream",
         "description": "Operation that applies to a collection of resources.",
         "consumes": [
           "application/octet-stream"
@@ -4876,16 +4716,7 @@
           "200": {
             "description": "The request has succeeded.",
             "schema": {
-              "type": "object",
-              "properties": {
-                "persistedFaceId": {
-                  "type": "string",
-                  "description": "Persisted face ID"
-                }
-              },
-              "required": [
-                "persistedFaceId"
-              ]
+              "$ref": "#/definitions/AddFaceResult"
             }
           },
           "default": {
@@ -4905,7 +4736,7 @@
     },
     "/face/{apiVersion}/persons/{personId}/recognitionModels/{recognitionModel}/persistedfaces?_overload=addFaceFromStream": {
       "post": {
-        "operationId": "PersonDirectoryPerson_AddFaceFromStream",
+        "operationId": "PersonDirectoryPersons_AddFaceFromStream",
         "description": "Operation that applies to a collection of resources.",
         "consumes": [
           "application/octet-stream"
@@ -4984,16 +4815,7 @@
           "202": {
             "description": "The request has been accepted for processing, but processing has not yet completed.",
             "schema": {
-              "type": "object",
-              "properties": {
-                "persistedFaceId": {
-                  "type": "string",
-                  "description": "Persisted face ID"
-                }
-              },
-              "required": [
-                "persistedFaceId"
-              ]
+              "$ref": "#/definitions/AddFaceResult"
             },
             "headers": {
               "operation-Location": {
@@ -5021,7 +4843,7 @@
     },
     "/face/{apiVersion}/verify?_overload=verifyFromLargePersonGroup": {
       "post": {
-        "operationId": "LargePersonGroupOps_VerifyFromLargePersonGroup",
+        "operationId": "LargePersonGroups_VerifyFromLargePersonGroup",
         "description": "A remote procedure call (RPC) operation.",
         "parameters": [
           {
@@ -5079,7 +4901,7 @@
     },
     "/face/{apiVersion}/verify?_overload=verifyFromPersonDirectory": {
       "post": {
-        "operationId": "PersonDirectoryPerson_VerifyFromPersonDirectory",
+        "operationId": "PersonDirectoryPersons_VerifyFromPersonDirectory",
         "description": "A remote procedure call (RPC) operation.",
         "parameters": [
           {
@@ -5132,7 +4954,7 @@
     },
     "/face/{apiVersion}/verify?_overload=verifyFromPersonGroup": {
       "post": {
-        "operationId": "PersonGroupOps_VerifyFromPersonGroup",
+        "operationId": "PersonGroups_VerifyFromPersonGroup",
         "description": "A remote procedure call (RPC) operation.",
         "parameters": [
           {
@@ -5190,7 +5012,7 @@
     }
   },
   "definitions": {
-    "Accessory": {
+    "AccessoryItem": {
       "type": "object",
       "description": "Accessory item and corresponding confidence level.",
       "properties": {
@@ -5238,6 +5060,32 @@
           }
         ]
       }
+    },
+    "AddFaceFromUrlContent": {
+      "type": "object",
+      "description": "Model for add face from url.",
+      "properties": {
+        "url": {
+          "type": "string",
+          "description": "URL of input image."
+        }
+      },
+      "required": [
+        "url"
+      ]
+    },
+    "AddFaceResult": {
+      "type": "object",
+      "description": "Model for add face result.",
+      "properties": {
+        "persistedFaceId": {
+          "type": "string",
+          "description": "The persisted face id."
+        }
+      },
+      "required": [
+        "persistedFaceId"
+      ]
     },
     "AsyncOperationStatus": {
       "type": "object",
@@ -5472,25 +5320,6 @@
         "digest"
       ]
     },
-    "Blur": {
-      "type": "object",
-      "description": "Properties describing any presence of blur within the image.",
-      "properties": {
-        "blurLevel": {
-          "$ref": "#/definitions/BlurLevel",
-          "description": "An enum value indicating level of blurriness."
-        },
-        "value": {
-          "type": "number",
-          "format": "float",
-          "description": "A number indicating level of blurriness ranging from 0 to 1."
-        }
-      },
-      "required": [
-        "blurLevel",
-        "value"
-      ]
-    },
     "BlurLevel": {
       "type": "string",
       "description": "Indicates level of blurriness.",
@@ -5521,43 +5350,36 @@
         ]
       }
     },
-    "Candidate": {
+    "BlurProperties": {
       "type": "object",
-      "description": "Candidate for identify call.",
+      "description": "Properties describing any presence of blur within the image.",
+      "properties": {
+        "blurLevel": {
+          "$ref": "#/definitions/BlurLevel",
+          "description": "An enum value indicating level of blurriness."
+        },
+        "value": {
+          "type": "number",
+          "format": "float",
+          "description": "A number indicating level of blurriness ranging from 0 to 1."
+        }
+      },
+      "required": [
+        "blurLevel",
+        "value"
+      ]
+    },
+    "CreatePersonResult": {
+      "type": "object",
+      "description": "Response of create person.",
       "properties": {
         "personId": {
           "type": "string",
-          "description": "PersonId of the candidate."
-        },
-        "confidence": {
-          "type": "number",
-          "format": "float",
-          "description": "Confidence value of the candidate."
+          "description": "Person ID of the person."
         }
       },
       "required": [
-        "personId",
-        "confidence"
-      ]
-    },
-    "Coordinate": {
-      "type": "object",
-      "description": "Coordinates within an image.",
-      "properties": {
-        "x": {
-          "type": "number",
-          "format": "float",
-          "description": "The horizontal component, in pixels."
-        },
-        "y": {
-          "type": "number",
-          "format": "float",
-          "description": "The vertical component, in pixels."
-        }
-      },
-      "required": [
-        "x",
-        "y"
+        "personId"
       ]
     },
     "DetectionModel": {
@@ -5617,25 +5439,6 @@
         "name"
       ]
     },
-    "Exposure": {
-      "type": "object",
-      "description": "Properties describing exposure level of the image.",
-      "properties": {
-        "exposureLevel": {
-          "$ref": "#/definitions/ExposureLevel",
-          "description": "An enum value indicating level of exposure."
-        },
-        "value": {
-          "type": "number",
-          "format": "float",
-          "description": "A number indicating level of exposure level ranging from 0 to 1. [0, 0.25) is under exposure. [0.25, 0.75) is good exposure. [0.75, 1] is over exposure."
-        }
-      },
-      "required": [
-        "exposureLevel",
-        "value"
-      ]
-    },
     "ExposureLevel": {
       "type": "string",
       "description": "Indicates level of exposure.",
@@ -5666,22 +5469,23 @@
         ]
       }
     },
-    "Face": {
+    "ExposureProperties": {
       "type": "object",
-      "description": "Face resource for person directory person.",
+      "description": "Properties describing exposure level of the image.",
       "properties": {
-        "persistedFaceId": {
-          "type": "string",
-          "description": "Face ID of the face.",
-          "readOnly": true
+        "exposureLevel": {
+          "$ref": "#/definitions/ExposureLevel",
+          "description": "An enum value indicating level of exposure."
         },
-        "userData": {
-          "type": "string",
-          "description": "User-provided data attached to the face. The size limit is 1KB."
+        "value": {
+          "type": "number",
+          "format": "float",
+          "description": "A number indicating level of exposure level ranging from 0 to 1. [0, 0.25) is under exposure. [0.25, 0.75) is good exposure. [0.75, 1] is over exposure."
         }
       },
       "required": [
-        "persistedFaceId"
+        "exposureLevel",
+        "value"
       ]
     },
     "FaceAttributes": {
@@ -5703,7 +5507,7 @@
           "description": "Properties describing facial hair attributes."
         },
         "glasses": {
-          "$ref": "#/definitions/Glasses",
+          "$ref": "#/definitions/GlassesType",
           "description": "Glasses type if any of the face."
         },
         "headPose": {
@@ -5711,35 +5515,35 @@
           "description": "3-D roll/yaw/pitch angles for face direction."
         },
         "hair": {
-          "$ref": "#/definitions/Hair",
+          "$ref": "#/definitions/HairProperties",
           "description": "Properties describing hair attributes."
         },
         "occlusion": {
-          "$ref": "#/definitions/Occlusion",
+          "$ref": "#/definitions/OcclusionProperties",
           "description": "Properties describing occlusions on a given face."
         },
         "accessories": {
           "type": "array",
           "description": "Properties describing any accessories on a given face.",
           "items": {
-            "$ref": "#/definitions/Accessory"
+            "$ref": "#/definitions/AccessoryItem"
           },
           "x-ms-identifiers": []
         },
         "blur": {
-          "$ref": "#/definitions/Blur",
+          "$ref": "#/definitions/BlurProperties",
           "description": "Properties describing any presence of blur within the image."
         },
         "exposure": {
-          "$ref": "#/definitions/Exposure",
+          "$ref": "#/definitions/ExposureProperties",
           "description": "Properties describing exposure level of the image."
         },
         "noise": {
-          "$ref": "#/definitions/Noise",
+          "$ref": "#/definitions/NoiseProperties",
           "description": "Properties describing noise level of the image."
         },
         "mask": {
-          "$ref": "#/definitions/Mask",
+          "$ref": "#/definitions/MaskProperties",
           "description": "Properties describing the presence of a mask on a given face."
         },
         "qualityForRecognition": {
@@ -5782,111 +5586,111 @@
       "description": "A collection of 27-point face landmarks pointing to the important positions of face components.",
       "properties": {
         "pupilLeft": {
-          "$ref": "#/definitions/Coordinate",
+          "$ref": "#/definitions/LandmarkCoordinate",
           "description": "Coordinates within an image"
         },
         "pupilRight": {
-          "$ref": "#/definitions/Coordinate",
+          "$ref": "#/definitions/LandmarkCoordinate",
           "description": "Coordinates within an image"
         },
         "noseTip": {
-          "$ref": "#/definitions/Coordinate",
+          "$ref": "#/definitions/LandmarkCoordinate",
           "description": "Coordinates within an image"
         },
         "mouthLeft": {
-          "$ref": "#/definitions/Coordinate",
+          "$ref": "#/definitions/LandmarkCoordinate",
           "description": "Coordinates within an image"
         },
         "mouthRight": {
-          "$ref": "#/definitions/Coordinate",
+          "$ref": "#/definitions/LandmarkCoordinate",
           "description": "Coordinates within an image"
         },
         "eyebrowLeftOuter": {
-          "$ref": "#/definitions/Coordinate",
+          "$ref": "#/definitions/LandmarkCoordinate",
           "description": "Coordinates within an image"
         },
         "eyebrowLeftInner": {
-          "$ref": "#/definitions/Coordinate",
+          "$ref": "#/definitions/LandmarkCoordinate",
           "description": "Coordinates within an image"
         },
         "eyeLeftOuter": {
-          "$ref": "#/definitions/Coordinate",
+          "$ref": "#/definitions/LandmarkCoordinate",
           "description": "Coordinates within an image"
         },
         "eyeLeftTop": {
-          "$ref": "#/definitions/Coordinate",
+          "$ref": "#/definitions/LandmarkCoordinate",
           "description": "Coordinates within an image"
         },
         "eyeLeftBottom": {
-          "$ref": "#/definitions/Coordinate",
+          "$ref": "#/definitions/LandmarkCoordinate",
           "description": "Coordinates within an image"
         },
         "eyeLeftInner": {
-          "$ref": "#/definitions/Coordinate",
+          "$ref": "#/definitions/LandmarkCoordinate",
           "description": "Coordinates within an image"
         },
         "eyebrowRightInner": {
-          "$ref": "#/definitions/Coordinate",
+          "$ref": "#/definitions/LandmarkCoordinate",
           "description": "Coordinates within an image"
         },
         "eyebrowRightOuter": {
-          "$ref": "#/definitions/Coordinate",
+          "$ref": "#/definitions/LandmarkCoordinate",
           "description": "Coordinates within an image"
         },
         "eyeRightInner": {
-          "$ref": "#/definitions/Coordinate",
+          "$ref": "#/definitions/LandmarkCoordinate",
           "description": "Coordinates within an image"
         },
         "eyeRightTop": {
-          "$ref": "#/definitions/Coordinate",
+          "$ref": "#/definitions/LandmarkCoordinate",
           "description": "Coordinates within an image"
         },
         "eyeRightBottom": {
-          "$ref": "#/definitions/Coordinate",
+          "$ref": "#/definitions/LandmarkCoordinate",
           "description": "Coordinates within an image"
         },
         "eyeRightOuter": {
-          "$ref": "#/definitions/Coordinate",
+          "$ref": "#/definitions/LandmarkCoordinate",
           "description": "Coordinates within an image"
         },
         "noseRootLeft": {
-          "$ref": "#/definitions/Coordinate",
+          "$ref": "#/definitions/LandmarkCoordinate",
           "description": "Coordinates within an image"
         },
         "noseRootRight": {
-          "$ref": "#/definitions/Coordinate",
+          "$ref": "#/definitions/LandmarkCoordinate",
           "description": "Coordinates within an image"
         },
         "noseLeftAlarTop": {
-          "$ref": "#/definitions/Coordinate",
+          "$ref": "#/definitions/LandmarkCoordinate",
           "description": "Coordinates within an image"
         },
         "noseRightAlarTop": {
-          "$ref": "#/definitions/Coordinate",
+          "$ref": "#/definitions/LandmarkCoordinate",
           "description": "Coordinates within an image"
         },
         "noseLeftAlarOutTip": {
-          "$ref": "#/definitions/Coordinate",
+          "$ref": "#/definitions/LandmarkCoordinate",
           "description": "Coordinates within an image"
         },
         "noseRightAlarOutTip": {
-          "$ref": "#/definitions/Coordinate",
+          "$ref": "#/definitions/LandmarkCoordinate",
           "description": "Coordinates within an image"
         },
         "upperLipTop": {
-          "$ref": "#/definitions/Coordinate",
+          "$ref": "#/definitions/LandmarkCoordinate",
           "description": "Coordinates within an image"
         },
         "upperLipBottom": {
-          "$ref": "#/definitions/Coordinate",
+          "$ref": "#/definitions/LandmarkCoordinate",
           "description": "Coordinates within an image"
         },
         "underLipTop": {
-          "$ref": "#/definitions/Coordinate",
+          "$ref": "#/definitions/LandmarkCoordinate",
           "description": "Coordinates within an image"
         },
         "underLipBottom": {
-          "$ref": "#/definitions/Coordinate",
+          "$ref": "#/definitions/LandmarkCoordinate",
           "description": "Coordinates within an image"
         }
       },
@@ -5989,10 +5793,6 @@
         }
       }
     },
-    "FaceRecognitionModel": {
-      "type": "object",
-      "description": "Middle tier resource for person directory."
-    },
     "FaceRectangle": {
       "type": "object",
       "description": "A rectangle within which a face can be found.",
@@ -6024,16 +5824,6 @@
         "width",
         "height"
       ]
-    },
-    "FaceUpdate": {
-      "type": "object",
-      "description": "Face resource for person directory person.",
-      "properties": {
-        "userData": {
-          "type": "string",
-          "description": "User-provided data attached to the face. The size limit is 1KB."
-        }
-      }
     },
     "FacialHair": {
       "type": "object",
@@ -6107,7 +5897,7 @@
         "confidence"
       ]
     },
-    "Glasses": {
+    "GlassesType": {
       "type": "string",
       "description": "Glasses type of the face.",
       "enum": [
@@ -6117,7 +5907,7 @@
         "swimmingGoggles"
       ],
       "x-ms-enum": {
-        "name": "Glasses",
+        "name": "GlassesType",
         "modelAsString": true,
         "values": [
           {
@@ -6169,34 +5959,6 @@
       "required": [
         "groups",
         "messyGroup"
-      ]
-    },
-    "Hair": {
-      "type": "object",
-      "description": "Properties describing hair attributes.",
-      "properties": {
-        "bald": {
-          "type": "number",
-          "format": "float",
-          "description": "A number describing confidence level of whether the person is bald."
-        },
-        "invisible": {
-          "type": "boolean",
-          "description": "A boolean value describing whether the hair is visible in the image."
-        },
-        "hairColor": {
-          "type": "array",
-          "description": "An array of candidate colors and confidence level in the presence of each.",
-          "items": {
-            "$ref": "#/definitions/HairColor"
-          },
-          "x-ms-identifiers": []
-        }
-      },
-      "required": [
-        "bald",
-        "invisible",
-        "hairColor"
       ]
     },
     "HairColor": {
@@ -6278,6 +6040,34 @@
         ]
       }
     },
+    "HairProperties": {
+      "type": "object",
+      "description": "Properties describing hair attributes.",
+      "properties": {
+        "bald": {
+          "type": "number",
+          "format": "float",
+          "description": "A number describing confidence level of whether the person is bald."
+        },
+        "invisible": {
+          "type": "boolean",
+          "description": "A boolean value describing whether the hair is visible in the image."
+        },
+        "hairColor": {
+          "type": "array",
+          "description": "An array of candidate colors and confidence level in the presence of each.",
+          "items": {
+            "$ref": "#/definitions/HairColor"
+          },
+          "x-ms-identifiers": []
+        }
+      },
+      "required": [
+        "bald",
+        "invisible",
+        "hairColor"
+      ]
+    },
     "HeadPose": {
       "type": "object",
       "description": "3-D roll/yaw/pitch angles for face direction.",
@@ -6304,6 +6094,25 @@
         "yaw"
       ]
     },
+    "IdentifyCandidate": {
+      "type": "object",
+      "description": "Candidate for identify call.",
+      "properties": {
+        "personId": {
+          "type": "string",
+          "description": "PersonId of the candidate."
+        },
+        "confidence": {
+          "type": "number",
+          "format": "float",
+          "description": "Confidence value of the candidate."
+        }
+      },
+      "required": [
+        "personId",
+        "confidence"
+      ]
+    },
     "IdentifyResult": {
       "type": "object",
       "description": "Identify result.",
@@ -6316,7 +6125,7 @@
           "type": "array",
           "description": "The top candidate returned from the database.",
           "items": {
-            "$ref": "#/definitions/Candidate"
+            "$ref": "#/definitions/IdentifyCandidate"
           },
           "x-ms-identifiers": []
         }
@@ -6324,6 +6133,26 @@
       "required": [
         "faceId",
         "candidates"
+      ]
+    },
+    "LandmarkCoordinate": {
+      "type": "object",
+      "description": "Coordinates within an image.",
+      "properties": {
+        "x": {
+          "type": "number",
+          "format": "float",
+          "description": "The horizontal component, in pixels."
+        },
+        "y": {
+          "type": "number",
+          "format": "float",
+          "description": "The vertical component, in pixels."
+        }
+      },
+      "required": [
+        "x",
+        "y"
       ]
     },
     "LargeFaceList": {
@@ -6511,10 +6340,85 @@
         }
       }
     },
+    "ListFaceResult": {
+      "type": "object",
+      "description": "Response of list face of person.",
+      "properties": {
+        "personId": {
+          "type": "string",
+          "description": "Id of person."
+        },
+        "persistedFaceIds": {
+          "type": "array",
+          "description": "Array of persisted face ids.",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "personId",
+        "persistedFaceIds"
+      ]
+    },
+    "ListGroupReferenceResult": {
+      "type": "object",
+      "description": "Response of list dynamic person group of person.",
+      "properties": {
+        "dynamicPersonGroupIds": {
+          "type": "array",
+          "description": "Array of PersonDirectory DynamicPersonGroup ids.",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "dynamicPersonGroupIds"
+      ]
+    },
+    "ListPersonResult": {
+      "type": "object",
+      "description": "Response of list dynamic person group person.",
+      "properties": {
+        "personIds": {
+          "type": "array",
+          "description": "Array of PersonDirectory Person ids.",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "personIds"
+      ]
+    },
     "LivenessSession": {
       "type": "object",
       "description": "Session result of detect liveness.",
       "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique ID to reference this session.",
+          "readOnly": true
+        },
+        "createdDateTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Session creation time in millisecond from epoch.",
+          "readOnly": true
+        },
+        "sessionStartDateTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Session started time from session auth token.",
+          "readOnly": true
+        },
+        "sessionExpired": {
+          "type": "boolean",
+          "description": "Whether or not the session is expired.",
+          "readOnly": true
+        },
         "deviceCorrelationId": {
           "type": "string",
           "description": "Device Correlation Id to use for linking multiple sessions together."
@@ -6524,61 +6428,22 @@
           "format": "int32",
           "description": "Session length in seconds. Range is 60 to 86400 seconds."
         },
-        "livenessOperationMode": {
-          "type": "string",
-          "description": "The operation mode for the liveness modal.",
-          "x-ms-mutability": [
-            "create"
-          ]
-        },
-        "sendResultsToClient": {
-          "type": "boolean",
-          "description": "Whether or not send back the operation response to client.",
-          "x-ms-mutability": [
-            "create"
-          ]
-        },
-        "deviceCorrelationIdSetInClient": {
-          "type": "boolean",
-          "description": "Whether or not the device correlation id is set by the client.",
-          "x-ms-mutability": [
-            "create"
-          ]
-        },
-        "id": {
-          "type": "string",
-          "description": "Unique ID to reference this session.",
-          "readOnly": true
-        },
-        "createdDateTime": {
-          "type": "string",
-          "format": "date-time",
-          "description": "Session creation time in millisecond from epoch."
-        },
-        "sessionStartDateTime": {
-          "type": "string",
-          "format": "date-time",
-          "description": "Session started time from session auth token."
-        },
-        "sessionExpired": {
-          "type": "boolean",
-          "description": "Whether or not the session is expired."
-        },
         "status": {
           "$ref": "#/definitions/SessionStatus",
-          "description": "The session status."
+          "description": "The session status.",
+          "readOnly": true
         },
         "result": {
           "$ref": "#/definitions/LivenessSessionAuditEntry",
-          "description": "The last result of session."
+          "description": "The last result of session.",
+          "readOnly": true
         }
       },
       "required": [
-        "deviceCorrelationId",
-        "livenessOperationMode",
         "id",
         "createdDateTime",
         "sessionExpired",
+        "deviceCorrelationId",
         "status"
       ]
     },
@@ -6633,46 +6498,6 @@
         "digest"
       ]
     },
-    "LivenessSessionCreationContent": {
-      "type": "object",
-      "description": "Data for creating liveness session.",
-      "properties": {
-        "deviceCorrelationId": {
-          "type": "string",
-          "description": "Device Correlation Id to use for linking multiple sessions together."
-        },
-        "authTokenTimeToLiveInSeconds": {
-          "type": "integer",
-          "format": "int32",
-          "description": "Session length in seconds. Range is 60 to 86400 seconds."
-        },
-        "livenessOperationMode": {
-          "type": "string",
-          "description": "The operation mode for the liveness modal.",
-          "x-ms-mutability": [
-            "create"
-          ]
-        },
-        "sendResultsToClient": {
-          "type": "boolean",
-          "description": "Whether or not send back the operation response to client.",
-          "x-ms-mutability": [
-            "create"
-          ]
-        },
-        "deviceCorrelationIdSetInClient": {
-          "type": "boolean",
-          "description": "Whether or not the device correlation id is set by the client.",
-          "x-ms-mutability": [
-            "create"
-          ]
-        }
-      },
-      "required": [
-        "deviceCorrelationId",
-        "livenessOperationMode"
-      ]
-    },
     "LivenessSessionCreationResult": {
       "type": "object",
       "description": "Response of liveness session creation.",
@@ -6691,9 +6516,9 @@
         "authToken"
       ]
     },
-    "LivenessSessionItem": {
+    "LivenessSessionData": {
       "type": "object",
-      "description": "Session data returned for enumeration.",
+      "description": "Data for liveness session.",
       "properties": {
         "deviceCorrelationId": {
           "type": "string",
@@ -6703,28 +6528,16 @@
           "type": "integer",
           "format": "int32",
           "description": "Session length in seconds. Range is 60 to 86400 seconds."
-        },
-        "livenessOperationMode": {
-          "type": "string",
-          "description": "The operation mode for the liveness modal.",
-          "x-ms-mutability": [
-            "create"
-          ]
-        },
-        "sendResultsToClient": {
-          "type": "boolean",
-          "description": "Whether or not send back the operation response to client.",
-          "x-ms-mutability": [
-            "create"
-          ]
-        },
-        "deviceCorrelationIdSetInClient": {
-          "type": "boolean",
-          "description": "Whether or not the device correlation id is set by the client.",
-          "x-ms-mutability": [
-            "create"
-          ]
-        },
+        }
+      },
+      "required": [
+        "deviceCorrelationId"
+      ]
+    },
+    "LivenessSessionItem": {
+      "type": "object",
+      "description": "Session data returned for enumeration.",
+      "properties": {
         "id": {
           "type": "string",
           "description": "Unique ID to reference this session.",
@@ -6733,30 +6546,94 @@
         "createdDateTime": {
           "type": "string",
           "format": "date-time",
-          "description": "Session creation time in millisecond from epoch."
+          "description": "Session creation time in millisecond from epoch.",
+          "readOnly": true
         },
         "sessionStartDateTime": {
           "type": "string",
           "format": "date-time",
-          "description": "Session started time from session auth token."
+          "description": "Session started time from session auth token.",
+          "readOnly": true
         },
         "sessionExpired": {
           "type": "boolean",
-          "description": "Whether or not the session is expired."
+          "description": "Whether or not the session is expired.",
+          "readOnly": true
+        },
+        "deviceCorrelationId": {
+          "type": "string",
+          "description": "Device Correlation Id to use for linking multiple sessions together."
+        },
+        "authTokenTimeToLiveInSeconds": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Session length in seconds. Range is 60 to 86400 seconds."
         }
       },
       "required": [
-        "deviceCorrelationId",
-        "livenessOperationMode",
         "id",
         "createdDateTime",
-        "sessionExpired"
+        "sessionExpired",
+        "deviceCorrelationId"
+      ]
+    },
+    "LivenessSessionParameters": {
+      "type": "object",
+      "description": "Request for creating liveness session.",
+      "properties": {
+        "livenessOperationMode": {
+          "type": "string",
+          "description": "The operation mode for the liveness modal."
+        },
+        "sendResultsToClient": {
+          "type": "boolean",
+          "description": "Whether or not send back the operation response to client."
+        },
+        "deviceCorrelationIdSetInClient": {
+          "type": "boolean",
+          "description": "Whether or not the device correlation id is set by the client."
+        },
+        "deviceCorrelationId": {
+          "type": "string",
+          "description": "Device Correlation Id to use for linking multiple sessions together."
+        },
+        "authTokenTimeToLiveInSeconds": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Session length in seconds. Range is 60 to 86400 seconds."
+        }
+      },
+      "required": [
+        "livenessOperationMode",
+        "deviceCorrelationId"
       ]
     },
     "LivenessWithVerifySession": {
       "type": "object",
       "description": "Session result of detect liveness with verify.",
       "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique ID to reference this session.",
+          "readOnly": true
+        },
+        "createdDateTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Session creation time in millisecond from epoch.",
+          "readOnly": true
+        },
+        "sessionStartDateTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Session started time from session auth token.",
+          "readOnly": true
+        },
+        "sessionExpired": {
+          "type": "boolean",
+          "description": "Whether or not the session is expired.",
+          "readOnly": true
+        },
         "deviceCorrelationId": {
           "type": "string",
           "description": "Device Correlation Id to use for linking multiple sessions together."
@@ -6766,61 +6643,22 @@
           "format": "int32",
           "description": "Session length in seconds. Range is 60 to 86400 seconds."
         },
-        "livenessOperationMode": {
-          "type": "string",
-          "description": "The operation mode for the liveness modal.",
-          "x-ms-mutability": [
-            "create"
-          ]
-        },
-        "sendResultsToClient": {
-          "type": "boolean",
-          "description": "Whether or not send back the operation response to client.",
-          "x-ms-mutability": [
-            "create"
-          ]
-        },
-        "deviceCorrelationIdSetInClient": {
-          "type": "boolean",
-          "description": "Whether or not the device correlation id is set by the client.",
-          "x-ms-mutability": [
-            "create"
-          ]
-        },
-        "id": {
-          "type": "string",
-          "description": "Unique ID to reference this session.",
-          "readOnly": true
-        },
-        "createdDateTime": {
-          "type": "string",
-          "format": "date-time",
-          "description": "Session creation time in millisecond from epoch."
-        },
-        "sessionStartDateTime": {
-          "type": "string",
-          "format": "date-time",
-          "description": "Session started time from session auth token."
-        },
-        "sessionExpired": {
-          "type": "boolean",
-          "description": "Whether or not the session is expired."
-        },
         "status": {
           "$ref": "#/definitions/SessionStatus",
-          "description": "The session status."
+          "description": "The session status.",
+          "readOnly": true
         },
         "result": {
           "$ref": "#/definitions/LivenessWithVerifySessionAuditEntry",
-          "description": "The last result of session."
+          "description": "The last result of session.",
+          "readOnly": true
         }
       },
       "required": [
-        "deviceCorrelationId",
-        "livenessOperationMode",
         "id",
         "createdDateTime",
         "sessionExpired",
+        "deviceCorrelationId",
         "status"
       ]
     },
@@ -6875,13 +6713,13 @@
         "digest"
       ]
     },
-    "LivenessWithVerifySessionCreationContent": {
+    "LivenessWithVerifySessionParameters": {
       "type": "object",
       "description": "Request of liveness with verify session creation.",
       "properties": {
         "Parameters": {
-          "$ref": "#/definitions/LivenessSessionCreationContent",
-          "description": "The json for creating liveness session."
+          "$ref": "#/definitions/LivenessSessionParameters",
+          "description": "The parameters for creating session."
         },
         "VerifyImage": {
           "type": "string",
@@ -6894,7 +6732,7 @@
         "VerifyImage"
       ]
     },
-    "Mask": {
+    "MaskProperties": {
       "type": "object",
       "description": "Properties describing the presence of a mask on a given face.",
       "properties": {
@@ -6965,25 +6803,6 @@
         "name"
       ]
     },
-    "Noise": {
-      "type": "object",
-      "description": "Properties describing noise level of the image.",
-      "properties": {
-        "noiseLevel": {
-          "$ref": "#/definitions/NoiseLevel",
-          "description": "An enum value indicating level of noise."
-        },
-        "value": {
-          "type": "number",
-          "format": "float",
-          "description": "A number indicating level of noise level ranging from 0 to 1. [0, 0.25) is under exposure. [0.25, 0.75) is good exposure. [0.75, 1] is over exposure. [0, 0.3) is low noise level. [0.3, 0.7) is medium noise level. [0.7, 1] is high noise level."
-        }
-      },
-      "required": [
-        "noiseLevel",
-        "value"
-      ]
-    },
     "NoiseLevel": {
       "type": "string",
       "description": "Indicates level of noise.",
@@ -7014,7 +6833,26 @@
         ]
       }
     },
-    "Occlusion": {
+    "NoiseProperties": {
+      "type": "object",
+      "description": "Properties describing noise level of the image.",
+      "properties": {
+        "noiseLevel": {
+          "$ref": "#/definitions/NoiseLevel",
+          "description": "An enum value indicating level of noise."
+        },
+        "value": {
+          "type": "number",
+          "format": "float",
+          "description": "A number indicating level of noise level ranging from 0 to 1. [0, 0.25) is under exposure. [0.25, 0.75) is good exposure. [0.75, 1] is over exposure. [0, 0.3) is low noise level. [0.3, 0.7) is medium noise level. [0.7, 1] is high noise level."
+        }
+      },
+      "required": [
+        "noiseLevel",
+        "value"
+      ]
+    },
+    "OcclusionProperties": {
       "type": "object",
       "description": "Properties describing occlusions on a given face.",
       "properties": {
@@ -7073,7 +6911,35 @@
         ]
       }
     },
-    "Person": {
+    "PersonDirectoryFace": {
+      "type": "object",
+      "description": "Face resource for person directory person.",
+      "properties": {
+        "persistedFaceId": {
+          "type": "string",
+          "description": "Face ID of the face.",
+          "readOnly": true
+        },
+        "userData": {
+          "type": "string",
+          "description": "User-provided data attached to the face. The size limit is 1KB."
+        }
+      },
+      "required": [
+        "persistedFaceId"
+      ]
+    },
+    "PersonDirectoryFaceUpdate": {
+      "type": "object",
+      "description": "Face resource for person directory person.",
+      "properties": {
+        "userData": {
+          "type": "string",
+          "description": "User-provided data attached to the face. The size limit is 1KB."
+        }
+      }
+    },
+    "PersonDirectoryPerson": {
       "type": "object",
       "description": "Person resource for person directory",
       "properties": {
@@ -7095,6 +6961,24 @@
         "personId",
         "name"
       ]
+    },
+    "PersonDirectoryPersonUpdate": {
+      "type": "object",
+      "description": "Person resource for person directory",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "User defined name, maximum length is 128."
+        },
+        "userData": {
+          "type": "string",
+          "description": "Optional user defined data. Length should not exceed 16KB."
+        }
+      }
+    },
+    "PersonDirectoryRecognitionModel": {
+      "type": "object",
+      "description": "Middle tier resource for person directory."
     },
     "PersonGroup": {
       "type": "object",
@@ -7200,20 +7084,6 @@
     "PersonGroupUpdate": {
       "type": "object",
       "description": "Free-tier subscription quota: 1,000 person groups. Each holds up to 1,000 persons. S0-tier subscription quota: 1,000,000 person groups. Each holds up to 10,000 persons. To handle larger scale face identification problem, please consider using LargePersonGroup.",
-      "properties": {
-        "name": {
-          "type": "string",
-          "description": "User defined name, maximum length is 128."
-        },
-        "userData": {
-          "type": "string",
-          "description": "Optional user defined data. Length should not exceed 16KB."
-        }
-      }
-    },
-    "PersonUpdate": {
-      "type": "object",
-      "description": "Person resource for person directory",
       "properties": {
         "name": {
           "type": "string",
@@ -7545,7 +7415,7 @@
       "type": "string",
       "x-ms-parameter-location": "method"
     },
-    "FaceDetectionQuery.detectionModel": {
+    "FaceDetectionOptions.detectionModel": {
       "name": "detectionModel",
       "in": "query",
       "description": "The 'detectionModel' associated with the detected faceIds.",
@@ -7579,7 +7449,7 @@
       },
       "x-ms-parameter-location": "method"
     },
-    "FaceDetectionQuery.faceIdTimeToLive": {
+    "FaceDetectionOptions.faceIdTimeToLive": {
       "name": "faceIdTimeToLive",
       "in": "query",
       "description": "The number of seconds for the face ID being cached. Supported range from 60 seconds up to 86400 seconds. The default value is 86400 (24 hours).",
@@ -7588,7 +7458,7 @@
       "format": "int32",
       "x-ms-parameter-location": "method"
     },
-    "FaceDetectionQuery.recognitionModel": {
+    "FaceDetectionOptions.recognitionModel": {
       "name": "recognitionModel",
       "in": "query",
       "description": "The 'recognitionModel' associated with the detected faceIds.",
@@ -7628,7 +7498,7 @@
       },
       "x-ms-parameter-location": "method"
     },
-    "FaceDetectionQuery.returnFaceAttributes": {
+    "FaceDetectionOptions.returnFaceAttributes": {
       "name": "returnFaceAttributes",
       "in": "query",
       "description": "Analyze and return the one or more specified face attributes in the comma-separated string like 'returnFaceAttributes=headPose,glasses'. Supported face attributes include headPose, glasses, occlusion, accessories, blur, exposure, noise, mask, and qualityForRecognition. Face attribute analysis has additional computational and time cost.",
@@ -7636,7 +7506,7 @@
       "type": "string",
       "x-ms-parameter-location": "method"
     },
-    "FaceDetectionQuery.returnFaceId": {
+    "FaceDetectionOptions.returnFaceId": {
       "name": "returnFaceId",
       "in": "query",
       "description": "Return faceIds of the detected faces or not. The default value is true.",
@@ -7644,7 +7514,7 @@
       "type": "boolean",
       "x-ms-parameter-location": "method"
     },
-    "FaceDetectionQuery.returnFaceLandmarks": {
+    "FaceDetectionOptions.returnFaceLandmarks": {
       "name": "returnFaceLandmarks",
       "in": "query",
       "description": "Return face landmarks of the detected faces or not. The default value is false.",
@@ -7652,7 +7522,7 @@
       "type": "boolean",
       "x-ms-parameter-location": "method"
     },
-    "FaceDetectionQuery.returnRecognitionModel": {
+    "FaceDetectionOptions.returnRecognitionModel": {
       "name": "returnRecognitionModel",
       "in": "query",
       "description": "Return 'recognitionModel' or not. The default value is false.",
@@ -7677,15 +7547,15 @@
       "format": "int32",
       "x-ms-parameter-location": "method"
     },
-    "LivenessWithVerifySessionCreationContent.Parameters": {
+    "LivenessWithVerifySessionParameters.Parameters": {
       "name": "Parameters",
       "in": "formData",
-      "description": "The json for creating liveness session.",
+      "description": "The parameters for creating session.",
       "required": true,
       "type": "string",
       "x-ms-parameter-location": "method"
     },
-    "LivenessWithVerifySessionCreationContent.VerifyImage": {
+    "LivenessWithVerifySessionParameters.VerifyImage": {
       "name": "VerifyImage",
       "in": "formData",
       "description": "The image stream for verify.",
@@ -7693,7 +7563,7 @@
       "type": "file",
       "x-ms-parameter-location": "method"
     },
-    "ReturnRecognitionModelQuery": {
+    "ReturnRecognitionModelOptions": {
       "name": "returnRecognitionModel",
       "in": "query",
       "description": "Return 'recognitionModel' or not. The default value is false.",

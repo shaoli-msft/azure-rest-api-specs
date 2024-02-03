@@ -10,7 +10,7 @@ using TypeSpec.Rest;
 namespace Face;
 
 @doc("Query parameters for detect API.")
-model FaceDetectionQuery {
+model FaceDetectionOptions {
     @doc("Return faceIds of the detected faces or not. The default value is true.")
     @query returnFaceId?: boolean;
     @doc("Return face landmarks of the detected faces or not. The default value is false.")
@@ -56,63 +56,63 @@ model FaceRectangle {
 @doc("A collection of 27-point face landmarks pointing to the important positions of face components.")
 model FaceLandmarks {
     @doc("Coordinates within an image")
-    pupilLeft: Coordinate;
+    pupilLeft: LandmarkCoordinate;
     @doc("Coordinates within an image")
-    pupilRight: Coordinate;
+    pupilRight: LandmarkCoordinate;
     @doc("Coordinates within an image")
-    noseTip: Coordinate;
+    noseTip: LandmarkCoordinate;
     @doc("Coordinates within an image")
-    mouthLeft: Coordinate;
+    mouthLeft: LandmarkCoordinate;
     @doc("Coordinates within an image")
-    mouthRight: Coordinate;
+    mouthRight: LandmarkCoordinate;
     @doc("Coordinates within an image")
-    eyebrowLeftOuter: Coordinate;
+    eyebrowLeftOuter: LandmarkCoordinate;
     @doc("Coordinates within an image")
-    eyebrowLeftInner: Coordinate;
+    eyebrowLeftInner: LandmarkCoordinate;
     @doc("Coordinates within an image")
-    eyeLeftOuter: Coordinate;
+    eyeLeftOuter: LandmarkCoordinate;
     @doc("Coordinates within an image")
-    eyeLeftTop: Coordinate;
+    eyeLeftTop: LandmarkCoordinate;
     @doc("Coordinates within an image")
-    eyeLeftBottom: Coordinate;
+    eyeLeftBottom: LandmarkCoordinate;
     @doc("Coordinates within an image")
-    eyeLeftInner: Coordinate;
+    eyeLeftInner: LandmarkCoordinate;
     @doc("Coordinates within an image")
-    eyebrowRightInner: Coordinate;
+    eyebrowRightInner: LandmarkCoordinate;
     @doc("Coordinates within an image")
-    eyebrowRightOuter: Coordinate;
+    eyebrowRightOuter: LandmarkCoordinate;
     @doc("Coordinates within an image")
-    eyeRightInner: Coordinate;
+    eyeRightInner: LandmarkCoordinate;
     @doc("Coordinates within an image")
-    eyeRightTop: Coordinate;
+    eyeRightTop: LandmarkCoordinate;
     @doc("Coordinates within an image")
-    eyeRightBottom: Coordinate;
+    eyeRightBottom: LandmarkCoordinate;
     @doc("Coordinates within an image")
-    eyeRightOuter: Coordinate;
+    eyeRightOuter: LandmarkCoordinate;
     @doc("Coordinates within an image")
-    noseRootLeft: Coordinate;
+    noseRootLeft: LandmarkCoordinate;
     @doc("Coordinates within an image")
-    noseRootRight: Coordinate;
+    noseRootRight: LandmarkCoordinate;
     @doc("Coordinates within an image")
-    noseLeftAlarTop: Coordinate;
+    noseLeftAlarTop: LandmarkCoordinate;
     @doc("Coordinates within an image")
-    noseRightAlarTop: Coordinate;
+    noseRightAlarTop: LandmarkCoordinate;
     @doc("Coordinates within an image")
-    noseLeftAlarOutTip: Coordinate;
+    noseLeftAlarOutTip: LandmarkCoordinate;
     @doc("Coordinates within an image")
-    noseRightAlarOutTip: Coordinate;
+    noseRightAlarOutTip: LandmarkCoordinate;
     @doc("Coordinates within an image")
-    upperLipTop: Coordinate;
+    upperLipTop: LandmarkCoordinate;
     @doc("Coordinates within an image")
-    upperLipBottom: Coordinate;
+    upperLipBottom: LandmarkCoordinate;
     @doc("Coordinates within an image")
-    underLipTop: Coordinate;
+    underLipTop: LandmarkCoordinate;
     @doc("Coordinates within an image")
-    underLipBottom: Coordinate;
+    underLipBottom: LandmarkCoordinate;
 }
 
 @doc("Coordinates within an image.")
-model Coordinate {
+model LandmarkCoordinate {
     @doc("The horizontal component, in pixels.")
     x: float32;
     @doc("The vertical component, in pixels.")
@@ -128,23 +128,23 @@ model FaceAttributes {
     @doc("Properties describing facial hair attributes.")
     facialHair?: FacialHair;
     @doc("Glasses type if any of the face.")
-    glasses?: Glasses;
+    glasses?: GlassesType;
     @doc("3-D roll/yaw/pitch angles for face direction.")
     headPose?: HeadPose;
     @doc("Properties describing hair attributes.")
-    hair?: Hair;
+    hair?: HairProperties;
     @doc("Properties describing occlusions on a given face.")
-    occlusion?: Occlusion;
+    occlusion?: OcclusionProperties;
     @doc("Properties describing any accessories on a given face.")
-    accessories?: Accessory[];
+    accessories?: AccessoryItem[];
     @doc("Properties describing any presence of blur within the image.")
-    blur?: Blur;
+    blur?: BlurProperties;
     @doc("Properties describing exposure level of the image.")
-    exposure?: Exposure;
+    exposure?: ExposureProperties;
     @doc("Properties describing noise level of the image.")
-    noise?: Noise;
+    noise?: NoiseProperties;
     @doc("Properties describing the presence of a mask on a given face.")
-    mask?: Mask;
+    mask?: MaskProperties;
     @doc("Properties describing the overall image quality regarding whether the image being used in the detection is of sufficient quality to attempt face recognition on.")
     qualityForRecognition?: QualityForRecognition;
 }
@@ -160,7 +160,7 @@ model FacialHair {
 }
 
 @doc("Glasses type of the face.")
-enum Glasses {
+enum GlassesType {
     @doc("No glasses on the face.")
     noGlasses,
     @doc("Normal glasses on the face.")
@@ -182,7 +182,7 @@ model HeadPose {
 }
 
 @doc("Properties describing hair attributes.")
-model Hair {
+model HairProperties {
     @doc("A number describing confidence level of whether the person is bald.")
     bald: float32;
     @doc("A boolean value describing whether the hair is visible in the image.")
@@ -220,7 +220,7 @@ enum HairColorType {
 }
 
 @doc("Properties describing occlusions on a given face.")
-model Occlusion {
+model OcclusionProperties {
     @doc("A boolean value indicating whether forehead is occluded.")
     foreheadOccluded: boolean;
     @doc("A boolean value indicating whether eyes are occluded.")
@@ -230,7 +230,7 @@ model Occlusion {
 }
 
 @doc("Accessory item and corresponding confidence level.")
-model Accessory {
+model AccessoryItem {
     @doc("Type of the accessory.")
     type: AccessoryType;
     @doc("Confidence level of the accessory type.")
@@ -248,7 +248,7 @@ enum AccessoryType {
 }
 
 @doc("Properties describing any presence of blur within the image.")
-model Blur {
+model BlurProperties {
     @doc("An enum value indicating level of blurriness.")
     blurLevel: BlurLevel;
     @doc("A number indicating level of blurriness ranging from 0 to 1.")
@@ -266,7 +266,7 @@ enum BlurLevel {
 }
 
 @doc("Properties describing exposure level of the image.")
-model Exposure {
+model ExposureProperties {
     @doc("An enum value indicating level of exposure.")
     exposureLevel: ExposureLevel;
     @doc("A number indicating level of exposure level ranging from 0 to 1. [0, 0.25) is under exposure. [0.25, 0.75) is good exposure. [0.75, 1] is over exposure.")
@@ -284,7 +284,7 @@ enum ExposureLevel {
 }
 
 @doc("Properties describing noise level of the image.")
-model Noise {
+model NoiseProperties {
     @doc("An enum value indicating level of noise.")
     noiseLevel: NoiseLevel;
     @doc("A number indicating level of noise level ranging from 0 to 1. [0, 0.25) is under exposure. [0.25, 0.75) is good exposure. [0.75, 1] is over exposure. [0, 0.3) is low noise level. [0.3, 0.7) is medium noise level. [0.7, 1] is high noise level.")
@@ -302,7 +302,7 @@ enum NoiseLevel {
 }
 
 @doc("Properties describing the presence of a mask on a given face.")
-model Mask {
+model MaskProperties {
     @doc("A boolean value indicating whether nose and mouth are covered.")
     noseAndMouthCovered: boolean;
     @doc("Mask type if any of the face")

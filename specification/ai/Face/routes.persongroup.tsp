@@ -11,7 +11,7 @@ using Foundations;
 
 namespace Face;
 
-interface BasePersonGroupOps<
+interface BasePersonGroups<
     TGroup extends BasePersonGroup,
     TPerson extends BasePersonGroupPerson,
     TFace extends BaseFace>
@@ -22,13 +22,13 @@ interface BasePersonGroupOps<
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
   deleteGroup is FaceResourceDeleteOperation<TGroup>;
 
-  getGroup is Operations.ResourceRead<TGroup, QueryParametersTrait<ReturnRecognitionModelQuery>>;
+  getGroup is Operations.ResourceRead<TGroup, QueryParametersTrait<ReturnRecognitionModelOptions>>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
   updateGroup is FaceResourceUpdateOperation<TGroup>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
-  listGroup is FaceResourceListOperation<TGroup, TGroup, ReturnRecognitionModelQuery>;
+  listGroup is FaceResourceListOperation<TGroup, TGroup, ReturnRecognitionModelOptions>;
 
   @action("train")
   @actionSeparator("/")
@@ -79,7 +79,7 @@ interface BasePersonGroupOps<
   updateFace is FaceResourceUpdateOperation<TFace>;
 }
 
-interface PersonGroupOps extends BasePersonGroupOps<
+interface PersonGroups extends BasePersonGroups<
   PersonGroup,
   PersonGroupPerson,
   PersonGroupPersonFace> {
@@ -101,7 +101,7 @@ interface PersonGroupOps extends BasePersonGroupOps<
   }>;
 }
 
-interface LargePersonGroupOps extends BasePersonGroupOps<
+interface LargePersonGroups extends BasePersonGroups<
   LargePersonGroup,
   LargePersonGroupPerson, 
   LargePersonGroupPersonFace> {

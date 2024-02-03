@@ -46,23 +46,19 @@ op FaceResourceCreateOperation<
 @createsResource(TFace)
 op AddFaceWithUrl<
   TFace extends BaseFace
-> is FaceResourceCreateWithServiceProvidedName<
+> is Foundations.ResourceCollectionOperation<
   TFace,
-  AddFaceOptions & {
-    @doc("URL of input image.")
-    url: string;
-  },
-  {
-    @doc("Persisted face ID")
-    persistedFaceId: string;
-  }>;
+  AddFaceOptions & Body<AddFaceFromUrlContent>,
+  AddFaceResult,
+  ServiceTraits
+  >;
 
 #suppress "@azure-tools/typespec-azure-core/byos" "It's a template."
 @sharedRoute
 @createsResource(TFace)
 op AddFaceWithStream<
   TFace extends BaseFace
-> is FaceResourceCreateWithServiceProvidedName<
+> is Foundations.ResourceCollectionOperation<
   TFace,
   AddFaceOptions & {
     @doc("The format of the HTTP payload.")
@@ -73,10 +69,9 @@ op AddFaceWithStream<
     @body
     imageContent: bytes;
   },
-  {
-    @doc("Persisted face ID")
-    persistedFaceId: string;
-  }>;
+  AddFaceResult,
+  ServiceTraits
+  >;
 
 @updatesResource(TResource)
 op FaceResourceUpdateOperation<
@@ -163,14 +158,14 @@ ServiceTraits>;
 @sharedRoute
 @route("/face/{apiVersion}/detect")
 op detectFromUrl is Azure.Core.RpcOperation<
-{
+FaceDetectionOptions & {
   @doc("The format of the HTTP payload.")
   @header
   contentType: "application/json";
 
   @doc("URL of input image.")
   url: string;
-} & FaceDetectionQuery,
+},
 Body<FaceDetectionResult[]>,
 ServiceTraits>;
 
@@ -180,7 +175,7 @@ ServiceTraits>;
 @sharedRoute
 @route("/face/{apiVersion}/detect")
 op detectFromStream is Azure.Core.RpcOperation<
-{
+FaceDetectionOptions & {
   @doc("The format of the HTTP payload.")
   @header
   contentType: "application/octet-stream";
@@ -188,7 +183,7 @@ op detectFromStream is Azure.Core.RpcOperation<
   @doc("The image to be analyzed")
   @body
   imageContent: bytes;
-} & FaceDetectionQuery,
+},
 Body<FaceDetectionResult[]>,
 ServiceTraits>;
 

@@ -11,84 +11,47 @@ using Foundations;
 
 namespace Face;
 
-interface BaseSessionInterface<T extends LivenessSessionItem, U extends BaseSessionAuditEntry> {
-  // ResourceCreateOrReplace does not fit, we use POST to create
-  // ResourceCreateWithServiceProvidedName does not fit, we have data in response body
-  #suppress "@azure-tools/typespec-azure-core/casing-style" "This is a template"
-  #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
-  @createsResource(T)
-  CreateSession is Foundations.ResourceCollectionOperation<
-    T,
-    LivenessSessionCreationContent,
-    LivenessSessionCreationResult,
-    ServiceTraits
-  >;
+interface BaseSessions<T extends LivenessSessionItem, U extends BaseSessionAuditEntry>
+{
+  #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "ResourceList does not fit, we put object array in response directly"
+  listSessions is FaceResourceListOperation<T, LivenessSessionItem>;
 
-  // ResourceList does not fit, we put object array in response directly
-  // NonPagedResourceList does not fit, we need customize the response object for any template type
-  #suppress "@azure-tools/typespec-azure-core/casing-style" "This is a template"
-  #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
-  ListSessions is FaceResourceListOperation<T, LivenessSessionItem>;
+  getSession is Operations.ResourceRead<T>;
 
-  #suppress "@azure-tools/typespec-azure-core/casing-style" "This is a template"
-  GetSession is Operations.ResourceRead<T>;
-
-  // ResourceDelete does not fit, we return 200 instead of 204
-  #suppress "@azure-tools/typespec-azure-core/casing-style" "This is a template"
-  #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
+  #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "ResourceDelete does not fit, we return 200 instead of 204"
   @deletesResource(T)
-  DeleteSession is FaceResourceDeleteOperation<T>;
+  deleteSession is FaceResourceDeleteOperation<T>;
 
-  // ResourceList does not fit, we put object array in response directly
-  #suppress "@azure-tools/typespec-azure-core/casing-style" "This is a template"
-  #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
-  ListSessionAuditEntries is Foundations.NonPagedResourceList<
+  #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "ResourceList does not fit, we put object array in response directly"
+  listSessionAuditEntries is Foundations.NonPagedResourceList<
     U,
     ServiceTraits & ListQueryParametersTrait<ListRequestOptions>
   >;
 }
 
-alias LivenessInterface = BaseSessionInterface<LivenessSession, LivenessSessionAuditEntry>;
-alias LivenessWithVerifyInterface = BaseSessionInterface<LivenessWithVerifySession, LivenessWithVerifySessionAuditEntry>;
+interface LivenessSessions extends BaseSessions<LivenessSession, LivenessSessionAuditEntry>
+{
+  #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "ResourceCreateWithServiceProvidedName does not fit, we don't return Location in header."
+  createSession is FaceResourceCreateWithServiceProvidedName<
+    LivenessSession,
+    LivenessSessionParameters,
+    LivenessSessionCreationResult>;
+}
 
-interface SessionOperations {
-  #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
-  createLivenessSession is LivenessInterface.CreateSession;
-
-  getLivenessSession is LivenessInterface.GetSession;
-
-  #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
-  deleteLivenessSession is LivenessInterface.DeleteSession;
-
-  #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
-  listLivenessSessions is LivenessInterface.ListSessions;
-
-  #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
-  listLivenessSessionAuditEntries is LivenessInterface.ListSessionAuditEntries;
-
-  #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
+interface LivenessWithVerifySessions extends BaseSessions<LivenessWithVerifySession, LivenessWithVerifySessionAuditEntry>
+{
+  #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "ResourceCreateWithServiceProvidedName does not fit, we don't return Location in header."
   @sharedRoute
-  createLivenessWithVerifySessionByJson is LivenessWithVerifyInterface.CreateSession;
+  createSession is FaceResourceCreateWithServiceProvidedName<
+    LivenessWithVerifySession,
+    LivenessSessionParameters,
+    LivenessSessionCreationResult>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
   #suppress "@azure-tools/typespec-azure-core/byos" "Representation of existing multipart/form-data operation"
   @sharedRoute
-  @createsResource(LivenessWithVerifySession)
-  createLivenessWithVerifySessionByFormData is Foundations.ResourceCollectionOperation<
+  createSessionWithVerifyImage is FaceResourceCreateWithServiceProvidedName<
     LivenessWithVerifySession,
-    LivenessWithVerifySessionCreationContent,
-    LivenessSessionCreationResult,
-    ServiceTraits>;
-
-  getLivenessWithVerifySession is LivenessWithVerifyInterface.GetSession;
-
-  #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
-  deleteLivenessWithVerifySession is LivenessWithVerifyInterface.DeleteSession;
-
-  #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
-  @sharedRoute
-  listLivenessWithVerifySessions is LivenessWithVerifyInterface.ListSessions;
-
-  #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
-  listLivenessWithVerifySessionAuditEntries is LivenessWithVerifyInterface.ListSessionAuditEntries;
+    LivenessWithVerifySessionParameters,
+    LivenessSessionCreationResult>;
 }

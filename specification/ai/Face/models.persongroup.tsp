@@ -66,10 +66,3 @@ model LargePersonGroupPerson is BasePersonGroupPerson;
 @parentResource(LargePersonGroupPerson)
 @doc("Face resource for large person group person.")
 model LargePersonGroupPersonFace is BaseFace;
-
-@doc("Query parameters for whether response resource should include recognition model.")
-model ReturnRecognitionModelQuery {
-    @query
-    @doc("Return 'recognitionModel' or not. The default value is false.")
-    returnRecognitionModel?: boolean;
-}

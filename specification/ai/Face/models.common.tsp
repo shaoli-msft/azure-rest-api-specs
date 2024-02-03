@@ -80,6 +80,25 @@ model AddFaceOptions {
     userData?: string;
 }
 
+@doc("Model for add face from url.")
+model AddFaceFromUrlContent {
+    @doc("URL of input image.")
+    url: string;
+}
+
+@doc("Model for add face result.")
+model AddFaceResult {
+    @doc("The persisted face id.")
+    persistedFaceId: string;
+}
+
+@doc("Query parameters for whether response resource should include recognition model.")
+model ReturnRecognitionModelOptions {
+    @query
+    @doc("Return 'recognitionModel' or not. The default value is false.")
+    returnRecognitionModel?: boolean;
+}
+
 @doc("Training status of a container")
 model TrainingStatus {
     @doc("Training status of the container.")
@@ -111,11 +130,11 @@ model IdentifyResult {
     @doc("Face ID of the query face.")
     faceId: string;
     @doc("The top candidate returned from the database.")
-    candidates: Candidate[];
+    candidates: IdentifyCandidate[];
 }
 
 @doc("Candidate for identify call.")
-model Candidate {
+model IdentifyCandidate {
     @doc("PersonId of the candidate.")
     personId: string;
     @doc("Confidence value of the candidate.")
