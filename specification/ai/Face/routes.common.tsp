@@ -111,7 +111,7 @@ op IdentifyOperation<T extends TypeSpec.Reflection.Model> is Azure.Core.RpcOpera
   @doc("Array of query faces faceIds, created by the Face - Detect. Each of the faces are identified independently. The valid number of faceIds is between [1, 10].")
   faceIds: string[];
   ...T;
-  
+
   @doc("The range of maxNumOfCandidatesReturned is between 1 and 100 (default is 10).")
   maxNumOfCandidatesReturned?: int32;
 
@@ -218,4 +218,38 @@ op group is Azure.Core.RpcOperation<
   faceIds: string[];
 },
 GroupResult,
+ServiceTraits>;
+
+#suppress "@azure-tools/typespec-azure-core/no-rpc-path-params" "Workaround for RpcOperation not handling api version in path."
+@post
+@sharedRoute
+@route("/face/{apiVersion}/compare")
+op compare is Azure.Core.RpcOperation<
+{
+  @doc("URL of the first face image.")
+  sourceImageUrl: url,
+  @doc("URL of the second face image.")
+  targetImageUrl: url,
+} & CompareOptions,
+CompareResult,
+ServiceTraits>;
+
+#suppress "@azure-tools/typespec-azure-core/byos" "It's an RPC call to compare faces from images, it doesn't store anything. There's a BYOS version of this call, but it's not this one."
+#suppress "@azure-tools/typespec-azure-core/no-rpc-path-params" "Workaround for RpcOperation not handling api version in path."
+@post
+@sharedRoute
+@route("/face/{apiVersion}/compare")
+op compareFromStream is Azure.Core.RpcOperation<
+CompareFromStreamContent & CompareOptions,
+CompareResult,
+ServiceTraits>;
+
+#suppress "@azure-tools/typespec-azure-core/byos" "It's an RPC call to compare faces from images, it doesn't store anything. There's a BYOS version of this call, but it's not this one."
+#suppress "@azure-tools/typespec-azure-core/no-rpc-path-params" "Workaround for RpcOperation not handling api version in path."
+@post
+@sharedRoute
+@route("/face/{apiVersion}/compare")
+op compareFromUrlAndStream is Azure.Core.RpcOperation<
+CompareFromUrlAndStreamContent & CompareOptions,
+CompareResult,
 ServiceTraits>;

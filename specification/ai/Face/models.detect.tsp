@@ -330,3 +330,65 @@ enum QualityForRecognition {
     @doc("High quality.")
     high
 }
+
+@doc("Query parameters for compare operation.")
+model CompareOptions {
+    @doc("Whether to return face landmarks of the two faces. The default value is false.")
+    @query returnFaceLandmarks?: boolean,
+    @doc("Whether to return face attributes of the two faces. The default value is false.")
+    @query returnFaceAttributes?: boolean
+}
+
+@doc("Request body for compare operation.")
+model CompareFromStreamContent {
+    @doc("The content type for the operation. Always multipart/form-data for this operation.")
+    @header("content-type")
+    contentType: "multipart/form-data";
+
+    @doc("The source image to compare.")
+    source: bytes;
+
+    @doc("The target image to compare.")
+    target: bytes;
+}
+
+@doc("Request body for compare operation.")
+model CompareFromUrlAndStreamContent {
+    @doc("The content type for the operation. Always multipart/form-data for this operation.")
+    @header("content-type")
+    contentType: "multipart/form-data";
+
+    @doc("The source image url to compare.")
+    source: url;
+
+    @doc("The target image to compare.")
+    target: bytes;
+}
+
+@doc("Response body for compare operation.")
+model CompareResult {
+    @doc("Face in source image.")
+    sourceImageFace: SourceImageFace;
+    @doc("Face in target image.")
+    targetImageFace: TargetImageFace;
+    @doc("Detection model used for compare operation.")
+    detectionModel: DetectionModel;
+    @doc("Recognition model used for compare operation.")
+    recognitionModel: RecognitionModel;
+}
+
+@doc("Face in source image.")
+model SourceImageFace {
+    @doc("Rectangle area of the detected face.")
+    faceRectangle: FaceRectangle;
+    @doc("An array of 27-point face landmarks pointing to the important positions of face components. To return this, it requires 'returnFaceLandmarks' parameter to be true.")
+    faceLandmarks?: FaceLandmarks;
+    @doc("Face attributes fore detected face.")
+    faceAttributes?: FaceAttributes;
+}
+
+@doc("Face in target image.")
+model TargetImageFace {
+    ...SourceImageFace;
+    ...VerifyResult;
+}

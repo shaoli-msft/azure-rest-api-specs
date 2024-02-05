@@ -71,7 +71,7 @@ model AddFaceOptions {
     @doc("A face rectangle to specify the target face to be added to a person, in the format of 'targetFace=left,top,width,height'.")
     targetFace?: string;
 
-    @query 
+    @query
     @doc("The 'detectionModel' associated with the detected faceIds. Supported 'detectionModel' values include 'detection_01', 'detection_02' and 'detection_03'. The default value is 'detection_01'.")
     detectionModel?: DetectionModel;
 
@@ -171,7 +171,7 @@ model FindSimilarResult {
 model GroupResult {
     @doc("A partition of the original faces based on face similarity. Groups are ranked by number of faces.")
     groups: string[][];
-    
+
     @doc("Face ids array of faces that cannot find any similar faces from original faces.")
     messyGroup: string[];
 }

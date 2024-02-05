@@ -59,6 +59,67 @@
   },
   "tags": [],
   "paths": {
+    "/face/{apiVersion}/compare": {
+      "post": {
+        "operationId": "Compare",
+        "description": "A remote procedure call (RPC) operation.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionPathParameter"
+          },
+          {
+            "$ref": "#/parameters/CompareOptions.returnFaceLandmarks"
+          },
+          {
+            "$ref": "#/parameters/CompareOptions.returnFaceAttributes"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "sourceImageUrl": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "URL of the first face image."
+                },
+                "targetImageUrl": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "URL of the second face image."
+                }
+              },
+              "required": [
+                "sourceImageUrl",
+                "targetImageUrl"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "schema": {
+              "$ref": "#/definitions/CompareResult"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
+            },
+            "headers": {
+              "x-ms-error-code": {
+                "type": "string",
+                "description": "String error code indicating what went wrong."
+              }
+            }
+          }
+        }
+      }
+    },
     "/face/{apiVersion}/detect": {
       "post": {
         "operationId": "DetectFromUrl",
@@ -4029,6 +4090,98 @@
     }
   },
   "x-ms-paths": {
+    "/face/{apiVersion}/compare?_overload=compareFromStream": {
+      "post": {
+        "operationId": "CompareFromStream",
+        "description": "A remote procedure call (RPC) operation.",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionPathParameter"
+          },
+          {
+            "$ref": "#/parameters/CompareOptions.returnFaceLandmarks"
+          },
+          {
+            "$ref": "#/parameters/CompareOptions.returnFaceAttributes"
+          },
+          {
+            "$ref": "#/parameters/CompareFromStreamContent.source"
+          },
+          {
+            "$ref": "#/parameters/CompareFromStreamContent.target"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "schema": {
+              "$ref": "#/definitions/CompareResult"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
+            },
+            "headers": {
+              "x-ms-error-code": {
+                "type": "string",
+                "description": "String error code indicating what went wrong."
+              }
+            }
+          }
+        }
+      }
+    },
+    "/face/{apiVersion}/compare?_overload=compareFromUrlAndStream": {
+      "post": {
+        "operationId": "CompareFromUrlAndStream",
+        "description": "A remote procedure call (RPC) operation.",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionPathParameter"
+          },
+          {
+            "$ref": "#/parameters/CompareOptions.returnFaceLandmarks"
+          },
+          {
+            "$ref": "#/parameters/CompareOptions.returnFaceAttributes"
+          },
+          {
+            "$ref": "#/parameters/CompareFromUrlAndStreamContent.source"
+          },
+          {
+            "$ref": "#/parameters/CompareFromUrlAndStreamContent.target"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "schema": {
+              "$ref": "#/definitions/CompareResult"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
+            },
+            "headers": {
+              "x-ms-error-code": {
+                "type": "string",
+                "description": "String error code indicating what went wrong."
+              }
+            }
+          }
+        }
+      }
+    },
     "/face/{apiVersion}/detect?_overload=detectFromStream": {
       "post": {
         "operationId": "DetectFromStream",
@@ -5367,6 +5520,74 @@
       "required": [
         "blurLevel",
         "value"
+      ]
+    },
+    "CompareFromStreamContent": {
+      "type": "object",
+      "description": "Request body for compare operation.",
+      "properties": {
+        "source": {
+          "type": "string",
+          "format": "byte",
+          "description": "The source image to compare."
+        },
+        "target": {
+          "type": "string",
+          "format": "byte",
+          "description": "The target image to compare."
+        }
+      },
+      "required": [
+        "source",
+        "target"
+      ]
+    },
+    "CompareFromUrlAndStreamContent": {
+      "type": "object",
+      "description": "Request body for compare operation.",
+      "properties": {
+        "source": {
+          "type": "string",
+          "format": "uri",
+          "description": "The source image url to compare."
+        },
+        "target": {
+          "type": "string",
+          "format": "byte",
+          "description": "The target image to compare."
+        }
+      },
+      "required": [
+        "source",
+        "target"
+      ]
+    },
+    "CompareResult": {
+      "type": "object",
+      "description": "Response body for compare operation.",
+      "properties": {
+        "sourceImageFace": {
+          "$ref": "#/definitions/SourceImageFace",
+          "description": "Face in source image."
+        },
+        "targetImageFace": {
+          "$ref": "#/definitions/TargetImageFace",
+          "description": "Face in target image."
+        },
+        "detectionModel": {
+          "$ref": "#/definitions/DetectionModel",
+          "description": "Detection model used for compare operation."
+        },
+        "recognitionModel": {
+          "$ref": "#/definitions/RecognitionModel",
+          "description": "Recognition model used for compare operation."
+        }
+      },
+      "required": [
+        "sourceImageFace",
+        "targetImageFace",
+        "detectionModel",
+        "recognitionModel"
       ]
     },
     "CreatePersonResult": {
@@ -7249,6 +7470,59 @@
         ]
       }
     },
+    "SourceImageFace": {
+      "type": "object",
+      "description": "Face in source image.",
+      "properties": {
+        "faceRectangle": {
+          "$ref": "#/definitions/FaceRectangle",
+          "description": "Rectangle area of the detected face."
+        },
+        "faceLandmarks": {
+          "$ref": "#/definitions/FaceLandmarks",
+          "description": "An array of 27-point face landmarks pointing to the important positions of face components. To return this, it requires 'returnFaceLandmarks' parameter to be true."
+        },
+        "faceAttributes": {
+          "$ref": "#/definitions/FaceAttributes",
+          "description": "Face attributes fore detected face."
+        }
+      },
+      "required": [
+        "faceRectangle"
+      ]
+    },
+    "TargetImageFace": {
+      "type": "object",
+      "description": "Face in target image.",
+      "properties": {
+        "faceRectangle": {
+          "$ref": "#/definitions/FaceRectangle",
+          "description": "Rectangle area of the detected face."
+        },
+        "faceLandmarks": {
+          "$ref": "#/definitions/FaceLandmarks",
+          "description": "An array of 27-point face landmarks pointing to the important positions of face components. To return this, it requires 'returnFaceLandmarks' parameter to be true."
+        },
+        "faceAttributes": {
+          "$ref": "#/definitions/FaceAttributes",
+          "description": "Face attributes fore detected face."
+        },
+        "isIdentical": {
+          "type": "boolean",
+          "description": "True if the two faces belong to the same person or the face belongs to the person, otherwise false."
+        },
+        "confidence": {
+          "type": "number",
+          "format": "float",
+          "description": "Confidence score of whether the two faces belong to the same person or whether the face belongs to the person. The range is [0, 1]."
+        }
+      },
+      "required": [
+        "faceRectangle",
+        "isIdentical",
+        "confidence"
+      ]
+    },
     "TrainingStatus": {
       "type": "object",
       "description": "Training status of a container",
@@ -7413,6 +7687,55 @@
       "description": "The API version to use for this operation.",
       "required": true,
       "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "CompareFromStreamContent.source": {
+      "name": "source",
+      "in": "formData",
+      "description": "The source image to compare.",
+      "required": true,
+      "type": "file",
+      "x-ms-parameter-location": "method"
+    },
+    "CompareFromStreamContent.target": {
+      "name": "target",
+      "in": "formData",
+      "description": "The target image to compare.",
+      "required": true,
+      "type": "file",
+      "x-ms-parameter-location": "method"
+    },
+    "CompareFromUrlAndStreamContent.source": {
+      "name": "source",
+      "in": "formData",
+      "description": "The source image url to compare.",
+      "required": true,
+      "type": "string",
+      "format": "uri",
+      "x-ms-parameter-location": "method"
+    },
+    "CompareFromUrlAndStreamContent.target": {
+      "name": "target",
+      "in": "formData",
+      "description": "The target image to compare.",
+      "required": true,
+      "type": "file",
+      "x-ms-parameter-location": "method"
+    },
+    "CompareOptions.returnFaceAttributes": {
+      "name": "returnFaceAttributes",
+      "in": "query",
+      "description": "Whether to return face attributes of the two faces. The default value is false.",
+      "required": false,
+      "type": "boolean",
+      "x-ms-parameter-location": "method"
+    },
+    "CompareOptions.returnFaceLandmarks": {
+      "name": "returnFaceLandmarks",
+      "in": "query",
+      "description": "Whether to return face landmarks of the two faces. The default value is false.",
+      "required": false,
+      "type": "boolean",
       "x-ms-parameter-location": "method"
     },
     "FaceDetectionOptions.detectionModel": {
