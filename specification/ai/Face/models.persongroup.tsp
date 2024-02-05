@@ -11,35 +11,35 @@ namespace Face;
 
 @doc("Base model for person group.")
 model BasePersonGroup {
-    ...NameAndUserData;
+  ...NameAndUserData;
 
-    @doc("Name of recognition model. Recognition model is used when the face features are extracted and associated with detected faceIds. The default value is 'recognition_01', if latest model needed, please explicitly specify the model you need.")
-    @visibility("read")
-    recognitionModel?: RecognitionModel;
+  @doc("Name of recognition model. Recognition model is used when the face features are extracted and associated with detected faceIds. The default value is 'recognition_01', if latest model needed, please explicitly specify the model you need.")
+  @visibility("read")
+  recognitionModel?: RecognitionModel;
 }
 
 @resource("persons")
 @doc("Base model for person.")
 model BasePersonGroupPerson {
-    @key
-    @visibility("read")
-    @doc("ID of the person.")
-    personId: string;
+  @key
+  @visibility("read")
+  @doc("ID of the person.")
+  personId: string;
 
-    ...NameAndUserData;
+  ...NameAndUserData;
 
-    @doc("Face ids of registered faces in the person.")
-    @visibility("read")
-    persistedFaceIds?: string[];
+  @doc("Face ids of registered faces in the person.")
+  @visibility("read")
+  persistedFaceIds?: string[];
 }
 
 @resource("persongroups")
 @doc("Free-tier subscription quota: 1,000 person groups. Each holds up to 1,000 persons. S0-tier subscription quota: 1,000,000 person groups. Each holds up to 10,000 persons. To handle larger scale face identification problem, please consider using LargePersonGroup.")
 model PersonGroup is BasePersonGroup {
-    @key
-    @visibility("read")
-    @doc("ID of the container.")
-    personGroupId: string;
+  @key
+  @visibility("read")
+  @doc("ID of the container.")
+  personGroupId: string;
 }
 
 @parentResource(PersonGroup)
@@ -53,10 +53,10 @@ model PersonGroupPersonFace is BaseFace;
 @doc("The container of the uploaded person data, including face recognition feature, and up to 1,000,000 people.")
 @resource("largepersongroups")
 model LargePersonGroup is BasePersonGroup {
-    @key
-    @visibility("read")
-    @doc("ID of the container.")
-    largePersonGroupId: string;
+  @key
+  @visibility("read")
+  @doc("ID of the container.")
+  largePersonGroupId: string;
 }
 
 @parentResource(LargePersonGroup)

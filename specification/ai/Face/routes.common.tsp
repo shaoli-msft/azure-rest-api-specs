@@ -12,8 +12,7 @@ using Foundations;
 
 namespace Face;
 
-alias ServiceTraits =
-  NoClientRequestId &
+alias ServiceTraits = NoClientRequestId &
   NoRepeatableRequests &
   NoConditionalRequests &
   TraitOverride<VersionParameterTrait<ApiVersionPathParameter>>;
@@ -30,35 +29,29 @@ op FaceResourceCreateWithServiceProvidedName<
   TParams,
   TResponse,
   ServiceTraits
-  >;
+>;
 
 @createsOrReplacesResource(TResource)
-op FaceResourceCreateOperation<
-  TResource extends TypeSpec.Reflection.Model
-> is Foundations.ResourceOperation<
+op FaceResourceCreateOperation<TResource extends TypeSpec.Reflection.Model> is Foundations.ResourceOperation<
   TResource,
   Foundations.ResourceBody<TResource>,
   TypeSpec.Http.OkResponse,
   ServiceTraits
-  >;
+>;
 
 @sharedRoute
 @createsResource(TFace)
-op AddFaceWithUrl<
-  TFace extends BaseFace
-> is Foundations.ResourceCollectionOperation<
+op AddFaceFromUrl<TFace extends BaseFace> is Foundations.ResourceCollectionOperation<
   TFace,
   AddFaceOptions & Body<AddFaceFromUrlContent>,
   AddFaceResult,
   ServiceTraits
-  >;
+>;
 
 #suppress "@azure-tools/typespec-azure-core/byos" "It's a template."
 @sharedRoute
 @createsResource(TFace)
-op AddFaceWithStream<
-  TFace extends BaseFace
-> is Foundations.ResourceCollectionOperation<
+op AddFaceFromStream<TFace extends BaseFace> is Foundations.ResourceCollectionOperation<
   TFace,
   AddFaceOptions & {
     @doc("The format of the HTTP payload.")
@@ -71,7 +64,7 @@ op AddFaceWithStream<
   },
   AddFaceResult,
   ServiceTraits
-  >;
+>;
 
 @updatesResource(TResource)
 op FaceResourceUpdateOperation<
@@ -82,7 +75,7 @@ op FaceResourceUpdateOperation<
   TParams,
   OkResponse,
   ServiceTraits
-  >;
+>;
 
 op FaceResourceListOperation<
   TResource extends TypeSpec.Reflection.Model,
@@ -93,7 +86,7 @@ op FaceResourceListOperation<
   ListRequestOptions & TQuery,
   Body<TResourceItem[]>,
   ServiceTraits
-  >;
+>;
 
 @deletesResource(TResource)
 op FaceResourceDeleteOperation<TResource extends TypeSpec.Reflection.Model> is Foundations.ResourceOperation<
@@ -101,73 +94,78 @@ op FaceResourceDeleteOperation<TResource extends TypeSpec.Reflection.Model> is F
   {},
   TypeSpec.Http.OkResponse,
   ServiceTraits
-  >;
+>;
 
 @sharedRoute
 @post
 @route("/face/{apiVersion}/identify")
 op IdentifyOperation<T extends TypeSpec.Reflection.Model> is Azure.Core.RpcOperation<
-{
-  @doc("Array of query faces faceIds, created by the Face - Detect. Each of the faces are identified independently. The valid number of faceIds is between [1, 10].")
-  faceIds: string[];
-  ...T;
+  {
+    @doc("Array of query faces faceIds, created by the Face - Detect. Each of the faces are identified independently. The valid number of faceIds is between [1, 10].")
+    faceIds: string[];
 
-  @doc("The range of maxNumOfCandidatesReturned is between 1 and 100 (default is 10).")
-  maxNumOfCandidatesReturned?: int32;
+    ...T;
 
-  @doc("Customized identification confidence threshold, in the range of [0, 1]. Advanced user can tweak this value to override default internal threshold for better precision on their scenario data. Note there is no guarantee of this threshold value working on other data and after algorithm updates.")
-  confidenceThreshold?: float32;
-},
-Body<IdentifyResult[]>,
-ServiceTraits>;
+    @doc("The range of maxNumOfCandidatesReturned is between 1 and 100 (default is 10).")
+    maxNumOfCandidatesReturned?: int32;
+
+    @doc("Customized identification confidence threshold, in the range of [0, 1]. Advanced user can tweak this value to override default internal threshold for better precision on their scenario data. Note there is no guarantee of this threshold value working on other data and after algorithm updates.")
+    confidenceThreshold?: float32;
+  },
+  Body<IdentifyResult[]>,
+  ServiceTraits
+>;
 
 @sharedRoute
 @post
 @route("/face/{apiVersion}/verify")
 op VerifyOperation<T extends TypeSpec.Reflection.Model> is Azure.Core.RpcOperation<
-{
-  @doc("faceId of the face, comes from Face - Detect.")
-  faceId: string;
+  {
+    @doc("faceId of the face, comes from Face - Detect.")
+    faceId: string;
 
-  ...T;
-},
-VerifyResult,
-ServiceTraits>;
+    ...T;
+  },
+  VerifyResult,
+  ServiceTraits
+>;
 
 @sharedRoute
 @post
 @route("/face/{apiVersion}/findsimilars")
 op FindSimilarOperation<Ttarget extends TypeSpec.Reflection.Model> is Azure.Core.RpcOperation<
-{
-  @doc("faceId of the face, comes from Face - Detect.")
-  faceId: string;
+  {
+    @doc("faceId of the face, comes from Face - Detect.")
+    faceId: string;
 
-  @doc("The number of top similar faces returned. The valid range is [1, 1000].It defaults to 20.")
-  maxNumOfCandidatesReturned?: int32;
+    @doc("The number of top similar faces returned. The valid range is [1, 1000].It defaults to 20.")
+    maxNumOfCandidatesReturned?: int32;
 
-  @doc("Similar face searching mode. It can be 'matchPerson' or 'matchFace'. It defaults to 'matchPerson'.")
-  mode?: FindSimilarMatchMode;
+    @doc("Similar face searching mode. It can be 'matchPerson' or 'matchFace'. It defaults to 'matchPerson'.")
+    mode?: FindSimilarMatchMode;
 
-  ...Ttarget;
-},
-Body<FindSimilarResult[]>,
-ServiceTraits>;
+    ...Ttarget;
+  },
+  Body<FindSimilarResult[]>,
+  ServiceTraits
+>;
 
 #suppress "@azure-tools/typespec-azure-core/no-rpc-path-params" "Workaround for RpcOperation not handling api version in path."
 @post
 @sharedRoute
 @route("/face/{apiVersion}/detect")
 op detectFromUrl is Azure.Core.RpcOperation<
-FaceDetectionOptions & {
-  @doc("The format of the HTTP payload.")
-  @header
-  contentType: "application/json";
+  FaceDetectionOptions & {
+    @doc("The format of the HTTP payload.")
+    @header
+    contentType: "application/json";
 
-  @doc("URL of input image.")
-  url: string;
-},
-Body<FaceDetectionResult[]>,
-ServiceTraits>;
+    @doc("URL of input image.")
+    url: string;
+  },
+  Body<FaceDetectionResult[]>,
+  ServiceTraits
+>;
 
 #suppress "@azure-tools/typespec-azure-core/byos" "It's an RPC call to detect face from an image, it doesn't store anything. There's a BYOS version of this call, but it's not this one."
 #suppress "@azure-tools/typespec-azure-core/no-rpc-path-params" "Workaround for RpcOperation not handling api version in path."
@@ -175,21 +173,21 @@ ServiceTraits>;
 @sharedRoute
 @route("/face/{apiVersion}/detect")
 op detectFromStream is Azure.Core.RpcOperation<
-FaceDetectionOptions & {
-  @doc("The format of the HTTP payload.")
-  @header
-  contentType: "application/octet-stream";
+  FaceDetectionOptions & {
+    @doc("The format of the HTTP payload.")
+    @header
+    contentType: "application/octet-stream";
 
-  @doc("The image to be analyzed")
-  @body
-  imageContent: bytes;
-},
-Body<FaceDetectionResult[]>,
-ServiceTraits>;
+    @doc("The image to be analyzed")
+    @body
+    imageContent: bytes;
+  },
+  Body<FaceDetectionResult[]>,
+  ServiceTraits
+>;
 
 #suppress "@azure-tools/typespec-azure-core/no-rpc-path-params" "Workaround for RpcOperation not handling api version in path."
-op findSimilar is FindSimilarOperation<
-{
+op findSimilar is FindSimilarOperation<{
   @doc("An array of candidate faceIds. All of them are created by Face - Detect and the faceIds will expire 24 hours after the detection call. The number of faceIds is limited to 1000.")
   faceIds: string[];
 }>;
@@ -199,40 +197,38 @@ op findSimilar is FindSimilarOperation<
 @post
 @route("/face/{apiVersion}/verify")
 op verify is Azure.Core.RpcOperation<
-{
-  @doc("faceId of the face, comes from Face - Detect.")
-  faceId1: string;
+  {
+    @doc("faceId of the face, comes from Face - Detect.")
+    faceId1: string;
 
-  @doc("faceId of the face, comes from Face - Detect.")
-  faceId2: string;
-},
-VerifyResult,
-ServiceTraits>;
+    @doc("faceId of the face, comes from Face - Detect.")
+    faceId2: string;
+  },
+  VerifyResult,
+  ServiceTraits
+>;
 
 #suppress "@azure-tools/typespec-azure-core/no-rpc-path-params" "Workaround for RpcOperation not handling api version in path."
 @post
 @route("/face/{apiVersion}/group")
 op group is Azure.Core.RpcOperation<
-{
-  @doc("Array of candidate faceId created by Face - Detect. The maximum is 1000 faces.")
-  faceIds: string[];
-},
-GroupResult,
-ServiceTraits>;
+  {
+    @doc("Array of candidate faceId created by Face - Detect. The maximum is 1000 faces.")
+    faceIds: string[];
+  },
+  GroupResult,
+  ServiceTraits
+>;
 
 #suppress "@azure-tools/typespec-azure-core/no-rpc-path-params" "Workaround for RpcOperation not handling api version in path."
 @post
 @sharedRoute
 @route("/face/{apiVersion}/compare")
 op compare is Azure.Core.RpcOperation<
-{
-  @doc("URL of the first face image.")
-  sourceImageUrl: url,
-  @doc("URL of the second face image.")
-  targetImageUrl: url,
-} & CompareOptions,
-CompareResult,
-ServiceTraits>;
+  CompareFromUrlsContent & CompareOptions,
+  CompareResult,
+  ServiceTraits
+>;
 
 #suppress "@azure-tools/typespec-azure-core/byos" "It's an RPC call to compare faces from images, it doesn't store anything. There's a BYOS version of this call, but it's not this one."
 #suppress "@azure-tools/typespec-azure-core/no-rpc-path-params" "Workaround for RpcOperation not handling api version in path."
@@ -240,9 +236,10 @@ ServiceTraits>;
 @sharedRoute
 @route("/face/{apiVersion}/compare")
 op compareFromStream is Azure.Core.RpcOperation<
-CompareFromStreamContent & CompareOptions,
-CompareResult,
-ServiceTraits>;
+  CompareFromStreamsContent & CompareOptions,
+  CompareResult,
+  ServiceTraits
+>;
 
 #suppress "@azure-tools/typespec-azure-core/byos" "It's an RPC call to compare faces from images, it doesn't store anything. There's a BYOS version of this call, but it's not this one."
 #suppress "@azure-tools/typespec-azure-core/no-rpc-path-params" "Workaround for RpcOperation not handling api version in path."
@@ -250,6 +247,7 @@ ServiceTraits>;
 @sharedRoute
 @route("/face/{apiVersion}/compare")
 op compareFromUrlAndStream is Azure.Core.RpcOperation<
-CompareFromUrlAndStreamContent & CompareOptions,
-CompareResult,
-ServiceTraits>;
+  CompareFromUrlAndStreamContent & CompareOptions,
+  CompareResult,
+  ServiceTraits
+>;

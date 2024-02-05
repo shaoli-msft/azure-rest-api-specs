@@ -244,7 +244,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/LivenessSessionParameters"
+              "$ref": "#/definitions/LivenessSessionCreationContent"
             }
           }
         ],
@@ -439,7 +439,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/LivenessSessionParameters"
+              "$ref": "#/definitions/LivenessSessionCreationContent"
             }
           }
         ],
@@ -1096,7 +1096,17 @@
             "description": "The body type of the operation request or response.",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/AddFaceFromUrlContent"
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "URL of input image."
+                }
+              },
+              "required": [
+                "url"
+              ]
             }
           }
         ],
@@ -1635,7 +1645,17 @@
             "description": "The body type of the operation request or response.",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/AddFaceFromUrlContent"
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "URL of input image."
+                }
+              },
+              "required": [
+                "url"
+              ]
             }
           }
         ],
@@ -2334,7 +2354,17 @@
             "description": "The body type of the operation request or response.",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/AddFaceFromUrlContent"
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "URL of input image."
+                }
+              },
+              "required": [
+                "url"
+              ]
             }
           }
         ],
@@ -3092,7 +3122,17 @@
             "description": "The body type of the operation request or response.",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/AddFaceFromUrlContent"
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "URL of input image."
+                }
+              },
+              "required": [
+                "url"
+              ]
             }
           }
         ],
@@ -3742,7 +3782,17 @@
             "description": "The body type of the operation request or response.",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/AddFaceFromUrlContent"
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "URL of input image."
+                }
+              },
+              "required": [
+                "url"
+              ]
             }
           }
         ],
@@ -4108,10 +4158,10 @@
             "$ref": "#/parameters/CompareOptions.returnFaceAttributes"
           },
           {
-            "$ref": "#/parameters/CompareFromStreamContent.source"
+            "$ref": "#/parameters/CompareFromStreamsContent.source"
           },
           {
-            "$ref": "#/parameters/CompareFromStreamContent.target"
+            "$ref": "#/parameters/CompareFromStreamsContent.target"
           }
         ],
         "responses": {
@@ -4263,10 +4313,10 @@
             "$ref": "#/parameters/ApiVersionPathParameter"
           },
           {
-            "$ref": "#/parameters/LivenessWithVerifySessionParameters.Parameters"
+            "$ref": "#/parameters/LivenessSessionWithVerifyImageCreationContent.CreationContent"
           },
           {
-            "$ref": "#/parameters/LivenessWithVerifySessionParameters.VerifyImage"
+            "$ref": "#/parameters/LivenessSessionWithVerifyImageCreationContent.VerifyImage"
           }
         ],
         "responses": {
@@ -5199,7 +5249,7 @@
           {
             "name": "headwear",
             "value": "headwear",
-            "description": "Headwear"
+            "description": "Head wear"
           },
           {
             "name": "glasses",
@@ -5213,19 +5263,6 @@
           }
         ]
       }
-    },
-    "AddFaceFromUrlContent": {
-      "type": "object",
-      "description": "Model for add face from url.",
-      "properties": {
-        "url": {
-          "type": "string",
-          "description": "URL of input image."
-        }
-      },
-      "required": [
-        "url"
-      ]
     },
     "AddFaceResult": {
       "type": "object",
@@ -5522,7 +5559,7 @@
         "value"
       ]
     },
-    "CompareFromStreamContent": {
+    "CompareFromStreamsContent": {
       "type": "object",
       "description": "Request body for compare operation.",
       "properties": {
@@ -5637,6 +5674,11 @@
       "type": "object",
       "description": "A container that references PersonDirectory Person - Create.",
       "properties": {
+        "dynamicPersonGroupId": {
+          "type": "string",
+          "description": "ID of the dynamic person group.",
+          "readOnly": true
+        },
         "name": {
           "type": "string",
           "description": "User defined name, maximum length is 128."
@@ -5657,6 +5699,7 @@
         }
       },
       "required": [
+        "dynamicPersonGroupId",
         "name"
       ]
     },
@@ -6719,6 +6762,68 @@
         "digest"
       ]
     },
+    "LivenessSessionCreationContent": {
+      "type": "object",
+      "description": "Request for creating liveness session.",
+      "properties": {
+        "livenessOperationMode": {
+          "type": "string",
+          "description": "The operation mode for the liveness modal."
+        },
+        "sendResultsToClient": {
+          "type": "boolean",
+          "description": "Whether or not send back the operation response to client."
+        },
+        "deviceCorrelationIdSetInClient": {
+          "type": "boolean",
+          "description": "Whether or not the device correlation id is set by the client."
+        },
+        "deviceCorrelationId": {
+          "type": "string",
+          "description": "Device Correlation Id to use for linking multiple sessions together."
+        },
+        "authTokenTimeToLiveInSeconds": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Session length in seconds. Range is 60 to 86400 seconds."
+        }
+      },
+      "required": [
+        "livenessOperationMode",
+        "deviceCorrelationId"
+      ]
+    },
+    "LivenessSessionCreationContentForMultipart": {
+      "type": "object",
+      "description": "Dedicated parameter model for multipart/form-data.",
+      "properties": {
+        "livenessOperationMode": {
+          "type": "string",
+          "description": "The operation mode for the liveness modal."
+        },
+        "sendResultsToClient": {
+          "type": "boolean",
+          "description": "Whether or not send back the operation response to client."
+        },
+        "deviceCorrelationIdSetInClient": {
+          "type": "boolean",
+          "description": "Whether or not the device correlation id is set by the client."
+        },
+        "deviceCorrelationId": {
+          "type": "string",
+          "description": "Device Correlation Id to use for linking multiple sessions together."
+        },
+        "authTokenTimeToLiveInSeconds": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Session length in seconds. Range is 60 to 86400 seconds."
+        }
+      },
+      "required": [
+        "livenessOperationMode",
+        "deviceCorrelationId"
+      ]
+    },
     "LivenessSessionCreationResult": {
       "type": "object",
       "description": "Response of liveness session creation.",
@@ -6798,35 +6903,23 @@
         "deviceCorrelationId"
       ]
     },
-    "LivenessSessionParameters": {
+    "LivenessSessionWithVerifyImageCreationContent": {
       "type": "object",
-      "description": "Request for creating liveness session.",
+      "description": "Request of liveness with verify session creation.",
       "properties": {
-        "livenessOperationMode": {
+        "CreationContent": {
+          "$ref": "#/definitions/LivenessSessionCreationContentForMultipart",
+          "description": "The CreationContent for creating session."
+        },
+        "VerifyImage": {
           "type": "string",
-          "description": "The operation mode for the liveness modal."
-        },
-        "sendResultsToClient": {
-          "type": "boolean",
-          "description": "Whether or not send back the operation response to client."
-        },
-        "deviceCorrelationIdSetInClient": {
-          "type": "boolean",
-          "description": "Whether or not the device correlation id is set by the client."
-        },
-        "deviceCorrelationId": {
-          "type": "string",
-          "description": "Device Correlation Id to use for linking multiple sessions together."
-        },
-        "authTokenTimeToLiveInSeconds": {
-          "type": "integer",
-          "format": "int32",
-          "description": "Session length in seconds. Range is 60 to 86400 seconds."
+          "format": "byte",
+          "description": "The image stream for verify."
         }
       },
       "required": [
-        "livenessOperationMode",
-        "deviceCorrelationId"
+        "CreationContent",
+        "VerifyImage"
       ]
     },
     "LivenessWithVerifySession": {
@@ -6932,25 +7025,6 @@
         "request",
         "response",
         "digest"
-      ]
-    },
-    "LivenessWithVerifySessionParameters": {
-      "type": "object",
-      "description": "Request of liveness with verify session creation.",
-      "properties": {
-        "Parameters": {
-          "$ref": "#/definitions/LivenessSessionParameters",
-          "description": "The parameters for creating session."
-        },
-        "VerifyImage": {
-          "type": "string",
-          "format": "byte",
-          "description": "The image stream for verify."
-        }
-      },
-      "required": [
-        "Parameters",
-        "VerifyImage"
       ]
     },
     "MaskProperties": {
@@ -7199,7 +7273,20 @@
     },
     "PersonDirectoryRecognitionModel": {
       "type": "object",
-      "description": "Middle tier resource for person directory."
+      "description": "Middle tier resource for person directory.",
+      "properties": {
+        "recognitionModel": {
+          "$ref": "#/definitions/RecognitionModel",
+          "description": "The 'recognitionModel' associated with faces.",
+          "x-ms-mutability": [
+            "read",
+            "create"
+          ]
+        }
+      },
+      "required": [
+        "recognitionModel"
+      ]
     },
     "PersonGroup": {
       "type": "object",
@@ -7689,7 +7776,7 @@
       "type": "string",
       "x-ms-parameter-location": "method"
     },
-    "CompareFromStreamContent.source": {
+    "CompareFromStreamsContent.source": {
       "name": "source",
       "in": "formData",
       "description": "The source image to compare.",
@@ -7697,7 +7784,7 @@
       "type": "file",
       "x-ms-parameter-location": "method"
     },
-    "CompareFromStreamContent.target": {
+    "CompareFromStreamsContent.target": {
       "name": "target",
       "in": "formData",
       "description": "The target image to compare.",
@@ -7870,15 +7957,15 @@
       "format": "int32",
       "x-ms-parameter-location": "method"
     },
-    "LivenessWithVerifySessionParameters.Parameters": {
-      "name": "Parameters",
+    "LivenessSessionWithVerifyImageCreationContent.CreationContent": {
+      "name": "CreationContent",
       "in": "formData",
-      "description": "The parameters for creating session.",
+      "description": "The CreationContent for creating session.",
       "required": true,
       "type": "string",
       "x-ms-parameter-location": "method"
     },
-    "LivenessWithVerifySessionParameters.VerifyImage": {
+    "LivenessSessionWithVerifyImageCreationContent.VerifyImage": {
       "name": "VerifyImage",
       "in": "formData",
       "description": "The image stream for verify.",

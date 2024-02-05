@@ -12,30 +12,38 @@ using Foundations;
 namespace Face;
 
 interface BasePersonGroups<
-    TGroup extends BasePersonGroup,
-    TPerson extends BasePersonGroupPerson,
-    TFace extends BaseFace>
-{
+  TGroup extends BasePersonGroup,
+  TPerson extends BasePersonGroupPerson,
+  TFace extends BaseFace
+> {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
   createGroup is FaceResourceCreateOperation<TGroup>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
   deleteGroup is FaceResourceDeleteOperation<TGroup>;
 
-  getGroup is Operations.ResourceRead<TGroup, QueryParametersTrait<ReturnRecognitionModelOptions>>;
+  getGroup is Operations.ResourceRead<
+    TGroup,
+    QueryParametersTrait<ReturnRecognitionModelOptions>
+  >;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
   updateGroup is FaceResourceUpdateOperation<TGroup>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
-  listGroup is FaceResourceListOperation<TGroup, TGroup, ReturnRecognitionModelOptions>;
+  listGroup is FaceResourceListOperation<
+    TGroup,
+    TGroup,
+    ReturnRecognitionModelOptions
+  >;
 
   @action("train")
   @actionSeparator("/")
   trainGroup is Operations.ResourceAction<
     TGroup,
     {},
-    TypeSpec.Http.AcceptedResponse>;
+    TypeSpec.Http.AcceptedResponse
+  >;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
   @get
@@ -45,7 +53,8 @@ interface BasePersonGroups<
     TGroup,
     {},
     TrainingStatus,
-    ServiceTraits>;
+    ServiceTraits
+  >;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
   createPerson is FaceResourceCreateWithServiceProvidedName<TPerson>;
@@ -63,12 +72,12 @@ interface BasePersonGroups<
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
   @sharedRoute
-  addFaceFromUrl is AddFaceWithUrl<TFace>;
+  addFaceFromUrl is AddFaceFromUrl<TFace>;
 
   #suppress "@azure-tools/typespec-azure-core/byos" "It's an RPC call to detect face from an image, it doesn't store anything. There's a BYOS version of this call, but it's not this one."
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
   @sharedRoute
-  addFaceFromStream is AddFaceWithStream<TFace>;
+  addFaceFromStream is AddFaceFromStream<TFace>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
   deleteFace is FaceResourceDeleteOperation<TFace>;
@@ -79,20 +88,20 @@ interface BasePersonGroups<
   updateFace is FaceResourceUpdateOperation<TFace>;
 }
 
-interface PersonGroups extends BasePersonGroups<
-  PersonGroup,
-  PersonGroupPerson,
-  PersonGroupPersonFace> {
+interface PersonGroups
+  extends BasePersonGroups<
+      PersonGroup,
+      PersonGroupPerson,
+      PersonGroupPersonFace
+    > {
   #suppress "@azure-tools/typespec-azure-core/no-rpc-path-params" "Workaround for RpcOperation not handling api version in path."
-  identifyFromPersonGroup is IdentifyOperation<
-  {
+  identifyFromPersonGroup is IdentifyOperation<{
     @doc("Id of the target person group, created by PersonGroup - Create.")
     personGroupId: string;
   }>;
 
   #suppress "@azure-tools/typespec-azure-core/no-rpc-path-params" "Workaround for RpcOperation not handling api version in path."
-  verifyFromPersonGroup is VerifyOperation<
-  {
+  verifyFromPersonGroup is VerifyOperation<{
     @doc("Id of the target person group, created by PersonGroup - Create.")
     personGroupId: string;
 
@@ -101,20 +110,20 @@ interface PersonGroups extends BasePersonGroups<
   }>;
 }
 
-interface LargePersonGroups extends BasePersonGroups<
-  LargePersonGroup,
-  LargePersonGroupPerson, 
-  LargePersonGroupPersonFace> {
+interface LargePersonGroups
+  extends BasePersonGroups<
+      LargePersonGroup,
+      LargePersonGroupPerson,
+      LargePersonGroupPersonFace
+    > {
   #suppress "@azure-tools/typespec-azure-core/no-rpc-path-params" "Workaround for RpcOperation not handling api version in path."
-  identifyFromLargePersonGroup is IdentifyOperation<
-  {
+  identifyFromLargePersonGroup is IdentifyOperation<{
     @doc("Id of the target large person group, created by LargePersonGroup - Create.")
     largePersonGroupId: string;
   }>;
 
   #suppress "@azure-tools/typespec-azure-core/no-rpc-path-params" "Workaround for RpcOperation not handling api version in path."
-  verifyFromLargePersonGroup is VerifyOperation<
-  {
+  verifyFromLargePersonGroup is VerifyOperation<{
     @doc("Id of the target large person group, created by LargePersonGroup - Create.")
     largePersonGroupId: string;
 

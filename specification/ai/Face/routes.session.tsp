@@ -11,8 +11,10 @@ using Foundations;
 
 namespace Face;
 
-interface BaseSessions<T extends LivenessSessionItem, U extends BaseSessionAuditEntry>
-{
+interface BaseSessions<
+  T extends LivenessSessionItem,
+  U extends BaseSessionAuditEntry
+> {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "ResourceList does not fit, we put object array in response directly"
   listSessions is FaceResourceListOperation<T, LivenessSessionItem>;
 
@@ -29,29 +31,35 @@ interface BaseSessions<T extends LivenessSessionItem, U extends BaseSessionAudit
   >;
 }
 
-interface LivenessSessions extends BaseSessions<LivenessSession, LivenessSessionAuditEntry>
-{
+interface LivenessSessions
+  extends BaseSessions<LivenessSession, LivenessSessionAuditEntry> {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "ResourceCreateWithServiceProvidedName does not fit, we don't return Location in header."
   createSession is FaceResourceCreateWithServiceProvidedName<
     LivenessSession,
-    LivenessSessionParameters,
-    LivenessSessionCreationResult>;
+    LivenessSessionCreationContent,
+    LivenessSessionCreationResult
+  >;
 }
 
-interface LivenessWithVerifySessions extends BaseSessions<LivenessWithVerifySession, LivenessWithVerifySessionAuditEntry>
-{
+interface LivenessWithVerifySessions
+  extends BaseSessions<
+      LivenessWithVerifySession,
+      LivenessWithVerifySessionAuditEntry
+    > {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "ResourceCreateWithServiceProvidedName does not fit, we don't return Location in header."
   @sharedRoute
   createSession is FaceResourceCreateWithServiceProvidedName<
     LivenessWithVerifySession,
-    LivenessSessionParameters,
-    LivenessSessionCreationResult>;
+    LivenessSessionCreationContent,
+    LivenessSessionCreationResult
+  >;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
   #suppress "@azure-tools/typespec-azure-core/byos" "Representation of existing multipart/form-data operation"
   @sharedRoute
   createSessionWithVerifyImage is FaceResourceCreateWithServiceProvidedName<
     LivenessWithVerifySession,
-    LivenessWithVerifySessionParameters,
-    LivenessSessionCreationResult>;
+    LivenessSessionWithVerifyImageCreationContent,
+    LivenessSessionCreationResult
+  >;
 }

@@ -19,13 +19,14 @@ op FaceResourceCollectionLongRunningOperation<
 > is Foundations.ResourceCollectionOperation<
   TResource,
   TParams,
-  TResponse & TypeSpec.Http.AcceptedResponse & {
-    @pollingLocation
-    @header("operation-Location")
-    operationLocation: ResourceLocation<AsyncOperationStatus>;
-  },
+  TResponse &
+    TypeSpec.Http.AcceptedResponse & {
+      @pollingLocation
+      @header("operation-Location")
+      operationLocation: ResourceLocation<AsyncOperationStatus>;
+    },
   ServiceTraits
-  >;
+>;
 
 @pollingOperation(FaceAsyncOperations.getStatus)
 op FaceResourceLongRunningOperation<
@@ -39,7 +40,8 @@ op FaceResourceLongRunningOperation<
     @header("operation-Location")
     operationLocation: ResourceLocation<AsyncOperationStatus>;
   }>,
-  ServiceTraits>;
+  ServiceTraits
+>;
 
 @pollingOperation(FaceAsyncOperations.getStatus)
 @deletesResource(TResource)
@@ -52,25 +54,23 @@ op FaceResourceDeleteLongRunningOperation<TResource extends TypeSpec.Reflection.
     operationLocation: ResourceLocation<AsyncOperationStatus>;
   },
   ServiceTraits
-  >;
+>;
 
-interface FaceAsyncOperations
-{
+interface FaceAsyncOperations {
   #suppress "@azure-tools/typespec-azure-core/no-rpc-path-params" "Workaround for RpcOperation not handling api version in path."
   @get
   @route("/face/{apiVersion}/operations/{operationId}")
   getStatus is Azure.Core.RpcOperation<
-  {
-    @doc("The operation ID, which can be found from the 'Operation-Location' response header in the initial request.")
-    operationId: string;
-  },
-  AsyncOperationStatus,
-  ServiceTraits
+    {
+      @doc("The operation ID, which can be found from the 'Operation-Location' response header in the initial request.")
+      operationId: string;
+    },
+    AsyncOperationStatus,
+    ServiceTraits
   >;
 }
 
-interface PersonDirectoryPersons
-{
+interface PersonDirectoryPersons {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
   @createsResource(PersonDirectoryPerson)
   createPerson is FaceResourceCollectionLongRunningOperation<
@@ -98,7 +98,8 @@ interface PersonDirectoryPersons
     PersonDirectoryPerson,
     ListRequestOptions,
     ListGroupReferenceResult,
-    ServiceTraits>;
+    ServiceTraits
+  >;
 
   #suppress "@azure-tools/typespec-azure-core/byos" "It's an RPC call to detect face from an image, it doesn't store anything. There's a BYOS version of this call, but it's not this one."
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
@@ -120,7 +121,7 @@ interface PersonDirectoryPersons
       @doc("The format of the HTTP payload.")
       @header
       contentType: "application/octet-stream";
-  
+
       @doc("The image to be analyzed")
       @body
       imageContent: bytes;
@@ -140,7 +141,7 @@ interface PersonDirectoryPersons
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
   @sharedRoute
   listFace is Foundations.ResourceList<
-  PersonDirectoryFace,
+    PersonDirectoryFace,
     {},
     ListFaceResult,
     ServiceTraits
@@ -153,15 +154,13 @@ interface PersonDirectoryPersons
   }>;
 
   #suppress "@azure-tools/typespec-azure-core/no-rpc-path-params" "Workaround for RpcOperation not handling api version in path."
-  verifyFromPersonDirectory is VerifyOperation<
-  {
+  verifyFromPersonDirectory is VerifyOperation<{
     @doc("Specify a certain person in PersonDirectory Person.")
     personId: string;
   }>;
 }
 
-interface PersonDirectoryDynamicPersonGroups
-{
+interface PersonDirectoryDynamicPersonGroups {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
   @createsOrReplacesResource(DynamicPersonGroup) // We use HTTP PUT but we don't support replace
   createGroup is FaceResourceLongRunningOperation<DynamicPersonGroup>;
@@ -179,7 +178,8 @@ interface PersonDirectoryDynamicPersonGroups
     Foundations.ResourceBody<DynamicPersonGroup & {
       @doc("Array of PersonDirectory person ids to remove from the DynamicPersonGroup.")
       removePersonIds?: string[];
-    }>>;
+    }>
+  >;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
   listGroup is FaceResourceListOperation<DynamicPersonGroup>;
@@ -192,8 +192,9 @@ interface PersonDirectoryDynamicPersonGroups
     DynamicPersonGroup,
     ListRequestOptions,
     ListPersonResult,
-    ServiceTraits>;
-  
+    ServiceTraits
+  >;
+
   #suppress "@azure-tools/typespec-azure-core/no-rpc-path-params" "Workaround for RpcOperation not handling api version in path."
   identifyFromDynamicPersonGroup is IdentifyOperation<{
     @doc("Id of the target PersonDirectory DynamicPersonGroup to match against.")
