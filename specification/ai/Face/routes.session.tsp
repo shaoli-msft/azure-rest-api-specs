@@ -29,6 +29,28 @@ interface BaseSessions<
     U,
     ServiceTraits & ListQueryParametersTrait<ListRequestOptions>
   >;
+
+  #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
+  @get
+  getSessionImage is Foundations.ResourceOperation<
+    T,
+    {
+      @doc("The request ID of the image to be retrieved")
+      @path
+      @segment("sessionImage/requests")
+      requestId: string;
+    },
+    {
+      @doc("The format of the HTTP payload.")
+      @header
+      contentType: "application/octet-stream";
+
+      @doc("The image to be analyzed")
+      @body
+      imageContent: bytes;
+    },
+    ServiceTraits
+  >;
 }
 
 interface LivenessSessions
@@ -63,3 +85,20 @@ interface LivenessWithVerifySessions
     LivenessSessionCreationResult
   >;
 }
+
+#suppress "@azure-tools/typespec-azure-core/no-rpc-path-params" "Workaround for RpcOperation not handling api version in path."
+@post
+@sharedRoute
+@route("/face/{apiVersion}/detect")
+op detectFromSessionImageId is Azure.Core.RpcOperation<
+  FaceDetectionOptions & {
+    @doc("The format of the HTTP payload.")
+    @header
+    contentType: "application/json";
+
+    @doc("Id of session image.")
+    sessionImageId: string;
+  },
+  Body<FaceDetectionResult[]>,
+  ServiceTraits
+>;

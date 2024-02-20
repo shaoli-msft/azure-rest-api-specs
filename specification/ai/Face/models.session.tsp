@@ -20,6 +20,9 @@ model LivenessSessionCreationContent {
   @doc("Whether or not the device correlation id is set by the client.")
   deviceCorrelationIdSetInClient?: boolean;
 
+  @doc("Whether or not store the session image.")
+  enableSessionImage?: boolean;
+
   ...LivenessSessionData;
 }
 
@@ -157,13 +160,19 @@ model BaseSessionAuditEntry {
 
   @doc("The digest of the request body.")
   digest: string;
+
+  @doc("The image ID of the session.")
+  sessionImageId?: string;
 }
 
 @parentResource(LivenessSession)
 model LivenessSessionAuditEntry is BaseSessionAuditEntry;
 
 @parentResource(LivenessWithVerifySession)
-model LivenessWithVerifySessionAuditEntry is BaseSessionAuditEntry;
+model LivenessWithVerifySessionAuditEntry is BaseSessionAuditEntry {
+  @doc("The sha256 hash of the verify-image in the request.")
+  verifyImageHash: string;
+};
 
 #suppress "@azure-tools/typespec-autorest/unsupported-multipart-type" "Provide convienient interface for multipart/form-data in SDK"
 @doc("Dedicated parameter model for multipart/form-data.")

@@ -388,6 +388,55 @@
         }
       }
     },
+    "/face/{apiVersion}/detectLiveness/singleModal/sessions/{sessionId}/sessionImage/requests/{requestId}": {
+      "get": {
+        "operationId": "LivenessSessions_GetSessionImage",
+        "description": "The most basic operation that applies to a resource.",
+        "produces": [
+          "application/octet-stream",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionPathParameter"
+          },
+          {
+            "name": "sessionId",
+            "in": "path",
+            "description": "Unique ID to reference this session.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "requestId",
+            "in": "path",
+            "description": "The request ID of the image to be retrieved",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "schema": {
+              "type": "file"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
+            },
+            "headers": {
+              "x-ms-error-code": {
+                "type": "string",
+                "description": "String error code indicating what went wrong."
+              }
+            }
+          }
+        }
+      }
+    },
     "/face/{apiVersion}/detectLivenessWithVerify/singleModal/sessions": {
       "get": {
         "operationId": "LivenessWithVerifySessions_ListSessions",
@@ -566,6 +615,55 @@
               "items": {
                 "$ref": "#/definitions/LivenessWithVerifySessionAuditEntry"
               }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
+            },
+            "headers": {
+              "x-ms-error-code": {
+                "type": "string",
+                "description": "String error code indicating what went wrong."
+              }
+            }
+          }
+        }
+      }
+    },
+    "/face/{apiVersion}/detectLivenessWithVerify/singleModal/sessions/{sessionId}/sessionImage/requests/{requestId}": {
+      "get": {
+        "operationId": "LivenessWithVerifySessions_GetSessionImage",
+        "description": "The most basic operation that applies to a resource.",
+        "produces": [
+          "application/octet-stream",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionPathParameter"
+          },
+          {
+            "name": "sessionId",
+            "in": "path",
+            "description": "Unique ID to reference this session.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "requestId",
+            "in": "path",
+            "description": "The request ID of the image to be retrieved",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "schema": {
+              "type": "file"
             }
           },
           "default": {
@@ -4179,6 +4277,79 @@
         }
       }
     },
+    "/face/{apiVersion}/detect?_overload=detectFromSessionImageId": {
+      "post": {
+        "operationId": "DetectFromSessionImageId",
+        "description": "A remote procedure call (RPC) operation.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionPathParameter"
+          },
+          {
+            "$ref": "#/parameters/FaceDetectionOptions.returnFaceId"
+          },
+          {
+            "$ref": "#/parameters/FaceDetectionOptions.returnFaceLandmarks"
+          },
+          {
+            "$ref": "#/parameters/FaceDetectionOptions.returnFaceAttributes"
+          },
+          {
+            "$ref": "#/parameters/FaceDetectionOptions.recognitionModel"
+          },
+          {
+            "$ref": "#/parameters/FaceDetectionOptions.returnRecognitionModel"
+          },
+          {
+            "$ref": "#/parameters/FaceDetectionOptions.detectionModel"
+          },
+          {
+            "$ref": "#/parameters/FaceDetectionOptions.faceIdTimeToLive"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "sessionImageId": {
+                  "type": "string",
+                  "description": "Id of session image."
+                }
+              },
+              "required": [
+                "sessionImageId"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/FaceDetectionResult"
+              },
+              "x-ms-identifiers": []
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
+            },
+            "headers": {
+              "x-ms-error-code": {
+                "type": "string",
+                "description": "String error code indicating what went wrong."
+              }
+            }
+          }
+        }
+      }
+    },
     "/face/{apiVersion}/detect?_overload=detectFromStream": {
       "post": {
         "operationId": "DetectFromStream",
@@ -5458,6 +5629,10 @@
         "digest": {
           "type": "string",
           "description": "The digest of the request body."
+        },
+        "sessionImageId": {
+          "type": "string",
+          "description": "The image ID of the session."
         }
       },
       "required": [
@@ -6710,6 +6885,10 @@
         "digest": {
           "type": "string",
           "description": "The digest of the request body."
+        },
+        "sessionImageId": {
+          "type": "string",
+          "description": "The image ID of the session."
         }
       },
       "required": [
@@ -6738,6 +6917,10 @@
         "deviceCorrelationIdSetInClient": {
           "type": "boolean",
           "description": "Whether or not the device correlation id is set by the client."
+        },
+        "enableSessionImage": {
+          "type": "boolean",
+          "description": "Whether or not store the session image."
         },
         "deviceCorrelationId": {
           "type": "string",
@@ -6769,6 +6952,10 @@
         "deviceCorrelationIdSetInClient": {
           "type": "boolean",
           "description": "Whether or not the device correlation id is set by the client."
+        },
+        "enableSessionImage": {
+          "type": "boolean",
+          "description": "Whether or not store the session image."
         },
         "deviceCorrelationId": {
           "type": "string",
@@ -6975,6 +7162,14 @@
         "digest": {
           "type": "string",
           "description": "The digest of the request body."
+        },
+        "sessionImageId": {
+          "type": "string",
+          "description": "The image ID of the session."
+        },
+        "verifyImageHash": {
+          "type": "string",
+          "description": "The sha256 hash of the verify-image in the request."
         }
       },
       "required": [
@@ -6985,7 +7180,8 @@
         "receivedDateTime",
         "request",
         "response",
-        "digest"
+        "digest",
+        "verifyImageHash"
       ]
     },
     "MaskProperties": {
