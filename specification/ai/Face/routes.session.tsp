@@ -37,8 +37,8 @@ interface BaseSessions<
     {
       @doc("The request ID of the image to be retrieved")
       @path
-      @segment("sessionImage/requests")
-      requestId: string;
+      @segment("sessionImages")
+      sessionImageId: string;
     },
     {
       @doc("The format of the HTTP payload.")

@@ -388,7 +388,7 @@
         }
       }
     },
-    "/face/{apiVersion}/detectLiveness/singleModal/sessions/{sessionId}/sessionImage/requests/{requestId}": {
+    "/face/{apiVersion}/detectLiveness/singleModal/sessions/{sessionId}/sessionImages/{sessionImageId}": {
       "get": {
         "operationId": "LivenessSessions_GetSessionImage",
         "description": "The most basic operation that applies to a resource.",
@@ -408,7 +408,7 @@
             "type": "string"
           },
           {
-            "name": "requestId",
+            "name": "sessionImageId",
             "in": "path",
             "description": "The request ID of the image to be retrieved",
             "required": true,
@@ -632,7 +632,7 @@
         }
       }
     },
-    "/face/{apiVersion}/detectLivenessWithVerify/singleModal/sessions/{sessionId}/sessionImage/requests/{requestId}": {
+    "/face/{apiVersion}/detectLivenessWithVerify/singleModal/sessions/{sessionId}/sessionImages/{sessionImageId}": {
       "get": {
         "operationId": "LivenessWithVerifySessions_GetSessionImage",
         "description": "The most basic operation that applies to a resource.",
@@ -652,7 +652,7 @@
             "type": "string"
           },
           {
-            "name": "requestId",
+            "name": "sessionImageId",
             "in": "path",
             "description": "The request ID of the image to be retrieved",
             "required": true,
