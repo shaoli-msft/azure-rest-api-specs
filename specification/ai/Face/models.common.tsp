@@ -90,10 +90,11 @@ model AddFaceOptions {
   userData?: string;
 }
 
-alias AddFaceFromUrlContent = {
+@doc("Model for add face by url.")
+model AddFaceFromUrlContent {
   @doc("URL of input image.")
   url: url;
-};
+}
 
 @doc("Model for add face result.")
 model AddFaceResult {

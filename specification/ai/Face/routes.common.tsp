@@ -43,7 +43,7 @@ op FaceResourceCreateOperation<TResource extends TypeSpec.Reflection.Model> is F
 @createsResource(TFace)
 op AddFaceFromUrl<TFace extends BaseFace> is Foundations.ResourceCollectionOperation<
   TFace,
-  AddFaceOptions & Body<AddFaceFromUrlContent>,
+  AddFaceOptions & AddFaceFromUrlContent,
   AddFaceResult,
   ServiceTraits
 >;

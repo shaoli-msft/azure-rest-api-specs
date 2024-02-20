@@ -1093,20 +1093,9 @@
           {
             "name": "body",
             "in": "body",
-            "description": "The body type of the operation request or response.",
             "required": true,
             "schema": {
-              "type": "object",
-              "properties": {
-                "url": {
-                  "type": "string",
-                  "format": "uri",
-                  "description": "URL of input image."
-                }
-              },
-              "required": [
-                "url"
-              ]
+              "$ref": "#/definitions/AddFaceFromUrlContent"
             }
           }
         ],
@@ -1642,20 +1631,9 @@
           {
             "name": "body",
             "in": "body",
-            "description": "The body type of the operation request or response.",
             "required": true,
             "schema": {
-              "type": "object",
-              "properties": {
-                "url": {
-                  "type": "string",
-                  "format": "uri",
-                  "description": "URL of input image."
-                }
-              },
-              "required": [
-                "url"
-              ]
+              "$ref": "#/definitions/AddFaceFromUrlContent"
             }
           }
         ],
@@ -2352,20 +2330,9 @@
           {
             "name": "body",
             "in": "body",
-            "description": "The body type of the operation request or response.",
             "required": true,
             "schema": {
-              "type": "object",
-              "properties": {
-                "url": {
-                  "type": "string",
-                  "format": "uri",
-                  "description": "URL of input image."
-                }
-              },
-              "required": [
-                "url"
-              ]
+              "$ref": "#/definitions/AddFaceFromUrlContent"
             }
           }
         ],
@@ -3120,20 +3087,9 @@
           {
             "name": "body",
             "in": "body",
-            "description": "The body type of the operation request or response.",
             "required": true,
             "schema": {
-              "type": "object",
-              "properties": {
-                "url": {
-                  "type": "string",
-                  "format": "uri",
-                  "description": "URL of input image."
-                }
-              },
-              "required": [
-                "url"
-              ]
+              "$ref": "#/definitions/AddFaceFromUrlContent"
             }
           }
         ],
@@ -3783,17 +3739,7 @@
             "description": "The body type of the operation request or response.",
             "required": true,
             "schema": {
-              "type": "object",
-              "properties": {
-                "url": {
-                  "type": "string",
-                  "format": "uri",
-                  "description": "URL of input image."
-                }
-              },
-              "required": [
-                "url"
-              ]
+              "$ref": "#/definitions/AddFaceFromUrlContent"
             }
           }
         ],
@@ -5264,6 +5210,20 @@
           }
         ]
       }
+    },
+    "AddFaceFromUrlContent": {
+      "type": "object",
+      "description": "Model for add face by url.",
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL of input image."
+        }
+      },
+      "required": [
+        "url"
+      ]
     },
     "AddFaceResult": {
       "type": "object",
