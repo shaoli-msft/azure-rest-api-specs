@@ -1847,7 +1847,8 @@
               }
             }
           }
-        }
+        },
+        "x-ms-long-running-operation": true
       }
     },
     "/face/{apiVersion}/largefacelists/{largeFaceListId}/training": {

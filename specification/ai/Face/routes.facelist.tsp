@@ -66,6 +66,7 @@ interface LargeFaceLists
 
   @action("train")
   @actionSeparator("/")
+  @pollingOperation(LargeFaceLists.getListTrainingStatus)
   trainList is Operations.ResourceAction<
     LargeFaceList,
     {},

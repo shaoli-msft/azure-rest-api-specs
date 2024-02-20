@@ -111,6 +111,7 @@ model ReturnRecognitionModelOptions {
 @doc("Training status of a container")
 model TrainingStatus {
   @doc("Training status of the container.")
+  @lroStatus
   status: TrainingStatusType;
 
   @doc("A combined UTC date and time string that describes the created time of the person group, large person group or large face list.")
@@ -134,9 +135,11 @@ enum TrainingStatusType {
   @doc("If the training is ongoing, the status is running.")
   running,
 
+  @lroSucceeded
   @doc("Status succeed means this person group or large person group is ready for Face - Identify, or this large face list is ready for Face - Find Similar.")
   succeeded,
 
+  @lroFailed
   @doc("Status failed is often caused by no person or no persisted face exist in the person group or large person group, or no persisted face exist in the large face list.")
   failed,
 }
