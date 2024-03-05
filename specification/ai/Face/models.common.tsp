@@ -24,6 +24,8 @@ model ListRequestOptions {
 
   @doc("The number of items to list, ranging in [1, 1000]. Default is 1000.")
   @query
+  @minValue(1)
+  @maxValue(1000)
   top?: int32;
 }
 
@@ -143,6 +145,8 @@ model FaceIdentificationCandidate {
   personId: string;
 
   @doc("Confidence value of the candidate. The higher confidence, the more similar. Range between [0,1].")
+  @minValue(0)
+  @maxValue(1)
   confidence: float32;
 }
 
@@ -152,6 +156,8 @@ model FaceVerificationResult {
   isIdentical: boolean;
 
   @doc("Confidence score of whether the two faces belong to the same person or whether the face belongs to the person. The range is [0, 1].")
+  @minValue(0)
+  @maxValue(1)
   confidence: float32;
 }
 
@@ -167,6 +173,8 @@ enum FindSimilarMatchMode {
 @doc("Response body for find similar face operation.")
 model FaceFindSimilarResult {
   @doc("Confidence value of the candidate. The higher confidence, the more similar. Range between [0,1].")
+  @minValue(0)
+  @maxValue(1)
   confidence: float32;
 
   @doc("faceId of candidate face when find by faceIds.")

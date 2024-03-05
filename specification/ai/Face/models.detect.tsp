@@ -46,7 +46,7 @@ model FaceDetectionResult {
   faceId: string;
 
   @doc("The 'recognitionModel' associated with this faceId. This is only returned when 'returnRecognitionModel' is explicitly set as true.")
-  recognitionModel?: string;
+  recognitionModel?: RecognitionModel;
 
   @doc("A rectangle area for the face location on image.")
   faceRectangle?: FaceRectangle;
@@ -172,6 +172,8 @@ model FaceAttributes {
   age?: int32;
 
   @doc("Smile intensity, a number between [0,1]")
+  @minValue(0)
+  @maxValue(1)
   smile?: float32;
 
   @doc("Properties describing facial hair attributes.")
@@ -211,12 +213,18 @@ model FaceAttributes {
 @doc("Properties describing facial hair attributes.")
 model FacialHair {
   @doc("A number ranging from 0 to 1 indicating a level of confidence associated with a property.")
+  @minValue(0)
+  @maxValue(1)
   moustache: float32;
 
   @doc("A number ranging from 0 to 1 indicating a level of confidence associated with a property.")
+  @minValue(0)
+  @maxValue(1)
   beard: float32;
 
   @doc("A number ranging from 0 to 1 indicating a level of confidence associated with a property.")
+  @minValue(0)
+  @maxValue(1)
   sideburns: float32;
 }
 
@@ -250,6 +258,8 @@ model HeadPose {
 @doc("Properties describing hair attributes.")
 model HairProperties {
   @doc("A number describing confidence level of whether the person is bald.")
+  @minValue(0)
+  @maxValue(1)
   bald: float32;
 
   @doc("A boolean value describing whether the hair is visible in the image.")
@@ -265,6 +275,8 @@ model HairColor {
   color: HairColorType;
 
   @doc("Confidence level of the color. Range between [0,1].")
+  @minValue(0)
+  @maxValue(1)
   confidence: float32;
 }
 
@@ -313,6 +325,8 @@ model AccessoryItem {
   type: AccessoryType;
 
   @doc("Confidence level of the accessory type. Range between [0,1].")
+  @minValue(0)
+  @maxValue(1)
   confidence: float32;
 }
 
@@ -334,6 +348,8 @@ model BlurProperties {
   blurLevel: BlurLevel;
 
   @doc("A number indicating level of blurriness ranging from 0 to 1.")
+  @minValue(0)
+  @maxValue(1)
   value: float32;
 }
 
@@ -355,6 +371,8 @@ model ExposureProperties {
   exposureLevel: ExposureLevel;
 
   @doc("A number indicating level of exposure level ranging from 0 to 1. [0, 0.25) is under exposure. [0.25, 0.75) is good exposure. [0.75, 1] is over exposure.")
+  @minValue(0)
+  @maxValue(1)
   value: float32;
 }
 
@@ -376,6 +394,8 @@ model NoiseProperties {
   noiseLevel: NoiseLevel;
 
   @doc("A number indicating level of noise level ranging from 0 to 1. [0, 0.25) is under exposure. [0.25, 0.75) is good exposure. [0.75, 1] is over exposure. [0, 0.3) is low noise level. [0.3, 0.7) is medium noise level. [0.7, 1] is high noise level.")
+  @minValue(0)
+  @maxValue(1)
   value: float32;
 }
 

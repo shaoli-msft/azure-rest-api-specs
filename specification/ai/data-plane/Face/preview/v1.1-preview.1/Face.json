@@ -132,6 +132,11 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "DetectFromUrl": {
+            "$ref": "./examples/DetectFromUrl_MaximumSet.json"
+          }
         }
       }
     },
@@ -4080,6 +4085,11 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "DetectFromStream": {
+            "$ref": "./examples/DetectFromStream_MaximumSet.json"
+          }
         }
       }
     },
@@ -5030,7 +5040,9 @@
         "confidence": {
           "type": "number",
           "format": "float",
-          "description": "Confidence level of the accessory type. Range between [0,1]."
+          "description": "Confidence level of the accessory type. Range between [0,1].",
+          "minimum": 0,
+          "maximum": 1
         }
       },
       "required": [
@@ -5332,7 +5344,9 @@
         "value": {
           "type": "number",
           "format": "float",
-          "description": "A number indicating level of blurriness ranging from 0 to 1."
+          "description": "A number indicating level of blurriness ranging from 0 to 1.",
+          "minimum": 0,
+          "maximum": 1
         }
       },
       "required": [
@@ -5477,7 +5491,9 @@
         "value": {
           "type": "number",
           "format": "float",
-          "description": "A number indicating level of exposure level ranging from 0 to 1. [0, 0.25) is under exposure. [0.25, 0.75) is good exposure. [0.75, 1] is over exposure."
+          "description": "A number indicating level of exposure level ranging from 0 to 1. [0, 0.25) is under exposure. [0.25, 0.75) is good exposure. [0.75, 1] is over exposure.",
+          "minimum": 0,
+          "maximum": 1
         }
       },
       "required": [
@@ -5497,7 +5513,9 @@
         "smile": {
           "type": "number",
           "format": "float",
-          "description": "Smile intensity, a number between [0,1]"
+          "description": "Smile intensity, a number between [0,1]",
+          "minimum": 0,
+          "maximum": 1
         },
         "facialHair": {
           "$ref": "#/definitions/FacialHair",
@@ -5558,7 +5576,7 @@
           "description": "Unique faceId of the detected face, created by detection API and it will expire 24 hours after the detection call."
         },
         "recognitionModel": {
-          "type": "string",
+          "$ref": "#/definitions/RecognitionModel",
           "description": "The 'recognitionModel' associated with this faceId. This is only returned when 'returnRecognitionModel' is explicitly set as true."
         },
         "faceRectangle": {
@@ -5585,7 +5603,9 @@
         "confidence": {
           "type": "number",
           "format": "float",
-          "description": "Confidence value of the candidate. The higher confidence, the more similar. Range between [0,1]."
+          "description": "Confidence value of the candidate. The higher confidence, the more similar. Range between [0,1].",
+          "minimum": 0,
+          "maximum": 1
         },
         "faceId": {
           "type": "string",
@@ -5639,7 +5659,9 @@
         "confidence": {
           "type": "number",
           "format": "float",
-          "description": "Confidence value of the candidate. The higher confidence, the more similar. Range between [0,1]."
+          "description": "Confidence value of the candidate. The higher confidence, the more similar. Range between [0,1].",
+          "minimum": 0,
+          "maximum": 1
         }
       },
       "required": [
@@ -5988,7 +6010,9 @@
         "confidence": {
           "type": "number",
           "format": "float",
-          "description": "Confidence score of whether the two faces belong to the same person or whether the face belongs to the person. The range is [0, 1]."
+          "description": "Confidence score of whether the two faces belong to the same person or whether the face belongs to the person. The range is [0, 1].",
+          "minimum": 0,
+          "maximum": 1
         }
       },
       "required": [
@@ -6003,17 +6027,23 @@
         "moustache": {
           "type": "number",
           "format": "float",
-          "description": "A number ranging from 0 to 1 indicating a level of confidence associated with a property."
+          "description": "A number ranging from 0 to 1 indicating a level of confidence associated with a property.",
+          "minimum": 0,
+          "maximum": 1
         },
         "beard": {
           "type": "number",
           "format": "float",
-          "description": "A number ranging from 0 to 1 indicating a level of confidence associated with a property."
+          "description": "A number ranging from 0 to 1 indicating a level of confidence associated with a property.",
+          "minimum": 0,
+          "maximum": 1
         },
         "sideburns": {
           "type": "number",
           "format": "float",
-          "description": "A number ranging from 0 to 1 indicating a level of confidence associated with a property."
+          "description": "A number ranging from 0 to 1 indicating a level of confidence associated with a property.",
+          "minimum": 0,
+          "maximum": 1
         }
       },
       "required": [
@@ -6093,7 +6123,9 @@
         "confidence": {
           "type": "number",
           "format": "float",
-          "description": "Confidence level of the color. Range between [0,1]."
+          "description": "Confidence level of the color. Range between [0,1].",
+          "minimum": 0,
+          "maximum": 1
         }
       },
       "required": [
@@ -6168,7 +6200,9 @@
         "bald": {
           "type": "number",
           "format": "float",
-          "description": "A number describing confidence level of whether the person is bald."
+          "description": "A number describing confidence level of whether the person is bald.",
+          "minimum": 0,
+          "maximum": 1
         },
         "invisible": {
           "type": "boolean",
@@ -6957,7 +6991,9 @@
         "value": {
           "type": "number",
           "format": "float",
-          "description": "A number indicating level of noise level ranging from 0 to 1. [0, 0.25) is under exposure. [0.25, 0.75) is good exposure. [0.75, 1] is over exposure. [0, 0.3) is low noise level. [0.3, 0.7) is medium noise level. [0.7, 1] is high noise level."
+          "description": "A number indicating level of noise level ranging from 0 to 1. [0, 0.25) is under exposure. [0.25, 0.75) is good exposure. [0.75, 1] is over exposure. [0, 0.3) is low noise level. [0.3, 0.7) is medium noise level. [0.7, 1] is high noise level.",
+          "minimum": 0,
+          "maximum": 1
         }
       },
       "required": [
@@ -7579,6 +7615,8 @@
       "required": false,
       "type": "integer",
       "format": "int32",
+      "minimum": 1,
+      "maximum": 1000,
       "x-ms-parameter-location": "method"
     },
     "LivenessSessionWithVerifyImageCreationContent.Parameters": {
