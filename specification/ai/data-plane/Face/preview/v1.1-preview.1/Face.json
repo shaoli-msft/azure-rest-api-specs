@@ -4545,6 +4545,11 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "LivenessSessions_CreateLivenessWithVerifySessionWithVerifyImage": {
+            "$ref": "./examples/LivenessSessions_CreateLivenessWithVerifySessionWithVerifyImage_MaximumSet.json"
+          }
         }
       }
     },
@@ -4604,6 +4609,11 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "FaceLists_AddFaceListFaceFromStream": {
+            "$ref": "./examples/FaceLists_AddFaceListFaceFromStream_MaximumSet.json"
           }
         }
       }
@@ -4671,6 +4681,11 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "FaceLists_FindSimilarFromFaceList": {
+            "$ref": "./examples/FaceLists_FindSimilarFromFaceList_MaximumSet.json"
+          }
         }
       }
     },
@@ -4736,6 +4751,11 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "FaceLists_FindSimilarFromLargeFaceList": {
+            "$ref": "./examples/FaceLists_FindSimilarFromLargeFaceList_MaximumSet.json"
           }
         }
       }
@@ -4807,6 +4827,11 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "PersonDirectory_IdentifyFromDynamicPersonGroup": {
+            "$ref": "./examples/PersonDirectory_IdentifyFromDynamicPersonGroup_MaximumSet.json"
+          }
         }
       }
     },
@@ -4876,6 +4901,11 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "PersonGroups_IdentifyFromLargePersonGroup": {
+            "$ref": "./examples/PersonGroups_IdentifyFromLargePersonGroup_MaximumSet.json"
           }
         }
       }
@@ -4947,6 +4977,11 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "PersonGroups_IdentifyFromPersonGroup": {
+            "$ref": "./examples/PersonGroups_IdentifyFromPersonGroup_MaximumSet.json"
+          }
         }
       }
     },
@@ -5006,6 +5041,11 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "FaceLists_AddLargeFaceListFaceFromStream": {
+            "$ref": "./examples/FaceLists_AddLargeFaceListFaceFromStream_MaximumSet.json"
           }
         }
       }
@@ -5074,6 +5114,11 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "PersonGroups_AddLargePersonGroupPersonFaceFromStream": {
+            "$ref": "./examples/PersonGroups_AddLargePersonGroupPersonFaceFromStream_MaximumSet.json"
+          }
         }
       }
     },
@@ -5140,6 +5185,11 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "PersonGroups_AddPersonGroupPersonFaceFromStream": {
+            "$ref": "./examples/PersonGroups_AddPersonGroupPersonFaceFromStream_MaximumSet.json"
           }
         }
       }
@@ -5248,6 +5298,11 @@
             }
           }
         },
+        "x-ms-examples": {
+          "PersonDirectory_AddPersonFaceFromStream": {
+            "$ref": "./examples/PersonDirectory_AddPersonFaceFromStream_MaximumSet.json"
+          }
+        },
         "x-ms-long-running-operation": true
       }
     },
@@ -5306,6 +5361,11 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "PersonGroups_VerifyFromLargePersonGroup": {
+            "$ref": "./examples/PersonGroups_VerifyFromLargePersonGroup_MaximumSet.json"
+          }
         }
       }
     },
@@ -5358,6 +5418,11 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "PersonDirectory_VerifyFromPersonDirectory": {
+            "$ref": "./examples/PersonDirectory_VerifyFromPersonDirectory_MaximumSet.json"
           }
         }
       }
@@ -5416,6 +5481,11 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "PersonGroups_VerifyFromPersonGroup": {
+            "$ref": "./examples/PersonGroups_VerifyFromPersonGroup_MaximumSet.json"
           }
         }
       }
