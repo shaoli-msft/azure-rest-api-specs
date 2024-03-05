@@ -1,0 +1,26 @@
+{
+  "title": "PersonDirectory_UpdateDynamicPersonGroup",
+  "operationId": "PersonDirectory_UpdateDynamicPersonGroup",
+  "parameters": {
+    "apiVersion": "v1.1-preview.1",
+    "dynamicPersonGroupId": "jolkuqyfjk",
+    "resource": {
+      "name": "alvmypqmpoor",
+      "userData": "uakevhfvcagbxzaftndtvvknwk",
+      "addPersonIds": [
+        "nekp"
+      ],
+      "removePersonIds": [
+        "larqpiqhlho"
+      ]
+    }
+  },
+  "responses": {
+    "200": {},
+    "202": {
+      "headers": {
+        "location": "https://contoso.com/operationstatus"
+      }
+    }
+  }
+}
