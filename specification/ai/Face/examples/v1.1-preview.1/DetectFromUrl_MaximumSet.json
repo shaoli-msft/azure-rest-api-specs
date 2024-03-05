@@ -10,7 +10,9 @@
     "returnRecognitionModel": true,
     "detectionModel": "detection_01",
     "faceIdTimeToLive": 60,
-    "imageContent": "<your-image-bytes-here>"
+    "body": {
+      "url": "https://microsoft.com/example.jpg"
+    }
   },
   "responses": {
     "200": {
