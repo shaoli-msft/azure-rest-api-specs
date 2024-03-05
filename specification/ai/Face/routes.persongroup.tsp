@@ -13,66 +13,66 @@ namespace Face;
 
 interface PersonGroups {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Create has no response body while standard op requires resource in body"
-  op createPersonGroup is FaceResourceCreateOperation<PersonGroup>;
+  createPersonGroup is FaceResourceCreateOperation<PersonGroup>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Delete response with 200 while standard op requires 204"
-  op deletePersonGroup is FaceResourceDeleteOperation<PersonGroup>;
+  deletePersonGroup is FaceResourceDeleteOperation<PersonGroup>;
 
-  op getPersonGroup is FaceResourceReadOperationWithReturnRecognitionModelOptions<PersonGroup>;
+  getPersonGroup is FaceResourceReadOperationWithReturnRecognitionModelOptions<PersonGroup>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Update has no response body while standard op requires resource in body"
-  op updatePersonGroup is FaceResourceUpdateOperation<PersonGroup>;
+  updatePersonGroup is FaceResourceUpdateOperation<PersonGroup>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "List doesn't support Azure paging"
-  op listPersonGroups is FaceResourceListOperation<
+  listPersonGroups is FaceResourceListOperation<
     PersonGroup,
     PersonGroup,
     ReturnRecognitionModelOptions
   >;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
-  op getPersonGroupTrainingStatus is FaceResourceGetTrainingStatus<PersonGroup>;
+  getPersonGroupTrainingStatus is FaceResourceGetTrainingStatus<PersonGroup>;
 
   @pollingOperation(PersonGroups.getPersonGroupTrainingStatus)
-  op trainPersonGroup is FaceResourceTrain<PersonGroup>;
+  trainPersonGroup is FaceResourceTrain<PersonGroup>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Create person perform on resource collection but not response created resorce location in header"
-  op createPersonGroupPerson is FaceResourceCreateWithServiceProvidedName<PersonGroupPerson>;
+  createPersonGroupPerson is FaceResourceCreateWithServiceProvidedName<PersonGroupPerson>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Delete response with 200 while standard op requires 204"
-  op deletePersonGroupPerson is FaceResourceDeleteOperation<PersonGroupPerson>;
+  deletePersonGroupPerson is FaceResourceDeleteOperation<PersonGroupPerson>;
 
-  op getPersonGroupPerson is Operations.ResourceRead<PersonGroupPerson>;
+  getPersonGroupPerson is Operations.ResourceRead<PersonGroupPerson>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Update has no response body while standard op requires resource in body"
-  op updatePersonGroupPerson is FaceResourceUpdateOperation<PersonGroupPerson>;
+  updatePersonGroupPerson is FaceResourceUpdateOperation<PersonGroupPerson>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "List doesn't support Azure paging"
-  op listPersonGroupPerson is FaceResourceListOperation<PersonGroupPerson>;
+  listPersonGroupPerson is FaceResourceListOperation<PersonGroupPerson>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Add face perform on resource collection but not response created resorce location in header"
-  op addPersonGroupPersonFaceFromUrl is AddFaceFromUrl<PersonGroupPersonFace>;
+  addPersonGroupPersonFaceFromUrl is AddFaceFromUrl<PersonGroupPersonFace>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Add face perform on resource collection but not response created resorce location in header"
   #suppress "@azure-tools/typespec-azure-core/byos" "It's an RPC call to detect face from an image, it doesn't store anything. There's a BYOS version of this call, but it's not this one."
-  op addPersonGroupPersonFaceFromStream is AddFaceFromStream<PersonGroupPersonFace>;
+  addPersonGroupPersonFaceFromStream is AddFaceFromStream<PersonGroupPersonFace>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Delete response with 200 while standard op requires 204"
-  op deletePersonGroupPersonFace is FaceResourceDeleteOperation<PersonGroupPersonFace>;
+  deletePersonGroupPersonFace is FaceResourceDeleteOperation<PersonGroupPersonFace>;
 
-  op getPersonGroupPersonFace is Operations.ResourceRead<PersonGroupPersonFace>;
+  getPersonGroupPersonFace is Operations.ResourceRead<PersonGroupPersonFace>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Update has no response body while standard op requires resource in body"
-  op updatePersonGroupPersonFace is FaceResourceUpdateOperation<PersonGroupPersonFace>;
+  updatePersonGroupPersonFace is FaceResourceUpdateOperation<PersonGroupPersonFace>;
 
   #suppress "@azure-tools/typespec-azure-core/no-rpc-path-params" "Workaround for RpcOperation not handling api version in path."
-  op identifyFromPersonGroup is IdentifyOperation<{
+  identifyFromPersonGroup is IdentifyOperation<{
     @doc("Id of the target person group, created by PersonGroup - Create.")
     personGroupId: string;
   }>;
 
   #suppress "@azure-tools/typespec-azure-core/no-rpc-path-params" "Workaround for RpcOperation not handling api version in path."
-  op verifyFromPersonGroup is VerifyOperation<{
+  verifyFromPersonGroup is VerifyOperation<{
     @doc("Id of the target person group, created by PersonGroup - Create.")
     personGroupId: string;
 
@@ -81,66 +81,66 @@ interface PersonGroups {
   }>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Create has no response body while standard op requires resource in body"
-  op createLargePersonGroup is FaceResourceCreateOperation<LargePersonGroup>;
+  createLargePersonGroup is FaceResourceCreateOperation<LargePersonGroup>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Delete response with 200 while standard op requires 204"
-  op deleteLargePersonGroup is FaceResourceDeleteOperation<LargePersonGroup>;
+  deleteLargePersonGroup is FaceResourceDeleteOperation<LargePersonGroup>;
 
-  op getLargePersonGroup is FaceResourceReadOperationWithReturnRecognitionModelOptions<LargePersonGroup>;
+  getLargePersonGroup is FaceResourceReadOperationWithReturnRecognitionModelOptions<LargePersonGroup>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Update has no response body while standard op requires resource in body"
-  op updateLargePersonGroup is FaceResourceUpdateOperation<LargePersonGroup>;
+  updateLargePersonGroup is FaceResourceUpdateOperation<LargePersonGroup>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "List doesn't support Azure paging"
-  op listLargePersonGroups is FaceResourceListOperation<
+  listLargePersonGroups is FaceResourceListOperation<
     LargePersonGroup,
     LargePersonGroup,
     ReturnRecognitionModelOptions
   >;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
-  op getLargePersonGroupTrainingStatus is FaceResourceGetTrainingStatus<LargePersonGroup>;
+  getLargePersonGroupTrainingStatus is FaceResourceGetTrainingStatus<LargePersonGroup>;
 
   @pollingOperation(PersonGroups.getLargePersonGroupTrainingStatus)
-  op trainLargePersonGroup is FaceResourceTrain<LargePersonGroup>;
+  trainLargePersonGroup is FaceResourceTrain<LargePersonGroup>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Create person perform on resource collection but not response created resorce location in header"
-  op createLargePersonGroupPerson is FaceResourceCreateWithServiceProvidedName<LargePersonGroupPerson>;
+  createLargePersonGroupPerson is FaceResourceCreateWithServiceProvidedName<LargePersonGroupPerson>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Delete response with 200 while standard op requires 204"
-  op deleteLargePersonGroupPerson is FaceResourceDeleteOperation<LargePersonGroupPerson>;
+  deleteLargePersonGroupPerson is FaceResourceDeleteOperation<LargePersonGroupPerson>;
 
-  op getLargePersonGroupPerson is Operations.ResourceRead<LargePersonGroupPerson>;
+  getLargePersonGroupPerson is Operations.ResourceRead<LargePersonGroupPerson>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Update has no response body while standard op requires resource in body"
-  op updateLargePersonGroupPerson is FaceResourceUpdateOperation<LargePersonGroupPerson>;
+  updateLargePersonGroupPerson is FaceResourceUpdateOperation<LargePersonGroupPerson>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "List doesn't support Azure paging"
-  op listLargePersonGroupPerson is FaceResourceListOperation<LargePersonGroupPerson>;
+  listLargePersonGroupPerson is FaceResourceListOperation<LargePersonGroupPerson>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Add face perform on resource collection but not response created resorce location in header"
-  op addLargePersonGroupPersonFaceFromUrl is AddFaceFromUrl<LargePersonGroupPersonFace>;
+  addLargePersonGroupPersonFaceFromUrl is AddFaceFromUrl<LargePersonGroupPersonFace>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Add face perform on resource collection but not response created resorce location in header"
   #suppress "@azure-tools/typespec-azure-core/byos" "It's an RPC call to detect face from an image, it doesn't store anything. There's a BYOS version of this call, but it's not this one."
-  op addLargePersonGroupPersonFaceFromStream is AddFaceFromStream<LargePersonGroupPersonFace>;
+  addLargePersonGroupPersonFaceFromStream is AddFaceFromStream<LargePersonGroupPersonFace>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Delete response with 200 while standard op requires 204"
-  op deleteLargePersonGroupPersonFace is FaceResourceDeleteOperation<LargePersonGroupPersonFace>;
+  deleteLargePersonGroupPersonFace is FaceResourceDeleteOperation<LargePersonGroupPersonFace>;
 
-  op getLargePersonGroupPersonFace is Operations.ResourceRead<LargePersonGroupPersonFace>;
+  getLargePersonGroupPersonFace is Operations.ResourceRead<LargePersonGroupPersonFace>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Update has no response body while standard op requires resource in body"
-  op updateLargePersonGroupPersonFace is FaceResourceUpdateOperation<LargePersonGroupPersonFace>;
+  updateLargePersonGroupPersonFace is FaceResourceUpdateOperation<LargePersonGroupPersonFace>;
 
   #suppress "@azure-tools/typespec-azure-core/no-rpc-path-params" "Workaround for RpcOperation not handling api version in path."
-  op identifyFromLargePersonGroup is IdentifyOperation<{
+  identifyFromLargePersonGroup is IdentifyOperation<{
     @doc("Id of the target person group, created by LargePersonGroup - Create.")
     largePersonGroupId: string;
   }>;
 
   #suppress "@azure-tools/typespec-azure-core/no-rpc-path-params" "Workaround for RpcOperation not handling api version in path."
-  op verifyFromLargePersonGroup is VerifyOperation<{
+  verifyFromLargePersonGroup is VerifyOperation<{
     @doc("Id of the target person group, created by LargePersonGroup - Create.")
     largePersonGroupId: string;
 
