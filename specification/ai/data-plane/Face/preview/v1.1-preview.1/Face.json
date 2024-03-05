@@ -7778,8 +7778,7 @@
       "properties": {
         "url": {
           "type": "string",
-          "format": "uri",
-          "description": "The URL of the request."
+          "description": "The relative URL of the liveness request."
         },
         "method": {
           "type": "string",

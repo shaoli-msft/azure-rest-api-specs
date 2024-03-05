@@ -100,8 +100,8 @@ enum FaceSessionStatus {
 
 @doc("Audit entry for a request in the session.")
 model SessionAuditEntryRequestInfo {
-  @doc("The URL of the request.")
-  url: url;
+  @doc("The relative URL of the liveness request.")
+  url: string;
 
   @doc("The HTTP method of the request.")
   method: string;
