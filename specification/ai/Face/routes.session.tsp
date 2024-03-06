@@ -21,7 +21,7 @@ op FaceLivenessSessionListAuditEntries<TResource extends TypeSpec.Reflection.Mod
   ServiceTraits
 >;
 
-interface LivenessSessions {
+interface LivenessSessionOperations {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "ResourceCreateWithServiceProvidedName does not fit, we don't return Location in header."
   @doc("Creates face liveness detection session.")
   createLivenessSession is FaceResourceCreateWithServiceProvidedName<

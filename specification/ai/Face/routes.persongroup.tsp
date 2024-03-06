@@ -11,7 +11,7 @@ using Foundations;
 
 namespace Face;
 
-interface PersonGroups {
+interface PersonGroupOperations {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Create has no response body while standard op requires resource in body"
   createPersonGroup is FaceResourceCreateOperation<PersonGroup>;
 
@@ -33,7 +33,7 @@ interface PersonGroups {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
   getPersonGroupTrainingStatus is FaceResourceGetTrainingStatus<PersonGroup>;
 
-  @pollingOperation(PersonGroups.getPersonGroupTrainingStatus)
+  @pollingOperation(PersonGroupOperations.getPersonGroupTrainingStatus)
   trainPersonGroup is FaceResourceTrain<PersonGroup>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Create person perform on resource collection but not response created resorce location in header"
@@ -65,21 +65,6 @@ interface PersonGroups {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Update has no response body while standard op requires resource in body"
   updatePersonGroupPersonFace is FaceResourceUpdateOperation<PersonGroupPersonFace>;
 
-  #suppress "@azure-tools/typespec-azure-core/no-rpc-path-params" "Workaround for RpcOperation not handling api version in path."
-  identifyFromPersonGroup is IdentifyOperation<{
-    @doc("Id of the target person group, created by PersonGroup - Create.")
-    personGroupId: string;
-  }>;
-
-  #suppress "@azure-tools/typespec-azure-core/no-rpc-path-params" "Workaround for RpcOperation not handling api version in path."
-  verifyFromPersonGroup is VerifyOperation<{
-    @doc("Id of the target person group, created by PersonGroup - Create.")
-    personGroupId: string;
-
-    @doc("Specify a certain person in person group.")
-    personId: string;
-  }>;
-
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Create has no response body while standard op requires resource in body"
   createLargePersonGroup is FaceResourceCreateOperation<LargePersonGroup>;
 
@@ -101,7 +86,7 @@ interface PersonGroups {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
   getLargePersonGroupTrainingStatus is FaceResourceGetTrainingStatus<LargePersonGroup>;
 
-  @pollingOperation(PersonGroups.getLargePersonGroupTrainingStatus)
+  @pollingOperation(PersonGroupOperations.getLargePersonGroupTrainingStatus)
   trainLargePersonGroup is FaceResourceTrain<LargePersonGroup>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Create person perform on resource collection but not response created resorce location in header"
@@ -132,19 +117,4 @@ interface PersonGroups {
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Update has no response body while standard op requires resource in body"
   updateLargePersonGroupPersonFace is FaceResourceUpdateOperation<LargePersonGroupPersonFace>;
-
-  #suppress "@azure-tools/typespec-azure-core/no-rpc-path-params" "Workaround for RpcOperation not handling api version in path."
-  identifyFromLargePersonGroup is IdentifyOperation<{
-    @doc("Id of the target person group, created by LargePersonGroup - Create.")
-    largePersonGroupId: string;
-  }>;
-
-  #suppress "@azure-tools/typespec-azure-core/no-rpc-path-params" "Workaround for RpcOperation not handling api version in path."
-  verifyFromLargePersonGroup is VerifyOperation<{
-    @doc("Id of the target person group, created by LargePersonGroup - Create.")
-    largePersonGroupId: string;
-
-    @doc("Specify a certain person in person group.")
-    personId: string;
-  }>;
 }

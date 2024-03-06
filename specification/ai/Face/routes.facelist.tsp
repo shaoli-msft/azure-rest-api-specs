@@ -11,7 +11,7 @@ using Foundations;
 
 namespace Face;
 
-interface FaceLists {
+interface FaceListOperations {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Create has no response body while standard op requires resource in body"
   createFaceList is FaceResourceCreateOperation<FaceList>;
 
@@ -41,12 +41,6 @@ interface FaceLists {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Delete response with 200 while standard op requires 204"
   deleteFaceListFace is FaceResourceDeleteOperation<FaceListFace>;
 
-  #suppress "@azure-tools/typespec-azure-core/no-rpc-path-params" "Workaround for RpcOperation not handling api version in path"
-  findSimilarFromFaceList is FindSimilarOperation<{
-    @doc("An existing user-specified unique candidate face list, created in FaceList - Create. Face list contains a set of persistedFaceIds which are persisted and will never expire.")
-    faceListId: string;
-  }>;
-
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Create has no response body while standard op requires resource in body"
   createLargeFaceList is FaceResourceCreateOperation<LargeFaceList>;
 
@@ -68,7 +62,7 @@ interface FaceLists {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "GET operation on resource with sub-path"
   getLargeFaceListTrainingStatus is FaceResourceGetTrainingStatus<LargeFaceList>;
 
-  @pollingOperation(FaceLists.getLargeFaceListTrainingStatus)
+  @pollingOperation(FaceListOperations.getLargeFaceListTrainingStatus)
   trainLargeFaceList is FaceResourceTrain<LargeFaceList>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Add face perform on resource collection but not response created resorce location in header"
@@ -89,10 +83,4 @@ interface FaceLists {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "List doesn't support Azure paging"
   @sharedRoute
   listLargeFaceListFaces is FaceResourceListOperation<LargeFaceListFace>;
-
-  #suppress "@azure-tools/typespec-azure-core/no-rpc-path-params" "Workaround for RpcOperation not handling api version in path"
-  findSimilarFromLargeFaceList is FindSimilarOperation<{
-    @doc("An existing user-specified unique candidate large face list, created in LargeFaceList - Create. Large face list contains a set of persistedFaceIds which are persisted and will never expire.")
-    largeFaceListId: string;
-  }>;
 }

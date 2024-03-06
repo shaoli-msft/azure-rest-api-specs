@@ -2,6 +2,8 @@ import "@typespec/rest";
 import "@typespec/versioning";
 import "@azure-tools/typespec-azure-core";
 import "./routes.common.tsp";
+import "./routes.detection.tsp";
+import "./routes.recognition.tsp";
 import "./routes.facelist.tsp";
 import "./routes.persondirectory.tsp";
 import "./routes.persongroup.tsp";

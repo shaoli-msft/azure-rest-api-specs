@@ -63,7 +63,7 @@
   "paths": {
     "/face/{apiVersion}/detect": {
       "post": {
-        "operationId": "DetectFromUrl",
+        "operationId": "FaceDetectionOperations_DetectFromUrl",
         "description": "Detect human faces in an image, return face rectangles, and optionally with faceIds, landmarks, and attributes.",
         "parameters": [
           {
@@ -134,15 +134,15 @@
           }
         },
         "x-ms-examples": {
-          "DetectFromUrl": {
-            "$ref": "./examples/DetectFromUrl_MaximumSet.json"
+          "FaceDetectionOperations_DetectFromUrl": {
+            "$ref": "./examples/FaceDetectionOperations_DetectFromUrl.json"
           }
         }
       }
     },
     "/face/{apiVersion}/detectLiveness/singleModal/sessions": {
       "get": {
-        "operationId": "LivenessSessions_ListLivenessSessions",
+        "operationId": "LivenessSessionOperations_ListLivenessSessions",
         "description": "Lists all matching session types.\nList sessions from the last sessionId greater than the \"start\".\nThe result should be ordered by sessionId in ascending order.",
         "parameters": [
           {
@@ -179,13 +179,13 @@
           }
         },
         "x-ms-examples": {
-          "LivenessSessions_ListLivenessSessions": {
-            "$ref": "./examples/LivenessSessions_ListLivenessSessions_MaximumSet.json"
+          "LivenessSessionOperations_ListLivenessSessions": {
+            "$ref": "./examples/LivenessSessionOperations_ListLivenessSessions.json"
           }
         }
       },
       "post": {
-        "operationId": "LivenessSessions_CreateLivenessSession",
+        "operationId": "LivenessSessionOperations_CreateLivenessSession",
         "description": "Creates face liveness detection session.",
         "parameters": [
           {
@@ -221,15 +221,15 @@
           }
         },
         "x-ms-examples": {
-          "LivenessSessions_CreateLivenessSession": {
-            "$ref": "./examples/LivenessSessions_CreateLivenessSession_MaximumSet.json"
+          "LivenessSessionOperations_CreateLivenessSession": {
+            "$ref": "./examples/LivenessSessionOperations_CreateLivenessSession.json"
           }
         }
       }
     },
     "/face/{apiVersion}/detectLiveness/singleModal/sessions/{sessionId}": {
       "get": {
-        "operationId": "LivenessSessions_GetLivenessSession",
+        "operationId": "LivenessSessionOperations_GetLivenessSession",
         "description": "Get session result of detectLiveness.",
         "parameters": [
           {
@@ -264,13 +264,13 @@
           }
         },
         "x-ms-examples": {
-          "LivenessSessions_GetLivenessSession": {
-            "$ref": "./examples/LivenessSessions_GetLivenessSession_MaximumSet.json"
+          "LivenessSessionOperations_GetLivenessSession": {
+            "$ref": "./examples/LivenessSessionOperations_GetLivenessSession.json"
           }
         }
       },
       "delete": {
-        "operationId": "LivenessSessions_DeleteLivenessSession",
+        "operationId": "LivenessSessionOperations_DeleteLivenessSession",
         "description": "Deletes a session and all of it's audit results.",
         "parameters": [
           {
@@ -302,15 +302,15 @@
           }
         },
         "x-ms-examples": {
-          "LivenessSessions_DeleteLivenessSession": {
-            "$ref": "./examples/LivenessSessions_DeleteLivenessSession_MaximumSet.json"
+          "LivenessSessionOperations_DeleteLivenessSession": {
+            "$ref": "./examples/LivenessSessionOperations_DeleteLivenessSession.json"
           }
         }
       }
     },
     "/face/{apiVersion}/detectLiveness/singleModal/sessions/{sessionId}/audit": {
       "get": {
-        "operationId": "LivenessSessions_ListLivenessSessionAuditEntries",
+        "operationId": "LivenessSessionOperations_ListLivenessSessionAuditEntries",
         "description": "Get session audit requests/responses for the session.",
         "parameters": [
           {
@@ -354,15 +354,15 @@
           }
         },
         "x-ms-examples": {
-          "LivenessSessions_ListLivenessSessionAuditEntries": {
-            "$ref": "./examples/LivenessSessions_ListLivenessSessionAuditEntries_MaximumSet.json"
+          "LivenessSessionOperations_ListLivenessSessionAuditEntries": {
+            "$ref": "./examples/LivenessSessionOperations_ListLivenessSessionAuditEntries.json"
           }
         }
       }
     },
     "/face/{apiVersion}/detectLivenessWithVerify/singleModal/sessions": {
       "get": {
-        "operationId": "LivenessSessions_ListLivenessWithVerifySessions",
+        "operationId": "LivenessSessionOperations_ListLivenessWithVerifySessions",
         "description": "Lists all matching session types.\nList sessions from the last sessionId greater than the \"start\".\nThe result should be ordered by sessionId in ascending order.",
         "parameters": [
           {
@@ -399,13 +399,13 @@
           }
         },
         "x-ms-examples": {
-          "LivenessSessions_ListLivenessWithVerifySessions": {
-            "$ref": "./examples/LivenessSessions_ListLivenessWithVerifySessions_MaximumSet.json"
+          "LivenessSessionOperations_ListLivenessWithVerifySessions": {
+            "$ref": "./examples/LivenessSessionOperations_ListLivenessWithVerifySessions.json"
           }
         }
       },
       "post": {
-        "operationId": "LivenessSessions_CreateLivenessWithVerifySession",
+        "operationId": "LivenessSessionOperations_CreateLivenessWithVerifySession",
         "description": "Creates face liveness detection session.",
         "parameters": [
           {
@@ -441,15 +441,15 @@
           }
         },
         "x-ms-examples": {
-          "LivenessSessions_CreateLivenessWithVerifySession": {
-            "$ref": "./examples/LivenessSessions_CreateLivenessWithVerifySession_MaximumSet.json"
+          "LivenessSessionOperations_CreateLivenessWithVerifySession": {
+            "$ref": "./examples/LivenessSessionOperations_CreateLivenessWithVerifySession.json"
           }
         }
       }
     },
     "/face/{apiVersion}/detectLivenessWithVerify/singleModal/sessions/{sessionId}": {
       "get": {
-        "operationId": "LivenessSessions_GetLivenessWithVerifySession",
+        "operationId": "LivenessSessionOperations_GetLivenessWithVerifySession",
         "description": "Get session result of detectLiveness.",
         "parameters": [
           {
@@ -484,13 +484,13 @@
           }
         },
         "x-ms-examples": {
-          "LivenessSessions_GetLivenessWithVerifySession": {
-            "$ref": "./examples/LivenessSessions_GetLivenessWithVerifySession_MaximumSet.json"
+          "LivenessSessionOperations_GetLivenessWithVerifySession": {
+            "$ref": "./examples/LivenessSessionOperations_GetLivenessWithVerifySession.json"
           }
         }
       },
       "delete": {
-        "operationId": "LivenessSessions_DeleteLivenessWithVerifySession",
+        "operationId": "LivenessSessionOperations_DeleteLivenessWithVerifySession",
         "description": "Deletes a session and all of it's audit results.",
         "parameters": [
           {
@@ -522,15 +522,15 @@
           }
         },
         "x-ms-examples": {
-          "LivenessSessions_DeleteLivenessWithVerifySession": {
-            "$ref": "./examples/LivenessSessions_DeleteLivenessWithVerifySession_MaximumSet.json"
+          "LivenessSessionOperations_DeleteLivenessWithVerifySession": {
+            "$ref": "./examples/LivenessSessionOperations_DeleteLivenessWithVerifySession.json"
           }
         }
       }
     },
     "/face/{apiVersion}/detectLivenessWithVerify/singleModal/sessions/{sessionId}/audit": {
       "get": {
-        "operationId": "LivenessSessions_ListLivenessWithVerifySessionAuditEntries",
+        "operationId": "LivenessSessionOperations_ListLivenessWithVerifySessionAuditEntries",
         "description": "Get session audit requests/responses for the session.",
         "parameters": [
           {
@@ -574,15 +574,15 @@
           }
         },
         "x-ms-examples": {
-          "LivenessSessions_ListLivenessWithVerifySessionAuditEntries": {
-            "$ref": "./examples/LivenessSessions_ListLivenessWithVerifySessionAuditEntries_MaximumSet.json"
+          "LivenessSessionOperations_ListLivenessWithVerifySessionAuditEntries": {
+            "$ref": "./examples/LivenessSessionOperations_ListLivenessWithVerifySessionAuditEntries.json"
           }
         }
       }
     },
     "/face/{apiVersion}/dynamicpersongroups": {
       "get": {
-        "operationId": "PersonDirectory_ListDynamicPersonGroups",
+        "operationId": "PersonDirectoryOperations_ListDynamicPersonGroups",
         "description": "Operation that lists resources in a paginated way.",
         "parameters": [
           {
@@ -620,15 +620,15 @@
           }
         },
         "x-ms-examples": {
-          "PersonDirectory_ListDynamicPersonGroups": {
-            "$ref": "./examples/PersonDirectory_ListDynamicPersonGroups_MaximumSet.json"
+          "PersonDirectoryOperations_ListDynamicPersonGroups": {
+            "$ref": "./examples/PersonDirectoryOperations_ListDynamicPersonGroups.json"
           }
         }
       }
     },
     "/face/{apiVersion}/dynamicpersongroups/{dynamicPersonGroupId}": {
       "get": {
-        "operationId": "PersonDirectory_GetDynamicPersonGroup",
+        "operationId": "PersonDirectoryOperations_GetDynamicPersonGroup",
         "description": "Resource read operation template.",
         "parameters": [
           {
@@ -663,13 +663,13 @@
           }
         },
         "x-ms-examples": {
-          "PersonDirectory_GetDynamicPersonGroup": {
-            "$ref": "./examples/PersonDirectory_GetDynamicPersonGroup_MaximumSet.json"
+          "PersonDirectoryOperations_GetDynamicPersonGroup": {
+            "$ref": "./examples/PersonDirectoryOperations_GetDynamicPersonGroup.json"
           }
         }
       },
       "put": {
-        "operationId": "PersonDirectory_CreateDynamicPersonGroup",
+        "operationId": "PersonDirectoryOperations_CreateDynamicPersonGroup",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -720,14 +720,14 @@
           }
         },
         "x-ms-examples": {
-          "PersonDirectory_CreateDynamicPersonGroup": {
-            "$ref": "./examples/PersonDirectory_CreateDynamicPersonGroup_MaximumSet.json"
+          "PersonDirectoryOperations_CreateDynamicPersonGroup": {
+            "$ref": "./examples/PersonDirectoryOperations_CreateDynamicPersonGroup.json"
           }
         },
         "x-ms-long-running-operation": true
       },
       "patch": {
-        "operationId": "PersonDirectory_UpdateDynamicPersonGroup",
+        "operationId": "PersonDirectoryOperations_UpdateDynamicPersonGroup",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -778,14 +778,14 @@
           }
         },
         "x-ms-examples": {
-          "PersonDirectory_UpdateDynamicPersonGroup": {
-            "$ref": "./examples/PersonDirectory_UpdateDynamicPersonGroup_MaximumSet.json"
+          "PersonDirectoryOperations_UpdateDynamicPersonGroup": {
+            "$ref": "./examples/PersonDirectoryOperations_UpdateDynamicPersonGroup.json"
           }
         },
         "x-ms-long-running-operation": true
       },
       "delete": {
-        "operationId": "PersonDirectory_DeleteDynamicPersonGroup",
+        "operationId": "PersonDirectoryOperations_DeleteDynamicPersonGroup",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -824,8 +824,8 @@
           }
         },
         "x-ms-examples": {
-          "PersonDirectory_DeleteDynamicPersonGroup": {
-            "$ref": "./examples/PersonDirectory_DeleteDynamicPersonGroup_MaximumSet.json"
+          "PersonDirectoryOperations_DeleteDynamicPersonGroup": {
+            "$ref": "./examples/PersonDirectoryOperations_DeleteDynamicPersonGroup.json"
           }
         },
         "x-ms-long-running-operation": true
@@ -833,7 +833,7 @@
     },
     "/face/{apiVersion}/dynamicpersongroups/{dynamicPersonGroupId}/persons": {
       "get": {
-        "operationId": "PersonDirectory_ListDynamicPersonGroupPerson",
+        "operationId": "PersonDirectoryOperations_ListDynamicPersonGroupPerson",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -874,15 +874,15 @@
           }
         },
         "x-ms-examples": {
-          "PersonDirectory_ListDynamicPersonGroupPerson": {
-            "$ref": "./examples/PersonDirectory_ListDynamicPersonGroupPerson_MaximumSet.json"
+          "PersonDirectoryOperations_ListDynamicPersonGroupPerson": {
+            "$ref": "./examples/PersonDirectoryOperations_ListDynamicPersonGroupPerson.json"
           }
         }
       }
     },
     "/face/{apiVersion}/facelists": {
       "get": {
-        "operationId": "FaceLists_ListFaceLists",
+        "operationId": "FaceListOperations_ListFaceLists",
         "description": "Operation that lists resources in a paginated way.",
         "parameters": [
           {
@@ -917,15 +917,15 @@
           }
         },
         "x-ms-examples": {
-          "FaceLists_ListFaceLists": {
-            "$ref": "./examples/FaceLists_ListFaceLists_MaximumSet.json"
+          "FaceListOperations_ListFaceLists": {
+            "$ref": "./examples/FaceListOperations_ListFaceLists.json"
           }
         }
       }
     },
     "/face/{apiVersion}/facelists/{faceListId}": {
       "get": {
-        "operationId": "FaceLists_GetFaceList",
+        "operationId": "FaceListOperations_GetFaceList",
         "description": "Resource read operation template.",
         "parameters": [
           {
@@ -963,13 +963,13 @@
           }
         },
         "x-ms-examples": {
-          "FaceLists_GetFaceList": {
-            "$ref": "./examples/FaceLists_GetFaceList_MaximumSet.json"
+          "FaceListOperations_GetFaceList": {
+            "$ref": "./examples/FaceListOperations_GetFaceList.json"
           }
         }
       },
       "put": {
-        "operationId": "FaceLists_CreateFaceList",
+        "operationId": "FaceListOperations_CreateFaceList",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -1010,13 +1010,13 @@
           }
         },
         "x-ms-examples": {
-          "FaceLists_CreateFaceList": {
-            "$ref": "./examples/FaceLists_CreateFaceList_MaximumSet.json"
+          "FaceListOperations_CreateFaceList": {
+            "$ref": "./examples/FaceListOperations_CreateFaceList.json"
           }
         }
       },
       "patch": {
-        "operationId": "FaceLists_UpdateFaceList",
+        "operationId": "FaceListOperations_UpdateFaceList",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -1057,13 +1057,13 @@
           }
         },
         "x-ms-examples": {
-          "FaceLists_UpdateFaceList": {
-            "$ref": "./examples/FaceLists_UpdateFaceList_MaximumSet.json"
+          "FaceListOperations_UpdateFaceList": {
+            "$ref": "./examples/FaceListOperations_UpdateFaceList.json"
           }
         }
       },
       "delete": {
-        "operationId": "FaceLists_DeleteFaceList",
+        "operationId": "FaceListOperations_DeleteFaceList",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -1095,15 +1095,15 @@
           }
         },
         "x-ms-examples": {
-          "FaceLists_DeleteFaceList": {
-            "$ref": "./examples/FaceLists_DeleteFaceList_MaximumSet.json"
+          "FaceListOperations_DeleteFaceList": {
+            "$ref": "./examples/FaceListOperations_DeleteFaceList.json"
           }
         }
       }
     },
     "/face/{apiVersion}/facelists/{faceListId}/persistedfaces": {
       "post": {
-        "operationId": "FaceLists_AddFaceListFaceFromUrl",
+        "operationId": "FaceListOperations_AddFaceListFaceFromUrl",
         "description": "Operation that applies to a collection of resources.",
         "parameters": [
           {
@@ -1155,15 +1155,15 @@
           }
         },
         "x-ms-examples": {
-          "FaceLists_AddFaceListFaceFromUrl": {
-            "$ref": "./examples/FaceLists_AddFaceListFaceFromUrl_MaximumSet.json"
+          "FaceListOperations_AddFaceListFaceFromUrl": {
+            "$ref": "./examples/FaceListOperations_AddFaceListFaceFromUrl.json"
           }
         }
       }
     },
     "/face/{apiVersion}/facelists/{faceListId}/persistedfaces/{persistedFaceId}": {
       "delete": {
-        "operationId": "FaceLists_DeleteFaceListFace",
+        "operationId": "FaceListOperations_DeleteFaceListFace",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -1202,15 +1202,15 @@
           }
         },
         "x-ms-examples": {
-          "FaceLists_DeleteFaceListFace": {
-            "$ref": "./examples/FaceLists_DeleteFaceListFace_MaximumSet.json"
+          "FaceListOperations_DeleteFaceListFace": {
+            "$ref": "./examples/FaceListOperations_DeleteFaceListFace.json"
           }
         }
       }
     },
     "/face/{apiVersion}/findsimilars": {
       "post": {
-        "operationId": "FindSimilar",
+        "operationId": "FaceRecognitionOperations_FindSimilar",
         "description": "Given query face's faceId, to search the similar-looking faces from a faceId array, a face list or a large face list.",
         "parameters": [
           {
@@ -1276,15 +1276,15 @@
           }
         },
         "x-ms-examples": {
-          "FindSimilar": {
-            "$ref": "./examples/FindSimilar_MaximumSet.json"
+          "FaceRecognitionOperations_FindSimilar": {
+            "$ref": "./examples/FaceRecognitionOperations_FindSimilar.json"
           }
         }
       }
     },
     "/face/{apiVersion}/group": {
       "post": {
-        "operationId": "Group",
+        "operationId": "FaceRecognitionOperations_Group",
         "description": "Divide candidate faces into groups based on face similarity.",
         "parameters": [
           {
@@ -1332,15 +1332,15 @@
           }
         },
         "x-ms-examples": {
-          "Group": {
-            "$ref": "./examples/Group_MaximumSet.json"
+          "FaceRecognitionOperations_Group": {
+            "$ref": "./examples/FaceRecognitionOperations_Group.json"
           }
         }
       }
     },
     "/face/{apiVersion}/identify": {
       "post": {
-        "operationId": "PersonDirectory_IdentifyFromPersonDirectory",
+        "operationId": "FaceRecognitionOperations_IdentifyFromPersonGroup",
         "description": "A remote procedure call (RPC) operation.",
         "parameters": [
           {
@@ -1360,12 +1360,9 @@
                     "type": "string"
                   }
                 },
-                "personIds": {
-                  "type": "array",
-                  "description": "Array of personIds created in PersonDirectory - PersonCreate. The valid number of personIds is between [1,30].",
-                  "items": {
-                    "type": "string"
-                  }
+                "personGroupId": {
+                  "type": "string",
+                  "description": "Id of the target person group, created by PersonGroup - Create."
                 },
                 "maxNumOfCandidatesReturned": {
                   "type": "integer",
@@ -1380,7 +1377,7 @@
               },
               "required": [
                 "faceIds",
-                "personIds"
+                "personGroupId"
               ]
             }
           }
@@ -1410,15 +1407,15 @@
           }
         },
         "x-ms-examples": {
-          "PersonDirectory_IdentifyFromPersonDirectory": {
-            "$ref": "./examples/PersonDirectory_IdentifyFromPersonDirectory_MaximumSet.json"
+          "FaceRecognitionOperations_IdentifyFromPersonGroup": {
+            "$ref": "./examples/FaceRecognitionOperations_IdentifyFromPersonGroup.json"
           }
         }
       }
     },
     "/face/{apiVersion}/largefacelists": {
       "get": {
-        "operationId": "FaceLists_ListLargeFaceLists",
+        "operationId": "FaceListOperations_ListLargeFaceLists",
         "description": "Operation that lists resources in a paginated way.",
         "parameters": [
           {
@@ -1459,15 +1456,15 @@
           }
         },
         "x-ms-examples": {
-          "FaceLists_ListLargeFaceLists": {
-            "$ref": "./examples/FaceLists_ListLargeFaceLists_MaximumSet.json"
+          "FaceListOperations_ListLargeFaceLists": {
+            "$ref": "./examples/FaceListOperations_ListLargeFaceLists.json"
           }
         }
       }
     },
     "/face/{apiVersion}/largefacelists/{largeFaceListId}": {
       "get": {
-        "operationId": "FaceLists_GetLargeFaceList",
+        "operationId": "FaceListOperations_GetLargeFaceList",
         "description": "Resource read operation template.",
         "parameters": [
           {
@@ -1505,13 +1502,13 @@
           }
         },
         "x-ms-examples": {
-          "FaceLists_GetLargeFaceList": {
-            "$ref": "./examples/FaceLists_GetLargeFaceList_MaximumSet.json"
+          "FaceListOperations_GetLargeFaceList": {
+            "$ref": "./examples/FaceListOperations_GetLargeFaceList.json"
           }
         }
       },
       "put": {
-        "operationId": "FaceLists_CreateLargeFaceList",
+        "operationId": "FaceListOperations_CreateLargeFaceList",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -1552,13 +1549,13 @@
           }
         },
         "x-ms-examples": {
-          "FaceLists_CreateLargeFaceList": {
-            "$ref": "./examples/FaceLists_CreateLargeFaceList_MaximumSet.json"
+          "FaceListOperations_CreateLargeFaceList": {
+            "$ref": "./examples/FaceListOperations_CreateLargeFaceList.json"
           }
         }
       },
       "patch": {
-        "operationId": "FaceLists_UpdateLargeFaceList",
+        "operationId": "FaceListOperations_UpdateLargeFaceList",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -1599,13 +1596,13 @@
           }
         },
         "x-ms-examples": {
-          "FaceLists_UpdateLargeFaceList": {
-            "$ref": "./examples/FaceLists_UpdateLargeFaceList_MaximumSet.json"
+          "FaceListOperations_UpdateLargeFaceList": {
+            "$ref": "./examples/FaceListOperations_UpdateLargeFaceList.json"
           }
         }
       },
       "delete": {
-        "operationId": "FaceLists_DeleteLargeFaceList",
+        "operationId": "FaceListOperations_DeleteLargeFaceList",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -1637,15 +1634,15 @@
           }
         },
         "x-ms-examples": {
-          "FaceLists_DeleteLargeFaceList": {
-            "$ref": "./examples/FaceLists_DeleteLargeFaceList_MaximumSet.json"
+          "FaceListOperations_DeleteLargeFaceList": {
+            "$ref": "./examples/FaceListOperations_DeleteLargeFaceList.json"
           }
         }
       }
     },
     "/face/{apiVersion}/largefacelists/{largeFaceListId}/persistedfaces": {
       "get": {
-        "operationId": "FaceLists_ListLargeFaceListFaces",
+        "operationId": "FaceListOperations_ListLargeFaceListFaces",
         "description": "Operation that lists resources in a paginated way.",
         "parameters": [
           {
@@ -1690,13 +1687,13 @@
           }
         },
         "x-ms-examples": {
-          "FaceLists_ListLargeFaceListFaces": {
-            "$ref": "./examples/FaceLists_ListLargeFaceListFaces_MaximumSet.json"
+          "FaceListOperations_ListLargeFaceListFaces": {
+            "$ref": "./examples/FaceListOperations_ListLargeFaceListFaces.json"
           }
         }
       },
       "post": {
-        "operationId": "FaceLists_AddLargeFaceListFaceFromUrl",
+        "operationId": "FaceListOperations_AddLargeFaceListFaceFromUrl",
         "description": "Operation that applies to a collection of resources.",
         "parameters": [
           {
@@ -1748,15 +1745,15 @@
           }
         },
         "x-ms-examples": {
-          "FaceLists_AddLargeFaceListFaceFromUrl": {
-            "$ref": "./examples/FaceLists_AddLargeFaceListFaceFromUrl_MaximumSet.json"
+          "FaceListOperations_AddLargeFaceListFaceFromUrl": {
+            "$ref": "./examples/FaceListOperations_AddLargeFaceListFaceFromUrl.json"
           }
         }
       }
     },
     "/face/{apiVersion}/largefacelists/{largeFaceListId}/persistedfaces/{persistedFaceId}": {
       "get": {
-        "operationId": "FaceLists_GetLargeFaceListFace",
+        "operationId": "FaceListOperations_GetLargeFaceListFace",
         "description": "Resource read operation template.",
         "parameters": [
           {
@@ -1798,13 +1795,13 @@
           }
         },
         "x-ms-examples": {
-          "FaceLists_GetLargeFaceListFace": {
-            "$ref": "./examples/FaceLists_GetLargeFaceListFace_MaximumSet.json"
+          "FaceListOperations_GetLargeFaceListFace": {
+            "$ref": "./examples/FaceListOperations_GetLargeFaceListFace.json"
           }
         }
       },
       "patch": {
-        "operationId": "FaceLists_UpdateLargeFaceListFace",
+        "operationId": "FaceListOperations_UpdateLargeFaceListFace",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -1852,13 +1849,13 @@
           }
         },
         "x-ms-examples": {
-          "FaceLists_UpdateLargeFaceListFace": {
-            "$ref": "./examples/FaceLists_UpdateLargeFaceListFace_MaximumSet.json"
+          "FaceListOperations_UpdateLargeFaceListFace": {
+            "$ref": "./examples/FaceListOperations_UpdateLargeFaceListFace.json"
           }
         }
       },
       "delete": {
-        "operationId": "FaceLists_DeleteLargeFaceListFace",
+        "operationId": "FaceListOperations_DeleteLargeFaceListFace",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -1897,15 +1894,15 @@
           }
         },
         "x-ms-examples": {
-          "FaceLists_DeleteLargeFaceListFace": {
-            "$ref": "./examples/FaceLists_DeleteLargeFaceListFace_MaximumSet.json"
+          "FaceListOperations_DeleteLargeFaceListFace": {
+            "$ref": "./examples/FaceListOperations_DeleteLargeFaceListFace.json"
           }
         }
       }
     },
     "/face/{apiVersion}/largefacelists/{largeFaceListId}/train": {
       "post": {
-        "operationId": "FaceLists_TrainLargeFaceList",
+        "operationId": "FaceListOperations_TrainLargeFaceList",
         "description": "Resource action operation template.",
         "parameters": [
           {
@@ -1937,8 +1934,8 @@
           }
         },
         "x-ms-examples": {
-          "FaceLists_TrainLargeFaceList": {
-            "$ref": "./examples/FaceLists_TrainLargeFaceList_MaximumSet.json"
+          "FaceListOperations_TrainLargeFaceList": {
+            "$ref": "./examples/FaceListOperations_TrainLargeFaceList.json"
           }
         },
         "x-ms-long-running-operation": true
@@ -1946,7 +1943,7 @@
     },
     "/face/{apiVersion}/largefacelists/{largeFaceListId}/training": {
       "get": {
-        "operationId": "FaceLists_GetLargeFaceListTrainingStatus",
+        "operationId": "FaceListOperations_GetLargeFaceListTrainingStatus",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -1981,15 +1978,15 @@
           }
         },
         "x-ms-examples": {
-          "FaceLists_GetLargeFaceListTrainingStatus": {
-            "$ref": "./examples/FaceLists_GetLargeFaceListTrainingStatus_MaximumSet.json"
+          "FaceListOperations_GetLargeFaceListTrainingStatus": {
+            "$ref": "./examples/FaceListOperations_GetLargeFaceListTrainingStatus.json"
           }
         }
       }
     },
     "/face/{apiVersion}/largepersongroups": {
       "get": {
-        "operationId": "PersonGroups_ListLargePersonGroups",
+        "operationId": "PersonGroupOperations_ListLargePersonGroups",
         "description": "Operation that lists resources in a paginated way.",
         "parameters": [
           {
@@ -2030,15 +2027,15 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroups_ListLargePersonGroups": {
-            "$ref": "./examples/PersonGroups_ListLargePersonGroups_MaximumSet.json"
+          "PersonGroupOperations_ListLargePersonGroups": {
+            "$ref": "./examples/PersonGroupOperations_ListLargePersonGroups.json"
           }
         }
       }
     },
     "/face/{apiVersion}/largepersongroups/{largePersonGroupId}": {
       "get": {
-        "operationId": "PersonGroups_GetLargePersonGroup",
+        "operationId": "PersonGroupOperations_GetLargePersonGroup",
         "description": "Resource read operation template.",
         "parameters": [
           {
@@ -2076,13 +2073,13 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroups_GetLargePersonGroup": {
-            "$ref": "./examples/PersonGroups_GetLargePersonGroup_MaximumSet.json"
+          "PersonGroupOperations_GetLargePersonGroup": {
+            "$ref": "./examples/PersonGroupOperations_GetLargePersonGroup.json"
           }
         }
       },
       "put": {
-        "operationId": "PersonGroups_CreateLargePersonGroup",
+        "operationId": "PersonGroupOperations_CreateLargePersonGroup",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -2123,13 +2120,13 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroups_CreateLargePersonGroup": {
-            "$ref": "./examples/PersonGroups_CreateLargePersonGroup_MaximumSet.json"
+          "PersonGroupOperations_CreateLargePersonGroup": {
+            "$ref": "./examples/PersonGroupOperations_CreateLargePersonGroup.json"
           }
         }
       },
       "patch": {
-        "operationId": "PersonGroups_UpdateLargePersonGroup",
+        "operationId": "PersonGroupOperations_UpdateLargePersonGroup",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -2170,13 +2167,13 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroups_UpdateLargePersonGroup": {
-            "$ref": "./examples/PersonGroups_UpdateLargePersonGroup_MaximumSet.json"
+          "PersonGroupOperations_UpdateLargePersonGroup": {
+            "$ref": "./examples/PersonGroupOperations_UpdateLargePersonGroup.json"
           }
         }
       },
       "delete": {
-        "operationId": "PersonGroups_DeleteLargePersonGroup",
+        "operationId": "PersonGroupOperations_DeleteLargePersonGroup",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -2208,15 +2205,15 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroups_DeleteLargePersonGroup": {
-            "$ref": "./examples/PersonGroups_DeleteLargePersonGroup_MaximumSet.json"
+          "PersonGroupOperations_DeleteLargePersonGroup": {
+            "$ref": "./examples/PersonGroupOperations_DeleteLargePersonGroup.json"
           }
         }
       }
     },
     "/face/{apiVersion}/largepersongroups/{largePersonGroupId}/persons": {
       "get": {
-        "operationId": "PersonGroups_ListLargePersonGroupPerson",
+        "operationId": "PersonGroupOperations_ListLargePersonGroupPerson",
         "description": "Operation that lists resources in a paginated way.",
         "parameters": [
           {
@@ -2261,13 +2258,13 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroups_ListLargePersonGroupPerson": {
-            "$ref": "./examples/PersonGroups_ListLargePersonGroupPerson_MaximumSet.json"
+          "PersonGroupOperations_ListLargePersonGroupPerson": {
+            "$ref": "./examples/PersonGroupOperations_ListLargePersonGroupPerson.json"
           }
         }
       },
       "post": {
-        "operationId": "PersonGroups_CreateLargePersonGroupPerson",
+        "operationId": "PersonGroupOperations_CreateLargePersonGroupPerson",
         "description": "Operation that applies to a collection of resources.",
         "parameters": [
           {
@@ -2311,15 +2308,15 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroups_CreateLargePersonGroupPerson": {
-            "$ref": "./examples/PersonGroups_CreateLargePersonGroupPerson_MaximumSet.json"
+          "PersonGroupOperations_CreateLargePersonGroupPerson": {
+            "$ref": "./examples/PersonGroupOperations_CreateLargePersonGroupPerson.json"
           }
         }
       }
     },
     "/face/{apiVersion}/largepersongroups/{largePersonGroupId}/persons/{personId}": {
       "get": {
-        "operationId": "PersonGroups_GetLargePersonGroupPerson",
+        "operationId": "PersonGroupOperations_GetLargePersonGroupPerson",
         "description": "Resource read operation template.",
         "parameters": [
           {
@@ -2361,13 +2358,13 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroups_GetLargePersonGroupPerson": {
-            "$ref": "./examples/PersonGroups_GetLargePersonGroupPerson_MaximumSet.json"
+          "PersonGroupOperations_GetLargePersonGroupPerson": {
+            "$ref": "./examples/PersonGroupOperations_GetLargePersonGroupPerson.json"
           }
         }
       },
       "patch": {
-        "operationId": "PersonGroups_UpdateLargePersonGroupPerson",
+        "operationId": "PersonGroupOperations_UpdateLargePersonGroupPerson",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -2415,13 +2412,13 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroups_UpdateLargePersonGroupPerson": {
-            "$ref": "./examples/PersonGroups_UpdateLargePersonGroupPerson_MaximumSet.json"
+          "PersonGroupOperations_UpdateLargePersonGroupPerson": {
+            "$ref": "./examples/PersonGroupOperations_UpdateLargePersonGroupPerson.json"
           }
         }
       },
       "delete": {
-        "operationId": "PersonGroups_DeleteLargePersonGroupPerson",
+        "operationId": "PersonGroupOperations_DeleteLargePersonGroupPerson",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -2460,15 +2457,15 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroups_DeleteLargePersonGroupPerson": {
-            "$ref": "./examples/PersonGroups_DeleteLargePersonGroupPerson_MaximumSet.json"
+          "PersonGroupOperations_DeleteLargePersonGroupPerson": {
+            "$ref": "./examples/PersonGroupOperations_DeleteLargePersonGroupPerson.json"
           }
         }
       }
     },
     "/face/{apiVersion}/largepersongroups/{largePersonGroupId}/persons/{personId}/persistedfaces": {
       "post": {
-        "operationId": "PersonGroups_AddLargePersonGroupPersonFaceFromUrl",
+        "operationId": "PersonGroupOperations_AddLargePersonGroupPersonFaceFromUrl",
         "description": "Operation that applies to a collection of resources.",
         "parameters": [
           {
@@ -2527,15 +2524,15 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroups_AddLargePersonGroupPersonFaceFromUrl": {
-            "$ref": "./examples/PersonGroups_AddLargePersonGroupPersonFaceFromUrl_MaximumSet.json"
+          "PersonGroupOperations_AddLargePersonGroupPersonFaceFromUrl": {
+            "$ref": "./examples/PersonGroupOperations_AddLargePersonGroupPersonFaceFromUrl.json"
           }
         }
       }
     },
     "/face/{apiVersion}/largepersongroups/{largePersonGroupId}/persons/{personId}/persistedfaces/{persistedFaceId}": {
       "get": {
-        "operationId": "PersonGroups_GetLargePersonGroupPersonFace",
+        "operationId": "PersonGroupOperations_GetLargePersonGroupPersonFace",
         "description": "Resource read operation template.",
         "parameters": [
           {
@@ -2584,13 +2581,13 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroups_GetLargePersonGroupPersonFace": {
-            "$ref": "./examples/PersonGroups_GetLargePersonGroupPersonFace_MaximumSet.json"
+          "PersonGroupOperations_GetLargePersonGroupPersonFace": {
+            "$ref": "./examples/PersonGroupOperations_GetLargePersonGroupPersonFace.json"
           }
         }
       },
       "patch": {
-        "operationId": "PersonGroups_UpdateLargePersonGroupPersonFace",
+        "operationId": "PersonGroupOperations_UpdateLargePersonGroupPersonFace",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -2645,13 +2642,13 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroups_UpdateLargePersonGroupPersonFace": {
-            "$ref": "./examples/PersonGroups_UpdateLargePersonGroupPersonFace_MaximumSet.json"
+          "PersonGroupOperations_UpdateLargePersonGroupPersonFace": {
+            "$ref": "./examples/PersonGroupOperations_UpdateLargePersonGroupPersonFace.json"
           }
         }
       },
       "delete": {
-        "operationId": "PersonGroups_DeleteLargePersonGroupPersonFace",
+        "operationId": "PersonGroupOperations_DeleteLargePersonGroupPersonFace",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -2697,15 +2694,15 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroups_DeleteLargePersonGroupPersonFace": {
-            "$ref": "./examples/PersonGroups_DeleteLargePersonGroupPersonFace_MaximumSet.json"
+          "PersonGroupOperations_DeleteLargePersonGroupPersonFace": {
+            "$ref": "./examples/PersonGroupOperations_DeleteLargePersonGroupPersonFace.json"
           }
         }
       }
     },
     "/face/{apiVersion}/largepersongroups/{largePersonGroupId}/train": {
       "post": {
-        "operationId": "PersonGroups_TrainLargePersonGroup",
+        "operationId": "PersonGroupOperations_TrainLargePersonGroup",
         "description": "Resource action operation template.",
         "parameters": [
           {
@@ -2737,8 +2734,8 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroups_TrainLargePersonGroup": {
-            "$ref": "./examples/PersonGroups_TrainLargePersonGroup_MaximumSet.json"
+          "PersonGroupOperations_TrainLargePersonGroup": {
+            "$ref": "./examples/PersonGroupOperations_TrainLargePersonGroup.json"
           }
         },
         "x-ms-long-running-operation": true
@@ -2746,7 +2743,7 @@
     },
     "/face/{apiVersion}/largepersongroups/{largePersonGroupId}/training": {
       "get": {
-        "operationId": "PersonGroups_GetLargePersonGroupTrainingStatus",
+        "operationId": "PersonGroupOperations_GetLargePersonGroupTrainingStatus",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -2781,8 +2778,8 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroups_GetLargePersonGroupTrainingStatus": {
-            "$ref": "./examples/PersonGroups_GetLargePersonGroupTrainingStatus_MaximumSet.json"
+          "PersonGroupOperations_GetLargePersonGroupTrainingStatus": {
+            "$ref": "./examples/PersonGroupOperations_GetLargePersonGroupTrainingStatus.json"
           }
         }
       }
@@ -2825,14 +2822,14 @@
         },
         "x-ms-examples": {
           "GetFaceOperationStatus": {
-            "$ref": "./examples/GetFaceOperationStatus_MaximumSet.json"
+            "$ref": "./examples/GetFaceOperationStatus.json"
           }
         }
       }
     },
     "/face/{apiVersion}/persongroups": {
       "get": {
-        "operationId": "PersonGroups_ListPersonGroups",
+        "operationId": "PersonGroupOperations_ListPersonGroups",
         "description": "Operation that lists resources in a paginated way.",
         "parameters": [
           {
@@ -2873,15 +2870,15 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroups_ListPersonGroups": {
-            "$ref": "./examples/PersonGroups_ListPersonGroups_MaximumSet.json"
+          "PersonGroupOperations_ListPersonGroups": {
+            "$ref": "./examples/PersonGroupOperations_ListPersonGroups.json"
           }
         }
       }
     },
     "/face/{apiVersion}/persongroups/{personGroupId}": {
       "get": {
-        "operationId": "PersonGroups_GetPersonGroup",
+        "operationId": "PersonGroupOperations_GetPersonGroup",
         "description": "Resource read operation template.",
         "parameters": [
           {
@@ -2919,13 +2916,13 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroups_GetPersonGroup": {
-            "$ref": "./examples/PersonGroups_GetPersonGroup_MaximumSet.json"
+          "PersonGroupOperations_GetPersonGroup": {
+            "$ref": "./examples/PersonGroupOperations_GetPersonGroup.json"
           }
         }
       },
       "put": {
-        "operationId": "PersonGroups_CreatePersonGroup",
+        "operationId": "PersonGroupOperations_CreatePersonGroup",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -2966,13 +2963,13 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroups_CreatePersonGroup": {
-            "$ref": "./examples/PersonGroups_CreatePersonGroup_MaximumSet.json"
+          "PersonGroupOperations_CreatePersonGroup": {
+            "$ref": "./examples/PersonGroupOperations_CreatePersonGroup.json"
           }
         }
       },
       "patch": {
-        "operationId": "PersonGroups_UpdatePersonGroup",
+        "operationId": "PersonGroupOperations_UpdatePersonGroup",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -3013,13 +3010,13 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroups_UpdatePersonGroup": {
-            "$ref": "./examples/PersonGroups_UpdatePersonGroup_MaximumSet.json"
+          "PersonGroupOperations_UpdatePersonGroup": {
+            "$ref": "./examples/PersonGroupOperations_UpdatePersonGroup.json"
           }
         }
       },
       "delete": {
-        "operationId": "PersonGroups_DeletePersonGroup",
+        "operationId": "PersonGroupOperations_DeletePersonGroup",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -3051,15 +3048,15 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroups_DeletePersonGroup": {
-            "$ref": "./examples/PersonGroups_DeletePersonGroup_MaximumSet.json"
+          "PersonGroupOperations_DeletePersonGroup": {
+            "$ref": "./examples/PersonGroupOperations_DeletePersonGroup.json"
           }
         }
       }
     },
     "/face/{apiVersion}/persongroups/{personGroupId}/persons": {
       "get": {
-        "operationId": "PersonGroups_ListPersonGroupPerson",
+        "operationId": "PersonGroupOperations_ListPersonGroupPerson",
         "description": "Operation that lists resources in a paginated way.",
         "parameters": [
           {
@@ -3104,13 +3101,13 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroups_ListPersonGroupPerson": {
-            "$ref": "./examples/PersonGroups_ListPersonGroupPerson_MaximumSet.json"
+          "PersonGroupOperations_ListPersonGroupPerson": {
+            "$ref": "./examples/PersonGroupOperations_ListPersonGroupPerson.json"
           }
         }
       },
       "post": {
-        "operationId": "PersonGroups_CreatePersonGroupPerson",
+        "operationId": "PersonGroupOperations_CreatePersonGroupPerson",
         "description": "Operation that applies to a collection of resources.",
         "parameters": [
           {
@@ -3154,15 +3151,15 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroups_CreatePersonGroupPerson": {
-            "$ref": "./examples/PersonGroups_CreatePersonGroupPerson_MaximumSet.json"
+          "PersonGroupOperations_CreatePersonGroupPerson": {
+            "$ref": "./examples/PersonGroupOperations_CreatePersonGroupPerson.json"
           }
         }
       }
     },
     "/face/{apiVersion}/persongroups/{personGroupId}/persons/{personId}": {
       "get": {
-        "operationId": "PersonGroups_GetPersonGroupPerson",
+        "operationId": "PersonGroupOperations_GetPersonGroupPerson",
         "description": "Resource read operation template.",
         "parameters": [
           {
@@ -3204,13 +3201,13 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroups_GetPersonGroupPerson": {
-            "$ref": "./examples/PersonGroups_GetPersonGroupPerson_MaximumSet.json"
+          "PersonGroupOperations_GetPersonGroupPerson": {
+            "$ref": "./examples/PersonGroupOperations_GetPersonGroupPerson.json"
           }
         }
       },
       "patch": {
-        "operationId": "PersonGroups_UpdatePersonGroupPerson",
+        "operationId": "PersonGroupOperations_UpdatePersonGroupPerson",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -3258,13 +3255,13 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroups_UpdatePersonGroupPerson": {
-            "$ref": "./examples/PersonGroups_UpdatePersonGroupPerson_MaximumSet.json"
+          "PersonGroupOperations_UpdatePersonGroupPerson": {
+            "$ref": "./examples/PersonGroupOperations_UpdatePersonGroupPerson.json"
           }
         }
       },
       "delete": {
-        "operationId": "PersonGroups_DeletePersonGroupPerson",
+        "operationId": "PersonGroupOperations_DeletePersonGroupPerson",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -3303,15 +3300,15 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroups_DeletePersonGroupPerson": {
-            "$ref": "./examples/PersonGroups_DeletePersonGroupPerson_MaximumSet.json"
+          "PersonGroupOperations_DeletePersonGroupPerson": {
+            "$ref": "./examples/PersonGroupOperations_DeletePersonGroupPerson.json"
           }
         }
       }
     },
     "/face/{apiVersion}/persongroups/{personGroupId}/persons/{personId}/persistedfaces": {
       "post": {
-        "operationId": "PersonGroups_AddPersonGroupPersonFaceFromUrl",
+        "operationId": "PersonGroupOperations_AddPersonGroupPersonFaceFromUrl",
         "description": "Operation that applies to a collection of resources.",
         "parameters": [
           {
@@ -3370,15 +3367,15 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroups_AddPersonGroupPersonFaceFromUrl": {
-            "$ref": "./examples/PersonGroups_AddPersonGroupPersonFaceFromUrl_MaximumSet.json"
+          "PersonGroupOperations_AddPersonGroupPersonFaceFromUrl": {
+            "$ref": "./examples/PersonGroupOperations_AddPersonGroupPersonFaceFromUrl.json"
           }
         }
       }
     },
     "/face/{apiVersion}/persongroups/{personGroupId}/persons/{personId}/persistedfaces/{persistedFaceId}": {
       "get": {
-        "operationId": "PersonGroups_GetPersonGroupPersonFace",
+        "operationId": "PersonGroupOperations_GetPersonGroupPersonFace",
         "description": "Resource read operation template.",
         "parameters": [
           {
@@ -3427,13 +3424,13 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroups_GetPersonGroupPersonFace": {
-            "$ref": "./examples/PersonGroups_GetPersonGroupPersonFace_MaximumSet.json"
+          "PersonGroupOperations_GetPersonGroupPersonFace": {
+            "$ref": "./examples/PersonGroupOperations_GetPersonGroupPersonFace.json"
           }
         }
       },
       "patch": {
-        "operationId": "PersonGroups_UpdatePersonGroupPersonFace",
+        "operationId": "PersonGroupOperations_UpdatePersonGroupPersonFace",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -3488,13 +3485,13 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroups_UpdatePersonGroupPersonFace": {
-            "$ref": "./examples/PersonGroups_UpdatePersonGroupPersonFace_MaximumSet.json"
+          "PersonGroupOperations_UpdatePersonGroupPersonFace": {
+            "$ref": "./examples/PersonGroupOperations_UpdatePersonGroupPersonFace.json"
           }
         }
       },
       "delete": {
-        "operationId": "PersonGroups_DeletePersonGroupPersonFace",
+        "operationId": "PersonGroupOperations_DeletePersonGroupPersonFace",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -3540,15 +3537,15 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroups_DeletePersonGroupPersonFace": {
-            "$ref": "./examples/PersonGroups_DeletePersonGroupPersonFace_MaximumSet.json"
+          "PersonGroupOperations_DeletePersonGroupPersonFace": {
+            "$ref": "./examples/PersonGroupOperations_DeletePersonGroupPersonFace.json"
           }
         }
       }
     },
     "/face/{apiVersion}/persongroups/{personGroupId}/train": {
       "post": {
-        "operationId": "PersonGroups_TrainPersonGroup",
+        "operationId": "PersonGroupOperations_TrainPersonGroup",
         "description": "Resource action operation template.",
         "parameters": [
           {
@@ -3580,8 +3577,8 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroups_TrainPersonGroup": {
-            "$ref": "./examples/PersonGroups_TrainPersonGroup_MaximumSet.json"
+          "PersonGroupOperations_TrainPersonGroup": {
+            "$ref": "./examples/PersonGroupOperations_TrainPersonGroup.json"
           }
         },
         "x-ms-long-running-operation": true
@@ -3589,7 +3586,7 @@
     },
     "/face/{apiVersion}/persongroups/{personGroupId}/training": {
       "get": {
-        "operationId": "PersonGroups_GetPersonGroupTrainingStatus",
+        "operationId": "PersonGroupOperations_GetPersonGroupTrainingStatus",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -3624,15 +3621,15 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroups_GetPersonGroupTrainingStatus": {
-            "$ref": "./examples/PersonGroups_GetPersonGroupTrainingStatus_MaximumSet.json"
+          "PersonGroupOperations_GetPersonGroupTrainingStatus": {
+            "$ref": "./examples/PersonGroupOperations_GetPersonGroupTrainingStatus.json"
           }
         }
       }
     },
     "/face/{apiVersion}/persons": {
       "get": {
-        "operationId": "PersonDirectory_ListPerson",
+        "operationId": "PersonDirectoryOperations_ListPerson",
         "description": "Operation that lists resources in a paginated way.",
         "parameters": [
           {
@@ -3670,13 +3667,13 @@
           }
         },
         "x-ms-examples": {
-          "PersonDirectory_ListPerson": {
-            "$ref": "./examples/PersonDirectory_ListPerson_MaximumSet.json"
+          "PersonDirectoryOperations_ListPerson": {
+            "$ref": "./examples/PersonDirectoryOperations_ListPerson.json"
           }
         }
       },
       "post": {
-        "operationId": "PersonDirectory_CreatePerson",
+        "operationId": "PersonDirectoryOperations_CreatePerson",
         "description": "Operation that applies to a collection of resources.",
         "parameters": [
           {
@@ -3720,8 +3717,8 @@
           }
         },
         "x-ms-examples": {
-          "PersonDirectory_CreatePerson": {
-            "$ref": "./examples/PersonDirectory_CreatePerson_MaximumSet.json"
+          "PersonDirectoryOperations_CreatePerson": {
+            "$ref": "./examples/PersonDirectoryOperations_CreatePerson.json"
           }
         },
         "x-ms-long-running-operation": true
@@ -3729,7 +3726,7 @@
     },
     "/face/{apiVersion}/persons/{personId}": {
       "get": {
-        "operationId": "PersonDirectory_GetPerson",
+        "operationId": "PersonDirectoryOperations_GetPerson",
         "description": "Resource read operation template.",
         "parameters": [
           {
@@ -3764,13 +3761,13 @@
           }
         },
         "x-ms-examples": {
-          "PersonDirectory_GetPerson": {
-            "$ref": "./examples/PersonDirectory_GetPerson_MaximumSet.json"
+          "PersonDirectoryOperations_GetPerson": {
+            "$ref": "./examples/PersonDirectoryOperations_GetPerson.json"
           }
         }
       },
       "patch": {
-        "operationId": "PersonDirectory_UpdatePerson",
+        "operationId": "PersonDirectoryOperations_UpdatePerson",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -3811,13 +3808,13 @@
           }
         },
         "x-ms-examples": {
-          "PersonDirectory_UpdatePerson": {
-            "$ref": "./examples/PersonDirectory_UpdatePerson_MaximumSet.json"
+          "PersonDirectoryOperations_UpdatePerson": {
+            "$ref": "./examples/PersonDirectoryOperations_UpdatePerson.json"
           }
         }
       },
       "delete": {
-        "operationId": "PersonDirectory_DeletePerson",
+        "operationId": "PersonDirectoryOperations_DeletePerson",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -3856,8 +3853,8 @@
           }
         },
         "x-ms-examples": {
-          "PersonDirectory_DeletePerson": {
-            "$ref": "./examples/PersonDirectory_DeletePerson_MaximumSet.json"
+          "PersonDirectoryOperations_DeletePerson": {
+            "$ref": "./examples/PersonDirectoryOperations_DeletePerson.json"
           }
         },
         "x-ms-long-running-operation": true
@@ -3865,7 +3862,7 @@
     },
     "/face/{apiVersion}/persons/{personId}/dynamicPersonGroupReferences": {
       "get": {
-        "operationId": "PersonDirectory_ListDynamicPersonGroupReferences",
+        "operationId": "PersonDirectoryOperations_ListDynamicPersonGroupReferences",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -3906,15 +3903,15 @@
           }
         },
         "x-ms-examples": {
-          "PersonDirectory_ListDynamicPersonGroupReferences": {
-            "$ref": "./examples/PersonDirectory_ListDynamicPersonGroupReferences_MaximumSet.json"
+          "PersonDirectoryOperations_ListDynamicPersonGroupReferences": {
+            "$ref": "./examples/PersonDirectoryOperations_ListDynamicPersonGroupReferences.json"
           }
         }
       }
     },
     "/face/{apiVersion}/persons/{personId}/recognitionModels/{recognitionModel}/persistedfaces": {
       "get": {
-        "operationId": "PersonDirectory_ListPersonFace",
+        "operationId": "PersonDirectoryOperations_ListPersonFace",
         "description": "Operation that lists resources in a paginated way.",
         "parameters": [
           {
@@ -3988,13 +3985,13 @@
           }
         },
         "x-ms-examples": {
-          "PersonDirectory_ListPersonFace": {
-            "$ref": "./examples/PersonDirectory_ListPersonFace_MaximumSet.json"
+          "PersonDirectoryOperations_ListPersonFace": {
+            "$ref": "./examples/PersonDirectoryOperations_ListPersonFace.json"
           }
         }
       },
       "post": {
-        "operationId": "PersonDirectory_AddPersonFaceFromUrl",
+        "operationId": "PersonDirectoryOperations_AddPersonFaceFromUrl",
         "description": "Operation that applies to a collection of resources.",
         "parameters": [
           {
@@ -4093,8 +4090,8 @@
           }
         },
         "x-ms-examples": {
-          "PersonDirectory_AddPersonFaceFromUrl": {
-            "$ref": "./examples/PersonDirectory_AddPersonFaceFromUrl_MaximumSet.json"
+          "PersonDirectoryOperations_AddPersonFaceFromUrl": {
+            "$ref": "./examples/PersonDirectoryOperations_AddPersonFaceFromUrl.json"
           }
         },
         "x-ms-long-running-operation": true
@@ -4102,7 +4099,7 @@
     },
     "/face/{apiVersion}/persons/{personId}/recognitionModels/{recognitionModel}/persistedfaces/{persistedFaceId}": {
       "get": {
-        "operationId": "PersonDirectory_GetPersonFace",
+        "operationId": "PersonDirectoryOperations_GetPersonFace",
         "description": "Resource read operation template.",
         "parameters": [
           {
@@ -4183,13 +4180,13 @@
           }
         },
         "x-ms-examples": {
-          "PersonDirectory_GetPersonFace": {
-            "$ref": "./examples/PersonDirectory_GetPersonFace_MaximumSet.json"
+          "PersonDirectoryOperations_GetPersonFace": {
+            "$ref": "./examples/PersonDirectoryOperations_GetPersonFace.json"
           }
         }
       },
       "patch": {
-        "operationId": "PersonDirectory_UpdatePersonFace",
+        "operationId": "PersonDirectoryOperations_UpdatePersonFace",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -4276,13 +4273,13 @@
           }
         },
         "x-ms-examples": {
-          "PersonDirectory_UpdatePersonFace": {
-            "$ref": "./examples/PersonDirectory_UpdatePersonFace_MaximumSet.json"
+          "PersonDirectoryOperations_UpdatePersonFace": {
+            "$ref": "./examples/PersonDirectoryOperations_UpdatePersonFace.json"
           }
         }
       },
       "delete": {
-        "operationId": "PersonDirectory_DeletePersonFace",
+        "operationId": "PersonDirectoryOperations_DeletePersonFace",
         "description": "The most basic operation that applies to a resource.",
         "parameters": [
           {
@@ -4367,8 +4364,8 @@
           }
         },
         "x-ms-examples": {
-          "PersonDirectory_DeletePersonFace": {
-            "$ref": "./examples/PersonDirectory_DeletePersonFace_MaximumSet.json"
+          "PersonDirectoryOperations_DeletePersonFace": {
+            "$ref": "./examples/PersonDirectoryOperations_DeletePersonFace.json"
           }
         },
         "x-ms-long-running-operation": true
@@ -4376,7 +4373,7 @@
     },
     "/face/{apiVersion}/verify": {
       "post": {
-        "operationId": "Verify",
+        "operationId": "FaceRecognitionOperations_VerifyFaceToFace",
         "description": "Verify whether two faces belong to a same person or whether one face belongs to a person.",
         "parameters": [
           {
@@ -4426,8 +4423,8 @@
           }
         },
         "x-ms-examples": {
-          "Verify": {
-            "$ref": "./examples/Verify_MaximumSet.json"
+          "FaceRecognitionOperations_VerifyFaceToFace": {
+            "$ref": "./examples/FaceRecognitionOperations_VerifyFaceToFace.json"
           }
         }
       }
@@ -4436,7 +4433,7 @@
   "x-ms-paths": {
     "/face/{apiVersion}/detect?_overload=detectFromStream": {
       "post": {
-        "operationId": "DetectFromStream",
+        "operationId": "FaceDetectionOperations_DetectFromStream",
         "description": "Detect human faces in an image, return face rectangles, and optionally with faceIds, landmarks, and attributes.",
         "consumes": [
           "application/octet-stream"
@@ -4502,15 +4499,15 @@
           }
         },
         "x-ms-examples": {
-          "DetectFromStream": {
-            "$ref": "./examples/DetectFromStream_MaximumSet.json"
+          "FaceDetectionOperations_DetectFromStream": {
+            "$ref": "./examples/FaceDetectionOperations_DetectFromStream.json"
           }
         }
       }
     },
     "/face/{apiVersion}/detectLivenessWithVerify/singleModal/sessions?_overload=createLivenessWithVerifySessionWithVerifyImage": {
       "post": {
-        "operationId": "LivenessSessions_CreateLivenessWithVerifySessionWithVerifyImage",
+        "operationId": "LivenessSessionOperations_CreateLivenessWithVerifySessionWithVerifyImage",
         "description": "Creates face liveness detection session with verify image.",
         "consumes": [
           "multipart/form-data"
@@ -4547,15 +4544,15 @@
           }
         },
         "x-ms-examples": {
-          "LivenessSessions_CreateLivenessWithVerifySessionWithVerifyImage": {
-            "$ref": "./examples/LivenessSessions_CreateLivenessWithVerifySessionWithVerifyImage_MaximumSet.json"
+          "LivenessSessionOperations_CreateLivenessWithVerifySessionWithVerifyImage": {
+            "$ref": "./examples/LivenessSessionOperations_CreateLivenessWithVerifySessionWithVerifyImage.json"
           }
         }
       }
     },
     "/face/{apiVersion}/facelists/{faceListId}/persistedfaces?_overload=addFaceListFaceFromStream": {
       "post": {
-        "operationId": "FaceLists_AddFaceListFaceFromStream",
+        "operationId": "FaceListOperations_AddFaceListFaceFromStream",
         "description": "Operation that applies to a collection of resources.",
         "consumes": [
           "application/octet-stream"
@@ -4612,15 +4609,15 @@
           }
         },
         "x-ms-examples": {
-          "FaceLists_AddFaceListFaceFromStream": {
-            "$ref": "./examples/FaceLists_AddFaceListFaceFromStream_MaximumSet.json"
+          "FaceListOperations_AddFaceListFaceFromStream": {
+            "$ref": "./examples/FaceListOperations_AddFaceListFaceFromStream.json"
           }
         }
       }
     },
     "/face/{apiVersion}/findsimilars?_overload=findSimilarFromFaceList": {
       "post": {
-        "operationId": "FaceLists_FindSimilarFromFaceList",
+        "operationId": "FaceRecognitionOperations_FindSimilarFromFaceList",
         "description": "Given query face's faceId, to search the similar-looking faces from a faceId array, a face list or a large face list.",
         "parameters": [
           {
@@ -4683,15 +4680,15 @@
           }
         },
         "x-ms-examples": {
-          "FaceLists_FindSimilarFromFaceList": {
-            "$ref": "./examples/FaceLists_FindSimilarFromFaceList_MaximumSet.json"
+          "FaceRecognitionOperations_FindSimilarFromFaceList": {
+            "$ref": "./examples/FaceRecognitionOperations_FindSimilarFromFaceList.json"
           }
         }
       }
     },
     "/face/{apiVersion}/findsimilars?_overload=findSimilarFromLargeFaceList": {
       "post": {
-        "operationId": "FaceLists_FindSimilarFromLargeFaceList",
+        "operationId": "FaceRecognitionOperations_FindSimilarFromLargeFaceList",
         "description": "Given query face's faceId, to search the similar-looking faces from a faceId array, a face list or a large face list.",
         "parameters": [
           {
@@ -4754,15 +4751,15 @@
           }
         },
         "x-ms-examples": {
-          "FaceLists_FindSimilarFromLargeFaceList": {
-            "$ref": "./examples/FaceLists_FindSimilarFromLargeFaceList_MaximumSet.json"
+          "FaceRecognitionOperations_FindSimilarFromLargeFaceList": {
+            "$ref": "./examples/FaceRecognitionOperations_FindSimilarFromLargeFaceList.json"
           }
         }
       }
     },
     "/face/{apiVersion}/identify?_overload=identifyFromDynamicPersonGroup": {
       "post": {
-        "operationId": "PersonDirectory_IdentifyFromDynamicPersonGroup",
+        "operationId": "FaceRecognitionOperations_IdentifyFromDynamicPersonGroup",
         "description": "A remote procedure call (RPC) operation.",
         "parameters": [
           {
@@ -4829,15 +4826,15 @@
           }
         },
         "x-ms-examples": {
-          "PersonDirectory_IdentifyFromDynamicPersonGroup": {
-            "$ref": "./examples/PersonDirectory_IdentifyFromDynamicPersonGroup_MaximumSet.json"
+          "FaceRecognitionOperations_IdentifyFromDynamicPersonGroup": {
+            "$ref": "./examples/FaceRecognitionOperations_IdentifyFromDynamicPersonGroup.json"
           }
         }
       }
     },
     "/face/{apiVersion}/identify?_overload=identifyFromLargePersonGroup": {
       "post": {
-        "operationId": "PersonGroups_IdentifyFromLargePersonGroup",
+        "operationId": "FaceRecognitionOperations_IdentifyFromLargePersonGroup",
         "description": "A remote procedure call (RPC) operation.",
         "parameters": [
           {
@@ -4904,15 +4901,15 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroups_IdentifyFromLargePersonGroup": {
-            "$ref": "./examples/PersonGroups_IdentifyFromLargePersonGroup_MaximumSet.json"
+          "FaceRecognitionOperations_IdentifyFromLargePersonGroup": {
+            "$ref": "./examples/FaceRecognitionOperations_IdentifyFromLargePersonGroup.json"
           }
         }
       }
     },
-    "/face/{apiVersion}/identify?_overload=identifyFromPersonGroup": {
+    "/face/{apiVersion}/identify?_overload=identifyFromPersonDirectory": {
       "post": {
-        "operationId": "PersonGroups_IdentifyFromPersonGroup",
+        "operationId": "FaceRecognitionOperations_IdentifyFromPersonDirectory",
         "description": "A remote procedure call (RPC) operation.",
         "parameters": [
           {
@@ -4932,9 +4929,12 @@
                     "type": "string"
                   }
                 },
-                "personGroupId": {
-                  "type": "string",
-                  "description": "Id of the target person group, created by PersonGroup - Create."
+                "personIds": {
+                  "type": "array",
+                  "description": "Array of personIds created in PersonDirectory - PersonCreate. The valid number of personIds is between [1,30].",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "maxNumOfCandidatesReturned": {
                   "type": "integer",
@@ -4949,7 +4949,7 @@
               },
               "required": [
                 "faceIds",
-                "personGroupId"
+                "personIds"
               ]
             }
           }
@@ -4979,15 +4979,15 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroups_IdentifyFromPersonGroup": {
-            "$ref": "./examples/PersonGroups_IdentifyFromPersonGroup_MaximumSet.json"
+          "FaceRecognitionOperations_IdentifyFromPersonDirectory": {
+            "$ref": "./examples/FaceRecognitionOperations_IdentifyFromPersonDirectory.json"
           }
         }
       }
     },
     "/face/{apiVersion}/largefacelists/{largeFaceListId}/persistedfaces?_overload=addLargeFaceListFaceFromStream": {
       "post": {
-        "operationId": "FaceLists_AddLargeFaceListFaceFromStream",
+        "operationId": "FaceListOperations_AddLargeFaceListFaceFromStream",
         "description": "Operation that applies to a collection of resources.",
         "consumes": [
           "application/octet-stream"
@@ -5044,15 +5044,15 @@
           }
         },
         "x-ms-examples": {
-          "FaceLists_AddLargeFaceListFaceFromStream": {
-            "$ref": "./examples/FaceLists_AddLargeFaceListFaceFromStream_MaximumSet.json"
+          "FaceListOperations_AddLargeFaceListFaceFromStream": {
+            "$ref": "./examples/FaceListOperations_AddLargeFaceListFaceFromStream.json"
           }
         }
       }
     },
     "/face/{apiVersion}/largepersongroups/{largePersonGroupId}/persons/{personId}/persistedfaces?_overload=addLargePersonGroupPersonFaceFromStream": {
       "post": {
-        "operationId": "PersonGroups_AddLargePersonGroupPersonFaceFromStream",
+        "operationId": "PersonGroupOperations_AddLargePersonGroupPersonFaceFromStream",
         "description": "Operation that applies to a collection of resources.",
         "consumes": [
           "application/octet-stream"
@@ -5116,15 +5116,15 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroups_AddLargePersonGroupPersonFaceFromStream": {
-            "$ref": "./examples/PersonGroups_AddLargePersonGroupPersonFaceFromStream_MaximumSet.json"
+          "PersonGroupOperations_AddLargePersonGroupPersonFaceFromStream": {
+            "$ref": "./examples/PersonGroupOperations_AddLargePersonGroupPersonFaceFromStream.json"
           }
         }
       }
     },
     "/face/{apiVersion}/persongroups/{personGroupId}/persons/{personId}/persistedfaces?_overload=addPersonGroupPersonFaceFromStream": {
       "post": {
-        "operationId": "PersonGroups_AddPersonGroupPersonFaceFromStream",
+        "operationId": "PersonGroupOperations_AddPersonGroupPersonFaceFromStream",
         "description": "Operation that applies to a collection of resources.",
         "consumes": [
           "application/octet-stream"
@@ -5188,15 +5188,15 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroups_AddPersonGroupPersonFaceFromStream": {
-            "$ref": "./examples/PersonGroups_AddPersonGroupPersonFaceFromStream_MaximumSet.json"
+          "PersonGroupOperations_AddPersonGroupPersonFaceFromStream": {
+            "$ref": "./examples/PersonGroupOperations_AddPersonGroupPersonFaceFromStream.json"
           }
         }
       }
     },
     "/face/{apiVersion}/persons/{personId}/recognitionModels/{recognitionModel}/persistedfaces?_overload=addPersonFaceFromStream": {
       "post": {
-        "operationId": "PersonDirectory_AddPersonFaceFromStream",
+        "operationId": "PersonDirectoryOperations_AddPersonFaceFromStream",
         "description": "Operation that applies to a collection of resources.",
         "consumes": [
           "application/octet-stream"
@@ -5299,8 +5299,8 @@
           }
         },
         "x-ms-examples": {
-          "PersonDirectory_AddPersonFaceFromStream": {
-            "$ref": "./examples/PersonDirectory_AddPersonFaceFromStream_MaximumSet.json"
+          "PersonDirectoryOperations_AddPersonFaceFromStream": {
+            "$ref": "./examples/PersonDirectoryOperations_AddPersonFaceFromStream.json"
           }
         },
         "x-ms-long-running-operation": true
@@ -5308,7 +5308,7 @@
     },
     "/face/{apiVersion}/verify?_overload=verifyFromLargePersonGroup": {
       "post": {
-        "operationId": "PersonGroups_VerifyFromLargePersonGroup",
+        "operationId": "FaceRecognitionOperations_VerifyFromLargePersonGroup",
         "description": "A remote procedure call (RPC) operation.",
         "parameters": [
           {
@@ -5363,15 +5363,15 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroups_VerifyFromLargePersonGroup": {
-            "$ref": "./examples/PersonGroups_VerifyFromLargePersonGroup_MaximumSet.json"
+          "FaceRecognitionOperations_VerifyFromLargePersonGroup": {
+            "$ref": "./examples/FaceRecognitionOperations_VerifyFromLargePersonGroup.json"
           }
         }
       }
     },
     "/face/{apiVersion}/verify?_overload=verifyFromPersonDirectory": {
       "post": {
-        "operationId": "PersonDirectory_VerifyFromPersonDirectory",
+        "operationId": "FaceRecognitionOperations_VerifyFromPersonDirectory",
         "description": "A remote procedure call (RPC) operation.",
         "parameters": [
           {
@@ -5419,17 +5419,12 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "PersonDirectory_VerifyFromPersonDirectory": {
-            "$ref": "./examples/PersonDirectory_VerifyFromPersonDirectory_MaximumSet.json"
-          }
         }
       }
     },
     "/face/{apiVersion}/verify?_overload=verifyFromPersonGroup": {
       "post": {
-        "operationId": "PersonGroups_VerifyFromPersonGroup",
+        "operationId": "FaceRecognitionOperations_VerifyFromPersonGroup",
         "description": "A remote procedure call (RPC) operation.",
         "parameters": [
           {
@@ -5484,8 +5479,8 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroups_VerifyFromPersonGroup": {
-            "$ref": "./examples/PersonGroups_VerifyFromPersonGroup_MaximumSet.json"
+          "FaceRecognitionOperations_VerifyFromPersonGroup": {
+            "$ref": "./examples/FaceRecognitionOperations_VerifyFromPersonGroup.json"
           }
         }
       }
