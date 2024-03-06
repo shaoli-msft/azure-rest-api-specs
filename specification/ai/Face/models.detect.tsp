@@ -23,7 +23,7 @@ model FaceDetectionOptions {
   @query
   returnFaceAttributes?: string;
 
-  @doc("The 'recognitionModel' associated with the detected faceIds.")
+  @doc("The 'recognitionModel' associated with the detected faceIds. Supported 'recognitionModel' values include 'recognition_01', 'recognition_02', 'recognition_03' or 'recognition_04'. The default value is 'recognition_01'. 'recognition_04' is recommended since its accuracy is improved on faces wearing masks compared with 'recognition_03', and its overall accuracy is improved compared with 'recognition_01' and 'recognition_02'.")
   @query
   recognitionModel?: RecognitionModel;
 
@@ -31,18 +31,20 @@ model FaceDetectionOptions {
   @query
   returnRecognitionModel?: boolean;
 
-  @doc("The 'detectionModel' associated with the detected faceIds.")
+  @doc("The 'detectionModel' associated with the detected faceIds. Supported 'detectionModel' values include 'detection_01', 'detection_02' and 'detection_03'. The default value is 'detection_01'.")
   @query
   detectionModel?: DetectionModel;
 
   @doc("The number of seconds for the face ID being cached. Supported range from 60 seconds up to 86400 seconds. The default value is 86400 (24 hours).")
   @query
+  @minValue(60)
+  @maxValue(86400)
   faceIdTimeToLive?: int32;
 }
 
 @doc("Response for detect API.")
 model FaceDetectionResult {
-  @doc("Unique faceId of the detected face, created by detection API and it will expire 24 hours after the detection call.")
+  @doc("Unique faceId of the detected face, created by detection API and it will expire 24 hours after the detection call. To return this, it requires 'returnFaceId' parameter to be true.")
   faceId: string;
 
   @doc("The 'recognitionModel' associated with this faceId. This is only returned when 'returnRecognitionModel' is explicitly set as true.")
@@ -54,7 +56,7 @@ model FaceDetectionResult {
   @doc("An array of 27-point face landmarks pointing to the important positions of face components. To return this, it requires 'returnFaceLandmarks' parameter to be true.")
   faceLandmarks?: FaceLandmarks;
 
-  @doc("Face attributes fore detected face.")
+  @doc("Face attributes for detected face.")
   faceAttributes?: FaceAttributes;
 }
 

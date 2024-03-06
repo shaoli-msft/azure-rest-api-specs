@@ -13,17 +13,16 @@ namespace Face;
 model BaseFaceList {
   ...NameAndUserData;
 
-  @doc("Name of recognition model. Recognition model is used when the face features are extracted and associated with detected faceIds. The default value is 'recognition_01', if latest model needed, please explicitly specify the model you need.")
-  @visibility("read")
+  @doc("The 'recognitionModel' associated with this face list. Supported 'recognitionModel' values include 'recognition_01', 'recognition_02, 'recognition_03', and 'recognition_04'. The default value is 'recognition_01'. 'recognition_04' is recommended since its accuracy is improved on faces wearing masks compared with 'recognition_03', and its overall accuracy is improved compared with 'recognition_01' and 'recognition_02'.")
   recognitionModel?: RecognitionModel;
 }
 
-@resource("facelists")
 @doc("Face list is a list of faces, up to 1,000 faces.")
+@resource("facelists")
 model FaceList is BaseFaceList {
   @key
   @visibility("read")
-  @doc("ID of the container.")
+  @doc("Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.")
   faceListId: string;
 
   @doc("Face ids of registered faces in the face list.")
@@ -40,7 +39,7 @@ model FaceListFace is BaseFace;
 model LargeFaceList is BaseFaceList {
   @key
   @visibility("read")
-  @doc("ID of the container.")
+  @doc("Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.")
   largeFaceListId: string;
 }
 
