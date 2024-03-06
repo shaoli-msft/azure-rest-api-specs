@@ -5419,6 +5419,11 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "FaceRecognitionOperations_VerifyFromPersonDirectory": {
+            "$ref": "./examples/FaceRecognitionOperations_VerifyFromPersonDirectory.json"
+          }
         }
       }
     },

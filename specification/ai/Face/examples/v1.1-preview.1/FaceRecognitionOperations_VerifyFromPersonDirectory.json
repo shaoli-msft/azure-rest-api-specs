@@ -1,6 +1,6 @@
 {
-  "title": "PersonDirectoryOperations_VerifyFromPersonDirectory",
-  "operationId": "PersonDirectoryOperations_VerifyFromPersonDirectory",
+  "title": "FaceRecognitionOperations_VerifyFromPersonDirectory",
+  "operationId": "FaceRecognitionOperations_VerifyFromPersonDirectory",
   "parameters": {
     "apiVersion": "v1.1-preview.1",
     "body": {
