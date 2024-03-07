@@ -25,11 +25,11 @@ interface LivenessSessionOperations {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "ResourceCreateWithServiceProvidedName does not fit, we don't return Location in header."
   @doc("""
   A session is best for client device scenarios where developers want to authorize a client device to perform only a liveness detection without granting full access to their resource. Created sessions have a limited life span and only authorize clients to perform the desired action before access is expired.
-  Permisions includes...
-  * Abiltiy to call /detectLiveness/singleModal for up to 3 reties.
+  Permissions includes...
+  * Ability to call /detectLiveness/singleModal for up to 3 reties.
   * A token lifetime of 10 minutes.
   Remarks:
-  Client access can be revoked by deleting the session using the Delete Liveness Session operation. To retrive a result, use the Get Liveness Session. To audit the individual requests that a client has made to your resource, use the List Liveness Session Audit Entries.
+  Client access can be revoked by deleting the session using the Delete Liveness Session operation. To retrieve a result, use the Get Liveness Session. To audit the individual requests that a client has made to your resource, use the List Liveness Session Audit Entries.
   """)
   createLivenessSession is FaceResourceCreateWithServiceProvidedName<
     LivenessSession,
@@ -65,11 +65,11 @@ interface LivenessSessionOperations {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "ResourceCreateWithServiceProvidedName does not fit, we don't return Location in header."
   @doc("""
   A session is best for client device scenarios where developers want to authorize a client device to perform only a liveness detection without granting full access to their resource. Created sessions have a limited life span and only authorize clients to perform the desired action before access is expired.
-  Permisions includes...
-  * Abiltiy to call /detectLiveness/singleModal for up to 3 reties.
+  Permissions includes...
+  * Ability to call /detectLiveness/singleModal for up to 3 reties.
   * A token lifetime of 10 minutes.
   Remarks:
-  Client access can be revoked by deleting the session using the Delete Liveness With Verify Session operation. To retrive a result, use the Get Liveness With Verify Session. To audit the individual requests that a client has made to your resource, use the List Liveness With Verify Session Audit Entries.
+  Client access can be revoked by deleting the session using the Delete Liveness With Verify Session operation. To retrieve a result, use the Get Liveness With Verify Session. To audit the individual requests that a client has made to your resource, use the List Liveness With Verify Session Audit Entries.
   Alternative Option: Client device submits VerifyImage during the /detectLivenessWithVerify/singleModal call.
   """)
   @sharedRoute
@@ -83,11 +83,11 @@ interface LivenessSessionOperations {
   #suppress "@azure-tools/typespec-azure-core/byos" "Representation of existing multipart/form-data operation"
   @doc("""
   A session is best for client device scenarios where developers want to authorize a client device to perform only a liveness detection without granting full access to their resource. Created sessions have a limited life span and only authorize clients to perform the desired action before access is expired.
-  Permisions includes...
-  * Abiltiy to call /detectLiveness/singleModal for up to 3 reties.
+  Permissions includes...
+  * Ability to call /detectLiveness/singleModal for up to 3 reties.
   * A token lifetime of 10 minutes.
   Remarks:
-  Client access can be revoked by deleting the session using the Delete Liveness With Verify Session operation. To retrive a result, use the Get Liveness With Verify Session. To audit the individual requests that a client has made to your resource, use the List Liveness With Verify Session Audit Entries.
+  Client access can be revoked by deleting the session using the Delete Liveness With Verify Session operation. To retrieve a result, use the Get Liveness With Verify Session. To audit the individual requests that a client has made to your resource, use the List Liveness With Verify Session Audit Entries.
   Recommended Option: VerifyImage is provided during session creation.
   """)
   @sharedRoute

@@ -98,8 +98,8 @@ interface PersonDirectoryOperations {
   @doc("""
   List all dynamic person groups a person has been referenced by in person directory.
   
-  * Dynamic person groups are stored in alphabetical order of dynamic person groupid created in PersonDirectory DynamicPersonGroup - Create.
-  * "start" parameter (string, optional) is a dynamic person groupid value that returned entries have larger ids by string comparison. "start" set to empty to indicate return from the first item.
+  * Dynamic person groups are stored in alphabetical order of dynamic person group id created in PersonDirectory DynamicPersonGroup - Create.
+  * "start" parameter (string, optional) is a dynamic person group id value that returned entries have larger ids by string comparison. "start" set to empty to indicate return from the first item.
   * "top" parameter (int, optional) specifies the number of entries to return. A maximal of 1000 entries can be returned in one call. To fetch more, you can specify "start" with the last returned entry's dynamic person group of the current call.
   For example, total 5 dynamic person groups with their dynamicPersonGroupId: "dynamicPersonGroupId1", ..., "dynamicPersonGroupId5".
   "start=&top=" will return all 5 dynamicPersonGroups.
@@ -244,7 +244,7 @@ interface PersonDirectoryOperations {
   
   * Dynamic person groups are stored in alphabetical order of dynamicPersonGroupId.
   * "start" parameter (string, optional) is a user-provided dynamicPersonGroupId value that returned entries have larger ids by string comparison. "start" set to empty to indicate return from the first item.
-  * "top" parameter (int, optional) specifies the number of entries to return. A maximal of 1000 entries can be returned in one call. To fetch more, you can specify "start" with the last retuned entry’s Id of the current call.
+  * "top" parameter (int, optional) specifies the number of entries to return. A maximal of 1000 entries can be returned in one call. To fetch more, you can specify "start" with the last returned entry’s Id of the current call.
   For example, total 5 dynamic person groups: "dynamicPersonGroupId1", ..., "dynamicPersonGroupId5".
   "start=&top=" will return all 5 dynamicPersonGroups.
   "start=&top=2" will return "dynamicPersonGroupId1", "dynamicPersonGroupId2".
