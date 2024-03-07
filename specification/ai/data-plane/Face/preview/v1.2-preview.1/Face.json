@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Azure AI Face API",
-    "version": "v1.1-preview.1",
+    "version": "v1.2-preview.1",
     "x-typespec-generated": [
       {
         "emitter": "@azure-tools/typespec-autorest"
@@ -132,11 +132,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "FaceDetectionOperations_DetectFromUrl": {
-            "$ref": "./examples/FaceDetectionOperations_DetectFromUrl.json"
-          }
         }
       }
     },
@@ -177,11 +172,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "LivenessSessionOperations_ListLivenessSessions": {
-            "$ref": "./examples/LivenessSessionOperations_ListLivenessSessions.json"
-          }
         }
       },
       "post": {
@@ -218,11 +208,6 @@
                 "description": "String error code indicating what went wrong."
               }
             }
-          }
-        },
-        "x-ms-examples": {
-          "LivenessSessionOperations_CreateLivenessSession": {
-            "$ref": "./examples/LivenessSessionOperations_CreateLivenessSession.json"
           }
         }
       }
@@ -262,11 +247,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "LivenessSessionOperations_GetLivenessSession": {
-            "$ref": "./examples/LivenessSessionOperations_GetLivenessSession.json"
-          }
         }
       },
       "delete": {
@@ -299,11 +279,6 @@
                 "description": "String error code indicating what went wrong."
               }
             }
-          }
-        },
-        "x-ms-examples": {
-          "LivenessSessionOperations_DeleteLivenessSession": {
-            "$ref": "./examples/LivenessSessionOperations_DeleteLivenessSession.json"
           }
         }
       }
@@ -352,10 +327,54 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "LivenessSessionOperations_ListLivenessSessionAuditEntries": {
-            "$ref": "./examples/LivenessSessionOperations_ListLivenessSessionAuditEntries.json"
+        }
+      }
+    },
+    "/face/{apiVersion}/detectLiveness/singleModal/sessions/{sessionId}/sessionImages/{sessionImageId}": {
+      "get": {
+        "operationId": "LivenessSessionOperations_GetLivenessSessionImage",
+        "description": "The most basic operation that applies to a resource.",
+        "produces": [
+          "application/octet-stream",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionPathParameter"
+          },
+          {
+            "name": "sessionId",
+            "in": "path",
+            "description": "Unique ID to reference this session.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "sessionImageId",
+            "in": "path",
+            "description": "The request ID of the image to be retrieved",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "schema": {
+              "type": "file"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
+            },
+            "headers": {
+              "x-ms-error-code": {
+                "type": "string",
+                "description": "String error code indicating what went wrong."
+              }
+            }
           }
         }
       }
@@ -397,11 +416,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "LivenessSessionOperations_ListLivenessWithVerifySessions": {
-            "$ref": "./examples/LivenessSessionOperations_ListLivenessWithVerifySessions.json"
-          }
         }
       },
       "post": {
@@ -438,11 +452,6 @@
                 "description": "String error code indicating what went wrong."
               }
             }
-          }
-        },
-        "x-ms-examples": {
-          "LivenessSessionOperations_CreateLivenessWithVerifySession": {
-            "$ref": "./examples/LivenessSessionOperations_CreateLivenessWithVerifySession.json"
           }
         }
       }
@@ -482,11 +491,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "LivenessSessionOperations_GetLivenessWithVerifySession": {
-            "$ref": "./examples/LivenessSessionOperations_GetLivenessWithVerifySession.json"
-          }
         }
       },
       "delete": {
@@ -519,11 +523,6 @@
                 "description": "String error code indicating what went wrong."
               }
             }
-          }
-        },
-        "x-ms-examples": {
-          "LivenessSessionOperations_DeleteLivenessWithVerifySession": {
-            "$ref": "./examples/LivenessSessionOperations_DeleteLivenessWithVerifySession.json"
           }
         }
       }
@@ -572,10 +571,54 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "LivenessSessionOperations_ListLivenessWithVerifySessionAuditEntries": {
-            "$ref": "./examples/LivenessSessionOperations_ListLivenessWithVerifySessionAuditEntries.json"
+        }
+      }
+    },
+    "/face/{apiVersion}/detectLivenessWithVerify/singleModal/sessions/{sessionId}/sessionImages/{sessionImageId}": {
+      "get": {
+        "operationId": "LivenessSessionOperations_GetLivenessWithVerifySessionImage",
+        "description": "The most basic operation that applies to a resource.",
+        "produces": [
+          "application/octet-stream",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionPathParameter"
+          },
+          {
+            "name": "sessionId",
+            "in": "path",
+            "description": "Unique ID to reference this session.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "sessionImageId",
+            "in": "path",
+            "description": "The request ID of the image to be retrieved",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "schema": {
+              "type": "file"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
+            },
+            "headers": {
+              "x-ms-error-code": {
+                "type": "string",
+                "description": "String error code indicating what went wrong."
+              }
+            }
           }
         }
       }
@@ -618,11 +661,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "PersonDirectoryOperations_ListDynamicPersonGroups": {
-            "$ref": "./examples/PersonDirectoryOperations_ListDynamicPersonGroups.json"
-          }
         }
       }
     },
@@ -660,11 +698,6 @@
                 "description": "String error code indicating what went wrong."
               }
             }
-          }
-        },
-        "x-ms-examples": {
-          "PersonDirectoryOperations_GetDynamicPersonGroup": {
-            "$ref": "./examples/PersonDirectoryOperations_GetDynamicPersonGroup.json"
           }
         }
       },
@@ -717,11 +750,6 @@
                 "description": "String error code indicating what went wrong."
               }
             }
-          }
-        },
-        "x-ms-examples": {
-          "PersonDirectoryOperations_CreateDynamicPersonGroup": {
-            "$ref": "./examples/PersonDirectoryOperations_CreateDynamicPersonGroup.json"
           }
         },
         "x-ms-long-running-operation": true
@@ -777,11 +805,6 @@
             }
           }
         },
-        "x-ms-examples": {
-          "PersonDirectoryOperations_UpdateDynamicPersonGroup": {
-            "$ref": "./examples/PersonDirectoryOperations_UpdateDynamicPersonGroup.json"
-          }
-        },
         "x-ms-long-running-operation": true
       },
       "delete": {
@@ -821,11 +844,6 @@
                 "description": "String error code indicating what went wrong."
               }
             }
-          }
-        },
-        "x-ms-examples": {
-          "PersonDirectoryOperations_DeleteDynamicPersonGroup": {
-            "$ref": "./examples/PersonDirectoryOperations_DeleteDynamicPersonGroup.json"
           }
         },
         "x-ms-long-running-operation": true
@@ -872,11 +890,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "PersonDirectoryOperations_ListDynamicPersonGroupPerson": {
-            "$ref": "./examples/PersonDirectoryOperations_ListDynamicPersonGroupPerson.json"
-          }
         }
       }
     },
@@ -914,11 +927,6 @@
                 "description": "String error code indicating what went wrong."
               }
             }
-          }
-        },
-        "x-ms-examples": {
-          "FaceListOperations_ListFaceLists": {
-            "$ref": "./examples/FaceListOperations_ListFaceLists.json"
           }
         }
       }
@@ -960,11 +968,6 @@
                 "description": "String error code indicating what went wrong."
               }
             }
-          }
-        },
-        "x-ms-examples": {
-          "FaceListOperations_GetFaceList": {
-            "$ref": "./examples/FaceListOperations_GetFaceList.json"
           }
         }
       },
@@ -1008,11 +1011,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "FaceListOperations_CreateFaceList": {
-            "$ref": "./examples/FaceListOperations_CreateFaceList.json"
-          }
         }
       },
       "patch": {
@@ -1055,11 +1053,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "FaceListOperations_UpdateFaceList": {
-            "$ref": "./examples/FaceListOperations_UpdateFaceList.json"
-          }
         }
       },
       "delete": {
@@ -1092,11 +1085,6 @@
                 "description": "String error code indicating what went wrong."
               }
             }
-          }
-        },
-        "x-ms-examples": {
-          "FaceListOperations_DeleteFaceList": {
-            "$ref": "./examples/FaceListOperations_DeleteFaceList.json"
           }
         }
       }
@@ -1153,11 +1141,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "FaceListOperations_AddFaceListFaceFromUrl": {
-            "$ref": "./examples/FaceListOperations_AddFaceListFaceFromUrl.json"
-          }
         }
       }
     },
@@ -1199,11 +1182,6 @@
                 "description": "String error code indicating what went wrong."
               }
             }
-          }
-        },
-        "x-ms-examples": {
-          "FaceListOperations_DeleteFaceListFace": {
-            "$ref": "./examples/FaceListOperations_DeleteFaceListFace.json"
           }
         }
       }
@@ -1274,11 +1252,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "FaceRecognitionOperations_FindSimilar": {
-            "$ref": "./examples/FaceRecognitionOperations_FindSimilar.json"
-          }
         }
       }
     },
@@ -1329,11 +1302,6 @@
                 "description": "String error code indicating what went wrong."
               }
             }
-          }
-        },
-        "x-ms-examples": {
-          "FaceRecognitionOperations_Group": {
-            "$ref": "./examples/FaceRecognitionOperations_Group.json"
           }
         }
       }
@@ -1405,11 +1373,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "FaceRecognitionOperations_IdentifyFromPersonGroup": {
-            "$ref": "./examples/FaceRecognitionOperations_IdentifyFromPersonGroup.json"
-          }
         }
       }
     },
@@ -1454,11 +1417,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "FaceListOperations_ListLargeFaceLists": {
-            "$ref": "./examples/FaceListOperations_ListLargeFaceLists.json"
-          }
         }
       }
     },
@@ -1499,11 +1457,6 @@
                 "description": "String error code indicating what went wrong."
               }
             }
-          }
-        },
-        "x-ms-examples": {
-          "FaceListOperations_GetLargeFaceList": {
-            "$ref": "./examples/FaceListOperations_GetLargeFaceList.json"
           }
         }
       },
@@ -1547,11 +1500,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "FaceListOperations_CreateLargeFaceList": {
-            "$ref": "./examples/FaceListOperations_CreateLargeFaceList.json"
-          }
         }
       },
       "patch": {
@@ -1594,11 +1542,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "FaceListOperations_UpdateLargeFaceList": {
-            "$ref": "./examples/FaceListOperations_UpdateLargeFaceList.json"
-          }
         }
       },
       "delete": {
@@ -1631,11 +1574,6 @@
                 "description": "String error code indicating what went wrong."
               }
             }
-          }
-        },
-        "x-ms-examples": {
-          "FaceListOperations_DeleteLargeFaceList": {
-            "$ref": "./examples/FaceListOperations_DeleteLargeFaceList.json"
           }
         }
       }
@@ -1684,11 +1622,6 @@
                 "description": "String error code indicating what went wrong."
               }
             }
-          }
-        },
-        "x-ms-examples": {
-          "FaceListOperations_ListLargeFaceListFaces": {
-            "$ref": "./examples/FaceListOperations_ListLargeFaceListFaces.json"
           }
         }
       },
@@ -1743,11 +1676,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "FaceListOperations_AddLargeFaceListFaceFromUrl": {
-            "$ref": "./examples/FaceListOperations_AddLargeFaceListFaceFromUrl.json"
-          }
         }
       }
     },
@@ -1792,11 +1720,6 @@
                 "description": "String error code indicating what went wrong."
               }
             }
-          }
-        },
-        "x-ms-examples": {
-          "FaceListOperations_GetLargeFaceListFace": {
-            "$ref": "./examples/FaceListOperations_GetLargeFaceListFace.json"
           }
         }
       },
@@ -1847,11 +1770,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "FaceListOperations_UpdateLargeFaceListFace": {
-            "$ref": "./examples/FaceListOperations_UpdateLargeFaceListFace.json"
-          }
         }
       },
       "delete": {
@@ -1892,11 +1810,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "FaceListOperations_DeleteLargeFaceListFace": {
-            "$ref": "./examples/FaceListOperations_DeleteLargeFaceListFace.json"
-          }
         }
       }
     },
@@ -1931,11 +1844,6 @@
                 "description": "String error code indicating what went wrong."
               }
             }
-          }
-        },
-        "x-ms-examples": {
-          "FaceListOperations_TrainLargeFaceList": {
-            "$ref": "./examples/FaceListOperations_TrainLargeFaceList.json"
           }
         },
         "x-ms-long-running-operation": true
@@ -1975,11 +1883,6 @@
                 "description": "String error code indicating what went wrong."
               }
             }
-          }
-        },
-        "x-ms-examples": {
-          "FaceListOperations_GetLargeFaceListTrainingStatus": {
-            "$ref": "./examples/FaceListOperations_GetLargeFaceListTrainingStatus.json"
           }
         }
       }
@@ -2025,11 +1928,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "PersonGroupOperations_ListLargePersonGroups": {
-            "$ref": "./examples/PersonGroupOperations_ListLargePersonGroups.json"
-          }
         }
       }
     },
@@ -2070,11 +1968,6 @@
                 "description": "String error code indicating what went wrong."
               }
             }
-          }
-        },
-        "x-ms-examples": {
-          "PersonGroupOperations_GetLargePersonGroup": {
-            "$ref": "./examples/PersonGroupOperations_GetLargePersonGroup.json"
           }
         }
       },
@@ -2118,11 +2011,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "PersonGroupOperations_CreateLargePersonGroup": {
-            "$ref": "./examples/PersonGroupOperations_CreateLargePersonGroup.json"
-          }
         }
       },
       "patch": {
@@ -2165,11 +2053,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "PersonGroupOperations_UpdateLargePersonGroup": {
-            "$ref": "./examples/PersonGroupOperations_UpdateLargePersonGroup.json"
-          }
         }
       },
       "delete": {
@@ -2202,11 +2085,6 @@
                 "description": "String error code indicating what went wrong."
               }
             }
-          }
-        },
-        "x-ms-examples": {
-          "PersonGroupOperations_DeleteLargePersonGroup": {
-            "$ref": "./examples/PersonGroupOperations_DeleteLargePersonGroup.json"
           }
         }
       }
@@ -2256,11 +2134,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "PersonGroupOperations_ListLargePersonGroupPerson": {
-            "$ref": "./examples/PersonGroupOperations_ListLargePersonGroupPerson.json"
-          }
         }
       },
       "post": {
@@ -2306,11 +2179,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "PersonGroupOperations_CreateLargePersonGroupPerson": {
-            "$ref": "./examples/PersonGroupOperations_CreateLargePersonGroupPerson.json"
-          }
         }
       }
     },
@@ -2355,11 +2223,6 @@
                 "description": "String error code indicating what went wrong."
               }
             }
-          }
-        },
-        "x-ms-examples": {
-          "PersonGroupOperations_GetLargePersonGroupPerson": {
-            "$ref": "./examples/PersonGroupOperations_GetLargePersonGroupPerson.json"
           }
         }
       },
@@ -2410,11 +2273,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "PersonGroupOperations_UpdateLargePersonGroupPerson": {
-            "$ref": "./examples/PersonGroupOperations_UpdateLargePersonGroupPerson.json"
-          }
         }
       },
       "delete": {
@@ -2454,11 +2312,6 @@
                 "description": "String error code indicating what went wrong."
               }
             }
-          }
-        },
-        "x-ms-examples": {
-          "PersonGroupOperations_DeleteLargePersonGroupPerson": {
-            "$ref": "./examples/PersonGroupOperations_DeleteLargePersonGroupPerson.json"
           }
         }
       }
@@ -2522,11 +2375,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "PersonGroupOperations_AddLargePersonGroupPersonFaceFromUrl": {
-            "$ref": "./examples/PersonGroupOperations_AddLargePersonGroupPersonFaceFromUrl.json"
-          }
         }
       }
     },
@@ -2578,11 +2426,6 @@
                 "description": "String error code indicating what went wrong."
               }
             }
-          }
-        },
-        "x-ms-examples": {
-          "PersonGroupOperations_GetLargePersonGroupPersonFace": {
-            "$ref": "./examples/PersonGroupOperations_GetLargePersonGroupPersonFace.json"
           }
         }
       },
@@ -2640,11 +2483,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "PersonGroupOperations_UpdateLargePersonGroupPersonFace": {
-            "$ref": "./examples/PersonGroupOperations_UpdateLargePersonGroupPersonFace.json"
-          }
         }
       },
       "delete": {
@@ -2692,11 +2530,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "PersonGroupOperations_DeleteLargePersonGroupPersonFace": {
-            "$ref": "./examples/PersonGroupOperations_DeleteLargePersonGroupPersonFace.json"
-          }
         }
       }
     },
@@ -2731,11 +2564,6 @@
                 "description": "String error code indicating what went wrong."
               }
             }
-          }
-        },
-        "x-ms-examples": {
-          "PersonGroupOperations_TrainLargePersonGroup": {
-            "$ref": "./examples/PersonGroupOperations_TrainLargePersonGroup.json"
           }
         },
         "x-ms-long-running-operation": true
@@ -2776,11 +2604,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "PersonGroupOperations_GetLargePersonGroupTrainingStatus": {
-            "$ref": "./examples/PersonGroupOperations_GetLargePersonGroupTrainingStatus.json"
-          }
         }
       }
     },
@@ -2818,11 +2641,6 @@
                 "description": "String error code indicating what went wrong."
               }
             }
-          }
-        },
-        "x-ms-examples": {
-          "GetFaceOperationStatus": {
-            "$ref": "./examples/GetFaceOperationStatus.json"
           }
         }
       }
@@ -2868,11 +2686,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "PersonGroupOperations_ListPersonGroups": {
-            "$ref": "./examples/PersonGroupOperations_ListPersonGroups.json"
-          }
         }
       }
     },
@@ -2913,11 +2726,6 @@
                 "description": "String error code indicating what went wrong."
               }
             }
-          }
-        },
-        "x-ms-examples": {
-          "PersonGroupOperations_GetPersonGroup": {
-            "$ref": "./examples/PersonGroupOperations_GetPersonGroup.json"
           }
         }
       },
@@ -2961,11 +2769,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "PersonGroupOperations_CreatePersonGroup": {
-            "$ref": "./examples/PersonGroupOperations_CreatePersonGroup.json"
-          }
         }
       },
       "patch": {
@@ -3008,11 +2811,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "PersonGroupOperations_UpdatePersonGroup": {
-            "$ref": "./examples/PersonGroupOperations_UpdatePersonGroup.json"
-          }
         }
       },
       "delete": {
@@ -3045,11 +2843,6 @@
                 "description": "String error code indicating what went wrong."
               }
             }
-          }
-        },
-        "x-ms-examples": {
-          "PersonGroupOperations_DeletePersonGroup": {
-            "$ref": "./examples/PersonGroupOperations_DeletePersonGroup.json"
           }
         }
       }
@@ -3099,11 +2892,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "PersonGroupOperations_ListPersonGroupPerson": {
-            "$ref": "./examples/PersonGroupOperations_ListPersonGroupPerson.json"
-          }
         }
       },
       "post": {
@@ -3149,11 +2937,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "PersonGroupOperations_CreatePersonGroupPerson": {
-            "$ref": "./examples/PersonGroupOperations_CreatePersonGroupPerson.json"
-          }
         }
       }
     },
@@ -3198,11 +2981,6 @@
                 "description": "String error code indicating what went wrong."
               }
             }
-          }
-        },
-        "x-ms-examples": {
-          "PersonGroupOperations_GetPersonGroupPerson": {
-            "$ref": "./examples/PersonGroupOperations_GetPersonGroupPerson.json"
           }
         }
       },
@@ -3253,11 +3031,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "PersonGroupOperations_UpdatePersonGroupPerson": {
-            "$ref": "./examples/PersonGroupOperations_UpdatePersonGroupPerson.json"
-          }
         }
       },
       "delete": {
@@ -3297,11 +3070,6 @@
                 "description": "String error code indicating what went wrong."
               }
             }
-          }
-        },
-        "x-ms-examples": {
-          "PersonGroupOperations_DeletePersonGroupPerson": {
-            "$ref": "./examples/PersonGroupOperations_DeletePersonGroupPerson.json"
           }
         }
       }
@@ -3365,11 +3133,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "PersonGroupOperations_AddPersonGroupPersonFaceFromUrl": {
-            "$ref": "./examples/PersonGroupOperations_AddPersonGroupPersonFaceFromUrl.json"
-          }
         }
       }
     },
@@ -3421,11 +3184,6 @@
                 "description": "String error code indicating what went wrong."
               }
             }
-          }
-        },
-        "x-ms-examples": {
-          "PersonGroupOperations_GetPersonGroupPersonFace": {
-            "$ref": "./examples/PersonGroupOperations_GetPersonGroupPersonFace.json"
           }
         }
       },
@@ -3483,11 +3241,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "PersonGroupOperations_UpdatePersonGroupPersonFace": {
-            "$ref": "./examples/PersonGroupOperations_UpdatePersonGroupPersonFace.json"
-          }
         }
       },
       "delete": {
@@ -3535,11 +3288,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "PersonGroupOperations_DeletePersonGroupPersonFace": {
-            "$ref": "./examples/PersonGroupOperations_DeletePersonGroupPersonFace.json"
-          }
         }
       }
     },
@@ -3574,11 +3322,6 @@
                 "description": "String error code indicating what went wrong."
               }
             }
-          }
-        },
-        "x-ms-examples": {
-          "PersonGroupOperations_TrainPersonGroup": {
-            "$ref": "./examples/PersonGroupOperations_TrainPersonGroup.json"
           }
         },
         "x-ms-long-running-operation": true
@@ -3618,11 +3361,6 @@
                 "description": "String error code indicating what went wrong."
               }
             }
-          }
-        },
-        "x-ms-examples": {
-          "PersonGroupOperations_GetPersonGroupTrainingStatus": {
-            "$ref": "./examples/PersonGroupOperations_GetPersonGroupTrainingStatus.json"
           }
         }
       }
@@ -3664,11 +3402,6 @@
                 "description": "String error code indicating what went wrong."
               }
             }
-          }
-        },
-        "x-ms-examples": {
-          "PersonDirectoryOperations_ListPerson": {
-            "$ref": "./examples/PersonDirectoryOperations_ListPerson.json"
           }
         }
       },
@@ -3716,11 +3449,6 @@
             }
           }
         },
-        "x-ms-examples": {
-          "PersonDirectoryOperations_CreatePerson": {
-            "$ref": "./examples/PersonDirectoryOperations_CreatePerson.json"
-          }
-        },
         "x-ms-long-running-operation": true
       }
     },
@@ -3758,11 +3486,6 @@
                 "description": "String error code indicating what went wrong."
               }
             }
-          }
-        },
-        "x-ms-examples": {
-          "PersonDirectoryOperations_GetPerson": {
-            "$ref": "./examples/PersonDirectoryOperations_GetPerson.json"
           }
         }
       },
@@ -3806,11 +3529,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "PersonDirectoryOperations_UpdatePerson": {
-            "$ref": "./examples/PersonDirectoryOperations_UpdatePerson.json"
-          }
         }
       },
       "delete": {
@@ -3850,11 +3568,6 @@
                 "description": "String error code indicating what went wrong."
               }
             }
-          }
-        },
-        "x-ms-examples": {
-          "PersonDirectoryOperations_DeletePerson": {
-            "$ref": "./examples/PersonDirectoryOperations_DeletePerson.json"
           }
         },
         "x-ms-long-running-operation": true
@@ -3900,11 +3613,6 @@
                 "description": "String error code indicating what went wrong."
               }
             }
-          }
-        },
-        "x-ms-examples": {
-          "PersonDirectoryOperations_ListDynamicPersonGroupReferences": {
-            "$ref": "./examples/PersonDirectoryOperations_ListDynamicPersonGroupReferences.json"
           }
         }
       }
@@ -3982,11 +3690,6 @@
                 "description": "String error code indicating what went wrong."
               }
             }
-          }
-        },
-        "x-ms-examples": {
-          "PersonDirectoryOperations_ListPersonFace": {
-            "$ref": "./examples/PersonDirectoryOperations_ListPersonFace.json"
           }
         }
       },
@@ -4089,11 +3792,6 @@
             }
           }
         },
-        "x-ms-examples": {
-          "PersonDirectoryOperations_AddPersonFaceFromUrl": {
-            "$ref": "./examples/PersonDirectoryOperations_AddPersonFaceFromUrl.json"
-          }
-        },
         "x-ms-long-running-operation": true
       }
     },
@@ -4177,11 +3875,6 @@
                 "description": "String error code indicating what went wrong."
               }
             }
-          }
-        },
-        "x-ms-examples": {
-          "PersonDirectoryOperations_GetPersonFace": {
-            "$ref": "./examples/PersonDirectoryOperations_GetPersonFace.json"
           }
         }
       },
@@ -4271,11 +3964,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "PersonDirectoryOperations_UpdatePersonFace": {
-            "$ref": "./examples/PersonDirectoryOperations_UpdatePersonFace.json"
-          }
         }
       },
       "delete": {
@@ -4363,11 +4051,6 @@
             }
           }
         },
-        "x-ms-examples": {
-          "PersonDirectoryOperations_DeletePersonFace": {
-            "$ref": "./examples/PersonDirectoryOperations_DeletePersonFace.json"
-          }
-        },
         "x-ms-long-running-operation": true
       }
     },
@@ -4421,16 +4104,84 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "FaceRecognitionOperations_VerifyFaceToFace": {
-            "$ref": "./examples/FaceRecognitionOperations_VerifyFaceToFace.json"
-          }
         }
       }
     }
   },
   "x-ms-paths": {
+    "/face/{apiVersion}/detect?_overload=detectFromSessionImageId": {
+      "post": {
+        "operationId": "FaceDetectionOperations_DetectFromSessionImageId",
+        "description": "Detect human faces in an image, return face rectangles, and optionally with faceIds, landmarks, and attributes.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionPathParameter"
+          },
+          {
+            "$ref": "#/parameters/FaceDetectionOptions.returnFaceId"
+          },
+          {
+            "$ref": "#/parameters/FaceDetectionOptions.returnFaceLandmarks"
+          },
+          {
+            "$ref": "#/parameters/FaceDetectionOptions.returnFaceAttributes"
+          },
+          {
+            "$ref": "#/parameters/FaceDetectionOptions.recognitionModel"
+          },
+          {
+            "$ref": "#/parameters/FaceDetectionOptions.returnRecognitionModel"
+          },
+          {
+            "$ref": "#/parameters/FaceDetectionOptions.detectionModel"
+          },
+          {
+            "$ref": "#/parameters/FaceDetectionOptions.faceIdTimeToLive"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "sessionImageId": {
+                  "type": "string",
+                  "description": "Id of session image."
+                }
+              },
+              "required": [
+                "sessionImageId"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/FaceDetectionResult"
+              },
+              "x-ms-identifiers": []
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
+            },
+            "headers": {
+              "x-ms-error-code": {
+                "type": "string",
+                "description": "String error code indicating what went wrong."
+              }
+            }
+          }
+        }
+      }
+    },
     "/face/{apiVersion}/detect?_overload=detectFromStream": {
       "post": {
         "operationId": "FaceDetectionOperations_DetectFromStream",
@@ -4497,11 +4248,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "FaceDetectionOperations_DetectFromStream": {
-            "$ref": "./examples/FaceDetectionOperations_DetectFromStream.json"
-          }
         }
       }
     },
@@ -4541,11 +4287,6 @@
                 "description": "String error code indicating what went wrong."
               }
             }
-          }
-        },
-        "x-ms-examples": {
-          "LivenessSessionOperations_CreateLivenessWithVerifySessionWithVerifyImage": {
-            "$ref": "./examples/LivenessSessionOperations_CreateLivenessWithVerifySessionWithVerifyImage.json"
           }
         }
       }
@@ -4606,11 +4347,6 @@
                 "description": "String error code indicating what went wrong."
               }
             }
-          }
-        },
-        "x-ms-examples": {
-          "FaceListOperations_AddFaceListFaceFromStream": {
-            "$ref": "./examples/FaceListOperations_AddFaceListFaceFromStream.json"
           }
         }
       }
@@ -4678,11 +4414,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "FaceRecognitionOperations_FindSimilarFromFaceList": {
-            "$ref": "./examples/FaceRecognitionOperations_FindSimilarFromFaceList.json"
-          }
         }
       }
     },
@@ -4748,11 +4479,6 @@
                 "description": "String error code indicating what went wrong."
               }
             }
-          }
-        },
-        "x-ms-examples": {
-          "FaceRecognitionOperations_FindSimilarFromLargeFaceList": {
-            "$ref": "./examples/FaceRecognitionOperations_FindSimilarFromLargeFaceList.json"
           }
         }
       }
@@ -4824,11 +4550,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "FaceRecognitionOperations_IdentifyFromDynamicPersonGroup": {
-            "$ref": "./examples/FaceRecognitionOperations_IdentifyFromDynamicPersonGroup.json"
-          }
         }
       }
     },
@@ -4898,11 +4619,6 @@
                 "description": "String error code indicating what went wrong."
               }
             }
-          }
-        },
-        "x-ms-examples": {
-          "FaceRecognitionOperations_IdentifyFromLargePersonGroup": {
-            "$ref": "./examples/FaceRecognitionOperations_IdentifyFromLargePersonGroup.json"
           }
         }
       }
@@ -4977,11 +4693,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "FaceRecognitionOperations_IdentifyFromPersonDirectory": {
-            "$ref": "./examples/FaceRecognitionOperations_IdentifyFromPersonDirectory.json"
-          }
         }
       }
     },
@@ -5041,11 +4752,6 @@
                 "description": "String error code indicating what went wrong."
               }
             }
-          }
-        },
-        "x-ms-examples": {
-          "FaceListOperations_AddLargeFaceListFaceFromStream": {
-            "$ref": "./examples/FaceListOperations_AddLargeFaceListFaceFromStream.json"
           }
         }
       }
@@ -5114,11 +4820,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "PersonGroupOperations_AddLargePersonGroupPersonFaceFromStream": {
-            "$ref": "./examples/PersonGroupOperations_AddLargePersonGroupPersonFaceFromStream.json"
-          }
         }
       }
     },
@@ -5185,11 +4886,6 @@
                 "description": "String error code indicating what went wrong."
               }
             }
-          }
-        },
-        "x-ms-examples": {
-          "PersonGroupOperations_AddPersonGroupPersonFaceFromStream": {
-            "$ref": "./examples/PersonGroupOperations_AddPersonGroupPersonFaceFromStream.json"
           }
         }
       }
@@ -5298,11 +4994,6 @@
             }
           }
         },
-        "x-ms-examples": {
-          "PersonDirectoryOperations_AddPersonFaceFromStream": {
-            "$ref": "./examples/PersonDirectoryOperations_AddPersonFaceFromStream.json"
-          }
-        },
         "x-ms-long-running-operation": true
       }
     },
@@ -5361,11 +5052,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "FaceRecognitionOperations_VerifyFromLargePersonGroup": {
-            "$ref": "./examples/FaceRecognitionOperations_VerifyFromLargePersonGroup.json"
-          }
         }
       }
     },
@@ -5418,11 +5104,6 @@
                 "description": "String error code indicating what went wrong."
               }
             }
-          }
-        },
-        "x-ms-examples": {
-          "FaceRecognitionOperations_VerifyFromPersonDirectory": {
-            "$ref": "./examples/FaceRecognitionOperations_VerifyFromPersonDirectory.json"
           }
         }
       }
@@ -5481,11 +5162,6 @@
                 "description": "String error code indicating what went wrong."
               }
             }
-          }
-        },
-        "x-ms-examples": {
-          "FaceRecognitionOperations_VerifyFromPersonGroup": {
-            "$ref": "./examples/FaceRecognitionOperations_VerifyFromPersonGroup.json"
           }
         }
       }
@@ -7123,6 +6799,14 @@
         "digest": {
           "type": "string",
           "description": "The digest of the request body."
+        },
+        "sessionImageId": {
+          "type": "string",
+          "description": "The image ID of the session."
+        },
+        "verifyImageHash": {
+          "type": "string",
+          "description": "The sha256 hash of the verify-image in the request."
         }
       },
       "required": [
@@ -7151,6 +6835,10 @@
         "deviceCorrelationIdSetInClient": {
           "type": "boolean",
           "description": "Whether or not the device correlation id is set by the client."
+        },
+        "enableSessionImage": {
+          "type": "boolean",
+          "description": "Whether or not store the session image."
         },
         "deviceCorrelationId": {
           "type": "string",
@@ -7182,6 +6870,10 @@
         "deviceCorrelationIdSetInClient": {
           "type": "boolean",
           "description": "Whether or not the device correlation id is set by the client."
+        },
+        "enableSessionImage": {
+          "type": "boolean",
+          "description": "Whether or not store the session image."
         },
         "deviceCorrelationId": {
           "type": "string",

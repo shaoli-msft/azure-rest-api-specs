@@ -6,6 +6,7 @@ import "./models.detect.tsp";
 
 using TypeSpec.Http;
 using TypeSpec.Rest;
+using TypeSpec.Versioning;
 using Azure.Core;
 using Azure.Core.Traits;
 using Foundations;
@@ -46,4 +47,16 @@ interface FaceDetectionOperations {
     @body
     imageContent: bytes;
   }>;
+
+  #suppress "@azure-tools/typespec-azure-core/no-rpc-path-params" "Workaround for RpcOperation not handling api version in path."
+  @added(Versions.v1_2_preview_1)
+  op detectFromSessionImageId is DetectOperation<{
+      @doc("The format of the HTTP payload.")
+      @header
+      contentType: "application/json";
+
+      @doc("Id of session image.")
+      sessionImageId: string;
+    }
+  >;
 }

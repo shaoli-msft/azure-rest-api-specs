@@ -5,6 +5,7 @@ import "@azure-tools/typespec-azure-core";
 using Azure.Core;
 using TypeSpec.Http;
 using TypeSpec.Rest;
+using TypeSpec.Versioning;
 
 namespace Face;
 
@@ -19,6 +20,10 @@ model LivenessSessionCreationContent {
 
   @doc("Whether or not the device correlation id is set by the client.")
   deviceCorrelationIdSetInClient?: boolean;
+
+  @doc("Whether or not store the session image.")
+  @added(Versions.v1_2_preview_1)
+  enableSessionImage?: boolean;
 
   ...LivenessSessionData;
 }
@@ -154,6 +159,14 @@ model LivenessSessionAuditEntry {
 
   @doc("The digest of the request body.")
   digest: string;
+
+  @doc("The image ID of the session.")
+  @added(Versions.v1_2_preview_1)
+  sessionImageId?: string;
+
+  @doc("The sha256 hash of the verify-image in the request.")
+  @added(Versions.v1_2_preview_1)
+  verifyImageHash?: string;
 }
 
 #suppress "@azure-tools/typespec-autorest/unsupported-multipart-type" "Provide convienient interface for multipart/form-data in SDK"
