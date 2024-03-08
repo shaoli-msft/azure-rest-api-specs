@@ -330,55 +330,6 @@
         }
       }
     },
-    "/face/{apiVersion}/detectLiveness/singleModal/sessions/{sessionId}/sessionImages/{sessionImageId}": {
-      "get": {
-        "operationId": "LivenessSessionOperations_GetLivenessSessionImage",
-        "description": "The most basic operation that applies to a resource.",
-        "produces": [
-          "application/octet-stream",
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "$ref": "#/parameters/ApiVersionPathParameter"
-          },
-          {
-            "name": "sessionId",
-            "in": "path",
-            "description": "Unique ID to reference this session.",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "sessionImageId",
-            "in": "path",
-            "description": "The request ID of the image to be retrieved",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The request has succeeded.",
-            "schema": {
-              "type": "file"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
-            }
-          }
-        }
-      }
-    },
     "/face/{apiVersion}/detectLivenessWithVerify/singleModal/sessions": {
       "get": {
         "operationId": "LivenessSessionOperations_ListLivenessWithVerifySessions",
@@ -557,55 +508,6 @@
               "items": {
                 "$ref": "#/definitions/LivenessSessionAuditEntry"
               }
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
-            }
-          }
-        }
-      }
-    },
-    "/face/{apiVersion}/detectLivenessWithVerify/singleModal/sessions/{sessionId}/sessionImages/{sessionImageId}": {
-      "get": {
-        "operationId": "LivenessSessionOperations_GetLivenessWithVerifySessionImage",
-        "description": "The most basic operation that applies to a resource.",
-        "produces": [
-          "application/octet-stream",
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "$ref": "#/parameters/ApiVersionPathParameter"
-          },
-          {
-            "name": "sessionId",
-            "in": "path",
-            "description": "Unique ID to reference this session.",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "sessionImageId",
-            "in": "path",
-            "description": "The request ID of the image to be retrieved",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The request has succeeded.",
-            "schema": {
-              "type": "file"
             }
           },
           "default": {
@@ -4054,6 +3956,48 @@
         "x-ms-long-running-operation": true
       }
     },
+    "/face/{apiVersion}/session/sessionImages/{sessionImageId}": {
+      "get": {
+        "operationId": "LivenessSessionOperations_GetSessionImage",
+        "description": "A remote procedure call (RPC) operation.",
+        "produces": [
+          "application/octet-stream",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionPathParameter"
+          },
+          {
+            "name": "sessionImageId",
+            "in": "path",
+            "description": "The request ID of the image to be retrieved",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "schema": {
+              "type": "file"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
+            },
+            "headers": {
+              "x-ms-error-code": {
+                "type": "string",
+                "description": "String error code indicating what went wrong."
+              }
+            }
+          }
+        }
+      }
+    },
     "/face/{apiVersion}/verify": {
       "post": {
         "operationId": "FaceRecognitionOperations_VerifyFaceToFace",
@@ -6840,6 +6784,10 @@
           "type": "boolean",
           "description": "Whether or not store the session image."
         },
+        "returnVerifyImageHash": {
+          "type": "boolean",
+          "description": "Whether or not return the verify image hash."
+        },
         "deviceCorrelationId": {
           "type": "string",
           "description": "Device Correlation Id to use for linking multiple sessions together."
@@ -6874,6 +6822,10 @@
         "enableSessionImage": {
           "type": "boolean",
           "description": "Whether or not store the session image."
+        },
+        "returnVerifyImageHash": {
+          "type": "boolean",
+          "description": "Whether or not return the verify image hash."
         },
         "deviceCorrelationId": {
           "type": "string",

@@ -223,8 +223,6 @@ interface FaceSessionClient {
   listLivenessSessions is LivenessSessionOperations.listLivenessSessions;
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
   listLivenessSessionAuditEntries is LivenessSessionOperations.listLivenessSessionAuditEntries;
-  @added(Versions.v1_2_preview_1)
-  getLivenessSessionImage is LivenessSessionOperations.getLivenessSessionImage;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
   createLivenessWithVerifySession is LivenessSessionOperations.createLivenessWithVerifySession;
@@ -238,6 +236,7 @@ interface FaceSessionClient {
   listLivenessWithVerifySessions is LivenessSessionOperations.listLivenessWithVerifySessions;
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
   listLivenessWithVerifySessionAuditEntries is LivenessSessionOperations.listLivenessWithVerifySessionAuditEntries;
+  
   @added(Versions.v1_2_preview_1)
-  getLivenessWithVerifySessionImage is LivenessSessionOperations.getLivenessWithVerifySessionImage;
+  getSessionImage is LivenessSessionOperations.getSessionImage;
 }

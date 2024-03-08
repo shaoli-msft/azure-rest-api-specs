@@ -25,6 +25,10 @@ model LivenessSessionCreationContent {
   @added(Versions.v1_2_preview_1)
   enableSessionImage?: boolean;
 
+  @doc("Whether or not return the verify image hash.")
+  @added(Versions.v1_2_preview_1)
+  returnVerifyImageHash?: boolean;
+
   ...LivenessSessionData;
 }
 

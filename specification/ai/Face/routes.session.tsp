@@ -22,28 +22,6 @@ op FaceLivenessSessionListAuditEntries<TResource extends TypeSpec.Reflection.Mod
   ServiceTraits
 >;
 
-#suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
-@get
-op FaceLivenessSessionGetSessionImage<TResource extends TypeSpec.Reflection.Model> is Foundations.ResourceOperation<
-  TResource,
-  {
-    @doc("The request ID of the image to be retrieved")
-    @path
-    @segment("sessionImages")
-    sessionImageId: string;
-  },
-  {
-    @doc("The format of the HTTP payload.")
-    @header
-    contentType: "application/octet-stream";
-
-    @doc("The image to be analyzed")
-    @body
-    imageContent: bytes;
-  },
-  ServiceTraits
->;
-
 interface LivenessSessionOperations {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "ResourceCreateWithServiceProvidedName does not fit, we don't return Location in header."
   @doc("""
@@ -84,10 +62,6 @@ interface LivenessSessionOperations {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "ResourceList does not fit, we put object array in response directly"
   @doc("Gets session requests and response body for the session.")
   listLivenessSessionAuditEntries is FaceLivenessSessionListAuditEntries<LivenessSession>;
-
-  #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
-  @added(Versions.v1_2_preview_1)
-  getLivenessSessionImage is FaceLivenessSessionGetSessionImage<LivenessSession>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "ResourceCreateWithServiceProvidedName does not fit, we don't return Location in header."
   @doc("""
@@ -152,5 +126,25 @@ interface LivenessSessionOperations {
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
   @added(Versions.v1_2_preview_1)
-  getLivenessWithVerifySessionImage is FaceLivenessSessionGetSessionImage<LivenessWithVerifySession>;
+  @get
+  @route("/face/{apiVersion}/session/sessionImages/{sessionImageId}")
+  getSessionImage is Azure.Core.RpcOperation<
+  {
+    @doc("The request ID of the image to be retrieved")
+    @path
+    @segment("sessionImages")
+    sessionImageId: string;
+  },
+  {
+    @doc("The format of the HTTP payload.")
+    @header
+    contentType: "application/octet-stream";
+
+    @doc("The image to be analyzed")
+    @body
+    imageContent: bytes;
+  },
+  ServiceTraits
+  >;
+    
 }
