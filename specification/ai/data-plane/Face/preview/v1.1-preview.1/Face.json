@@ -5973,17 +5973,17 @@
           {
             "name": "headwear",
             "value": "headwear",
-            "description": "Head wear"
+            "description": "Headwear."
           },
           {
             "name": "glasses",
             "value": "glasses",
-            "description": "Glasses"
+            "description": "Glasses."
           },
           {
             "name": "mask",
             "value": "mask",
-            "description": "Mask"
+            "description": "Mask."
           }
         ]
       }
@@ -6237,12 +6237,12 @@
         "age": {
           "type": "number",
           "format": "float",
-          "description": "Age in years"
+          "description": "Age in years."
         },
         "smile": {
           "type": "number",
           "format": "float",
-          "description": "Smile intensity, a number between [0,1]",
+          "description": "Smile intensity, a number between [0,1].",
           "minimum": 0,
           "maximum": 1
         },
@@ -6331,111 +6331,111 @@
       "properties": {
         "pupilLeft": {
           "$ref": "#/definitions/LandmarkCoordinate",
-          "description": "Coordinates within an image"
+          "description": "The coordinates of the left eye pupil."
         },
         "pupilRight": {
           "$ref": "#/definitions/LandmarkCoordinate",
-          "description": "Coordinates within an image"
+          "description": "The coordinates of the right eye pupil."
         },
         "noseTip": {
           "$ref": "#/definitions/LandmarkCoordinate",
-          "description": "Coordinates within an image"
+          "description": "The coordinates of the nose tip."
         },
         "mouthLeft": {
           "$ref": "#/definitions/LandmarkCoordinate",
-          "description": "Coordinates within an image"
+          "description": "The coordinates of the mouth left."
         },
         "mouthRight": {
           "$ref": "#/definitions/LandmarkCoordinate",
-          "description": "Coordinates within an image"
+          "description": "The coordinates of the mouth right."
         },
         "eyebrowLeftOuter": {
           "$ref": "#/definitions/LandmarkCoordinate",
-          "description": "Coordinates within an image"
+          "description": "The coordinates of the left eyebrow outer."
         },
         "eyebrowLeftInner": {
           "$ref": "#/definitions/LandmarkCoordinate",
-          "description": "Coordinates within an image"
+          "description": "The coordinates of the left eyebrow inner."
         },
         "eyeLeftOuter": {
           "$ref": "#/definitions/LandmarkCoordinate",
-          "description": "Coordinates within an image"
+          "description": "The coordinates of the left eye outer."
         },
         "eyeLeftTop": {
           "$ref": "#/definitions/LandmarkCoordinate",
-          "description": "Coordinates within an image"
+          "description": "The coordinates of the left eye top."
         },
         "eyeLeftBottom": {
           "$ref": "#/definitions/LandmarkCoordinate",
-          "description": "Coordinates within an image"
+          "description": "The coordinates of the left eye bottom."
         },
         "eyeLeftInner": {
           "$ref": "#/definitions/LandmarkCoordinate",
-          "description": "Coordinates within an image"
+          "description": "The coordinates of the left eye inner."
         },
         "eyebrowRightInner": {
           "$ref": "#/definitions/LandmarkCoordinate",
-          "description": "Coordinates within an image"
+          "description": "The coordinates of the right eyebrow inner."
         },
         "eyebrowRightOuter": {
           "$ref": "#/definitions/LandmarkCoordinate",
-          "description": "Coordinates within an image"
+          "description": "The coordinates of the right eyebrow outer."
         },
         "eyeRightInner": {
           "$ref": "#/definitions/LandmarkCoordinate",
-          "description": "Coordinates within an image"
+          "description": "The coordinates of the right eye inner."
         },
         "eyeRightTop": {
           "$ref": "#/definitions/LandmarkCoordinate",
-          "description": "Coordinates within an image"
+          "description": "The coordinates of the right eye top."
         },
         "eyeRightBottom": {
           "$ref": "#/definitions/LandmarkCoordinate",
-          "description": "Coordinates within an image"
+          "description": "The coordinates of the right eye bottom."
         },
         "eyeRightOuter": {
           "$ref": "#/definitions/LandmarkCoordinate",
-          "description": "Coordinates within an image"
+          "description": "The coordinates of the right eye outer."
         },
         "noseRootLeft": {
           "$ref": "#/definitions/LandmarkCoordinate",
-          "description": "Coordinates within an image"
+          "description": "The coordinates of the nose root left."
         },
         "noseRootRight": {
           "$ref": "#/definitions/LandmarkCoordinate",
-          "description": "Coordinates within an image"
+          "description": "The coordinates of the nose root right."
         },
         "noseLeftAlarTop": {
           "$ref": "#/definitions/LandmarkCoordinate",
-          "description": "Coordinates within an image"
+          "description": "The coordinates of the nose left alar top."
         },
         "noseRightAlarTop": {
           "$ref": "#/definitions/LandmarkCoordinate",
-          "description": "Coordinates within an image"
+          "description": "The coordinates of the nose right alar top."
         },
         "noseLeftAlarOutTip": {
           "$ref": "#/definitions/LandmarkCoordinate",
-          "description": "Coordinates within an image"
+          "description": "The coordinates of the nose left alar out tip."
         },
         "noseRightAlarOutTip": {
           "$ref": "#/definitions/LandmarkCoordinate",
-          "description": "Coordinates within an image"
+          "description": "The coordinates of the nose right alar out tip."
         },
         "upperLipTop": {
           "$ref": "#/definitions/LandmarkCoordinate",
-          "description": "Coordinates within an image"
+          "description": "The coordinates of the upper lip top."
         },
         "upperLipBottom": {
           "$ref": "#/definitions/LandmarkCoordinate",
-          "description": "Coordinates within an image"
+          "description": "The coordinates of the upper lip bottom."
         },
         "underLipTop": {
           "$ref": "#/definitions/LandmarkCoordinate",
-          "description": "Coordinates within an image"
+          "description": "The coordinates of the under lip top."
         },
         "underLipBottom": {
           "$ref": "#/definitions/LandmarkCoordinate",
-          "description": "Coordinates within an image"
+          "description": "The coordinates of the under lip bottom."
         }
       },
       "required": [
@@ -6938,42 +6938,42 @@
           {
             "name": "unknownHairColor",
             "value": "unknown",
-            "description": "Unknown"
+            "description": "Unknown."
           },
           {
             "name": "white",
             "value": "white",
-            "description": "White"
+            "description": "White."
           },
           {
             "name": "gray",
             "value": "gray",
-            "description": "Gray"
+            "description": "Gray."
           },
           {
             "name": "blond",
             "value": "blond",
-            "description": "Blond"
+            "description": "Blond."
           },
           {
             "name": "brown",
             "value": "brown",
-            "description": "Brown"
+            "description": "Brown."
           },
           {
             "name": "red",
             "value": "red",
-            "description": "Red"
+            "description": "Red."
           },
           {
             "name": "black",
             "value": "black",
-            "description": "Black"
+            "description": "Black."
           },
           {
             "name": "other",
             "value": "other",
-            "description": "Other"
+            "description": "Other."
           }
         ]
       }
@@ -7079,7 +7079,7 @@
     },
     "LandmarkCoordinate": {
       "type": "object",
-      "description": "Coordinates within an image.",
+      "description": "Landmark coordinates within an image.",
       "properties": {
         "x": {
           "type": "number",
@@ -7713,7 +7713,7 @@
         },
         "type": {
           "$ref": "#/definitions/MaskType",
-          "description": "Mask type if any of the face"
+          "description": "Type of the mask."
         }
       },
       "required": [
@@ -7723,7 +7723,7 @@
     },
     "MaskType": {
       "type": "string",
-      "description": "Mask type if any of the face",
+      "description": "Type of the mask.",
       "enum": [
         "faceMask",
         "noMask",
@@ -7752,7 +7752,7 @@
           {
             "name": "uncertain",
             "value": "uncertain",
-            "description": "Uncertain"
+            "description": "Uncertain."
           }
         ]
       }
