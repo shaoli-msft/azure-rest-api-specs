@@ -88,13 +88,12 @@ interface PersonGroupOperations {
   @summary("Create a new person in a specified person group. To add face to this person, please call PersonGroup PersonFace - Add.")
   @doc("""
   > [!NOTE]
-  > *
-  >   * Free-tier subscription quota:
-  >     * 1,000 persons in all person groups.
-  >   * S0-tier subscription quota:
-  >     * 10,000 persons per person group.
-  >     * 1,000,000 person groups.
-  >     * 100,000,000 persons in all person groups.
+  > * Free-tier subscription quota:
+  >   * 1,000 persons in all person groups.
+  > * S0-tier subscription quota:
+  >   * 10,000 persons per person group.
+  >   * 1,000,000 person groups.
+  >   * 100,000,000 persons in all person groups.
   """)
   createPersonGroupPerson is FaceResourceCreateWithServiceProvidedName<
     PersonGroupPerson,
@@ -181,8 +180,7 @@ interface PersonGroupOperations {
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "List doesn't support Azure paging"
   @summary("List all existing large person groups' largePersonGroupId, name, userData and recognitionModel.")
-  @doc(
-    """
+  @doc("""
   * Large person groups are stored in alphabetical order of largePersonGroupId.
   ${ListRequestOptionsDescription}
   """
@@ -237,8 +235,7 @@ interface PersonGroupOperations {
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "List doesn't support Azure paging"
   @summary("List all persons' information in the specified large person group, including personId, name, userData and persistedFaceIds of registered person faces.")
-  @doc(
-    """
+  @doc("""
   * Persons are stored in alphabetical order of personId created in LargePersonGroup Person - Create.
   ${ListRequestOptionsDescription}
   """
