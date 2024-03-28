@@ -16,8 +16,9 @@ alias LivenessSessionWithVerifyDescription = """
 ${SessionCommonDescription}
 
 Permissions includes...
-* Ability to call /detectLivenessWithVerify/singleModal for up to 3 reties.
-* A token lifetime of 10 minutes.
+*
+  * Ability to call /detectLivenessWithVerify/singleModal for up to 3 reties.
+  * A token lifetime of 10 minutes.
 
 > [!NOTE]
 > Client access can be revoked by deleting the session using the Delete Liveness With Verify Session operation. To retrieve a result, use the Get Liveness With Verify Session. To audit the individual requests that a client has made to your resource, use the List Liveness With Verify Session Audit Entries.
@@ -30,6 +31,7 @@ alias DeleteSessionDescription = """
 """;
 alias ListSessionDescription = """
 List sessions from the last sessionId greater than the 'start'.
+
 The result should be ordered by sessionId in ascending order.
 """;
 alias ListSessionAuditEntriesDescription = "Gets session requests and response body for the session.";
@@ -46,13 +48,13 @@ op FaceLivenessSessionListAuditEntries<TResource extends TypeSpec.Reflection.Mod
 
 interface LivenessSessionOperations {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "ResourceCreateWithServiceProvidedName does not fit, we don't return Location in header."
-  @doc(
-    """
+  @doc("""
   ${SessionCommonDescription}
-  
+
   Permissions includes...
-  * Ability to call /detectLiveness/singleModal for up to 3 reties.
-  * A token lifetime of 10 minutes.
+  *
+    * Ability to call /detectLiveness/singleModal for up to 3 reties.
+    * A token lifetime of 10 minutes.
 
   > [!NOTE]
   > Client access can be revoked by deleting the session using the Delete Liveness Session operation. To retrieve a result, use the Get Liveness Session. To audit the individual requests that a client has made to your resource, use the List Liveness Session Audit Entries.
@@ -88,8 +90,7 @@ interface LivenessSessionOperations {
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
   #suppress "@azure-tools/typespec-azure-core/byos" "Representation of existing multipart/form-data operation"
-  @doc(
-    """
+  @doc("""
   ${LivenessSessionWithVerifyDescription}
 
   Recommended Option: VerifyImage is provided during session creation.
@@ -105,8 +106,7 @@ interface LivenessSessionOperations {
   >;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "ResourceCreateWithServiceProvidedName does not fit, we don't return Location in header."
-  @doc(
-    """
+  @doc("""
   ${LivenessSessionWithVerifyDescription}
 
   Alternative Option: Client device submits VerifyImage during the /detectLivenessWithVerify/singleModal call.
@@ -135,6 +135,7 @@ interface LivenessSessionOperations {
   @summary("Lists sessions for /detectLivenessWithVerify/SingleModal.")
   @doc("""
   List sessions from the last sessionId greater than the \"start\".
+
   The result should be ordered by sessionId in ascending order.
   """)
   getLivenessWithVerifySessions is FaceResourceListOperation<
