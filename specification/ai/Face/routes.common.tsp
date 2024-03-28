@@ -31,6 +31,7 @@ op FaceResourceCreateWithServiceProvidedName<
   ServiceTraits
 >;
 
+@returnsDoc("A successful call returns an empty response body.")
 @createsOrReplacesResource(TResource)
 op FaceResourceCreateOperation<TResource extends TypeSpec.Reflection.Model> is Foundations.ResourceOperation<
   TResource,
@@ -91,6 +92,7 @@ op FaceResourceListOperation<
   ServiceTraits
 >;
 
+@returnsDoc("A successful call returns an empty response body.")
 @deletesResource(TResource)
 op FaceResourceDeleteOperation<TResource extends TypeSpec.Reflection.Model> is Foundations.ResourceOperation<
   TResource,
