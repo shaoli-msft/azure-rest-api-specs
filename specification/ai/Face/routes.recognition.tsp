@@ -16,13 +16,12 @@ namespace Face;
 For each face in the faceIds array, Face Identify will compute similarities between the query face and all the faces in the person group (given by personGroupId) or large person group (given by largePersonGroupId), and return candidate person(s) for that face ranked by similarity confidence. The person group/large person group should be trained to make it ready for identification. See more in PersonGroup - Train and LargePersonGroup - Train.
 
 > [!NOTE]
-> *
->   * The algorithm allows more than one face to be identified independently at the same request, but no more than 10 faces.
->   * Each person in the person group/large person group could have more than one face, but no more than 248 faces.
->   * Higher face image quality means better identification precision. Please consider high-quality faces: frontal, clear, and face size is 200x200 pixels (100 pixels between eyes) or bigger.
->   * Number of candidates returned is restricted by maxNumOfCandidatesReturned and confidenceThreshold. If no person is identified, the returned candidates will be an empty array.
->   * Try Face - Find Similar when you need to find similar faces from a face list/large face list instead of a person group/large person group.
->   * The 'recognitionModel' associated with the query faces' faceIds should be the same as the 'recognitionModel' used by the target person group or large person group.
+> * The algorithm allows more than one face to be identified independently at the same request, but no more than 10 faces.
+> * Each person in the person group/large person group could have more than one face, but no more than 248 faces.
+> * Higher face image quality means better identification precision. Please consider high-quality faces: frontal, clear, and face size is 200x200 pixels (100 pixels between eyes) or bigger.
+> * Number of candidates returned is restricted by maxNumOfCandidatesReturned and confidenceThreshold. If no person is identified, the returned candidates will be an empty array.
+> * Try Face - Find Similar when you need to find similar faces from a face list/large face list instead of a person group/large person group.
+> * The 'recognitionModel' associated with the query faces' faceIds should be the same as the 'recognitionModel' used by the target person group or large person group.
 """)
 @returnsDoc("A successful call returns the identified candidate person(s) for each query face.")
 @sharedRoute
@@ -53,10 +52,9 @@ op IdentifyOperation<T extends TypeSpec.Reflection.Model> is Azure.Core.RpcOpera
 
 @doc("""
 > [!NOTE]
-> *
->   * Higher face image quality means better identification precision. Please consider high-quality faces: frontal, clear, and face size is 200x200 pixels (100 pixels between eyes) or bigger.
->   * For the scenarios that are sensitive to accuracy please make your own judgment.
->   * The 'recognitionModel' associated with the query faces' faceIds should be the same as the 'recognitionModel' used by the target face, person group or large person group.
+> * Higher face image quality means better identification precision. Please consider high-quality faces: frontal, clear, and face size is 200x200 pixels (100 pixels between eyes) or bigger.
+> * For the scenarios that are sensitive to accuracy please make your own judgment.
+> * The 'recognitionModel' associated with the query faces' faceIds should be the same as the 'recognitionModel' used by the target face, person group or large person group.
 """)
 @returnsDoc("A successful call returns the verification result.")
 @sharedRoute
@@ -197,11 +195,10 @@ interface FaceRecognitionOperations {
   #suppress "@azure-tools/typespec-azure-core/no-rpc-path-params" "Workaround for RpcOperation not handling api version in path."
   @summary("Divide candidate faces into groups based on face similarity.")
   @doc("""
-  *
-    * The output is one or more disjointed face groups and a messyGroup. A face group contains faces that have similar looking, often of the same person. Face groups are ranked by group size, i.e. number of faces. Notice that faces belonging to a same person might be split into several groups in the result.
-    * MessyGroup is a special face group containing faces that cannot find any similar counterpart face from original faces. The messyGroup will not appear in the result if all faces found their counterparts.
-    * Group API needs at least 2 candidate faces and 1000 at most. We suggest to try Face - Verify when you only have 2 candidate faces.
-    * The 'recognitionModel' associated with the query faces' faceIds should be the same.
+  * The output is one or more disjointed face groups and a messyGroup. A face group contains faces that have similar looking, often of the same person. Face groups are ranked by group size, i.e. number of faces. Notice that faces belonging to a same person might be split into several groups in the result.
+  * MessyGroup is a special face group containing faces that cannot find any similar counterpart face from original faces. The messyGroup will not appear in the result if all faces found their counterparts.
+  * Group API needs at least 2 candidate faces and 1000 at most. We suggest to try Face - Verify when you only have 2 candidate faces.
+  * The 'recognitionModel' associated with the query faces' faceIds should be the same.
   """)
   @returnsDoc("A successful call returns one or more groups of similar faces (rank by group size) and a messyGroup.")
   @post
