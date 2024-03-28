@@ -71,6 +71,7 @@ interface LivenessSessionOperations {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "ResourceDelete does not fit, we return 200 instead of 204"
   @summary(DeleteSessionSummary)
   @doc(DeleteSessionDescription)
+  @returnsDoc("Successfully deleted session and all correlated data.")
   deleteLivenessSession is FaceResourceDeleteOperation<LivenessSession>;
 
   @doc("Get session result of detectLiveness/singleModal call.")
@@ -126,6 +127,7 @@ interface LivenessSessionOperations {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "ResourceDelete does not fit, we return 200 instead of 204"
   @summary(DeleteSessionSummary)
   @doc(DeleteSessionDescription)
+  @returnsDoc("Successfully deleted session and all correlated data.")
   deleteLivenessWithVerifySession is FaceResourceDeleteOperation<LivenessWithVerifySession>;
 
   @doc("Get session result of detectLivenessWithVerify/singleModal call.")
