@@ -1,5 +1,5 @@
 {
-  "title": "FaceListOperations_GetFaceList",
+  "title": "Get FaceList",
   "operationId": "FaceListOperations_GetFaceList",
   "parameters": {
     "apiVersion": "v1.1-preview.1",

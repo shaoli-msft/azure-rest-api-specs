@@ -1,5 +1,5 @@
 {
-  "title": "PersonDirectoryOperations_DeleteDynamicPersonGroup",
+  "title": "Delete DynamicPersonGroup",
   "operationId": "PersonDirectoryOperations_DeleteDynamicPersonGroup",
   "parameters": {
     "apiVersion": "v1.1-preview.1",

@@ -1,5 +1,5 @@
 {
-  "title": "PersonGroupOperations_TrainLargePersonGroup",
+  "title": "Train LargePersonGroup",
   "operationId": "PersonGroupOperations_TrainLargePersonGroup",
   "parameters": {
     "apiVersion": "v1.1-preview.1",

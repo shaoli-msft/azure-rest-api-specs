@@ -1,5 +1,5 @@
 {
-  "title": "FaceRecognitionOperations_IdentifyFromLargePersonGroup",
+  "title": "Identify from LargePersonGroup",
   "operationId": "FaceRecognitionOperations_IdentifyFromLargePersonGroup",
   "parameters": {
     "apiVersion": "v1.1-preview.1",

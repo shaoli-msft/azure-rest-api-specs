@@ -1,5 +1,5 @@
 {
-  "title": "FaceListOperations_GetLargeFaceListFace",
+  "title": "Get Face from LargeFaceList",
   "operationId": "FaceListOperations_GetLargeFaceListFace",
   "parameters": {
     "apiVersion": "v1.1-preview.1",

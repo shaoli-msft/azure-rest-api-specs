@@ -1,5 +1,5 @@
 {
-  "title": "PersonDirectoryOperations_UpdatePersonFace",
+  "title": "Update Face of PersonDirectory Person",
   "operationId": "PersonDirectoryOperations_UpdatePersonFace",
   "parameters": {
     "apiVersion": "v1.1-preview.1",

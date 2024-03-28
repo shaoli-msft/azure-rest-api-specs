@@ -1,5 +1,5 @@
 {
-  "title": "PersonGroupOperations_GetLargePersonGroupPersonFace",
+  "title": "Get Face from LargePersonGroup Person",
   "operationId": "PersonGroupOperations_GetLargePersonGroupPersonFace",
   "parameters": {
     "apiVersion": "v1.1-preview.1",

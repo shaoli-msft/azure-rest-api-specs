@@ -1,5 +1,5 @@
 {
-  "title": "FaceListOperations_GetLargeFaceListTrainingStatus",
+  "title": "Get Training Status of LargeFaceList",
   "operationId": "FaceListOperations_GetLargeFaceListTrainingStatus",
   "parameters": {
     "apiVersion": "v1.1-preview.1",

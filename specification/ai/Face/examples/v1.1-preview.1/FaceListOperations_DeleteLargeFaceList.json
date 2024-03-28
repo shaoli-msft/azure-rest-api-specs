@@ -1,5 +1,5 @@
 {
-  "title": "FaceListOperations_DeleteLargeFaceList",
+  "title": "Delete LargeFaceList",
   "operationId": "FaceListOperations_DeleteLargeFaceList",
   "parameters": {
     "apiVersion": "v1.1-preview.1",

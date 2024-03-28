@@ -1,5 +1,5 @@
 {
-  "title": "PersonGroupOperations_GetPersonGroupPersonFace",
+  "title": "Get Face form PersonGroup Person",
   "operationId": "PersonGroupOperations_GetPersonGroupPersonFace",
   "parameters": {
     "apiVersion": "v1.1-preview.1",

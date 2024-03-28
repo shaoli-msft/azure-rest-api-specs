@@ -1,5 +1,5 @@
 {
-  "title": "PersonDirectoryOperations_GetDynamicPersonGroup",
+  "title": "Get DynamicPersonGroup",
   "operationId": "PersonDirectoryOperations_GetDynamicPersonGroup",
   "parameters": {
     "apiVersion": "v1.1-preview.1",

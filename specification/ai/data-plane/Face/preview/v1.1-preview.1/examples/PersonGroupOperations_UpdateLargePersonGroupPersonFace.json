@@ -1,5 +1,5 @@
 {
-  "title": "PersonGroupOperations_UpdateLargePersonGroupPersonFace",
+  "title": "Update Face in LargePersonGroup Person",
   "operationId": "PersonGroupOperations_UpdateLargePersonGroupPersonFace",
   "parameters": {
     "apiVersion": "v1.1-preview.1",

@@ -1,5 +1,5 @@
 {
-  "title": "PersonDirectoryOperations_GetPersonFaces",
+  "title": "Get Faces from PersonDirectory Person",
   "operationId": "PersonDirectoryOperations_GetPersonFaces",
   "parameters": {
     "apiVersion": "v1.1-preview.1",

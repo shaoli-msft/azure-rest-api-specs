@@ -1,5 +1,5 @@
 {
-  "title": "FaceRecognitionOperations_VerifyFromPersonGroup",
+  "title": "Verify from PersonGroup",
   "operationId": "FaceRecognitionOperations_VerifyFromPersonGroup",
   "parameters": {
     "apiVersion": "v1.1-preview.1",

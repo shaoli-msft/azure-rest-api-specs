@@ -1,5 +1,5 @@
 {
-  "title": "PersonGroupOperations_UpdateLargePersonGroupPerson",
+  "title": "Update Person in LargePersonGroup",
   "operationId": "PersonGroupOperations_UpdateLargePersonGroupPerson",
   "parameters": {
     "apiVersion": "v1.1-preview.1",

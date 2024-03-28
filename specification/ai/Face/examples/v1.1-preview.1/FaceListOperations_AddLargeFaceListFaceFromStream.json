@@ -1,5 +1,5 @@
 {
-  "title": "FaceListOperations_AddLargeFaceListFace",
+  "title": "Add Face to LargeFaceList",
   "operationId": "FaceListOperations_AddLargeFaceListFace",
   "parameters": {
     "apiVersion": "v1.1-preview.1",

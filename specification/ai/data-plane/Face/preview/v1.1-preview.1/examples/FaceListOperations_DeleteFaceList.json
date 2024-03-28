@@ -1,5 +1,5 @@
 {
-  "title": "FaceListOperations_DeleteFaceList",
+  "title": "Delete FaceList",
   "operationId": "FaceListOperations_DeleteFaceList",
   "parameters": {
     "apiVersion": "v1.1-preview.1",

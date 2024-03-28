@@ -1,5 +1,5 @@
 {
-  "title": "PersonDirectoryOperations_GetPerson",
+  "title": "Get Person from PeronDirectory",
   "operationId": "PersonDirectoryOperations_GetPerson",
   "parameters": {
     "apiVersion": "v1.1-preview.1",

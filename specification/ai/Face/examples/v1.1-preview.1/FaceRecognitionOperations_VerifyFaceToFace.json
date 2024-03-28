@@ -1,5 +1,5 @@
 {
-  "title": "FaceRecognitionOperations_VerifyFaceToFace",
+  "title": "Verify Face to Face",
   "operationId": "FaceRecognitionOperations_VerifyFaceToFace",
   "parameters": {
     "apiVersion": "v1.1-preview.1",

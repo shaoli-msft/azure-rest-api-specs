@@ -1,5 +1,5 @@
 {
-  "title": "PersonGroupOperations_AddPersonGroupPersonFaceFromUrl",
+  "title": "Add Face to PersonGroupPerson from Url",
   "operationId": "PersonGroupOperations_AddPersonGroupPersonFaceFromUrl",
   "parameters": {
     "apiVersion": "v1.1-preview.1",

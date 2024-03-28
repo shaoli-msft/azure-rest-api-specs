@@ -176,7 +176,7 @@
           }
         },
         "x-ms-examples": {
-          "LivenessSessionOperations_GetLivenessSessions": {
+          "Get LivenessSessions": {
             "$ref": "./examples/LivenessSessionOperations_GetLivenessSessions.json"
           }
         }
@@ -219,7 +219,7 @@
           }
         },
         "x-ms-examples": {
-          "LivenessSessionOperations_CreateLivenessSession": {
+          "Create Liveness Session": {
             "$ref": "./examples/LivenessSessionOperations_CreateLivenessSession.json"
           }
         }
@@ -262,7 +262,7 @@
           }
         },
         "x-ms-examples": {
-          "LivenessSessionOperations_GetLivenessSessionResult": {
+          "Get LivenessSession Result": {
             "$ref": "./examples/LivenessSessionOperations_GetLivenessSessionResult.json"
           }
         }
@@ -301,7 +301,7 @@
           }
         },
         "x-ms-examples": {
-          "LivenessSessionOperations_DeleteLivenessSession": {
+          "Delete Liveness Session": {
             "$ref": "./examples/LivenessSessionOperations_DeleteLivenessSession.json"
           }
         }
@@ -353,7 +353,7 @@
           }
         },
         "x-ms-examples": {
-          "LivenessSessionOperations_GetLivenessSessionAuditEntries": {
+          "Get LivenessSession Audit Entries": {
             "$ref": "./examples/LivenessSessionOperations_GetLivenessSessionAuditEntries.json"
           }
         }
@@ -399,7 +399,7 @@
           }
         },
         "x-ms-examples": {
-          "LivenessSessionOperations_GetLivenessWithVerifySessions": {
+          "Get LivenessWithVerify Sessions": {
             "$ref": "./examples/LivenessSessionOperations_GetLivenessWithVerifySessions.json"
           }
         }
@@ -443,7 +443,7 @@
           }
         },
         "x-ms-examples": {
-          "LivenessSessionOperations_CreateLivenessWithVerifySessionWithVerifyImage": {
+          "Create LivenessWithVerify Session with VerifyImage": {
             "$ref": "./examples/LivenessSessionOperations_CreateLivenessWithVerifySessionWithVerifyImage.json"
           }
         }
@@ -486,7 +486,7 @@
           }
         },
         "x-ms-examples": {
-          "LivenessSessionOperations_GetLivenessWithVerifySessionResult": {
+          "Get LivenessWithVerify Session Result": {
             "$ref": "./examples/LivenessSessionOperations_GetLivenessWithVerifySessionResult.json"
           }
         }
@@ -525,7 +525,7 @@
           }
         },
         "x-ms-examples": {
-          "LivenessSessionOperations_DeleteLivenessWithVerifySession": {
+          "Delete LivenessWithVerify Session": {
             "$ref": "./examples/LivenessSessionOperations_DeleteLivenessWithVerifySession.json"
           }
         }
@@ -577,7 +577,7 @@
           }
         },
         "x-ms-examples": {
-          "LivenessSessionOperations_GetLivenessWithVerifySessionAuditEntries": {
+          "Get LivenessWithVerify Session Audit Entries": {
             "$ref": "./examples/LivenessSessionOperations_GetLivenessWithVerifySessionAuditEntries.json"
           }
         }
@@ -624,7 +624,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonDirectoryOperations_GetDynamicPersonGroups": {
+          "Get DynamicPersonGroups": {
             "$ref": "./examples/PersonDirectoryOperations_GetDynamicPersonGroups.json"
           }
         }
@@ -668,7 +668,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonDirectoryOperations_GetDynamicPersonGroup": {
+          "Get DynamicPersonGroup": {
             "$ref": "./examples/PersonDirectoryOperations_GetDynamicPersonGroup.json"
           }
         }
@@ -726,7 +726,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonDirectoryOperations_CreateDynamicPersonGroup": {
+          "Create DynamicPersonGroup": {
             "$ref": "./examples/PersonDirectoryOperations_CreateDynamicPersonGroup.json"
           }
         }
@@ -784,7 +784,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonDirectoryOperations_UpdateDynamicPersonGroup": {
+          "Update DynamicPersonGroup": {
             "$ref": "./examples/PersonDirectoryOperations_UpdateDynamicPersonGroup.json"
           }
         }
@@ -830,7 +830,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonDirectoryOperations_DeleteDynamicPersonGroup": {
+          "Delete DynamicPersonGroup": {
             "$ref": "./examples/PersonDirectoryOperations_DeleteDynamicPersonGroup.json"
           }
         },
@@ -881,7 +881,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonDirectoryOperations_GetDynamicPersonGroupPersons": {
+          "Get DynamicPersonGroup Persons": {
             "$ref": "./examples/PersonDirectoryOperations_GetDynamicPersonGroupPersons.json"
           }
         }
@@ -924,7 +924,7 @@
           }
         },
         "x-ms-examples": {
-          "FaceListOperations_GetFaceLists": {
+          "Get FaceLists": {
             "$ref": "./examples/FaceListOperations_GetFaceLists.json"
           }
         }
@@ -970,7 +970,7 @@
           }
         },
         "x-ms-examples": {
-          "FaceListOperations_GetFaceList": {
+          "Get FaceList": {
             "$ref": "./examples/FaceListOperations_GetFaceList.json"
           }
         }
@@ -1018,7 +1018,7 @@
           }
         },
         "x-ms-examples": {
-          "FaceListOperations_CreateFaceList": {
+          "Create FaceList": {
             "$ref": "./examples/FaceListOperations_CreateFaceList.json"
           }
         }
@@ -1064,7 +1064,7 @@
           }
         },
         "x-ms-examples": {
-          "FaceListOperations_UpdateFaceList": {
+          "Update FaceList": {
             "$ref": "./examples/FaceListOperations_UpdateFaceList.json"
           }
         }
@@ -1102,7 +1102,7 @@
           }
         },
         "x-ms-examples": {
-          "FaceListOperations_DeleteFaceList": {
+          "Delete FaceList": {
             "$ref": "./examples/FaceListOperations_DeleteFaceList.json"
           }
         }
@@ -1168,7 +1168,7 @@
           }
         },
         "x-ms-examples": {
-          "FaceListOperations_AddFaceListFace": {
+          "Add Face to FaceList": {
             "$ref": "./examples/FaceListOperations_AddFaceListFaceFromStream.json"
           }
         }
@@ -1216,7 +1216,7 @@
           }
         },
         "x-ms-examples": {
-          "FaceListOperations_DeleteFaceListFace": {
+          "Delete Face from FaceList": {
             "$ref": "./examples/FaceListOperations_DeleteFaceListFace.json"
           }
         }
@@ -1291,7 +1291,7 @@
           }
         },
         "x-ms-examples": {
-          "FaceRecognitionOperations_FindSimilar": {
+          "Find Similar among Face IDs": {
             "$ref": "./examples/FaceRecognitionOperations_FindSimilar.json"
           }
         }
@@ -1348,7 +1348,7 @@
           }
         },
         "x-ms-examples": {
-          "FaceRecognitionOperations_Group": {
+          "Group Face IDs": {
             "$ref": "./examples/FaceRecognitionOperations_Group.json"
           }
         }
@@ -1430,7 +1430,7 @@
           }
         },
         "x-ms-examples": {
-          "FaceRecognitionOperations_IdentifyFromPersonGroup": {
+          "Identify from PersonGroup": {
             "$ref": "./examples/FaceRecognitionOperations_IdentifyFromPersonGroup.json"
           }
         }
@@ -1480,7 +1480,7 @@
           }
         },
         "x-ms-examples": {
-          "FaceListOperations_GetLargeFaceLists": {
+          "Get LargeFaceLists": {
             "$ref": "./examples/FaceListOperations_GetLargeFaceLists.json"
           }
         }
@@ -1526,7 +1526,7 @@
           }
         },
         "x-ms-examples": {
-          "FaceListOperations_GetLargeFaceList": {
+          "Get LargeFaceList": {
             "$ref": "./examples/FaceListOperations_GetLargeFaceList.json"
           }
         }
@@ -1574,7 +1574,7 @@
           }
         },
         "x-ms-examples": {
-          "FaceListOperations_CreateLargeFaceList": {
+          "Create LargeFaceList": {
             "$ref": "./examples/FaceListOperations_CreateLargeFaceList.json"
           }
         }
@@ -1620,7 +1620,7 @@
           }
         },
         "x-ms-examples": {
-          "FaceListOperations_UpdateLargeFaceList": {
+          "Update LargeFaceList": {
             "$ref": "./examples/FaceListOperations_UpdateLargeFaceList.json"
           }
         }
@@ -1659,7 +1659,7 @@
           }
         },
         "x-ms-examples": {
-          "FaceListOperations_DeleteLargeFaceList": {
+          "Delete LargeFaceList": {
             "$ref": "./examples/FaceListOperations_DeleteLargeFaceList.json"
           }
         }
@@ -1713,7 +1713,7 @@
           }
         },
         "x-ms-examples": {
-          "FaceListOperations_GetLargeFaceListFaces": {
+          "Get Faces from LargeFaceList": {
             "$ref": "./examples/FaceListOperations_GetLargeFaceListFaces.json"
           }
         }
@@ -1777,7 +1777,7 @@
           }
         },
         "x-ms-examples": {
-          "FaceListOperations_AddLargeFaceListFace": {
+          "Add Face to LargeFaceList": {
             "$ref": "./examples/FaceListOperations_AddLargeFaceListFaceFromStream.json"
           }
         }
@@ -1827,7 +1827,7 @@
           }
         },
         "x-ms-examples": {
-          "FaceListOperations_GetLargeFaceListFace": {
+          "Get Face from LargeFaceList": {
             "$ref": "./examples/FaceListOperations_GetLargeFaceListFace.json"
           }
         }
@@ -1881,7 +1881,7 @@
           }
         },
         "x-ms-examples": {
-          "FaceListOperations_UpdateLargeFaceListFace": {
+          "Update Face in LargeFaceList": {
             "$ref": "./examples/FaceListOperations_UpdateLargeFaceListFace.json"
           }
         }
@@ -1926,7 +1926,7 @@
           }
         },
         "x-ms-examples": {
-          "FaceListOperations_DeleteLargeFaceListFace": {
+          "Delete Face From LargeFaceList": {
             "$ref": "./examples/FaceListOperations_DeleteLargeFaceListFace.json"
           }
         }
@@ -1974,7 +1974,7 @@
           }
         },
         "x-ms-examples": {
-          "FaceListOperations_TrainLargeFaceList": {
+          "Train LargeFaceList": {
             "$ref": "./examples/FaceListOperations_TrainLargeFaceList.json"
           }
         },
@@ -2018,7 +2018,7 @@
           }
         },
         "x-ms-examples": {
-          "FaceListOperations_GetLargeFaceListTrainingStatus": {
+          "Get Training Status of LargeFaceList": {
             "$ref": "./examples/FaceListOperations_GetLargeFaceListTrainingStatus.json"
           }
         }
@@ -2068,7 +2068,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroupOperations_GetLargePersonGroups": {
+          "Get LargePersonGroups": {
             "$ref": "./examples/PersonGroupOperations_GetLargePersonGroups.json"
           }
         }
@@ -2114,7 +2114,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroupOperations_GetLargePersonGroup": {
+          "Get LargePersonGroup": {
             "$ref": "./examples/PersonGroupOperations_GetLargePersonGroup.json"
           }
         }
@@ -2162,7 +2162,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroupOperations_CreateLargePersonGroup": {
+          "Create LargePersonGroup": {
             "$ref": "./examples/PersonGroupOperations_CreateLargePersonGroup.json"
           }
         }
@@ -2208,7 +2208,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroupOperations_UpdateLargePersonGroup": {
+          "Update LargePersonGroup": {
             "$ref": "./examples/PersonGroupOperations_UpdateLargePersonGroup.json"
           }
         }
@@ -2246,7 +2246,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroupOperations_DeleteLargePersonGroup": {
+          "Delete LargePersonGroup": {
             "$ref": "./examples/PersonGroupOperations_DeleteLargePersonGroup.json"
           }
         }
@@ -2300,7 +2300,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroupOperations_GetLargePersonGroupPersons": {
+          "Get Persons from LargePersonGroup": {
             "$ref": "./examples/PersonGroupOperations_GetLargePersonGroupPersons.json"
           }
         }
@@ -2350,7 +2350,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroupOperations_CreateLargePersonGroupPerson": {
+          "Create Person in LargePersonGroup": {
             "$ref": "./examples/PersonGroupOperations_CreateLargePersonGroupPerson.json"
           }
         }
@@ -2400,7 +2400,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroupOperations_GetLargePersonGroupPerson": {
+          "Get Person from LargePersonGroup": {
             "$ref": "./examples/PersonGroupOperations_GetLargePersonGroupPerson.json"
           }
         }
@@ -2453,7 +2453,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroupOperations_UpdateLargePersonGroupPerson": {
+          "Update Person in LargePersonGroup": {
             "$ref": "./examples/PersonGroupOperations_UpdateLargePersonGroupPerson.json"
           }
         }
@@ -2498,7 +2498,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroupOperations_DeleteLargePersonGroupPerson": {
+          "Delete Person from LargePersonGroup": {
             "$ref": "./examples/PersonGroupOperations_DeleteLargePersonGroupPerson.json"
           }
         }
@@ -2571,7 +2571,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroupOperations_AddLargePersonGroupPersonFace": {
+          "Add Face in LargePersonGroup Person": {
             "$ref": "./examples/PersonGroupOperations_AddLargePersonGroupPersonFaceFromStream.json"
           }
         }
@@ -2628,7 +2628,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroupOperations_GetLargePersonGroupPersonFace": {
+          "Get Face from LargePersonGroup Person": {
             "$ref": "./examples/PersonGroupOperations_GetLargePersonGroupPersonFace.json"
           }
         }
@@ -2689,7 +2689,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroupOperations_UpdateLargePersonGroupPersonFace": {
+          "Update Face in LargePersonGroup Person": {
             "$ref": "./examples/PersonGroupOperations_UpdateLargePersonGroupPersonFace.json"
           }
         }
@@ -2742,7 +2742,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroupOperations_DeleteLargePersonGroupPersonFace": {
+          "Delete Face from LargePersonGroup Person": {
             "$ref": "./examples/PersonGroupOperations_DeleteLargePersonGroupPersonFace.json"
           }
         }
@@ -2790,7 +2790,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroupOperations_TrainLargePersonGroup": {
+          "Train LargePersonGroup": {
             "$ref": "./examples/PersonGroupOperations_TrainLargePersonGroup.json"
           }
         },
@@ -2835,7 +2835,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroupOperations_GetLargePersonGroupTrainingStatus": {
+          "Get Training Status of LargePersonGroup": {
             "$ref": "./examples/PersonGroupOperations_GetLargePersonGroupTrainingStatus.json"
           }
         }
@@ -2878,7 +2878,7 @@
           }
         },
         "x-ms-examples": {
-          "GetFaceOperationStatus": {
+          "Get Face Operation Status": {
             "$ref": "./examples/GetFaceOperationStatus.json"
           }
         }
@@ -2928,7 +2928,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroupOperations_GetPersonGroups": {
+          "Get PersonGroups": {
             "$ref": "./examples/PersonGroupOperations_GetPersonGroups.json"
           }
         }
@@ -2974,7 +2974,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroupOperations_GetPersonGroup": {
+          "Get PersonGroup": {
             "$ref": "./examples/PersonGroupOperations_GetPersonGroup.json"
           }
         }
@@ -3022,7 +3022,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroupOperations_CreatePersonGroup": {
+          "Create PersonGroup": {
             "$ref": "./examples/PersonGroupOperations_CreatePersonGroup.json"
           }
         }
@@ -3068,7 +3068,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroupOperations_UpdatePersonGroup": {
+          "Update PersonGroup": {
             "$ref": "./examples/PersonGroupOperations_UpdatePersonGroup.json"
           }
         }
@@ -3106,7 +3106,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroupOperations_DeletePersonGroup": {
+          "Delete PersonGroup": {
             "$ref": "./examples/PersonGroupOperations_DeletePersonGroup.json"
           }
         }
@@ -3160,7 +3160,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroupOperations_GetPersonGroupPersons": {
+          "Get Persons from PersonGroup": {
             "$ref": "./examples/PersonGroupOperations_GetPersonGroupPersons.json"
           }
         }
@@ -3210,7 +3210,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroupOperations_CreatePersonGroupPerson": {
+          "Create Person in PersonGroup": {
             "$ref": "./examples/PersonGroupOperations_CreatePersonGroupPerson.json"
           }
         }
@@ -3260,7 +3260,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroupOperations_GetPersonGroupPerson": {
+          "Get Person from PersonGroup": {
             "$ref": "./examples/PersonGroupOperations_GetPersonGroupPerson.json"
           }
         }
@@ -3313,7 +3313,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroupOperations_UpdatePersonGroupPerson": {
+          "Update PersonGroup Person": {
             "$ref": "./examples/PersonGroupOperations_UpdatePersonGroupPerson.json"
           }
         }
@@ -3358,7 +3358,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroupOperations_DeletePersonGroupPerson": {
+          "Delete Person from PersonGroup": {
             "$ref": "./examples/PersonGroupOperations_DeletePersonGroupPerson.json"
           }
         }
@@ -3431,7 +3431,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroupOperations_AddPersonGroupPersonFace": {
+          "Add Face to PersonGroup Person": {
             "$ref": "./examples/PersonGroupOperations_AddPersonGroupPersonFaceFromStream.json"
           }
         }
@@ -3488,7 +3488,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroupOperations_GetPersonGroupPersonFace": {
+          "Get Face form PersonGroup Person": {
             "$ref": "./examples/PersonGroupOperations_GetPersonGroupPersonFace.json"
           }
         }
@@ -3549,7 +3549,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroupOperations_UpdatePersonGroupPersonFace": {
+          "Update Face in PersonGroup Person": {
             "$ref": "./examples/PersonGroupOperations_UpdatePersonGroupPersonFace.json"
           }
         }
@@ -3602,7 +3602,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroupOperations_DeletePersonGroupPersonFace": {
+          "Delete Face from PersonGroup Person": {
             "$ref": "./examples/PersonGroupOperations_DeletePersonGroupPersonFace.json"
           }
         }
@@ -3650,7 +3650,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroupOperations_TrainPersonGroup": {
+          "Train PersonGroup": {
             "$ref": "./examples/PersonGroupOperations_TrainPersonGroup.json"
           }
         },
@@ -3694,7 +3694,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroupOperations_GetPersonGroupTrainingStatus": {
+          "Get Training Status of PersonGroup": {
             "$ref": "./examples/PersonGroupOperations_GetPersonGroupTrainingStatus.json"
           }
         }
@@ -3741,7 +3741,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonDirectoryOperations_GetPersons": {
+          "Get Persons from PersonDirectory": {
             "$ref": "./examples/PersonDirectoryOperations_GetPersons.json"
           }
         }
@@ -3796,7 +3796,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonDirectoryOperations_CreatePerson": {
+          "Create Person in PersonDirectory": {
             "$ref": "./examples/PersonDirectoryOperations_CreatePerson.json"
           }
         }
@@ -3839,7 +3839,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonDirectoryOperations_GetPerson": {
+          "Get Person from PeronDirectory": {
             "$ref": "./examples/PersonDirectoryOperations_GetPerson.json"
           }
         }
@@ -3885,7 +3885,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonDirectoryOperations_UpdatePerson": {
+          "Update Person in PersonDirectory": {
             "$ref": "./examples/PersonDirectoryOperations_UpdatePerson.json"
           }
         }
@@ -3930,7 +3930,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonDirectoryOperations_DeletePerson": {
+          "Delete Person": {
             "$ref": "./examples/PersonDirectoryOperations_DeletePerson.json"
           }
         },
@@ -3981,7 +3981,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonDirectoryOperations_GetDynamicPersonGroupReferences": {
+          "Get DynamicPersonGroup References": {
             "$ref": "./examples/PersonDirectoryOperations_GetDynamicPersonGroupReferences.json"
           }
         }
@@ -4063,7 +4063,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonDirectoryOperations_GetPersonFaces": {
+          "Get Faces from PersonDirectory Person": {
             "$ref": "./examples/PersonDirectoryOperations_GetPersonFaces.json"
           }
         }
@@ -4178,7 +4178,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonDirectoryOperations_AddPersonFace": {
+          "Add Face to a PersonDirectory Person": {
             "$ref": "./examples/PersonDirectoryOperations_AddPersonFaceFromStream.json"
           }
         }
@@ -4267,7 +4267,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonDirectoryOperations_GetPersonFace": {
+          "Get Face from PersonDirectory Person": {
             "$ref": "./examples/PersonDirectoryOperations_GetPersonFace.json"
           }
         }
@@ -4360,7 +4360,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonDirectoryOperations_UpdatePersonFace": {
+          "Update Face of PersonDirectory Person": {
             "$ref": "./examples/PersonDirectoryOperations_UpdatePersonFace.json"
           }
         }
@@ -4452,7 +4452,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonDirectoryOperations_DeletePersonFace": {
+          "Delete Face from PersonDirectory Person": {
             "$ref": "./examples/PersonDirectoryOperations_DeletePersonFace.json"
           }
         },
@@ -4512,7 +4512,7 @@
           }
         },
         "x-ms-examples": {
-          "FaceRecognitionOperations_VerifyFaceToFace": {
+          "Verify Face to Face": {
             "$ref": "./examples/FaceRecognitionOperations_VerifyFaceToFace.json"
           }
         }
@@ -4639,7 +4639,7 @@
           }
         },
         "x-ms-examples": {
-          "LivenessSessionOperations_CreateLivenessWithVerifySession": {
+          "Create LivenessWithVerify Session": {
             "$ref": "./examples/LivenessSessionOperations_CreateLivenessWithVerifySession.json"
           }
         }
@@ -4710,7 +4710,7 @@
           }
         },
         "x-ms-examples": {
-          "FaceListOperations_AddFaceListFaceFromUrl": {
+          "Add Face to FaceList from Url": {
             "$ref": "./examples/FaceListOperations_AddFaceListFaceFromUrl.json"
           }
         }
@@ -4782,7 +4782,7 @@
           }
         },
         "x-ms-examples": {
-          "FaceRecognitionOperations_FindSimilarFromFaceList": {
+          "Find Similar from FaceList": {
             "$ref": "./examples/FaceRecognitionOperations_FindSimilarFromFaceList.json"
           }
         }
@@ -4854,7 +4854,7 @@
           }
         },
         "x-ms-examples": {
-          "FaceRecognitionOperations_FindSimilarFromLargeFaceList": {
+          "Find Similar from LargeFaceList": {
             "$ref": "./examples/FaceRecognitionOperations_FindSimilarFromLargeFaceList.json"
           }
         }
@@ -4936,7 +4936,7 @@
           }
         },
         "x-ms-examples": {
-          "FaceRecognitionOperations_IdentifyFromDynamicPersonGroup": {
+          "Identify from DynamicPersonGroup": {
             "$ref": "./examples/FaceRecognitionOperations_IdentifyFromDynamicPersonGroup.json"
           }
         }
@@ -5018,7 +5018,7 @@
           }
         },
         "x-ms-examples": {
-          "FaceRecognitionOperations_IdentifyFromLargePersonGroup": {
+          "Identify from LargePersonGroup": {
             "$ref": "./examples/FaceRecognitionOperations_IdentifyFromLargePersonGroup.json"
           }
         }
@@ -5105,7 +5105,7 @@
           }
         },
         "x-ms-examples": {
-          "FaceRecognitionOperations_IdentifyFromPersonDirectory": {
+          "Identify from PersonDirectory": {
             "$ref": "./examples/FaceRecognitionOperations_IdentifyFromPersonDirectory.json"
           }
         }
@@ -5176,7 +5176,7 @@
           }
         },
         "x-ms-examples": {
-          "FaceListOperations_AddLargeFaceListFaceFromUrl": {
+          "Add Face to LargeFaceList from Url": {
             "$ref": "./examples/FaceListOperations_AddLargeFaceListFaceFromUrl.json"
           }
         }
@@ -5254,7 +5254,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroupOperations_AddLargePersonGroupPersonFaceFromUrl": {
+          "Add Face in LargePersonGroup Person from Url": {
             "$ref": "./examples/PersonGroupOperations_AddLargePersonGroupPersonFaceFromUrl.json"
           }
         }
@@ -5332,7 +5332,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonGroupOperations_AddPersonGroupPersonFaceFromUrl": {
+          "Add Face to PersonGroupPerson from Url": {
             "$ref": "./examples/PersonGroupOperations_AddPersonGroupPersonFaceFromUrl.json"
           }
         }
@@ -5454,7 +5454,7 @@
           }
         },
         "x-ms-examples": {
-          "PersonDirectoryOperations_AddPersonFaceFromUrl": {
+          "Add Face to PersonDirectory Person from Url": {
             "$ref": "./examples/PersonDirectoryOperations_AddPersonFaceFromUrl.json"
           }
         }
@@ -5518,7 +5518,7 @@
           }
         },
         "x-ms-examples": {
-          "FaceRecognitionOperations_VerifyFromLargePersonGroup": {
+          "Verify from LargePersonGroup": {
             "$ref": "./examples/FaceRecognitionOperations_VerifyFromLargePersonGroup.json"
           }
         }
@@ -5577,7 +5577,7 @@
           }
         },
         "x-ms-examples": {
-          "FaceRecognitionOperations_VerifyFromPersonDirectory": {
+          "Verify from PersonDirectory": {
             "$ref": "./examples/FaceRecognitionOperations_VerifyFromPersonDirectory.json"
           }
         }
@@ -5641,7 +5641,7 @@
           }
         },
         "x-ms-examples": {
-          "FaceRecognitionOperations_VerifyFromPersonGroup": {
+          "Verify from PersonGroup": {
             "$ref": "./examples/FaceRecognitionOperations_VerifyFromPersonGroup.json"
           }
         }
