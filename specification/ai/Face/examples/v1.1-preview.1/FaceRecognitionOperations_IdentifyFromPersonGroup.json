@@ -1,5 +1,5 @@
 {
-  "title": "FaceRecognitionOperations_IdentifyFromPersonGroup",
+  "title": "Identify from PersonGroup",
   "operationId": "FaceRecognitionOperations_IdentifyFromPersonGroup",
   "parameters": {
     "apiVersion": "v1.1-preview.1",

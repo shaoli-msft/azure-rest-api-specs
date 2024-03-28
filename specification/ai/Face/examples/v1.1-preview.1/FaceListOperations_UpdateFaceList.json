@@ -1,5 +1,5 @@
 {
-  "title": "FaceListOperations_UpdateFaceList",
+  "title": "Update FaceList",
   "operationId": "FaceListOperations_UpdateFaceList",
   "parameters": {
     "apiVersion": "v1.1-preview.1",

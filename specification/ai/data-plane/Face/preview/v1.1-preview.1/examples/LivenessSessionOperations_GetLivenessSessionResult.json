@@ -1,5 +1,5 @@
 {
-  "title": "LivenessSessionOperations_GetLivenessSessionResult",
+  "title": "Get LivenessSession Result",
   "operationId": "LivenessSessionOperations_GetLivenessSessionResult",
   "parameters": {
     "apiVersion": "v1.1-preview.1",

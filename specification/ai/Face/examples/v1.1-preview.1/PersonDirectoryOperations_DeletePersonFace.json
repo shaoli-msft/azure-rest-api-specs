@@ -1,5 +1,5 @@
 {
-  "title": "PersonDirectoryOperations_DeletePersonFace",
+  "title": "Delete Face from PersonDirectory Person",
   "operationId": "PersonDirectoryOperations_DeletePersonFace",
   "parameters": {
     "apiVersion": "v1.1-preview.1",

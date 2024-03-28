@@ -1,5 +1,5 @@
 {
-  "title": "LivenessSessionOperations_CreateLivenessWithVerifySession",
+  "title": "Create LivenessWithVerify Session",
   "operationId": "LivenessSessionOperations_CreateLivenessWithVerifySession",
   "parameters": {
     "apiVersion": "v1.1-preview.1",

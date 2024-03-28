@@ -1,5 +1,5 @@
 {
-  "title": "FaceListOperations_UpdateLargeFaceList",
+  "title": "Update LargeFaceList",
   "operationId": "FaceListOperations_UpdateLargeFaceList",
   "parameters": {
     "apiVersion": "v1.1-preview.1",

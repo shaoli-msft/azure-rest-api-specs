@@ -1,5 +1,5 @@
 {
-  "title": "PersonGroupOperations_DeleteLargePersonGroup",
+  "title": "Delete LargePersonGroup",
   "operationId": "PersonGroupOperations_DeleteLargePersonGroup",
   "parameters": {
     "apiVersion": "v1.1-preview.1",

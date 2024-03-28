@@ -1,5 +1,5 @@
 {
-  "title": "LivenessSessionOperations_DeleteLivenessSession",
+  "title": "Delete Liveness Session",
   "operationId": "LivenessSessionOperations_DeleteLivenessSession",
   "parameters": {
     "apiVersion": "v1.1-preview.1",

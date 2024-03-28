@@ -1,5 +1,5 @@
 {
-  "title": "PersonGroupOperations_GetPersonGroups",
+  "title": "Get PersonGroups",
   "operationId": "PersonGroupOperations_GetPersonGroups",
   "parameters": {
     "apiVersion": "v1.1-preview.1",

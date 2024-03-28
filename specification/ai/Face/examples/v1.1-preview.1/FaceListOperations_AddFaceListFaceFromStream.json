@@ -1,5 +1,5 @@
 {
-  "title": "FaceListOperations_AddFaceListFace",
+  "title": "Add Face to FaceList",
   "operationId": "FaceListOperations_AddFaceListFace",
   "parameters": {
     "apiVersion": "v1.1-preview.1",

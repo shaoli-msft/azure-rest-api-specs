@@ -1,5 +1,5 @@
 {
-  "title": "FaceListOperations_AddFaceListFaceFromUrl",
+  "title": "Add Face to FaceList from Url",
   "operationId": "FaceListOperations_AddFaceListFaceFromUrl",
   "parameters": {
     "apiVersion": "v1.1-preview.1",

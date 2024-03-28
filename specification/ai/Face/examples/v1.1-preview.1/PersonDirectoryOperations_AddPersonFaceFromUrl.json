@@ -1,5 +1,5 @@
 {
-  "title": "PersonDirectoryOperations_AddPersonFaceFromUrl",
+  "title": "Add Face to PersonDirectory Person from Url",
   "operationId": "PersonDirectoryOperations_AddPersonFaceFromUrl",
   "parameters": {
     "apiVersion": "v1.1-preview.1",

@@ -1,5 +1,5 @@
 {
-  "title": "PersonGroupOperations_GetLargePersonGroupTrainingStatus",
+  "title": "Get Training Status of LargePersonGroup",
   "operationId": "PersonGroupOperations_GetLargePersonGroupTrainingStatus",
   "parameters": {
     "apiVersion": "v1.1-preview.1",

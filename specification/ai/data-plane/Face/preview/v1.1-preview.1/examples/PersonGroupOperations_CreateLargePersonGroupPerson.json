@@ -1,5 +1,5 @@
 {
-  "title": "PersonGroupOperations_CreateLargePersonGroupPerson",
+  "title": "Create Person in LargePersonGroup",
   "operationId": "PersonGroupOperations_CreateLargePersonGroupPerson",
   "parameters": {
     "apiVersion": "v1.1-preview.1",

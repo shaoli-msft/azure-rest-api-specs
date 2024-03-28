@@ -1,5 +1,5 @@
 {
-  "title": "FaceListOperations_TrainLargeFaceList",
+  "title": "Train LargeFaceList",
   "operationId": "FaceListOperations_TrainLargeFaceList",
   "parameters": {
     "apiVersion": "v1.1-preview.1",

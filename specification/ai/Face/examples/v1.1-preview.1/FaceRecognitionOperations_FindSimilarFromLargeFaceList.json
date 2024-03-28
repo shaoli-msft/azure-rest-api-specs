@@ -1,5 +1,5 @@
 {
-  "title": "FaceRecognitionOperations_FindSimilarFromLargeFaceList",
+  "title": "Find Similar from LargeFaceList",
   "operationId": "FaceRecognitionOperations_FindSimilarFromLargeFaceList",
   "parameters": {
     "apiVersion": "v1.1-preview.1",

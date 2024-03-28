@@ -1,5 +1,5 @@
 {
-  "title": "FaceRecognitionOperations_IdentifyFromPersonDirectory",
+  "title": "Identify from PersonDirectory",
   "operationId": "FaceRecognitionOperations_IdentifyFromPersonDirectory",
   "parameters": {
     "apiVersion": "v1.1-preview.1",

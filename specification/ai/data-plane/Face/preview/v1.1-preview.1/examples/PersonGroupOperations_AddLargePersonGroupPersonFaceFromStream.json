@@ -1,5 +1,5 @@
 {
-  "title": "PersonGroupOperations_AddLargePersonGroupPersonFace",
+  "title": "Add Face in LargePersonGroup Person",
   "operationId": "PersonGroupOperations_AddLargePersonGroupPersonFace",
   "parameters": {
     "apiVersion": "v1.1-preview.1",

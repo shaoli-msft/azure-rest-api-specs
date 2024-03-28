@@ -1,5 +1,5 @@
 {
-  "title": "PersonDirectoryOperations_UpdateDynamicPersonGroup",
+  "title": "Update DynamicPersonGroup",
   "operationId": "PersonDirectoryOperations_UpdateDynamicPersonGroup",
   "parameters": {
     "apiVersion": "v1.1-preview.1",

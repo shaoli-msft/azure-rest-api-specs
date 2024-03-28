@@ -1,5 +1,5 @@
 {
-  "title": "FaceRecognitionOperations_VerifyFromLargePersonGroup",
+  "title": "Verify from LargePersonGroup",
   "operationId": "FaceRecognitionOperations_VerifyFromLargePersonGroup",
   "parameters": {
     "apiVersion": "v1.1-preview.1",

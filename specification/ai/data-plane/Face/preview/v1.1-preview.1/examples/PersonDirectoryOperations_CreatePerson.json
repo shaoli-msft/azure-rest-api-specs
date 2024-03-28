@@ -1,5 +1,5 @@
 {
-  "title": "PersonDirectoryOperations_CreatePerson",
+  "title": "Create Person in PersonDirectory",
   "operationId": "PersonDirectoryOperations_CreatePerson",
   "parameters": {
     "apiVersion": "v1.1-preview.1",

@@ -1,5 +1,5 @@
 {
-  "title": "FaceRecognitionOperations_Group",
+  "title": "Group Face IDs",
   "operationId": "FaceRecognitionOperations_Group",
   "parameters": {
     "apiVersion": "v1.1-preview.1",

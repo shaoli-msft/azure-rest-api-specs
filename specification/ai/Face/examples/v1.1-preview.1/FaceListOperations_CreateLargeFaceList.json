@@ -1,5 +1,5 @@
 {
-  "title": "FaceListOperations_CreateLargeFaceList",
+  "title": "Create LargeFaceList",
   "operationId": "FaceListOperations_CreateLargeFaceList",
   "parameters": {
     "apiVersion": "v1.1-preview.1",

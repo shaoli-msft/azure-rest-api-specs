@@ -1,5 +1,5 @@
 {
-  "title": "FaceRecognitionOperations_IdentifyFromDynamicPersonGroup",
+  "title": "Identify from DynamicPersonGroup",
   "operationId": "FaceRecognitionOperations_IdentifyFromDynamicPersonGroup",
   "parameters": {
     "apiVersion": "v1.1-preview.1",
