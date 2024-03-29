@@ -464,3 +464,14 @@ union QualityForRecognition {
   @doc("High quality.")
   "high",
 }
+
+@doc("The error object.")
+model DetectError {
+  @doc("One of a server-defined set of error codes.")
+  code: string;
+
+  @doc("A human-readable representation of the error.")
+  message: string;
+}
+
+model DetectErrorResponse is Azure.Core.Foundations.ErrorResponseBase<DetectError>;
