@@ -6159,17 +6159,94 @@
       "properties": {
         "code": {
           "type": "string",
-          "description": "One of a server-defined set of error codes.\n* Status code: 400\n  * BadArgument\n  * InvalidURL\n  * InvalidImage\n  * InvalidImageSize\n* Status code: 401\n  * Unspecified"
+          "description": "One of a server-defined set of error codes."
         },
         "message": {
           "type": "string",
-          "description": "A human-readable representation of the error.\n* BadArgument (Status code: 400)\n  * JSON parsing error. Bad or unrecognizable request JSON body.\n  * Invalid argument returnFaceAttributes. Supported values are: headPose, glasses, occlusion, accessories, blur, exposure, noise and mask in a comma-separated format.\n  * 'recognitionModel' is invalid.\n  * 'detectionModel' is invalid.\n  * 'returnFaceAttributes' is not supported by detection_02.\n  * 'returnLandmarks' is not supported by detection_02.\n* InvalidURL (Status code: 400)\n  * Invalid image format or URL. Supported formats include JPEG, PNG, GIF(the first frame) and BMP.\n  * Failed to download image from the specified URL. Remote server error returned.\n* InvalidImage (Status code: 400)\n  * Decoding error, image format unsupported.\n* InvalidImageSize (Status code: 400)\n  * Image size is too small. The valid image file size should be larger than or equal to 1KB.\n  * Image size is too big. The valid image file size should be no larger than 6MB."
+          "description": "A human-readable representation of the error."
         }
       },
+      "discriminator": "code",
       "required": [
         "code",
         "message"
       ]
+    },
+    "DetectErrorBadArgument": {
+      "type": "object",
+      "description": "Error response with BadArgument error code. (Status code: 400)",
+      "properties": {
+        "message": {
+          "type": "string",
+          "description": "The error message of the BadArgument error.\n* JSON parsing error. Bad or unrecognizable request JSON body.\n* Invalid argument returnFaceAttributes. Supported values are: headPose, glasses, occlusion, accessories, blur, exposure, noise and mask in a comma-separated format.\n* 'recognitionModel' is invalid.\n* 'detectionModel' is invalid.\n* 'returnFaceAttributes' is not supported by detection_02.\n* 'returnLandmarks' is not supported by detection_02."
+        }
+      },
+      "required": [
+        "message"
+      ],
+      "allOf": [
+        {
+          "$ref": "#/definitions/DetectError"
+        }
+      ],
+      "x-ms-discriminator-value": "BadArgument"
+    },
+    "DetectErrorInvalidImage": {
+      "type": "object",
+      "description": "Error response with InvalidImage error code. (Status code: 400)",
+      "properties": {
+        "message": {
+          "type": "string",
+          "description": "The error message of the InvalidImage error.\n* Decoding error, image format unsupported."
+        }
+      },
+      "required": [
+        "message"
+      ],
+      "allOf": [
+        {
+          "$ref": "#/definitions/DetectError"
+        }
+      ],
+      "x-ms-discriminator-value": "InvalidImage"
+    },
+    "DetectErrorInvalidImageSize": {
+      "type": "object",
+      "description": "Error response with InvalidImageSize error code. (Status code: 400)",
+      "properties": {
+        "message": {
+          "type": "string",
+          "description": "The error message of the InvalidImageSize error.\n* Image size is too small. The valid image file size should be larger than or equal to 1KB.\n* Image size is too big. The valid image file size should be no larger than 6MB."
+        }
+      },
+      "required": [
+        "message"
+      ],
+      "allOf": [
+        {
+          "$ref": "#/definitions/DetectError"
+        }
+      ],
+      "x-ms-discriminator-value": "InvalidImageSize"
+    },
+    "DetectErrorInvalidUrl": {
+      "type": "object",
+      "description": "Error response with InvalidURL error code. (Status code: 400)",
+      "properties": {
+        "message": {
+          "type": "string",
+          "description": "The error message of the InvalidURL error.\n* Invalid image format or URL. Supported formats include JPEG, PNG, GIF(the first frame) and BMP.\n* Failed to download image from the specified URL. Remote server error returned."
+        }
+      },
+      "required": [
+        "message"
+      ],
+      "allOf": [
+        {
+          "$ref": "#/definitions/DetectError"
+        }
+      ],
+      "x-ms-discriminator-value": "InvalidURL"
     },
     "DetectErrorResponse": {
       "type": "object",
@@ -6183,6 +6260,25 @@
       "required": [
         "error"
       ]
+    },
+    "DetectErrorUnspecified": {
+      "type": "object",
+      "description": "Error response with Unspecified error code. (Status code: 401)",
+      "properties": {
+        "message": {
+          "type": "string",
+          "description": "The error message of the Unspecified error.\n* Invalid subscription Key or user/plan is blocked."
+        }
+      },
+      "required": [
+        "message"
+      ],
+      "allOf": [
+        {
+          "$ref": "#/definitions/DetectError"
+        }
+      ],
+      "x-ms-discriminator-value": "Unspecified"
     },
     "DynamicPersonGroup": {
       "type": "object",

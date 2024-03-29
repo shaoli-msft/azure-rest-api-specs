@@ -466,38 +466,80 @@ union QualityForRecognition {
 }
 
 @doc("The error object.")
+@discriminator("code")
 model DetectError {
-  @doc("""
-  One of a server-defined set of error codes.
-  * Status code: 400
-    * BadArgument
-    * InvalidURL
-    * InvalidImage
-    * InvalidImageSize
-  * Status code: 401
-    * Unspecified
-  """)
+  @doc("One of a server-defined set of error codes.")
   code: string;
 
-  @doc("""
-  A human-readable representation of the error.
-  * BadArgument (Status code: 400)
-    * JSON parsing error. Bad or unrecognizable request JSON body.
-    * Invalid argument returnFaceAttributes. Supported values are: headPose, glasses, occlusion, accessories, blur, exposure, noise and mask in a comma-separated format.
-    * 'recognitionModel' is invalid.
-    * 'detectionModel' is invalid.
-    * 'returnFaceAttributes' is not supported by detection_02.
-    * 'returnLandmarks' is not supported by detection_02.
-  * InvalidURL (Status code: 400)
-    * Invalid image format or URL. Supported formats include JPEG, PNG, GIF(the first frame) and BMP.
-    * Failed to download image from the specified URL. Remote server error returned.
-  * InvalidImage (Status code: 400)
-    * Decoding error, image format unsupported.
-  * InvalidImageSize (Status code: 400)
-    * Image size is too small. The valid image file size should be larger than or equal to 1KB.
-    * Image size is too big. The valid image file size should be no larger than 6MB.
-  """)
+  @doc("A human-readable representation of the error.")
   message: string;
 }
 
 model DetectErrorResponse is Azure.Core.Foundations.ErrorResponseBase<DetectError>;
+
+@doc("Error response with BadArgument error code. (Status code: 400)")
+model DetectErrorBadArgument extends DetectError{
+  @doc("The BadArgument error code.")
+  code: "BadArgument";
+
+  @doc("""
+  The error message of the BadArgument error.
+  * JSON parsing error. Bad or unrecognizable request JSON body.
+  * Invalid argument returnFaceAttributes. Supported values are: headPose, glasses, occlusion, accessories, blur, exposure, noise and mask in a comma-separated format.
+  * 'recognitionModel' is invalid.
+  * 'detectionModel' is invalid.
+  * 'returnFaceAttributes' is not supported by detection_02.
+  * 'returnLandmarks' is not supported by detection_02.
+  """)
+  message: string;
+}
+
+@doc("Error response with InvalidURL error code. (Status code: 400)")
+model DetectErrorInvalidUrl extends DetectError{
+  @doc("The InvalidURL error code.")
+  code: "InvalidURL";
+
+  @doc("""
+  The error message of the InvalidURL error.
+  * Invalid image format or URL. Supported formats include JPEG, PNG, GIF(the first frame) and BMP.
+  * Failed to download image from the specified URL. Remote server error returned.
+  """)
+  message: string;
+}
+
+@doc("Error response with InvalidImage error code. (Status code: 400)")
+model DetectErrorInvalidImage extends DetectError{
+  @doc("The InvalidImage error code.")
+  code: "InvalidImage";
+
+  @doc("""
+  The error message of the InvalidImage error.
+  * Decoding error, image format unsupported.
+  """)
+  message: string;
+}
+
+@doc("Error response with InvalidImageSize error code. (Status code: 400)")
+model DetectErrorInvalidImageSize extends DetectError{
+  @doc("The InvalidImageSize error code.")
+  code: "InvalidImageSize";
+
+  @doc("""
+  The error message of the InvalidImageSize error.
+  * Image size is too small. The valid image file size should be larger than or equal to 1KB.
+  * Image size is too big. The valid image file size should be no larger than 6MB.
+  """)
+  message: string;
+}
+
+@doc("Error response with Unspecified error code. (Status code: 401)")
+model DetectErrorUnspecified extends DetectError{
+  @doc("The Unspecified error code.")
+  code: "Unspecified";
+
+  @doc("""
+  The error message of the Unspecified error.
+  * Invalid subscription Key or user/plan is blocked.
+  """)
+  message: string;
+}
