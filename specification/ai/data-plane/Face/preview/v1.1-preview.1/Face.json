@@ -6159,11 +6159,11 @@
       "properties": {
         "code": {
           "type": "string",
-          "description": "One of a server-defined set of error codes."
+          "description": "One of a server-defined set of error codes.\n* Status code: 400\n  * BadArgument\n  * InvalidURL\n  * InvalidImage\n  * InvalidImageSize\n* Status code: 401\n  * Unspecified"
         },
         "message": {
           "type": "string",
-          "description": "A human-readable representation of the error."
+          "description": "A human-readable representation of the error.\n* BadArgument (Status code: 400)\n  * JSON parsing error. Bad or unrecognizable request JSON body.\n  * Invalid argument returnFaceAttributes. Supported values are: headPose, glasses, occlusion, accessories, blur, exposure, noise and mask in a comma-separated format.\n  * 'recognitionModel' is invalid.\n  * 'detectionModel' is invalid.\n  * 'returnFaceAttributes' is not supported by detection_02.\n  * 'returnLandmarks' is not supported by detection_02.\n* InvalidURL (Status code: 400)\n  * Invalid image format or URL. Supported formats include JPEG, PNG, GIF(the first frame) and BMP.\n  * Failed to download image from the specified URL. Remote server error returned.\n* InvalidImage (Status code: 400)\n  * Decoding error, image format unsupported.\n* InvalidImageSize (Status code: 400)\n  * Image size is too small. The valid image file size should be larger than or equal to 1KB.\n  * Image size is too big. The valid image file size should be no larger than 6MB."
         }
       },
       "required": [
