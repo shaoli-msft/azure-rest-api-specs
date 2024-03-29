@@ -41,7 +41,8 @@ namespace Face;
 op DetectOperation<T extends TypeSpec.Reflection.Model> is Azure.Core.RpcOperation<
   FaceDetectionOptions & T,
   Body<FaceDetectionResult[]>,
-  ServiceTraits
+  ServiceTraits,
+  DetectErrorResponse
 >;
 
 interface FaceDetectionOperations {

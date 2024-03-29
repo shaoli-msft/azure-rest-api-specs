@@ -235,3 +235,24 @@ alias ListRequestOptionsDescription = """
 > * "start=&top=2" will return "itemId1", "itemId2".
 > * "start=itemId2&top=3" will return "itemId3", "itemId4", "itemId5".
 """;
+
+// @doc("The error object.")
+// model ErrorWithCodeAndMessage {
+//   @doc("One of a server-defined set of error codes.")
+//   code: string;
+
+//   @doc("A human-readable representation of the error.")
+//   message: string;
+// }
+
+// @doc("The error object.")
+// model ErrorWithStatusCodeAndMessage {
+//   @doc("One of a server-defined set of error codes.")
+//   statusCode: string;
+
+//   @doc("A human-readable representation of the error.")
+//   message: string;
+// }
+
+// model ErrorResponseWithCodeAndMessage is Azure.Core.Foundations.ErrorResponseBase<ErrorWithCodeAndMessage>;
+// model ErrorResponseWithStatusCodeAndMessage is Azure.Core.Foundations.ErrorResponseBase<ErrorWithStatusCodeAndMessage>;
