@@ -601,7 +601,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "A successful call returns an array of dynamic person groups and their information (dynamicPersonGroupId, name and userData).",
             "schema": {
               "type": "array",
               "items": {
@@ -877,7 +877,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "A successful call returns an array of person information in the person directory.",
             "schema": {
               "$ref": "#/definitions/ListPersonResult"
             }
@@ -3949,7 +3949,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "A successful call returns an array of personIds contain in the dynamic person group.",
             "schema": {
               "type": "array",
               "items": {
@@ -4054,7 +4054,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "A successful call returns the person's information.",
             "schema": {
               "$ref": "#/definitions/PersonDirectoryPerson"
             }
@@ -4205,7 +4205,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "A successful call returns an array of dynamicPersonGroups information that reference the provided personId.",
             "schema": {
               "$ref": "#/definitions/ListGroupReferenceResult"
             }
@@ -4290,7 +4290,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "A successful call returns an array of persistedFaceIds and and a person ID.",
             "schema": {
               "$ref": "#/definitions/ListFaceResult"
             }
@@ -4503,7 +4503,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "A successful call returns target persisted face's information (persistedFaceId and userData).",
             "schema": {
               "$ref": "#/definitions/PersonDirectoryFace"
             }

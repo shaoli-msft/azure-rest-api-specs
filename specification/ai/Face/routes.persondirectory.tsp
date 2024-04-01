@@ -98,10 +98,12 @@ interface PersonDirectoryOperations {
   deletePerson is FaceResourceDeleteLongRunningOperation<PersonDirectoryPerson>;
 
   @doc("Retrieve a person's name and userData from person directory.")
+  @returnsDoc("A successful call returns the person's information.")
   getPerson is Operations.ResourceRead<PersonDirectoryPerson>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
   @doc("Update name or userData of a person.")
+  @returnsDoc(SuccessfulCallWithEmptyBody)
   updatePerson is FaceResourceUpdateOperation<PersonDirectoryPerson>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
@@ -111,6 +113,7 @@ interface PersonDirectoryOperations {
     ${ListRequestOptionsDescription}
     """
   )
+  @returnsDoc("A successful call returns an array of personIds contain in the dynamic person group.")
   @summary("List all persons' information in person directory, including personId, name, and userData.")
   getPersons is FaceResourceListOperation<PersonDirectoryPerson>;
 
@@ -122,6 +125,7 @@ interface PersonDirectoryOperations {
   ${ListRequestOptionsDescription}
   """
   )
+  @returnsDoc("A successful call returns an array of dynamicPersonGroups information that reference the provided personId.")
   @get
   @action("dynamicPersonGroupReferences")
   @actionSeparator("/")
@@ -164,12 +168,14 @@ interface PersonDirectoryOperations {
   @doc("""
   Retrieve person face information. The persisted person face is specified by its personId. recognitionModel, and persistedFaceId.
   """)
+  @returnsDoc("A successful call returns target persisted face's information (persistedFaceId and userData).")
   getPersonFace is Operations.ResourceRead<PersonDirectoryFace>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
   @doc("""
   Update a person persisted face's userData field.
   """)
+  @returnsDoc(SuccessfulCallWithEmptyBody)
   @updatesResource(PersonDirectoryFace)
   updatePersonFace is FaceResourceUpdateOperation<
     PersonDirectoryFace,
@@ -180,6 +186,7 @@ interface PersonDirectoryOperations {
   @doc("""
   Retrieve a person's persistedFaceIds representing the registered person face feature(s).
   """)
+  @returnsDoc("A successful call returns an array of persistedFaceIds and and a person ID.")
   getPersonFaces is Foundations.ResourceList<
     PersonDirectoryFace,
     {},
@@ -234,6 +241,7 @@ interface PersonDirectoryOperations {
     ${ListRequestOptionsDescription}
     """
   )
+  @returnsDoc("A successful call returns an array of dynamic person groups and their information (dynamicPersonGroupId, name and userData).")
   getDynamicPersonGroups is FaceResourceListOperation<DynamicPersonGroup>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
@@ -244,6 +252,7 @@ interface PersonDirectoryOperations {
     ${ListRequestOptionsDescription}
     """
   )
+  @returnsDoc("A successful call returns an array of person information in the person directory.")
   @get
   @action("persons")
   @actionSeparator("/")
