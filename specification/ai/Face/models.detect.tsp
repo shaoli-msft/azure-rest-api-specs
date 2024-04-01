@@ -475,10 +475,11 @@ model DetectError {
   message: string;
 }
 
-model DetectErrorResponse is Azure.Core.Foundations.ErrorResponseBase<DetectError>;
+model DetectErrorResponse
+  is Azure.Core.Foundations.ErrorResponseBase<DetectError>;
 
 @doc("Error response with BadArgument error code. (Status code: 400)")
-model DetectErrorBadArgument extends DetectError{
+model DetectErrorBadArgument extends DetectError {
   @doc("The BadArgument error code.")
   code: "BadArgument";
 
@@ -495,7 +496,7 @@ model DetectErrorBadArgument extends DetectError{
 }
 
 @doc("Error response with InvalidURL error code. (Status code: 400)")
-model DetectErrorInvalidUrl extends DetectError{
+model DetectErrorInvalidUrl extends DetectError {
   @doc("The InvalidURL error code.")
   code: "InvalidURL";
 
@@ -508,7 +509,7 @@ model DetectErrorInvalidUrl extends DetectError{
 }
 
 @doc("Error response with InvalidImage error code. (Status code: 400)")
-model DetectErrorInvalidImage extends DetectError{
+model DetectErrorInvalidImage extends DetectError {
   @doc("The InvalidImage error code.")
   code: "InvalidImage";
 
@@ -520,7 +521,7 @@ model DetectErrorInvalidImage extends DetectError{
 }
 
 @doc("Error response with InvalidImageSize error code. (Status code: 400)")
-model DetectErrorInvalidImageSize extends DetectError{
+model DetectErrorInvalidImageSize extends DetectError {
   @doc("The InvalidImageSize error code.")
   code: "InvalidImageSize";
 
@@ -533,7 +534,7 @@ model DetectErrorInvalidImageSize extends DetectError{
 }
 
 @doc("Error response with Unspecified error code. (Status code: 401)")
-model DetectErrorUnspecified extends DetectError{
+model DetectErrorUnspecified extends DetectError {
   @doc("The Unspecified error code.")
   code: "Unspecified";
 

@@ -61,7 +61,8 @@ interface PersonGroupOperations {
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "List doesn't support Azure paging"
   @summary("List person groups' personGroupId, name, userData and recognitionModel.")
-  @doc("""
+  @doc(
+  """
   *
     * Person groups are stored in alphabetical order of personGroupId.
   ${ListRequestOptionsDescription}
@@ -114,7 +115,8 @@ interface PersonGroupOperations {
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "List doesn't support Azure paging"
   @summary("List all persons' information in the specified person group, including personId, name, userData and persistedFaceIds of registered person faces.")
-  @doc("""
+  @doc(
+  """
   Persons are stored in alphabetical order of personId created in PersonGroup Person - Create.
 
   ${ListRequestOptionsDescription}
@@ -180,7 +182,8 @@ interface PersonGroupOperations {
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "List doesn't support Azure paging"
   @summary("List all existing large person groups' largePersonGroupId, name, userData and recognitionModel.")
-  @doc("""
+  @doc(
+  """
   * Large person groups are stored in alphabetical order of largePersonGroupId.
   ${ListRequestOptionsDescription}
   """
@@ -235,7 +238,8 @@ interface PersonGroupOperations {
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "List doesn't support Azure paging"
   @summary("List all persons' information in the specified large person group, including personId, name, userData and persistedFaceIds of registered person faces.")
-  @doc("""
+  @doc(
+  """
   * Persons are stored in alphabetical order of personId created in LargePersonGroup Person - Create.
   ${ListRequestOptionsDescription}
   """

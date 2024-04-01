@@ -48,7 +48,8 @@ op FaceLivenessSessionListAuditEntries<TResource extends TypeSpec.Reflection.Mod
 
 interface LivenessSessionOperations {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "ResourceCreateWithServiceProvidedName does not fit, we don't return Location in header."
-  @doc("""
+  @doc(
+  """
   ${SessionCommonDescription}
 
   Permissions includes...
@@ -91,7 +92,8 @@ interface LivenessSessionOperations {
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
   #suppress "@azure-tools/typespec-azure-core/byos" "Representation of existing multipart/form-data operation"
-  @doc("""
+  @doc(
+  """
   ${LivenessSessionWithVerifyDescription}
 
   Recommended Option: VerifyImage is provided during session creation.
@@ -107,7 +109,8 @@ interface LivenessSessionOperations {
   >;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "ResourceCreateWithServiceProvidedName does not fit, we don't return Location in header."
-  @doc("""
+  @doc(
+  """
   ${LivenessSessionWithVerifyDescription}
 
   Alternative Option: Client device submits VerifyImage during the /detectLivenessWithVerify/singleModal call.
