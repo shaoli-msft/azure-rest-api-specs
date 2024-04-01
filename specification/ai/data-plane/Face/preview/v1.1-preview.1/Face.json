@@ -916,7 +916,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "A successful call returns an array of faceList.",
             "schema": {
               "type": "array",
               "items": {
@@ -969,7 +969,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "A successful call returns the face list's information.",
             "schema": {
               "$ref": "#/definitions/FaceList"
             }
@@ -1179,7 +1179,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "A successful call returns a new persistedFaceId.",
             "schema": {
               "$ref": "#/definitions/AddFaceResult"
             }
@@ -1493,7 +1493,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "A successful call returns an array of large face lists and their information (largeFaceListId, name and userData).",
             "schema": {
               "type": "array",
               "items": {
@@ -1546,7 +1546,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "A successful call returns the large face list's information.",
             "schema": {
               "$ref": "#/definitions/LargeFaceList"
             }
@@ -1741,7 +1741,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "A successful call returns an array of persisted faces and their information (persistedFaceId and userData).",
             "schema": {
               "type": "array",
               "items": {
@@ -1812,7 +1812,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "A successful call returns a new persistedFaceId.",
             "schema": {
               "$ref": "#/definitions/AddFaceResult"
             }
@@ -1868,7 +1868,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "A successful call returns target persisted face's information (persistedFaceId and userData).",
             "schema": {
               "$ref": "#/definitions/LargeFaceListFace"
             }
@@ -2077,7 +2077,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "A successful call returns the large face list's training status.",
             "schema": {
               "$ref": "#/definitions/TrainingStatus"
             }
@@ -4961,7 +4961,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "A successful call returns a new persistedFaceId.",
             "schema": {
               "$ref": "#/definitions/AddFaceResult"
             }
@@ -5430,7 +5430,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "A successful call returns a new persistedFaceId.",
             "schema": {
               "$ref": "#/definitions/AddFaceResult"
             }

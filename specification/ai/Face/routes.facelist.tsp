@@ -46,17 +46,21 @@ interface FaceListOperations {
 
   Please consider LargeFaceList when the face number is large. It can support up to 1,000,000 faces.
   """)
+  @returnsDoc(SuccessfulCallWithEmptyBody)
   createFaceList is FaceResourceCreateOperation<FaceList>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Delete response with 200 while standard op requires 204"
   @doc("Delete a specified face list.")
+  @returnsDoc(SuccessfulCallWithEmptyBody)
   deleteFaceList is FaceResourceDeleteOperation<FaceList>;
 
   @doc("Retrieve a face list's faceListId, name, userData, recognitionModel and faces in the face list.")
+  @returnsDoc("A successful call returns the face list's information.")
   getFaceList is FaceResourceReadOperationWithReturnRecognitionModelOptions<FaceList>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Update has no response body while standard op requires resource in body"
   @doc("Update information of a face list, including name and userData.")
+  @returnsDoc(SuccessfulCallWithEmptyBody)
   updateFaceList is FaceResourceUpdateOperation<FaceList>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "List doesn't support Azure paging"
@@ -65,6 +69,7 @@ interface FaceListOperations {
 
   To get face information inside faceList use Get Face List.
   """)
+  @returnsDoc("A successful call returns an array of faceList.")
   getFaceLists is Foundations.ResourceList<
     FaceList,
     ReturnRecognitionModelOptions,
@@ -76,16 +81,19 @@ interface FaceListOperations {
   #suppress "@azure-tools/typespec-azure-core/byos" "It's an RPC call to detect face from an image, it doesn't store anything. There's a BYOS version of this call, but it's not this one."
   @summary(AddFaceListFaceSummary)
   @doc(AddFaceListFaceDescription)
+  @returnsDoc(AddFaceSuccess)
   addFaceListFace is AddFace<FaceListFace>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Add face perform on resource collection but not response created resource location in header"
   @summary(AddFaceListFaceSummary)
   @doc(AddFaceListFaceDescription)
+  @returnsDoc(AddFaceSuccess)
   addFaceListFaceFromUrl is AddFaceFromUrl<FaceListFace>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Delete response with 200 while standard op requires 204"
   @summary("Delete a face from a face list by specified faceListId and persistedFaceId.")
   @doc("Adding/deleting faces to/from a same face list are processed sequentially and to/from different face lists are in parallel.")
+  @returnsDoc(SuccessfulCallWithEmptyBody)
   deleteFaceListFace is FaceResourceDeleteOperation<FaceListFace>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Create has no response body while standard op requires resource in body"
@@ -101,18 +109,22 @@ interface FaceListOperations {
   > * Free-tier subscription quota: 64 large face lists.
   > * S0-tier subscription quota: 1,000,000 large face lists.
   """)
+  @returnsDoc(SuccessfulCallWithEmptyBody)
   createLargeFaceList is FaceResourceCreateOperation<LargeFaceList>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Delete response with 200 while standard op requires 204"
   @summary("Delete a face from a large face list by specified largeFaceListId and persistedFaceId.")
   @doc("Adding/deleting faces to/from a same large face list are processed sequentially and to/from different large face lists are in parallel.")
+  @returnsDoc(SuccessfulCallWithEmptyBody)
   deleteLargeFaceList is FaceResourceDeleteOperation<LargeFaceList>;
 
   @doc("Retrieve a large face list's largeFaceListId, name, userData and recognitionModel.")
+  @returnsDoc("A successful call returns the large face list's information.")
   getLargeFaceList is FaceResourceReadOperationWithReturnRecognitionModelOptions<LargeFaceList>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Update has no response body while standard op requires resource in body"
   @doc("Update information of a large face list, including name and userData.")
+  @returnsDoc(SuccessfulCallWithEmptyBody)
   updateLargeFaceList is FaceResourceUpdateOperation<LargeFaceList>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "List doesn't support Azure paging"
@@ -126,6 +138,7 @@ interface FaceListOperations {
   ${ListRequestOptionsDescription}
   """
   )
+  @returnsDoc("A successful call returns an array of large face lists and their information (largeFaceListId, name and userData).")
   getLargeFaceLists is FaceResourceListOperation<
     LargeFaceList,
     LargeFaceList,
@@ -138,6 +151,7 @@ interface FaceListOperations {
 
   Training time depends on the number of face entries in a large face list. It could be in seconds, or up to half an hour for 1,000,000 faces.
   """)
+  @returnsDoc("A successful call returns the large face list's training status.")
   getLargeFaceListTrainingStatus is FaceResourceGetTrainingStatus<LargeFaceList>;
 
   @summary("Submit a large face list training task.")
@@ -146,7 +160,7 @@ interface FaceListOperations {
 
   The training task is an asynchronous task. Training time depends on the number of face entries in a large face list. It could be in seconds, or up to half an hour for 1,000,000 faces. To check training completion, please use Get Large Face List Training Status.
   """)
-  @returnsDoc("A successful call returns an empty response body.")
+  @returnsDoc(SuccessfulCallWithEmptyBody)
   @pollingOperation(FaceListOperations.getLargeFaceListTrainingStatus)
   trainLargeFaceList is FaceResourceTrain<LargeFaceList>;
 
@@ -154,22 +168,27 @@ interface FaceListOperations {
   #suppress "@azure-tools/typespec-azure-core/byos" "It's an RPC call to detect face from an image, it doesn't store anything. There's a BYOS version of this call, but it's not this one."
   @summary(AddLargeFaceListFaceSummary)
   @doc(AddLargeFaceListFaceDescription)
+  @returnsDoc(AddFaceSuccess)
   addLargeFaceListFace is AddFace<LargeFaceListFace>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Add face perform on resource collection but not response created resource location in header"
   @summary(AddLargeFaceListFaceSummary)
   @doc(AddLargeFaceListFaceDescription)
+  @returnsDoc(AddFaceSuccess)
   addLargeFaceListFaceFromUrl is AddFaceFromUrl<LargeFaceListFace>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Delete response with 200 while standard op requires 204"
   @doc("Delete a face from a large face list by specified largeFaceListId and persistedFaceId.")
+  @returnsDoc(SuccessfulCallWithEmptyBody)
   deleteLargeFaceListFace is FaceResourceDeleteOperation<LargeFaceListFace>;
 
   @doc("Retrieve persisted face in large face list by largeFaceListId and persistedFaceId.")
+  @returnsDoc("A successful call returns target persisted face's information (persistedFaceId and userData).")
   getLargeFaceListFace is Operations.ResourceRead<LargeFaceListFace>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Update has no response body while standard op requires resource in body"
   @doc("Update a specified face's userData field in a large face list by its persistedFaceId.")
+  @returnsDoc(SuccessfulCallWithEmptyBody)
   updateLargeFaceListFace is FaceResourceUpdateOperation<
     LargeFaceListFace,
     Foundations.ResourceBody<LargeFaceListFace>
@@ -184,5 +203,6 @@ interface FaceListOperations {
   ${ListRequestOptionsDescription}
   """
   )
+  @returnsDoc("A successful call returns an array of persisted faces and their information (persistedFaceId and userData).")
   getLargeFaceListFaces is FaceResourceListOperation<LargeFaceListFace>;
 }

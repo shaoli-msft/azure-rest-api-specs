@@ -19,6 +19,8 @@ alias ServiceTraits = NoClientRequestId &
 
 alias Operations = Azure.Core.ResourceOperations<ServiceTraits>;
 
+alias SuccessfulCallWithEmptyBody = "A successful call returns an empty response body.";
+
 @createsResource(TResource)
 op FaceResourceCreateWithServiceProvidedName<
   TResource extends TypeSpec.Reflection.Model,
@@ -31,7 +33,6 @@ op FaceResourceCreateWithServiceProvidedName<
   ServiceTraits
 >;
 
-@returnsDoc("A successful call returns an empty response body.")
 @createsOrReplacesResource(TResource)
 op FaceResourceCreateOperation<TResource extends TypeSpec.Reflection.Model> is Foundations.ResourceOperation<
   TResource,
@@ -40,6 +41,7 @@ op FaceResourceCreateOperation<TResource extends TypeSpec.Reflection.Model> is F
   ServiceTraits
 >;
 
+alias AddFaceSuccess = "A successful call returns a new persistedFaceId.";
 #suppress "@azure-tools/typespec-azure-core/byos" "It's a template."
 @sharedRoute
 @createsResource(TFace)
@@ -92,7 +94,6 @@ op FaceResourceListOperation<
   ServiceTraits
 >;
 
-@returnsDoc("A successful call returns an empty response body.")
 @deletesResource(TResource)
 op FaceResourceDeleteOperation<TResource extends TypeSpec.Reflection.Model> is Foundations.ResourceOperation<
   TResource,
