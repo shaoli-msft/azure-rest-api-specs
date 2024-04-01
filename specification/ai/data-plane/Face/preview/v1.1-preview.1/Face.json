@@ -2123,7 +2123,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "A successful call returns an array of large person groups and their information (largePersonGroupId, name and userData).",
             "schema": {
               "type": "array",
               "items": {
@@ -2176,7 +2176,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "A successful call returns the large person group's information.",
             "schema": {
               "$ref": "#/definitions/LargePersonGroup"
             }
@@ -2370,7 +2370,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "A successful call returns an array of person information that belong to the large person group.",
             "schema": {
               "type": "array",
               "items": {
@@ -2427,7 +2427,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "A successful call returns a new personId created.",
             "schema": {
               "$ref": "#/definitions/CreatePersonResult"
             }
@@ -2483,7 +2483,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "A successful call returns the person's information.",
             "schema": {
               "$ref": "#/definitions/LargePersonGroupPerson"
             }
@@ -2672,7 +2672,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "A successful call returns a new persistedFaceId.",
             "schema": {
               "$ref": "#/definitions/AddFaceResult"
             }
@@ -2738,7 +2738,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "A successful call returns target persisted face's information (persistedFaceId and userData).",
             "schema": {
               "$ref": "#/definitions/LargePersonGroupPersonFace"
             }
@@ -2917,7 +2917,7 @@
         ],
         "responses": {
           "202": {
-            "description": "The request has been accepted for processing, but processing has not yet completed.",
+            "description": "A successful call returns an empty response body.",
             "headers": {
               "operation-Location": {
                 "type": "string",
@@ -2969,7 +2969,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "A successful call returns the large person group's training status.",
             "schema": {
               "$ref": "#/definitions/TrainingStatus"
             }
@@ -3061,7 +3061,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "A successful call returns an array of person groups and their information (personGroupId, name and userData).",
             "schema": {
               "type": "array",
               "items": {
@@ -3114,7 +3114,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "A successful call returns the person group's information.",
             "schema": {
               "$ref": "#/definitions/PersonGroup"
             }
@@ -3308,7 +3308,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "A successful call returns an array of person information that belong to the person group.",
             "schema": {
               "type": "array",
               "items": {
@@ -3365,7 +3365,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "A successful call returns a new personId created.",
             "schema": {
               "$ref": "#/definitions/CreatePersonResult"
             }
@@ -3421,7 +3421,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "A successful call returns the person's information.",
             "schema": {
               "$ref": "#/definitions/PersonGroupPerson"
             }
@@ -3610,7 +3610,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "A successful call returns a new persistedFaceId.",
             "schema": {
               "$ref": "#/definitions/AddFaceResult"
             }
@@ -3676,7 +3676,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "A successful call returns target persisted face's information (persistedFaceId and userData).",
             "schema": {
               "$ref": "#/definitions/PersonGroupPersonFace"
             }
@@ -3855,7 +3855,7 @@
         ],
         "responses": {
           "202": {
-            "description": "The request has been accepted for processing, but processing has not yet completed.",
+            "description": "A successful call returns an empty response body.",
             "headers": {
               "operation-Location": {
                 "type": "string",
@@ -3906,7 +3906,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "A successful call returns the person group's training status.",
             "schema": {
               "$ref": "#/definitions/TrainingStatus"
             }
@@ -5514,7 +5514,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "A successful call returns a new persistedFaceId.",
             "schema": {
               "$ref": "#/definitions/AddFaceResult"
             }
@@ -5598,7 +5598,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "A successful call returns a new persistedFaceId.",
             "schema": {
               "$ref": "#/definitions/AddFaceResult"
             }
