@@ -130,7 +130,7 @@ interface FaceListOperations {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "List doesn't support Azure paging"
   @summary("List large face lists' information of largeFaceListId, name, userData and recognitionModel.")
   @doc(
-  """
+    """
   To get face information inside largeFaceList use LargeFaceList Face - Get.
 
   Large face lists are stored in alphabetical order of largeFaceListId.
@@ -197,7 +197,7 @@ interface FaceListOperations {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "List doesn't support Azure paging"
   @summary("List faces' persistedFaceId and userData in a specified large face list.")
   @doc(
-  """
+    """
   Faces are stored in alphabetical order of persistedFaceId created in LargeFaceList Face - Add.
 
   ${ListRequestOptionsDescription}

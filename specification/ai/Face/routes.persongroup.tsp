@@ -62,11 +62,11 @@ interface PersonGroupOperations {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "List doesn't support Azure paging"
   @summary("List person groups' personGroupId, name, userData and recognitionModel.")
   @doc(
-  """
-  *
-    * Person groups are stored in alphabetical order of personGroupId.
-  ${ListRequestOptionsDescription}
-  """
+    """
+    *
+      * Person groups are stored in alphabetical order of personGroupId.
+    ${ListRequestOptionsDescription}
+    """
   )
   getPersonGroups is FaceResourceListOperation<
     PersonGroup,
@@ -116,11 +116,11 @@ interface PersonGroupOperations {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "List doesn't support Azure paging"
   @summary("List all persons' information in the specified person group, including personId, name, userData and persistedFaceIds of registered person faces.")
   @doc(
-  """
-  Persons are stored in alphabetical order of personId created in PersonGroup Person - Create.
+    """
+    Persons are stored in alphabetical order of personId created in PersonGroup Person - Create.
 
-  ${ListRequestOptionsDescription}
-  """
+    ${ListRequestOptionsDescription}
+    """
   )
   getPersonGroupPersons is FaceResourceListOperation<PersonGroupPerson>;
 
@@ -183,10 +183,10 @@ interface PersonGroupOperations {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "List doesn't support Azure paging"
   @summary("List all existing large person groups' largePersonGroupId, name, userData and recognitionModel.")
   @doc(
-  """
-  * Large person groups are stored in alphabetical order of largePersonGroupId.
-  ${ListRequestOptionsDescription}
-  """
+    """
+    * Large person groups are stored in alphabetical order of largePersonGroupId.
+    ${ListRequestOptionsDescription}
+    """
   )
   getLargePersonGroups is FaceResourceListOperation<
     LargePersonGroup,
@@ -239,10 +239,10 @@ interface PersonGroupOperations {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "List doesn't support Azure paging"
   @summary("List all persons' information in the specified large person group, including personId, name, userData and persistedFaceIds of registered person faces.")
   @doc(
-  """
-  * Persons are stored in alphabetical order of personId created in LargePersonGroup Person - Create.
-  ${ListRequestOptionsDescription}
-  """
+    """
+    * Persons are stored in alphabetical order of personId created in LargePersonGroup Person - Create.
+    ${ListRequestOptionsDescription}
+    """
   )
   getLargePersonGroupPersons is FaceResourceListOperation<LargePersonGroupPerson>;
 
