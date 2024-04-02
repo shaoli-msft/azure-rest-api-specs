@@ -485,12 +485,12 @@ model DetectErrorBadArgument extends DetectError {
 
   @doc("""
   The error message of the BadArgument error.
-  - JSON parsing error. Bad or unrecognizable request JSON body.
-  - Invalid argument returnFaceAttributes. Supported values are: headPose, glasses, occlusion, accessories, blur, exposure, noise and mask in a comma-separated format.
-  - 'recognitionModel' is invalid.
-  - 'detectionModel' is invalid.
-  - 'returnFaceAttributes' is not supported by detection_02.
-  - 'returnLandmarks' is not supported by detection_02.
+  1. JSON parsing error. Bad or unrecognizable request JSON body.
+  2. Invalid argument returnFaceAttributes. Supported values are: headPose, glasses, occlusion, accessories, blur, exposure, noise and mask in a comma-separated format.
+  3. 'recognitionModel' is invalid.
+  4. 'detectionModel' is invalid.
+  5. 'returnFaceAttributes' is not supported by detection_02.
+  6. 'returnLandmarks' is not supported by detection_02.
   """)
   message: string;
 }
@@ -502,8 +502,8 @@ model DetectErrorInvalidUrl extends DetectError {
 
   @doc("""
   The error message of the InvalidURL error.
-    * Invalid image format or URL. Supported formats include JPEG, PNG, GIF(the first frame) and BMP.
-    * Failed to download image from the specified URL. Remote server error returned.
+  1. Invalid image format or URL. Supported formats include JPEG, PNG, GIF(the first frame) and BMP.
+  2. Failed to download image from the specified URL. Remote server error returned.
   """)
   message: string;
 }
@@ -515,7 +515,7 @@ model DetectErrorInvalidImage extends DetectError {
 
   @doc("""
   The error message of the InvalidImage error.
-      * Decoding error, image format unsupported.
+  1. Decoding error, image format unsupported.
   """)
   message: string;
 }
@@ -527,8 +527,8 @@ model DetectErrorInvalidImageSize extends DetectError {
 
   @doc("""
   The error message of the InvalidImageSize error.
-  > * Image size is too small. The valid image file size should be larger than or equal to 1KB.
-  > * Image size is too big. The valid image file size should be no larger than 6MB.
+  1. Image size is too small. The valid image file size should be larger than or equal to 1KB.
+  2. Image size is too big. The valid image file size should be no larger than 6MB.
   """)
   message: string;
 }
@@ -540,7 +540,7 @@ model DetectErrorUnspecified extends DetectError {
 
   @doc("""
   The error message of the Unspecified error.
-  >  * Invalid subscription Key or user/plan is blocked.
+  1. Invalid subscription Key or user/plan is blocked.
   """)
   message: string;
 }
