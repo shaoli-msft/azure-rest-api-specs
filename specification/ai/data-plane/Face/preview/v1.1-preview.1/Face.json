@@ -3015,7 +3015,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "A successful call returns the long running operation status.",
             "schema": {
               "$ref": "#/definitions/FaceOperationStatus"
             }

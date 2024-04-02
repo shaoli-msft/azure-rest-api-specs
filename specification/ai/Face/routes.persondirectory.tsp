@@ -68,6 +68,7 @@ op DynamicPersonGroupLongRunningOperation<TParams extends TypeSpec.Reflection.Mo
 >;
 
 @doc("Get status of a long running operation.")
+@returnsDoc("A successful call returns the long running operation status.")
 op getFaceOperationStatus is Operations.ResourceRead<FaceOperationStatus>;
 
 alias PersonModificationAccepted = "A successful call returns an empty response body. The service has accepted the request and will start processing soon. The client can query the operation status and result using the URL specified in the 'Operation-Location' response header. The URL expires in 48 hours.";
