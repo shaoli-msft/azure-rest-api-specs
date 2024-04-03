@@ -48,19 +48,18 @@ op FaceLivenessSessionListAuditEntries<TResource extends TypeSpec.Reflection.Mod
 
 interface LivenessSessionOperations {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "ResourceCreateWithServiceProvidedName does not fit, we don't return Location in header."
-  @doc(
-    """
+  @doc("""
     ${SessionCommonDescription}
 
     Permissions includes...
+    >
     *
       * Ability to call /detectLiveness/singleModal for up to 3 reties.
       * A token lifetime of 10 minutes.
 
     > [!NOTE]
     > Client access can be revoked by deleting the session using the Delete Liveness Session operation. To retrieve a result, use the Get Liveness Session. To audit the individual requests that a client has made to your resource, use the List Liveness Session Audit Entries.
-    """
-  )
+    """)
   @summary("Create a new detect liveness session.")
   @returnsDoc(SessionCreationSuccess)
   createLivenessSession is FaceResourceCreateWithServiceProvidedName<
@@ -92,13 +91,11 @@ interface LivenessSessionOperations {
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
   #suppress "@azure-tools/typespec-azure-core/byos" "Representation of existing multipart/form-data operation"
-  @doc(
-    """
+  @doc("""
     ${LivenessSessionWithVerifyDescription}
 
     Recommended Option: VerifyImage is provided during session creation.
-    """
-  )
+    """)
   @summary("Create a new liveness session with verify. Provide the verify image during session creation.")
   @returnsDoc(SessionCreationSuccess)
   @sharedRoute
@@ -109,15 +106,13 @@ interface LivenessSessionOperations {
   >;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "ResourceCreateWithServiceProvidedName does not fit, we don't return Location in header."
-  @doc(
-    """
+  @doc("""
     ${LivenessSessionWithVerifyDescription}
 
     Alternative Option: Client device submits VerifyImage during the /detectLivenessWithVerify/singleModal call.
     > [!NOTE]
     > Extra measures should be taken to validate that the client is sending the expected VerifyImage.
-    """
-  )
+    """)
   @summary("Create a new liveness session with verify. Client device submits VerifyImage during the /detectLivenessWithVerify/singleModal call.")
   @returnsDoc(SessionCreationSuccess)
   @sharedRoute
@@ -139,10 +134,10 @@ interface LivenessSessionOperations {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "ResourceList does not fit, we put object array in response directly"
   @summary("Lists sessions for /detectLivenessWithVerify/SingleModal.")
   @doc("""
-  List sessions from the last sessionId greater than the \"start\".
+    List sessions from the last sessionId greater than the \"start\".
 
-  The result should be ordered by sessionId in ascending order.
-  """)
+    The result should be ordered by sessionId in ascending order.
+    """)
   getLivenessWithVerifySessions is FaceResourceListOperation<
     LivenessWithVerifySession,
     LivenessSessionItem
