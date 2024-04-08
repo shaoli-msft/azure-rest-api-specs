@@ -6178,7 +6178,7 @@
       "properties": {
         "message": {
           "type": "string",
-          "description": "The error message of the BadArgument error.\n1. JSON parsing error. Bad or unrecognizable request JSON body.\n2. Invalid argument returnFaceAttributes. Supported values are: headPose, glasses, occlusion, accessories, blur, exposure, noise and mask in a comma-separated format.\n3. 'recognitionModel' is invalid.\n4. 'detectionModel' is invalid.\n5. 'returnFaceAttributes' is not supported by detection_02.\n6. 'returnLandmarks' is not supported by detection_02."
+          "description": "The error message of the BadArgument error.\n\n>\n*\n  * JSON parsing error. Bad or unrecognizable request JSON body.\n  * Invalid argument returnFaceAttributes. Supported values are: headPose, glasses, occlusion, accessories, blur, exposure, noise and mask in a comma-separated format.\n  * 'recognitionModel' is invalid.\n  * 'detectionModel' is invalid.\n  * 'returnFaceAttributes' is not supported by detection_02.\n  * 'returnLandmarks' is not supported by detection_02."
         }
       },
       "required": [
@@ -6197,7 +6197,7 @@
       "properties": {
         "message": {
           "type": "string",
-          "description": "The error message of the InvalidImage error.\n1. Decoding error, image format unsupported."
+          "description": "The error message of the InvalidImage error.\n\n>\n*\n  * Decoding error, image format unsupported."
         }
       },
       "required": [
@@ -6216,7 +6216,7 @@
       "properties": {
         "message": {
           "type": "string",
-          "description": "The error message of the InvalidImageSize error.\n1. Image size is too small. The valid image file size should be larger than or equal to 1KB.\n2. Image size is too big. The valid image file size should be no larger than 6MB."
+          "description": "The error message of the InvalidImageSize error.\n\n>\n*\n  * Image size is too small. The valid image file size should be larger than or equal to 1KB.\n  * Image size is too big. The valid image file size should be no larger than 6MB."
         }
       },
       "required": [
@@ -6235,7 +6235,7 @@
       "properties": {
         "message": {
           "type": "string",
-          "description": "The error message of the InvalidURL error.\n1. Invalid image format or URL. Supported formats include JPEG, PNG, GIF(the first frame) and BMP.\n2. Failed to download image from the specified URL. Remote server error returned."
+          "description": "The error message of the InvalidURL error.\n\n>\n*\n  * Invalid image format or URL. Supported formats include JPEG, PNG, GIF(the first frame) and BMP.\n  * Failed to download image from the specified URL. Remote server error returned."
         }
       },
       "required": [
@@ -6267,7 +6267,7 @@
       "properties": {
         "message": {
           "type": "string",
-          "description": "The error message of the Unspecified error.\n1. Invalid subscription Key or user/plan is blocked."
+          "description": "The error message of the Unspecified error.\n\n>\n*\n  * Invalid subscription Key or user/plan is blocked."
         }
       },
       "required": [
