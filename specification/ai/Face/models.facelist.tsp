@@ -94,6 +94,32 @@ model FaceListCreateError {
 model FaceListCreateErrorResponse is Azure.Core.Foundations.ErrorResponseBase<FaceListCreateError>;
 
 @doc("The error object.")
+model LargeFaceListCreateError {
+  @doc("One of a server-defined set of error codes.")
+  code: string;
+
+  @doc("""
+    Error message description
+
+    >
+    | Status Code | Error Code | Error Message |
+    | ----------- | ---------- | ------------- |
+    | 400 | BadArgument      | Large face list ID is invalid. |
+    |     |                  | 'name' is empty. |
+    |     |                  | 'name' is too long. |
+    |     |                  | 'userData' is too long. |
+    |     |                  | JSON parsing error. |
+    |     |                  | 'recognitionModel' is invalid. |
+    | 403 | QuotaExceeded    | Large Face List number reached limit. |
+    | 401 | Unspecified      | Access denied due to invalid subscription key. Make sure you are subscribed to an API you are trying to call and provide the right key. |
+    | 409 | LargeFaceListExists | Large face list already exists. |
+  """)
+  message: string;
+}
+
+model LargeFaceListCreateErrorResponse is Azure.Core.Foundations.ErrorResponseBase<LargeFaceListCreateError>;
+
+@doc("The error object.")
 model FaceResourceCreateError {
   @doc("One of a server-defined set of error codes.")
   code: string;

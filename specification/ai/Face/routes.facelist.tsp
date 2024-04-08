@@ -108,7 +108,7 @@ interface FaceListOperations {
     > * S0-tier subscription quota: 1,000,000 large face lists.
     """)
   @returnsDoc(SuccessfulCallWithEmptyBody)
-  createLargeFaceList is FaceResourceCreateOperation<LargeFaceList, FaceResourceCreateErrorResponse>;
+  createLargeFaceList is FaceResourceCreateOperation<LargeFaceList, LargeFaceListCreateErrorResponse>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Delete response with 200 while standard op requires 204"
   @summary("Delete a face from a large face list by specified largeFaceListId and persistedFaceId.")

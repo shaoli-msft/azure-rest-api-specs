@@ -1605,7 +1605,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/FaceResourceCreateErrorResponse"
+              "$ref": "#/definitions/LargeFaceListCreateErrorResponse"
             },
             "headers": {
               "x-ms-error-code": {
@@ -7347,6 +7347,37 @@
       "required": [
         "name",
         "largeFaceListId"
+      ]
+    },
+    "LargeFaceListCreateError": {
+      "type": "object",
+      "description": "The error object.",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "One of a server-defined set of error codes."
+        },
+        "message": {
+          "type": "string",
+          "description": "  Error message description\n\n  >\n  | Status Code | Error Code | Error Message |\n  | ----------- | ---------- | ------------- |\n  | 400 | BadArgument      | Large face list ID is invalid. |\n  |     |                  | 'name' is empty. |\n  |     |                  | 'name' is too long. |\n  |     |                  | 'userData' is too long. |\n  |     |                  | JSON parsing error. |\n  |     |                  | 'recognitionModel' is invalid. |\n  | 403 | QuotaExceeded    | Large Face List number reached limit. |\n  | 401 | Unspecified      | Access denied due to invalid subscription key. Make sure you are subscribed to an API you are trying to call and provide the right key. |\n  | 409 | LargeFaceListExists | Large face list already exists. |"
+        }
+      },
+      "required": [
+        "code",
+        "message"
+      ]
+    },
+    "LargeFaceListCreateErrorResponse": {
+      "type": "object",
+      "description": "A response containing error details.",
+      "properties": {
+        "error": {
+          "$ref": "#/definitions/LargeFaceListCreateError",
+          "description": "The error object."
+        }
+      },
+      "required": [
+        "error"
       ]
     },
     "LargeFaceListFace": {
