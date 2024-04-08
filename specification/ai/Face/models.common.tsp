@@ -269,3 +269,26 @@ alias ListRequestOptionsDescriptionInList = """
 > * "start=&top=2" will return "itemId1", "itemId2".
 > * "start=itemId2&top=3" will return "itemId3", "itemId4", "itemId5".
 """;
+
+@doc("The error object.")
+model CommonError {
+  @doc("One of a server-defined set of error codes.")
+  code: string;
+
+  @doc("A human-readable representation of the error.")
+  message: string;
+}
+
+@doc("""
+  The group error response.
+
+  >
+  | Status Code | Error Code | Error Message |
+  | ----------- | ---------- | ------------- |
+  | 400 | BadArgument      | Request body is invalid. |
+  |     |                  | The length of faceIds is not in a valid range. Out of range [2, 1000]. |
+  |     |                  | 'recognitionModel' is incompatible. |
+  |     | FaceNotFound     | Current face is not found. |
+  | 401 | Unspecified      | Invalid subscription Key or user/plan is blocked. |
+""")
+model GroupErrorResponse is Azure.Core.Foundations.ErrorResponseBase<CommonError>;

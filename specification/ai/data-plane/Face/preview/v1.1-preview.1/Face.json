@@ -1373,7 +1373,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
+              "$ref": "#/definitions/GroupErrorResponse"
             },
             "headers": {
               "x-ms-error-code": {
@@ -6113,6 +6113,24 @@
         "value"
       ]
     },
+    "CommonError": {
+      "type": "object",
+      "description": "The error object.",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "One of a server-defined set of error codes."
+        },
+        "message": {
+          "type": "string",
+          "description": "A human-readable representation of the error."
+        }
+      },
+      "required": [
+        "code",
+        "message"
+      ]
+    },
     "CreateDynamicPersonGroupContent": {
       "type": "object",
       "description": "Request of create dynamic person group.",
@@ -7057,6 +7075,19 @@
           }
         ]
       }
+    },
+    "GroupErrorResponse": {
+      "type": "object",
+      "description": "  The group error response.\n\n  >\n  | Status Code | Error Code | Error Message |\n  | ----------- | ---------- | ------------- |\n  | 400 | BadArgument      | Request body is invalid. |\n  |     |                  | The length of faceIds is not in a valid range. Out of range [2, 1000]. |\n  |     |                  | 'recognitionModel' is incompatible. |\n  |     | FaceNotFound     | Current face is not found. |\n  | 401 | Unspecified      | Invalid subscription Key or user/plan is blocked. |",
+      "properties": {
+        "error": {
+          "$ref": "#/definitions/CommonError",
+          "description": "The error object."
+        }
+      },
+      "required": [
+        "error"
+      ]
     },
     "GroupingResult": {
       "type": "object",

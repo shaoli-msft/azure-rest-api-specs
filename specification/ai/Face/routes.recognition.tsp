@@ -211,6 +211,7 @@ interface FaceRecognitionOperations {
       faceIds: uuid[];
     },
     GroupingResult,
-    ServiceTraits
+    ServiceTraits,
+    GroupErrorResponse
   >;
 }
