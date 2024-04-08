@@ -279,6 +279,16 @@ model CommonError {
   message: string;
 }
 
+@discriminator("code")
+@doc("The error object.")
+model FaceError {
+  @doc("One of a server-defined set of error codes.")
+  code: string;
+
+  @doc("A human-readable representation of the error.")
+  message: string;
+}
+
 @doc("""
   The group error response.
 

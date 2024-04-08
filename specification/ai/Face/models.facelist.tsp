@@ -53,45 +53,78 @@ model LargeFaceList is BaseFaceList {
 @doc("Face resource for large face list.")
 model LargeFaceListFace is BaseFace;
 
-@doc("The error object.")
-model FaceListCreateError {
+alias FaceListCreateErrorResponse = FaceListCreate400Response | FaceListCreate401Response | FaceListCreate409Response;
+model FaceListCreate400Response is Azure.Core.Foundations.ErrorResponseBase<FaceListCreate400Error>;
+model FaceListCreate401Response is Azure.Core.Foundations.ErrorResponseBase<FaceListCreate401Error>;
+model FaceListCreate409Response is Azure.Core.Foundations.ErrorResponseBase<FaceListCreate409Error>;
+
+model FaceListCreate400Error is FaceError;
+model FaceListCreate401Error is FaceError;
+model FaceListCreate409Error is FaceError;
+
+@doc("Error response with BadArgument error code.")
+model FaceListCreateErrorBadArgument extends FaceListCreate400Error {
+  @doc("The BadArgument error code.")
+  code: "BadArgument";
+
   @doc("""
-    One of a server-defined set of error codes.
+    The error message of the BadArgument error.
 
     >
     *
-      * Response Code: 400
-        * BadArgument
-      * Response Code: 401
-        * Unspecified
-      * Response Code: 409
-        * FaceListExists
-        * ConcurrentOperationConflict
-  """)
-  code: string;
-
-  @doc("""
-    Error message description
-
-    >
-    *
-      * BadArgument
-        * 'name' is too long.
-        * 'userData' is too long.
-        * Bad and unrecognizable JSON body.
-        * Face list ID is invalid. Valid format should be a string composed by numbers, English letters in lower case, '-', '_', and no longer than 64 characters.
-        * 'recognitionModel' is invalid.
-      * Unspecified
-        * Invalid subscription Key or user/plan is blocked.
-      * FaceListExists
-        * Face list already exists.
-      * ConcurrentOperationConflict
-        * Concurrent operation conflict on requested resource.
-  """)
+      * 'name' is too long.
+      * 'userData' is too long.
+      * Bad and unrecognizable JSON body.
+      * Face list ID is invalid. Valid format should be a string composed by numbers, English letters in lower case, '-', '_', and no longer than 64 characters.
+      * 'recognitionModel' is invalid.
+    """)
   message: string;
 }
 
-model FaceListCreateErrorResponse is Azure.Core.Foundations.ErrorResponseBase<FaceListCreateError>;
+@doc("Error response with InvalidURL error code.")
+model FaceListCreateErrorUnspecified extends FaceListCreate401Error {
+  @doc("The Unspecified error code.")
+  code: "Unspecified";
+
+  @doc("""
+    The error message of the Unspecified error.
+
+    >
+    *
+      * Invalid subscription Key or user/plan is blocked.
+    """)
+  message: string;
+}
+
+@doc("Error response with FaceListExists error code.")
+model FaceListCreateErrorFaceListExists extends FaceListCreate409Error {
+  @doc("The FaceListExists error code.")
+  code: "FaceListExists";
+
+  @doc("""
+    The error message of the FaceListExists error.
+
+    >
+    *
+      * Face list already exists.
+    """)
+  message: string;
+}
+
+@doc("Error response with ConcurrentOperationConflict error code.")
+model FaceListCreateErrorConcurrentOperationConflict extends FaceListCreate409Error {
+  @doc("The ConcurrentOperationConflict error code.")
+  code: "ConcurrentOperationConflict";
+
+  @doc("""
+    The error message of the ConcurrentOperationConflict error.
+
+    >
+    *
+      * Concurrent operation conflict on requested resource.
+    """)
+  message: string;
+}
 
 @doc("The error object.")
 model LargeFaceListCreateError {

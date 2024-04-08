@@ -45,7 +45,7 @@ interface FaceListOperations {
     Please consider LargeFaceList when the face number is large. It can support up to 1,000,000 faces.
     """)
   @returnsDoc(SuccessfulCallWithEmptyBody)
-  createFaceList is FaceResourceCreateOperation<FaceList, FaceListCreateErrorResponse>;
+  createFaceList is FaceResourceCreateOperation<FaceList, FaceListCreate400Response>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Delete response with 200 while standard op requires 204"
   @doc("Delete a specified face list.")

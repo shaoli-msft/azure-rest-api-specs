@@ -1028,7 +1028,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/FaceListCreateErrorResponse"
+              "$ref": "#/definitions/FaceListCreate400Response"
             },
             "headers": {
               "x-ms-error-code": {
@@ -6685,36 +6685,56 @@
         "faceListId"
       ]
     },
-    "FaceListCreateError": {
+    "FaceListCreate400Error": {
       "type": "object",
       "description": "The error object.",
       "properties": {
         "code": {
           "type": "string",
-          "description": "  One of a server-defined set of error codes.\n\n  >\n  *\n    * Response Code: 400\n      * BadArgument\n    * Response Code: 401\n      * Unspecified\n    * Response Code: 409\n      * FaceListExists\n      * ConcurrentOperationConflict"
+          "description": "One of a server-defined set of error codes."
         },
         "message": {
           "type": "string",
-          "description": "  Error message description\n\n  >\n  *\n    * BadArgument\n      * 'name' is too long.\n      * 'userData' is too long.\n      * Bad and unrecognizable JSON body.\n      * Face list ID is invalid. Valid format should be a string composed by numbers, English letters in lower case, '-', '_', and no longer than 64 characters.\n      * 'recognitionModel' is invalid.\n    * Unspecified\n      * Invalid subscription Key or user/plan is blocked.\n    * FaceListExists\n      * Face list already exists.\n    * ConcurrentOperationConflict\n      * Concurrent operation conflict on requested resource."
+          "description": "A human-readable representation of the error."
         }
       },
+      "discriminator": "code",
       "required": [
         "code",
         "message"
       ]
     },
-    "FaceListCreateErrorResponse": {
+    "FaceListCreate400Response": {
       "type": "object",
       "description": "A response containing error details.",
       "properties": {
         "error": {
-          "$ref": "#/definitions/FaceListCreateError",
+          "$ref": "#/definitions/FaceListCreate400Error",
           "description": "The error object."
         }
       },
       "required": [
         "error"
       ]
+    },
+    "FaceListCreateErrorBadArgument": {
+      "type": "object",
+      "description": "Error response with BadArgument error code.",
+      "properties": {
+        "message": {
+          "type": "string",
+          "description": "The error message of the BadArgument error.\n\n>\n*\n  * 'name' is too long.\n  * 'userData' is too long.\n  * Bad and unrecognizable JSON body.\n  * Face list ID is invalid. Valid format should be a string composed by numbers, English letters in lower case, '-', '_', and no longer than 64 characters.\n  * 'recognitionModel' is invalid."
+        }
+      },
+      "required": [
+        "message"
+      ],
+      "allOf": [
+        {
+          "$ref": "#/definitions/FaceListCreate400Error"
+        }
+      ],
+      "x-ms-discriminator-value": "BadArgument"
     },
     "FaceListFace": {
       "type": "object",
