@@ -52,3 +52,54 @@ model LargeFaceList is BaseFaceList {
 @parentResource(LargeFaceList)
 @doc("Face resource for large face list.")
 model LargeFaceListFace is BaseFace;
+
+@doc("The error object.")
+model FaceListCreateError {
+  @doc("""
+    One of a server-defined set of error codes.
+
+    >
+    *
+      * Response Code: 400
+        * BadArgument
+      * Response Code: 401
+        * Unspecified
+      * Response Code: 409
+        * FaceListExists
+        * ConcurrentOperationConflict
+  """)
+  code: string;
+
+  @doc("""
+    Error message description
+
+    >
+    *
+      * BadArgument
+        * 'name' is too long.
+        * 'userData' is too long.
+        * Bad and unrecognizable JSON body.
+        * Face list ID is invalid. Valid format should be a string composed by numbers, English letters in lower case, '-', '_', and no longer than 64 characters.
+        * 'recognitionModel' is invalid.
+      * Unspecified
+        * Invalid subscription Key or user/plan is blocked.
+      * FaceListExists
+        * Face list already exists.
+      * ConcurrentOperationConflict
+        * Concurrent operation conflict on requested resource.
+  """)
+  message: string;
+}
+
+model FaceListCreateErrorResponse is Azure.Core.Foundations.ErrorResponseBase<FaceListCreateError>;
+
+@doc("The error object.")
+model FaceResourceCreateError {
+  @doc("One of a server-defined set of error codes.")
+  code: string;
+
+  @doc("A human-readable representation of the error.")
+  message: string;
+}
+
+model FaceResourceCreateErrorResponse is Azure.Core.Foundations.ErrorResponseBase<FaceResourceCreateError>;

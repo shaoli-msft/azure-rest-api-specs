@@ -1028,7 +1028,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
+              "$ref": "#/definitions/FaceListCreateErrorResponse"
             },
             "headers": {
               "x-ms-error-code": {
@@ -1605,7 +1605,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
+              "$ref": "#/definitions/FaceResourceCreateErrorResponse"
             },
             "headers": {
               "x-ms-error-code": {
@@ -2235,7 +2235,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
+              "$ref": "#/definitions/FaceResourceCreateErrorResponse"
             },
             "headers": {
               "x-ms-error-code": {
@@ -3173,7 +3173,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
+              "$ref": "#/definitions/FaceResourceCreateErrorResponse"
             },
             "headers": {
               "x-ms-error-code": {
@@ -6667,6 +6667,37 @@
         "faceListId"
       ]
     },
+    "FaceListCreateError": {
+      "type": "object",
+      "description": "The error object.",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "  One of a server-defined set of error codes.\n\n  >\n  *\n    * Response Code: 400\n      * BadArgument\n    * Response Code: 401\n      * Unspecified\n    * Response Code: 409\n      * FaceListExists\n      * ConcurrentOperationConflict"
+        },
+        "message": {
+          "type": "string",
+          "description": "  Error message description\n\n  >\n  *\n    * BadArgument\n      * 'name' is too long.\n      * 'userData' is too long.\n      * Bad and unrecognizable JSON body.\n      * Face list ID is invalid. Valid format should be a string composed by numbers, English letters in lower case, '-', '_', and no longer than 64 characters.\n      * 'recognitionModel' is invalid.\n    * Unspecified\n      * Invalid subscription Key or user/plan is blocked.\n    * FaceListExists\n      * Face list already exists.\n    * ConcurrentOperationConflict\n      * Concurrent operation conflict on requested resource."
+        }
+      },
+      "required": [
+        "code",
+        "message"
+      ]
+    },
+    "FaceListCreateErrorResponse": {
+      "type": "object",
+      "description": "A response containing error details.",
+      "properties": {
+        "error": {
+          "$ref": "#/definitions/FaceListCreateError",
+          "description": "The error object."
+        }
+      },
+      "required": [
+        "error"
+      ]
+    },
     "FaceListFace": {
       "type": "object",
       "description": "Face resource for face list.",
@@ -6848,6 +6879,37 @@
         "left",
         "width",
         "height"
+      ]
+    },
+    "FaceResourceCreateError": {
+      "type": "object",
+      "description": "The error object.",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "One of a server-defined set of error codes."
+        },
+        "message": {
+          "type": "string",
+          "description": "A human-readable representation of the error."
+        }
+      },
+      "required": [
+        "code",
+        "message"
+      ]
+    },
+    "FaceResourceCreateErrorResponse": {
+      "type": "object",
+      "description": "A response containing error details.",
+      "properties": {
+        "error": {
+          "$ref": "#/definitions/FaceResourceCreateError",
+          "description": "The error object."
+        }
+      },
+      "required": [
+        "error"
       ]
     },
     "FaceSessionStatus": {

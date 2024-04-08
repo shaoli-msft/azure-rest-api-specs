@@ -34,11 +34,13 @@ op FaceResourceCreateWithServiceProvidedName<
 >;
 
 @createsOrReplacesResource(TResource)
-op FaceResourceCreateOperation<TResource extends TypeSpec.Reflection.Model> is Foundations.ResourceOperation<
-  TResource,
-  Foundations.ResourceBody<TResource>,
-  TypeSpec.Http.OkResponse,
-  ServiceTraits
+op FaceResourceCreateOperation<TResource extends TypeSpec.Reflection.Model, TErrorResponse>
+  is Foundations.ResourceOperation<
+    TResource,
+    Foundations.ResourceBody<TResource>,
+    TypeSpec.Http.OkResponse,
+    ServiceTraits,
+    TErrorResponse
 >;
 
 alias AddFaceSuccess = "A successful call returns a new persistedFaceId.";

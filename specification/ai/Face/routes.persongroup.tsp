@@ -47,7 +47,7 @@ interface PersonGroupOperations {
     > * to handle larger scale face identification problem, please consider using LargePersonGroup.
     """)
   @returnsDoc(SuccessfulCallWithEmptyBody)
-  createPersonGroup is FaceResourceCreateOperation<PersonGroup>;
+  createPersonGroup is FaceResourceCreateOperation<PersonGroup, FaceResourceCreateErrorResponse>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Delete response with 200 while standard op requires 204"
   @doc("Delete an existing person group with specified personGroupId. Persisted data in this person group will be deleted.")
@@ -179,7 +179,7 @@ interface PersonGroupOperations {
     > * S0-tier subscription quota: 1,000,000 large person groups.
     """)
   @returnsDoc(SuccessfulCallWithEmptyBody)
-  createLargePersonGroup is FaceResourceCreateOperation<LargePersonGroup>;
+  createLargePersonGroup is FaceResourceCreateOperation<LargePersonGroup, FaceResourceCreateErrorResponse>;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Delete response with 200 while standard op requires 204"
   @doc("Delete an existing large person group with specified personGroupId. Persisted data in this large person group will be deleted.")
