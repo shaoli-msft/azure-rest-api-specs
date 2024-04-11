@@ -109,6 +109,7 @@ union FaceSessionStatus {
   "ResultAvailable",
 }
 
+@doc("The outcome of the liveness classification.")
 @clientName("FaceLivenessDecision")
 union LivenessDecision {
   string,
@@ -123,6 +124,7 @@ union LivenessDecision {
   "spoofface",
 }
 
+@doc("The type of image.")
 @clientName("FaceImageType")
 union ImageType {
   string,
@@ -146,6 +148,7 @@ model LivenessOutputsTarget {
   imageType: ImageType;
 }
 
+@doc("The model version used for liveness classification.")
 union LivenessModel {
   string,
   "2020-02-15-preview.01",

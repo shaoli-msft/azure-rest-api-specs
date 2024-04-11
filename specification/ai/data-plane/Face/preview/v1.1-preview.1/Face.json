@@ -8398,6 +8398,7 @@
     },
     "ImageType": {
       "type": "string",
+      "description": "The type of image.",
       "enum": [
         "Color",
         "Infrared",
@@ -8615,6 +8616,7 @@
     },
     "LivenessDecision": {
       "type": "string",
+      "description": "The outcome of the liveness classification.",
       "enum": [
         "uncertain",
         "realface",
@@ -8644,6 +8646,7 @@
     },
     "LivenessModel": {
       "type": "string",
+      "description": "The model version used for liveness classification.",
       "enum": [
         "2020-02-15-preview.01",
         "2021-11-12-preview.03",
