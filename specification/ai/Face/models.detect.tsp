@@ -44,6 +44,7 @@ alias FaceDetectionOptions = {
 };
 
 #suppress "@azure-tools/typespec-azure-core/use-extensible-enum" "Use fixed enum to represent modelAsString = false"
+#suppress "@azure-tools/typespec-azure-core/no-enum" "Use fixed enum to avoid breaking change"
 @doc("Available options for detect face with attribute.")
 @fixed
 enum FaceAttributeType {
@@ -264,6 +265,7 @@ model FacialHair {
 }
 
 #suppress "@azure-tools/typespec-azure-core/use-extensible-enum" "Use fixed enum to represent modelAsString = false"
+#suppress "@azure-tools/typespec-azure-core/no-enum" "Use fixed enum to avoid breaking change"
 @doc("Glasses type of the face.")
 @fixed
 enum GlassesType {
@@ -318,6 +320,7 @@ model HairColor {
 }
 
 #suppress "@azure-tools/typespec-azure-core/use-extensible-enum" "Use fixed enum to represent modelAsString = false"
+#suppress "@azure-tools/typespec-azure-core/no-enum" "Use fixed enum to avoid breaking change"
 @doc("Name of the hair color.")
 @fixed
 enum HairColorType {
@@ -370,6 +373,7 @@ model AccessoryItem {
 }
 
 #suppress "@azure-tools/typespec-azure-core/use-extensible-enum" "Use fixed enum to represent modelAsString = false"
+#suppress "@azure-tools/typespec-azure-core/no-enum" "Use fixed enum to avoid breaking change"
 @doc("Type of the accessory.")
 @fixed
 enum AccessoryType {
@@ -395,6 +399,7 @@ model BlurProperties {
 }
 
 #suppress "@azure-tools/typespec-azure-core/use-extensible-enum" "Use fixed enum to represent modelAsString = false"
+#suppress "@azure-tools/typespec-azure-core/no-enum" "Use fixed enum to avoid breaking change"
 @doc("Indicates level of blurriness.")
 @fixed
 enum BlurLevel {
@@ -420,6 +425,7 @@ model ExposureProperties {
 }
 
 #suppress "@azure-tools/typespec-azure-core/use-extensible-enum" "Use fixed enum to represent modelAsString = false"
+#suppress "@azure-tools/typespec-azure-core/no-enum" "Use fixed enum to avoid breaking change"
 @doc("Indicates level of exposure.")
 @fixed
 enum ExposureLevel {
@@ -445,6 +451,7 @@ model NoiseProperties {
 }
 
 #suppress "@azure-tools/typespec-azure-core/use-extensible-enum" "Use fixed enum to represent modelAsString = false"
+#suppress "@azure-tools/typespec-azure-core/no-enum" "Use fixed enum to avoid breaking change"
 @doc("Indicates level of noise.")
 @fixed
 enum NoiseLevel {
@@ -468,6 +475,7 @@ model MaskProperties {
 }
 
 #suppress "@azure-tools/typespec-azure-core/use-extensible-enum" "Use fixed enum to represent modelAsString = false"
+#suppress "@azure-tools/typespec-azure-core/no-enum" "Use fixed enum to avoid breaking change"
 @doc("Mask type if any of the face")
 @fixed
 enum MaskType {
@@ -485,6 +493,7 @@ enum MaskType {
 }
 
 #suppress "@azure-tools/typespec-azure-core/use-extensible-enum" "Use fixed enum to represent modelAsString = false"
+#suppress "@azure-tools/typespec-azure-core/no-enum" "Use fixed enum to avoid breaking change"
 @doc("Indicates quality of image for recognition.")
 @fixed
 enum QualityForRecognition {

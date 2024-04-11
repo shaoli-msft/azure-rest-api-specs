@@ -149,6 +149,7 @@ alias ReturnRecognitionModelOptions = {
 };
 
 #suppress "@azure-tools/typespec-azure-core/use-extensible-enum" "Use fixed enum to represent modelAsString = false"
+#suppress "@azure-tools/typespec-azure-core/no-enum" "Use fixed enum to avoid breaking change"
 @doc("The status of long running operation.")
 @lroStatus
 @clientName("FaceOperationState")
