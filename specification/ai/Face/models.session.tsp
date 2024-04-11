@@ -126,7 +126,6 @@ union LivenessDecision {
 @clientName("FaceImageType")
 union ImageType {
   string,
-
   "Color",
   "Infrared",
   "Depth",
