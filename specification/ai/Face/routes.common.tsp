@@ -22,7 +22,7 @@ alias Operations = Azure.Core.ResourceOperations<ServiceTraits>;
 @createsResource(TResource)
 op FaceResourceCreateWithServiceProvidedName<
   TResource extends TypeSpec.Reflection.Model,
-  TParams extends TypeSpec.Reflection.Model = Foundations.ResourceBody<TResource>,
+  TParams extends TypeSpec.Reflection.Model,
   TResponse extends TypeSpec.Reflection.Model = TResource
 > is Foundations.ResourceCollectionOperation<
   TResource,

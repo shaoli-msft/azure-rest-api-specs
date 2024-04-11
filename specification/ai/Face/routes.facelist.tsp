@@ -159,7 +159,7 @@ interface FaceListOperations {
   @doc("Update a specified face's userData field in a large face list by its persistedFaceId.")
   updateLargeFaceListFace is FaceResourceUpdateOperation<
     LargeFaceListFace,
-    Foundations.ResourceBody<LargeFaceListFace>
+    FaceUserData
   >;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "List doesn't support Azure paging"

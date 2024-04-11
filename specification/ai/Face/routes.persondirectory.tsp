@@ -57,7 +57,7 @@ op FaceResourceDeleteLongRunningOperation<TResource extends TypeSpec.Reflection.
 #suppress "@azure-tools/typespec-azure-core/long-running-polling-operation-required" "Doesn't fit in generated long-running operation"
 op DynamicPersonGroupLongRunningOperation<TParams extends TypeSpec.Reflection.Model> is Foundations.ResourceOperation<
   DynamicPersonGroup,
-  Foundations.ResourceBody<TParams>,
+  TParams,
   TypeSpec.Http.OkResponse | Foundations.AcceptedResponse<{
     @header("operation-Location")
     operationLocation: ResourceLocation<FaceOperationStatus>;
@@ -78,7 +78,7 @@ interface PersonDirectoryOperations {
   @createsResource(PersonDirectoryPerson)
   createPerson is Foundations.ResourceCollectionOperation<
     PersonDirectoryPerson,
-    Foundations.ResourceBody<PersonDirectoryPerson>,
+    UserDefinedFields,
     CreatePersonResult &
       TypeSpec.Http.AcceptedResponse & {
         @header("operation-Location")
@@ -171,7 +171,7 @@ interface PersonDirectoryOperations {
   @updatesResource(PersonDirectoryFace)
   updatePersonFace is FaceResourceUpdateOperation<
     PersonDirectoryFace,
-    Foundations.ResourceBody<PersonDirectoryFace>
+    FaceUserData
   >;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"

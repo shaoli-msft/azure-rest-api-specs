@@ -143,7 +143,7 @@ interface PersonGroupOperations {
   @doc("Update a person persisted face's userData field.")
   updatePersonGroupPersonFace is FaceResourceUpdateOperation<
     PersonGroupPersonFace,
-    Foundations.ResourceBody<PersonGroupPersonFace>
+    FaceUserData
   >;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Create has no response body while standard op requires resource in body"
@@ -263,6 +263,6 @@ interface PersonGroupOperations {
   @doc("Update a person persisted face's userData field.")
   updateLargePersonGroupPersonFace is FaceResourceUpdateOperation<
     LargePersonGroupPersonFace,
-    Foundations.ResourceBody<LargePersonGroupPersonFace>
+    FaceUserData
   >;
 }

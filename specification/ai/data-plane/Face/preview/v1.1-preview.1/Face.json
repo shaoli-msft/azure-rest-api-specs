@@ -916,9 +916,8 @@
             "pattern": "^[a-z0-9-_]+$"
           },
           {
-            "name": "resource",
+            "name": "body",
             "in": "body",
-            "description": "The resource instance.",
             "required": true,
             "schema": {
               "type": "object",
@@ -1000,9 +999,8 @@
             "pattern": "^[a-z0-9-_]+$"
           },
           {
-            "name": "resource",
+            "name": "body",
             "in": "body",
-            "description": "The resource instance.",
             "required": true,
             "schema": {
               "type": "object",
@@ -2471,12 +2469,18 @@
             "pattern": "^[a-z0-9-_]+$"
           },
           {
-            "name": "resource",
+            "name": "body",
             "in": "body",
-            "description": "The resource instance.",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/LargeFaceListFaceUpdate"
+              "type": "object",
+              "properties": {
+                "userData": {
+                  "type": "string",
+                  "description": "User-provided data attached to the face. The length limit is 1K.",
+                  "maxLength": 1024
+                }
+              }
             }
           }
         ],
@@ -3526,12 +3530,18 @@
             "pattern": "^[a-z0-9-_]+$"
           },
           {
-            "name": "resource",
+            "name": "body",
             "in": "body",
-            "description": "The resource instance.",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/LargePersonGroupPersonFaceUpdate"
+              "type": "object",
+              "properties": {
+                "userData": {
+                  "type": "string",
+                  "description": "User-provided data attached to the face. The length limit is 1K.",
+                  "maxLength": 1024
+                }
+              }
             }
           }
         ],
@@ -4639,12 +4649,18 @@
             "pattern": "^[a-z0-9-_]+$"
           },
           {
-            "name": "resource",
+            "name": "body",
             "in": "body",
-            "description": "The resource instance.",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/PersonGroupPersonFaceUpdate"
+              "type": "object",
+              "properties": {
+                "userData": {
+                  "type": "string",
+                  "description": "User-provided data attached to the face. The length limit is 1K.",
+                  "maxLength": 1024
+                }
+              }
             }
           }
         ],
@@ -4898,12 +4914,27 @@
             "$ref": "#/parameters/ApiVersionPathParameter"
           },
           {
-            "name": "resource",
+            "name": "body",
             "in": "body",
-            "description": "The resource instance.",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/PersonDirectoryPerson"
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "User defined name, maximum length is 128.",
+                  "minLength": 1,
+                  "maxLength": 128
+                },
+                "userData": {
+                  "type": "string",
+                  "description": "Optional user defined data. Length should not exceed 16K.",
+                  "maxLength": 16384
+                }
+              },
+              "required": [
+                "name"
+              ]
             }
           }
         ],
@@ -5579,12 +5610,18 @@
             "pattern": "^[a-z0-9-_]+$"
           },
           {
-            "name": "resource",
+            "name": "body",
             "in": "body",
-            "description": "The resource instance.",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/PersonDirectoryFaceUpdate"
+              "type": "object",
+              "properties": {
+                "userData": {
+                  "type": "string",
+                  "description": "User-provided data attached to the face. The length limit is 1K.",
+                  "maxLength": 1024
+                }
+              }
             }
           }
         ],
@@ -8409,17 +8446,6 @@
         "persistedFaceId"
       ]
     },
-    "LargeFaceListFaceUpdate": {
-      "type": "object",
-      "description": "Face resource for large face list.",
-      "properties": {
-        "userData": {
-          "type": "string",
-          "description": "User-provided data attached to the face. The length limit is 1K.",
-          "maxLength": 1024
-        }
-      }
-    },
     "LargePersonGroup": {
       "type": "object",
       "description": "The container of the uploaded person data, including face recognition feature, and up to 1,000,000 people.",
@@ -8502,17 +8528,6 @@
       "required": [
         "persistedFaceId"
       ]
-    },
-    "LargePersonGroupPersonFaceUpdate": {
-      "type": "object",
-      "description": "Face resource for large person group person.",
-      "properties": {
-        "userData": {
-          "type": "string",
-          "description": "User-provided data attached to the face. The length limit is 1K.",
-          "maxLength": 1024
-        }
-      }
     },
     "ListFaceResult": {
       "type": "object",
@@ -9222,17 +9237,6 @@
         "persistedFaceId"
       ]
     },
-    "PersonDirectoryFaceUpdate": {
-      "type": "object",
-      "description": "Face resource for person directory person.",
-      "properties": {
-        "userData": {
-          "type": "string",
-          "description": "User-provided data attached to the face. The length limit is 1K.",
-          "maxLength": 1024
-        }
-      }
-    },
     "PersonDirectoryPerson": {
       "type": "object",
       "description": "Person resource for person directory",
@@ -9341,17 +9345,6 @@
       "required": [
         "persistedFaceId"
       ]
-    },
-    "PersonGroupPersonFaceUpdate": {
-      "type": "object",
-      "description": "Face resource for person group person.",
-      "properties": {
-        "userData": {
-          "type": "string",
-          "description": "User-provided data attached to the face. The length limit is 1K.",
-          "maxLength": 1024
-        }
-      }
     },
     "QualityForRecognition": {
       "type": "string",

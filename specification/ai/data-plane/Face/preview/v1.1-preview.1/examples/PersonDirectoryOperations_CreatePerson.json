@@ -3,7 +3,7 @@
   "operationId": "PersonDirectoryOperations_CreatePerson",
   "parameters": {
     "apiVersion": "v1.1-preview.1",
-    "resource": {
+    "body": {
       "name": "your person name",
       "userData": "your user data"
     }

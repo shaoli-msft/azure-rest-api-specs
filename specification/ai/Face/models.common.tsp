@@ -98,6 +98,12 @@ alias CreateCollectionOptions = {
   recognitionModel?: RecognitionModel = "recognition_01";
 };
 
+alias FaceUserData = {
+  @doc("User-provided data attached to the face. The length limit is 1K.")
+  @maxLength(1024)
+  userData?: string;
+};
+
 @doc("Common model for persisted face.")
 @resource("persistedfaces")
 model BaseFace {
@@ -106,9 +112,7 @@ model BaseFace {
   @doc("Face ID of the face.")
   persistedFaceId: uuid;
 
-  @doc("User-provided data attached to the face. The length limit is 1K.")
-  @maxLength(1024)
-  userData?: string;
+  ...FaceUserData;
 }
 
 alias AddFaceOptions = {
