@@ -43,37 +43,36 @@ alias FaceDetectionOptions = {
   faceIdTimeToLive?: int32 = 86400;
 };
 
-#suppress "@azure-tools/typespec-azure-core/use-extensible-enum" "Use fixed enum to represent modelAsString = false"
-#suppress "@azure-tools/typespec-azure-core/no-enum" "Use fixed enum to avoid breaking change"
 @doc("Available options for detect face with attribute.")
-@fixed
-enum FaceAttributeType {
+union FaceAttributeType {
+  string,
+
   @doc("3-D roll/yaw/pitch angles for face direction.")
-  headPose,
+  "headPose",
 
   @doc("Glasses type. Values include 'NoGlasses', 'ReadingGlasses', 'Sunglasses', 'SwimmingGoggles'.")
-  glasses,
+  "glasses",
 
   @doc("Whether each facial area is occluded, including forehead, eyes and mouth.")
-  occlusion,
+  "occlusion",
 
   @doc("Accessories around face, including 'headwear', 'glasses' and 'mask'. Empty array means no accessories detected. Note this is after a face is detected. Large mask could result in no face to be detected.")
-  accessories,
+  "accessories",
 
   @doc("Face is blurry or not. Level returns 'Low', 'Medium' or 'High'. Value returns a number between [0,1], the larger the blurrier.")
-  blur,
+  "blur",
 
   @doc("Face exposure level. Level returns 'GoodExposure', 'OverExposure' or 'UnderExposure'.")
-  exposure,
+  "exposure",
 
   @doc("Noise level of face pixels. Level returns 'Low', 'Medium' and 'High'. Value returns a number between [0,1], the larger the noisier")
-  noise,
+  "noise",
 
   @doc("Whether each face is wearing a mask. Mask type returns 'noMask', 'faceMask', 'otherMaskOrOcclusion', or 'uncertain'. Value returns a boolean 'noseAndMouthCovered' indicating whether nose and mouth are covered.")
-  mask,
+  "mask",
 
   @doc("The overall image quality regarding whether the image being used in the detection is of sufficient quality to attempt face recognition on. The value is an informal rating of low, medium, or high. Only 'high' quality images are recommended for person enrollment and quality at or above 'medium' is recommended for identification scenarios. The attribute is only available when using any combinations of detection models detection_01 or detection_03, and recognition models recognition_03 or recognition_04.")
-  qualityForRecognition,
+  "qualityForRecognition",
 }
 
 @doc("Response for detect API.")
