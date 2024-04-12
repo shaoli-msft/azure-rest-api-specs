@@ -4744,15 +4744,15 @@
               "$ref": "#/definitions/CreatePersonResult"
             },
             "headers": {
-              "operation-Location": {
-                "type": "string",
-                "format": "uri",
-                "description": "The location of an instance of FaceOperationStatus"
-              },
               "Location": {
                 "type": "string",
                 "format": "uri",
                 "description": "The location of an instance of PersonDirectoryPerson"
+              },
+              "operation-Location": {
+                "type": "string",
+                "format": "uri",
+                "description": "The location of an instance of FaceOperationStatus"
               }
             }
           },
@@ -5198,15 +5198,15 @@
               "$ref": "#/definitions/AddFaceResult"
             },
             "headers": {
-              "operation-Location": {
-                "type": "string",
-                "format": "uri",
-                "description": "The location of an instance of FaceOperationStatus"
-              },
               "Location": {
                 "type": "string",
                 "format": "uri",
                 "description": "The location of an instance of PersonDirectoryPerson"
+              },
+              "operation-Location": {
+                "type": "string",
+                "format": "uri",
+                "description": "The location of an instance of FaceOperationStatus"
               }
             }
           },
@@ -6867,15 +6867,15 @@
               "$ref": "#/definitions/AddFaceResult"
             },
             "headers": {
-              "operation-Location": {
-                "type": "string",
-                "format": "uri",
-                "description": "The location of an instance of FaceOperationStatus"
-              },
               "Location": {
                 "type": "string",
                 "format": "uri",
                 "description": "The location of an instance of PersonDirectoryPerson"
+              },
+              "operation-Location": {
+                "type": "string",
+                "format": "uri",
+                "description": "The location of an instance of FaceOperationStatus"
               }
             }
           },
