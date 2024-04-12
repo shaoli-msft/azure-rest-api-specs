@@ -47,4 +47,6 @@ suppressions:
   - code: AvoidAnonymousParameter
     from: Face.json
     reason: Use anonymous parameter to provide interface with flatten parameters
+  - code: RESPONSE_STATUS_CODE_NOT_IN_SPEC
+    reason: Provide rich example for the error response
 ```
