@@ -39,7 +39,7 @@ op IdentifyOperation<T extends TypeSpec.Reflection.Model> is Azure.Core.RpcOpera
     @doc("The range of maxNumOfCandidatesReturned is between 1 and 100 (default is 10).")
     @minValue(1)
     @maxValue(100)
-    maxNumOfCandidatesReturned?: int32;
+    maxNumOfCandidatesReturned?: int32 = 10;
 
     @doc("Customized identification confidence threshold, in the range of [0, 1]. Advanced user can tweak this value to override default internal threshold for better precision on their scenario data. Note there is no guarantee of this threshold value working on other data and after algorithm updates.")
     @minValue(0)
@@ -85,10 +85,12 @@ op FindSimilarOperation<T extends TypeSpec.Reflection.Model> is Azure.Core.RpcOp
     faceId: uuid;
 
     @doc("The number of top similar faces returned. The valid range is [1, 1000].It defaults to 20.")
-    maxNumOfCandidatesReturned?: int32;
+    @minValue(1)
+    @maxValue(1000)
+    maxNumOfCandidatesReturned?: int32 = 20;
 
     @doc("Similar face searching mode. It can be 'matchPerson' or 'matchFace'. It defaults to 'matchPerson'.")
-    mode?: FindSimilarMatchMode;
+    mode?: FindSimilarMatchMode = "matchPerson";
 
     ...T;
   },

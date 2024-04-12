@@ -1640,11 +1640,35 @@
                 "maxNumOfCandidatesReturned": {
                   "type": "integer",
                   "format": "int32",
-                  "description": "The number of top similar faces returned. The valid range is [1, 1000].It defaults to 20."
+                  "description": "The number of top similar faces returned. The valid range is [1, 1000].It defaults to 20.",
+                  "default": 20,
+                  "minimum": 1,
+                  "maximum": 1000
                 },
                 "mode": {
-                  "$ref": "#/definitions/FindSimilarMatchMode",
-                  "description": "Similar face searching mode. It can be 'matchPerson' or 'matchFace'. It defaults to 'matchPerson'."
+                  "type": "string",
+                  "description": "Similar face searching mode. It can be 'matchPerson' or 'matchFace'. It defaults to 'matchPerson'.",
+                  "default": "matchPerson",
+                  "enum": [
+                    "matchPerson",
+                    "matchFace"
+                  ],
+                  "x-ms-enum": {
+                    "name": "FindSimilarMatchMode",
+                    "modelAsString": true,
+                    "values": [
+                      {
+                        "name": "matchPerson",
+                        "value": "matchPerson",
+                        "description": "Match person."
+                      },
+                      {
+                        "name": "matchFace",
+                        "value": "matchFace",
+                        "description": "Match face."
+                      }
+                    ]
+                  }
                 },
                 "faceIds": {
                   "type": "array",
@@ -1776,6 +1800,7 @@
                   "type": "integer",
                   "format": "int32",
                   "description": "The range of maxNumOfCandidatesReturned is between 1 and 100 (default is 10).",
+                  "default": 10,
                   "minimum": 1,
                   "maximum": 100
                 },
@@ -6011,11 +6036,35 @@
                 "maxNumOfCandidatesReturned": {
                   "type": "integer",
                   "format": "int32",
-                  "description": "The number of top similar faces returned. The valid range is [1, 1000].It defaults to 20."
+                  "description": "The number of top similar faces returned. The valid range is [1, 1000].It defaults to 20.",
+                  "default": 20,
+                  "minimum": 1,
+                  "maximum": 1000
                 },
                 "mode": {
-                  "$ref": "#/definitions/FindSimilarMatchMode",
-                  "description": "Similar face searching mode. It can be 'matchPerson' or 'matchFace'. It defaults to 'matchPerson'."
+                  "type": "string",
+                  "description": "Similar face searching mode. It can be 'matchPerson' or 'matchFace'. It defaults to 'matchPerson'.",
+                  "default": "matchPerson",
+                  "enum": [
+                    "matchPerson",
+                    "matchFace"
+                  ],
+                  "x-ms-enum": {
+                    "name": "FindSimilarMatchMode",
+                    "modelAsString": true,
+                    "values": [
+                      {
+                        "name": "matchPerson",
+                        "value": "matchPerson",
+                        "description": "Match person."
+                      },
+                      {
+                        "name": "matchFace",
+                        "value": "matchFace",
+                        "description": "Match face."
+                      }
+                    ]
+                  }
                 },
                 "faceListId": {
                   "type": "string",
@@ -6080,11 +6129,35 @@
                 "maxNumOfCandidatesReturned": {
                   "type": "integer",
                   "format": "int32",
-                  "description": "The number of top similar faces returned. The valid range is [1, 1000].It defaults to 20."
+                  "description": "The number of top similar faces returned. The valid range is [1, 1000].It defaults to 20.",
+                  "default": 20,
+                  "minimum": 1,
+                  "maximum": 1000
                 },
                 "mode": {
-                  "$ref": "#/definitions/FindSimilarMatchMode",
-                  "description": "Similar face searching mode. It can be 'matchPerson' or 'matchFace'. It defaults to 'matchPerson'."
+                  "type": "string",
+                  "description": "Similar face searching mode. It can be 'matchPerson' or 'matchFace'. It defaults to 'matchPerson'.",
+                  "default": "matchPerson",
+                  "enum": [
+                    "matchPerson",
+                    "matchFace"
+                  ],
+                  "x-ms-enum": {
+                    "name": "FindSimilarMatchMode",
+                    "modelAsString": true,
+                    "values": [
+                      {
+                        "name": "matchPerson",
+                        "value": "matchPerson",
+                        "description": "Match person."
+                      },
+                      {
+                        "name": "matchFace",
+                        "value": "matchFace",
+                        "description": "Match face."
+                      }
+                    ]
+                  }
                 },
                 "largeFaceListId": {
                   "type": "string",
@@ -6159,6 +6232,7 @@
                   "type": "integer",
                   "format": "int32",
                   "description": "The range of maxNumOfCandidatesReturned is between 1 and 100 (default is 10).",
+                  "default": 10,
                   "minimum": 1,
                   "maximum": 100
                 },
@@ -6238,6 +6312,7 @@
                   "type": "integer",
                   "format": "int32",
                   "description": "The range of maxNumOfCandidatesReturned is between 1 and 100 (default is 10).",
+                  "default": 10,
                   "minimum": 1,
                   "maximum": 100
                 },
@@ -6322,6 +6397,7 @@
                   "type": "integer",
                   "format": "int32",
                   "description": "The range of maxNumOfCandidatesReturned is between 1 and 100 (default is 10).",
+                  "default": 10,
                   "minimum": 1,
                   "maximum": 100
                 },
@@ -7437,7 +7513,7 @@
         }
       },
       "required": [
-        "faceId"
+        "faceRectangle"
       ]
     },
     "FaceError": {
@@ -7827,30 +7903,6 @@
         "beard",
         "sideburns"
       ]
-    },
-    "FindSimilarMatchMode": {
-      "type": "string",
-      "description": "Similar face searching mode.",
-      "enum": [
-        "matchPerson",
-        "matchFace"
-      ],
-      "x-ms-enum": {
-        "name": "FindSimilarMatchMode",
-        "modelAsString": true,
-        "values": [
-          {
-            "name": "matchPerson",
-            "value": "matchPerson",
-            "description": "Match person."
-          },
-          {
-            "name": "matchFace",
-            "value": "matchFace",
-            "description": "Match face."
-          }
-        ]
-      }
     },
     "FindSimilarResult": {
       "type": "object",
@@ -8257,8 +8309,7 @@
           "description": "Face ids of registered faces in the person.",
           "items": {
             "$ref": "#/definitions/uuid"
-          },
-          "readOnly": true
+          }
         }
       },
       "required": [
@@ -9076,8 +9127,7 @@
           "description": "Face ids of registered faces in the person.",
           "items": {
             "$ref": "#/definitions/uuid"
-          },
-          "readOnly": true
+          }
         }
       },
       "required": [
