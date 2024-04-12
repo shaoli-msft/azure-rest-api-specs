@@ -125,16 +125,16 @@ interface PersonGroupOperations {
   @returnsDoc("A successful call returns an array of person information that belong to the person group.")
   getPersonGroupPersons is FaceResourceListOperation<PersonGroupPerson>;
 
+  @summary(AddPersonGroupPersonFaceSummary)
+  @doc(AddPersonGroupPersonFaceDescription)
+  @returnsDoc(AddFaceSuccess)
+  addPersonGroupPersonFaceFromUrl is AddFaceFromUrl<PersonGroupPersonFace>;
+
   #suppress "@azure-tools/typespec-azure-core/byos" "It's an RPC call to detect face from an image, it doesn't store anything. There's a BYOS version of this call, but it's not this one."
   @summary(AddPersonGroupPersonFaceSummary)
   @doc(AddPersonGroupPersonFaceDescription)
   @returnsDoc(AddFaceSuccess)
   addPersonGroupPersonFace is AddFace<PersonGroupPersonFace>;
-
-  @summary(AddPersonGroupPersonFaceSummary)
-  @doc(AddPersonGroupPersonFaceDescription)
-  @returnsDoc(AddFaceSuccess)
-  addPersonGroupPersonFaceFromUrl is AddFaceFromUrl<PersonGroupPersonFace>;
 
   @summary("Delete a face from a person in a person group by specified personGroupId, personId and persistedFaceId.")
   @doc("""
@@ -251,16 +251,16 @@ interface PersonGroupOperations {
   @returnsDoc("A successful call returns an array of person information that belong to the large person group.")
   getLargePersonGroupPersons is FaceResourceListOperation<LargePersonGroupPerson>;
 
+  @summary(AddLargePersonGroupPersonFaceSummary)
+  @doc(AddLargePersonGroupPersonFaceDescription)
+  @returnsDoc(AddFaceSuccess)
+  addLargePersonGroupPersonFaceFromUrl is AddFaceFromUrl<LargePersonGroupPersonFace>;
+
   #suppress "@azure-tools/typespec-azure-core/byos" "It's an RPC call to detect face from an image, it doesn't store anything. There's a BYOS version of this call, but it's not this one."
   @summary(AddLargePersonGroupPersonFaceSummary)
   @doc(AddLargePersonGroupPersonFaceDescription)
   @returnsDoc(AddFaceSuccess)
   addLargePersonGroupPersonFace is AddFace<LargePersonGroupPersonFace>;
-
-  @summary(AddLargePersonGroupPersonFaceSummary)
-  @doc(AddLargePersonGroupPersonFaceDescription)
-  @returnsDoc(AddFaceSuccess)
-  addLargePersonGroupPersonFaceFromUrl is AddFaceFromUrl<LargePersonGroupPersonFace>;
 
   @summary("Delete a face from a person in a large person group by specified largePersonGroupId, personId and persistedFaceId.")
   @doc("""

@@ -72,16 +72,16 @@ interface FaceListOperations {
     FaceErrorResponse
   >;
 
+  @summary(AddFaceListFaceSummary)
+  @doc(AddFaceListFaceDescription)
+  @returnsDoc(AddFaceSuccess)
+  addFaceListFaceFromUrl is AddFaceFromUrl<FaceListFace>;
+
   #suppress "@azure-tools/typespec-azure-core/byos" "It's an RPC call to detect face from an image, it doesn't store anything. There's a BYOS version of this call, but it's not this one."
   @summary(AddFaceListFaceSummary)
   @doc(AddFaceListFaceDescription)
   @returnsDoc(AddFaceSuccess)
   addFaceListFace is AddFace<FaceListFace>;
-
-  @summary(AddFaceListFaceSummary)
-  @doc(AddFaceListFaceDescription)
-  @returnsDoc(AddFaceSuccess)
-  addFaceListFaceFromUrl is AddFaceFromUrl<FaceListFace>;
 
   @summary("Delete a face from a face list by specified faceListId and persistedFaceId.")
   @doc("Adding/deleting faces to/from a same face list are processed sequentially and to/from different face lists are in parallel.")
@@ -151,16 +151,16 @@ interface FaceListOperations {
   @pollingOperation(FaceListOperations.getLargeFaceListTrainingStatus)
   trainLargeFaceList is FaceResourceTrain<LargeFaceList>;
 
+  @summary(AddLargeFaceListFaceSummary)
+  @doc(AddLargeFaceListFaceDescription)
+  @returnsDoc(AddFaceSuccess)
+  addLargeFaceListFaceFromUrl is AddFaceFromUrl<LargeFaceListFace>;
+
   #suppress "@azure-tools/typespec-azure-core/byos" "It's an RPC call to detect face from an image, it doesn't store anything. There's a BYOS version of this call, but it's not this one."
   @summary(AddLargeFaceListFaceSummary)
   @doc(AddLargeFaceListFaceDescription)
   @returnsDoc(AddFaceSuccess)
   addLargeFaceListFace is AddFace<LargeFaceListFace>;
-
-  @summary(AddLargeFaceListFaceSummary)
-  @doc(AddLargeFaceListFaceDescription)
-  @returnsDoc(AddFaceSuccess)
-  addLargeFaceListFaceFromUrl is AddFaceFromUrl<LargeFaceListFace>;
 
   @doc("Delete a face from a large face list by specified largeFaceListId and persistedFaceId.")
   @returnsDoc(SuccessfulCallWithEmptyBody)
