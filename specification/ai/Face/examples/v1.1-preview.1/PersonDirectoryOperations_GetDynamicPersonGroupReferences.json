@@ -19,23 +19,15 @@
       "body": {
         "error": {
           "code": "BadArgument",
-          "message": "'start' is not valid."
+          "message": "'start' is too long."
         }
       }
     },
     "401": {
       "body": {
         "error": {
-          "code": "Unspecified",
-          "message": "Access denied due to invalid subscription key. Make sure you are subscribed to an API you are trying to call and provide the right key."
-        }
-      }
-    },
-    "403": {
-      "body": {
-        "error": {
-          "statusCode": 403,
-          "message": "Out of call volume quota. Quota will be replenished in 2 days."
+          "code": "401",
+          "message": "Access denied due to invalid subscription key or wrong API endpoint. Make sure to provide a valid key for an active subscription and use a correct regional API endpoint for your resource."
         }
       }
     },
@@ -43,15 +35,15 @@
       "body": {
         "error": {
           "code": "PersonNotFound",
-          "message": "Person ID is invalid."
+          "message": "Person is not found."
         }
       }
     },
     "429": {
       "body": {
         "error": {
-          "statusCode": 429,
-          "message": "Rate limit is exceeded. Try again in 26 seconds."
+          "code": "429",
+          "message": "Rate limit is exceeded."
         }
       }
     }
