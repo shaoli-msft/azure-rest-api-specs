@@ -8522,19 +8522,16 @@
         "createdDateTime": {
           "type": "string",
           "format": "date-time",
-          "description": "Session creation time in millisecond from epoch.",
-          "readOnly": true
+          "description": "Session creation time in millisecond from epoch."
         },
         "sessionStartDateTime": {
           "type": "string",
           "format": "date-time",
-          "description": "Session started time from session auth token.",
-          "readOnly": true
+          "description": "Session started time from session auth token."
         },
         "sessionExpired": {
           "type": "boolean",
-          "description": "Whether or not the session is expired.",
-          "readOnly": true
+          "description": "Whether or not the session is expired."
         },
         "deviceCorrelationId": {
           "type": "string",
@@ -8561,7 +8558,6 @@
         "id",
         "createdDateTime",
         "sessionExpired",
-        "deviceCorrelationId",
         "status"
       ]
     },
@@ -8645,8 +8641,7 @@
         }
       },
       "required": [
-        "livenessOperationMode",
-        "deviceCorrelationId"
+        "livenessOperationMode"
       ]
     },
     "LivenessSessionCreationContentForMultipart": {
@@ -8679,8 +8674,7 @@
         }
       },
       "required": [
-        "livenessOperationMode",
-        "deviceCorrelationId"
+        "livenessOperationMode"
       ]
     },
     "LivenessSessionCreationResult": {
@@ -8713,19 +8707,16 @@
         "createdDateTime": {
           "type": "string",
           "format": "date-time",
-          "description": "Session creation time in millisecond from epoch.",
-          "readOnly": true
+          "description": "Session creation time in millisecond from epoch."
         },
         "sessionStartDateTime": {
           "type": "string",
           "format": "date-time",
-          "description": "Session started time from session auth token.",
-          "readOnly": true
+          "description": "Session started time from session auth token."
         },
         "sessionExpired": {
           "type": "boolean",
-          "description": "Whether or not the session is expired.",
-          "readOnly": true
+          "description": "Whether or not the session is expired."
         },
         "deviceCorrelationId": {
           "type": "string",
@@ -8743,8 +8734,7 @@
       "required": [
         "id",
         "createdDateTime",
-        "sessionExpired",
-        "deviceCorrelationId"
+        "sessionExpired"
       ]
     },
     "LivenessSessionWithVerifyImageCreationContent": {
@@ -8822,19 +8812,16 @@
         "createdDateTime": {
           "type": "string",
           "format": "date-time",
-          "description": "Session creation time in millisecond from epoch.",
-          "readOnly": true
+          "description": "Session creation time in millisecond from epoch."
         },
         "sessionStartDateTime": {
           "type": "string",
           "format": "date-time",
-          "description": "Session started time from session auth token.",
-          "readOnly": true
+          "description": "Session started time from session auth token."
         },
         "sessionExpired": {
           "type": "boolean",
-          "description": "Whether or not the session is expired.",
-          "readOnly": true
+          "description": "Whether or not the session is expired."
         },
         "deviceCorrelationId": {
           "type": "string",
@@ -8861,7 +8848,6 @@
         "id",
         "createdDateTime",
         "sessionExpired",
-        "deviceCorrelationId",
         "status"
       ]
     },
