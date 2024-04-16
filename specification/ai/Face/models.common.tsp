@@ -62,7 +62,7 @@ union RecognitionModel {
 union DetectionModel {
   string,
 
-  @doc("The default detection model for Face - Detect. Recommend for near frontal face detection. For scenarios with exceptionally large angle (head-pose) faces, occluded faces or wrong image orientation, the faces in such cases may not be detected.")
+  @doc("The default detection model. Recommend for near frontal face detection. For scenarios with exceptionally large angle (head-pose) faces, occluded faces or wrong image orientation, the faces in such cases may not be detected.")
   "detection_01",
 
   @doc("Detection model released in 2019 May with improved accuracy especially on small, side and blurry faces.")
@@ -273,9 +273,6 @@ alias AddFaceDescriptionInList = """
   * Out of detectable face size (36x36 - 4096x4096 pixels), large head-pose, or large occlusions will cause failures.
   * The minimum detectable face size is 36x36 pixels in an image no larger than 1920x1080 pixels. Images with dimensions higher than 1920x1080 pixels will need a proportionally larger minimum face size.
   * Different 'detectionModel' values can be provided. To use and compare different detection models, please refer to https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/how-to/specify-detection-model
-    * 'detection_01': The default detection model for PersonDirectory Person - Add Face. Recommend for near frontal face detection. For scenarios with exceptionally large angle (head-pose) faces, occluded faces or wrong image orientation, the faces in such cases may not be detected.
-    * 'detection_02': Detection model released in 2019 May with improved accuracy especially on small, side and blurry faces.
-    * 'detection_03': Detection model released in 2021 February with improved accuracy especially on small faces.
 """;
 
 alias ListRequestOptionsDescriptionInList = """
