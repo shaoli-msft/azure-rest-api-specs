@@ -188,7 +188,9 @@ interface PersonDirectoryOperations {
   #suppress "@azure-tools/typespec-azure-core/long-running-polling-operation-required" "Doesn't fit in generated long-running operation"
   @summary("Creates a new dynamic person group with specified dynamicPersonGroupId, name, and user-provided userData.")
   @doc("""
-    A dynamic person group is a container that references PersonDirectory Person - Create. After creation, use PersonDirectory DynamicPersonGroup - Update to add or remove persons into the dynamic person group. DynamicPersonGroup and UserData will be stored on server until PersonDirectory DynamicPersonGroup - Delete is called. Use Face - Identify with the dynamicPersonGroupId parameter to identify against persons.
+    A dynamic person group is a container that references PersonDirectory Person - Create. After creation, use PersonDirectory DynamicPersonGroup - Update to add or remove persons into the dynamic person group.
+
+    DynamicPersonGroup and UserData will be stored on server until PersonDirectory DynamicPersonGroup - Delete is called. Use Face - Identify with the dynamicPersonGroupId parameter to identify against persons.
 
     No image will be stored. Only the person's extracted face feature(s) and userData will be stored on server until PersonDirectory Person - Delete or PersonDirectory Person - Delete Face is called.
 

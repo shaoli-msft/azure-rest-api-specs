@@ -136,7 +136,7 @@ alias AddFaceOptions = {
 
 @doc("Response body for adding face.")
 model AddFaceResult {
-  @doc("persistedFaceId of the added face, which is persisted and will not expire. Different from faceId which is created in Face - Detect and will expire in 24 hours after the detection call.")
+  @doc("Persisted Face ID of the added face, which is persisted and will not expire. Different from faceId which is created in Face - Detect and will expire in 24 hours after the detection call.")
   persistedFaceId: uuid;
 }
 
