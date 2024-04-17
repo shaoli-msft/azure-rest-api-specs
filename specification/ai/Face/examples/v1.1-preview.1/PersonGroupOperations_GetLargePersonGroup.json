@@ -9,8 +9,8 @@
   "responses": {
     "200": {
       "body": {
-        "name": "your large person group name",
-        "userData": "your user data",
+        "name": "your_large_person_group_name",
+        "userData": "your_user_data",
         "recognitionModel": "recognition_01",
         "largePersonGroupId": "your_large_person_group_id"
       }

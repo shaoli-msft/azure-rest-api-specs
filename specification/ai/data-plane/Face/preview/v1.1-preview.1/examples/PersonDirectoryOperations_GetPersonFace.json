@@ -11,7 +11,7 @@
     "200": {
       "body": {
         "persistedFaceId": "43897a75-8d6f-42cf-885e-74832febb055",
-        "userData": "your user data"
+        "userData": "your_user_data"
       }
     },
     "400": {

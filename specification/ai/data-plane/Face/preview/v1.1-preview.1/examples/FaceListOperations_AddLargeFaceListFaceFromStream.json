@@ -6,7 +6,7 @@
     "largeFaceListId": "your_large_face_list_id",
     "targetFace": "10,10,100,100",
     "detectionModel": "detection_01",
-    "userData": "your user data",
+    "userData": "your_user_data",
     "imageContent": "<your-image-bytes-here>"
   },
   "responses": {

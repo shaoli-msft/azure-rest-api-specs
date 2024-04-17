@@ -11,8 +11,8 @@
     "200": {
       "body": [
         {
-          "name": "your person group name",
-          "userData": "your user data",
+          "name": "your_person_group_name",
+          "userData": "your_user_data",
           "recognitionModel": "recognition_01",
           "personGroupId": "your_person_group_id"
         }

@@ -4,8 +4,8 @@
   "parameters": {
     "apiVersion": "v1.1-preview.1",
     "body": {
-      "name": "your person name",
-      "userData": "your user data"
+      "name": "your_person_name",
+      "userData": "your_user_data"
     }
   },
   "responses": {
