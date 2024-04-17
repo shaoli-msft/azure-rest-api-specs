@@ -1626,7 +1626,7 @@
       "post": {
         "operationId": "FaceRecognitionOperations_FindSimilar",
         "summary": "Given query face's faceId, to search the similar-looking faces from a faceId array. A faceId array contains the faces created by Detect.",
-        "description": "Depending on the input the returned similar faces list contains faceIds or persistedFaceIds ranked by similarity.\n\nFind similar has two working modes, \"matchPerson\" and \"matchFace\". \"matchPerson\" is the default mode that it tries to find faces of the same person as possible by using internal same-person thresholds. It is useful to find a known person's other photos. Note that an empty list will be returned if no faces pass the internal thresholds. \"matchFace\" mode ignores same-person thresholds and returns ranked similar faces anyway, even the similarity is low. It can be used in the cases like searching celebrity-looking faces.\n\nThe 'recognitionModel' associated with the query face's faceId should be the same as the 'recognitionModel' used by the target faceId array, face list or large face list.",
+        "description": "Depending on the input the returned similar faces list contains faceIds or persistedFaceIds ranked by similarity.\n\nFind similar has two working modes, \"matchPerson\" and \"matchFace\". \"matchPerson\" is the default mode that it tries to find faces of the same person as possible by using internal same-person thresholds. It is useful to find a known person's other photos. Note that an empty list will be returned if no faces pass the internal thresholds. \"matchFace\" mode ignores same-person thresholds and returns ranked similar faces anyway, even the similarity is low. It can be used in the cases like searching celebrity-looking faces.\n\nThe 'recognitionModel' associated with the query faceId should be the same as the 'recognitionModel' used by the target faceId array.",
         "parameters": [
           {
             "name": "body",
@@ -1776,7 +1776,7 @@
       "post": {
         "operationId": "FaceRecognitionOperations_IdentifyFromPersonGroup",
         "summary": "1-to-many identification to find the closest matches of the specific query person face from a person group.",
-        "description": "For each face in the faceIds array, Face Identify will compute similarities between the query face and all the faces in the person group (given by personGroupId) or large person group (given by largePersonGroupId), and return candidate person(s) for that face ranked by similarity confidence. The person group/large person group should be trained to make it ready for identification. See more in PersonGroup - Train and LargePersonGroup - Train.\n\n> [!NOTE]\n> * The algorithm allows more than one face to be identified independently at the same request, but no more than 10 faces.\n> * Each person in the person group/large person group could have more than one face, but no more than 248 faces.\n> * Higher face image quality means better identification precision. Please consider high-quality faces: frontal, clear, and face size is 200x200 pixels (100 pixels between eyes) or bigger.\n> * Number of candidates returned is restricted by maxNumOfCandidatesReturned and confidenceThreshold. If no person is identified, the returned candidates will be an empty array.\n> * Try Face - Find Similar when you need to find similar faces from a face list/large face list instead of a person group/large person group.\n> * The 'recognitionModel' associated with the query faces' faceIds should be the same as the 'recognitionModel' used by the target person group or large person group.",
+        "description": "For each face in the faceIds array, Face Identify will compute similarities between the query face and all the faces in the Person Group (given by personGroupId), and return candidate person(s) for that face ranked by similarity confidence. The person group should be trained to make it ready for identification. See more in PersonGroup - Train.\n> [!NOTE]\n> * The algorithm allows more than one face to be identified independently at the same request, but no more than 10 faces.\n> * Each person could have more than one face, but no more than 248 faces.\n> * Higher face image quality means better identification precision. Please consider high-quality faces: frontal, clear, and face size is 200x200 pixels (100 pixels between eyes) or bigger.\n> * Number of candidates returned is restricted by maxNumOfCandidatesReturned and confidenceThreshold. If no person is identified, the returned candidates will be an empty array.\n> * Try Face - Find Similar when you need to find similar faces from a face list/large face list instead of a Person Group.\n> * The 'recognitionModel' associated with the query faces' faceIds should be the same as the 'recognitionModel' used by the target Person Group.",
         "parameters": [
           {
             "name": "body",
@@ -5576,7 +5576,7 @@
       "post": {
         "operationId": "FaceRecognitionOperations_VerifyFaceToFace",
         "summary": "Verify whether two faces belong to a same person.",
-        "description": "> [!NOTE]\n> * Higher face image quality means better identification precision. Please consider high-quality faces: frontal, clear, and face size is 200x200 pixels (100 pixels between eyes) or bigger.\n> * For the scenarios that are sensitive to accuracy please make your own judgment.\n> * The 'recognitionModel' associated with the query faces' faceIds should be the same as the 'recognitionModel' used by the target face, person group or large person group.",
+        "description": "> [!NOTE]\n> * Higher face image quality means better identification precision. Please consider high-quality faces: frontal, clear, and face size is 200x200 pixels (100 pixels between eyes) or bigger.\n> * For the scenarios that are sensitive to accuracy please make your own judgment.\n> * The 'recognitionModel' associated with the both faces should be the same.",
         "parameters": [
           {
             "name": "body",
@@ -5587,11 +5587,11 @@
               "properties": {
                 "faceId1": {
                   "$ref": "#/definitions/uuid",
-                  "description": "faceId of one face, comes from Face - Detect."
+                  "description": "The faceId of one face, come from Face - Detect."
                 },
                 "faceId2": {
                   "$ref": "#/definitions/uuid",
-                  "description": "faceId of another face, comes from Face - Detect."
+                  "description": "The faceId of another face, come from Face - Detect."
                 }
               },
               "required": [
@@ -6021,8 +6021,8 @@
     "/findsimilars?_overload=findSimilarFromFaceList": {
       "post": {
         "operationId": "FaceRecognitionOperations_FindSimilarFromFaceList",
-        "summary": "Given query face's faceId, to search the similar-looking faces from a face list. A 'faceListId' is created by Create Face List.",
-        "description": "Depending on the input the returned similar faces list contains faceIds or persistedFaceIds ranked by similarity.\n\nFind similar has two working modes, \"matchPerson\" and \"matchFace\". \"matchPerson\" is the default mode that it tries to find faces of the same person as possible by using internal same-person thresholds. It is useful to find a known person's other photos. Note that an empty list will be returned if no faces pass the internal thresholds. \"matchFace\" mode ignores same-person thresholds and returns ranked similar faces anyway, even the similarity is low. It can be used in the cases like searching celebrity-looking faces.\n\nThe 'recognitionModel' associated with the query face's faceId should be the same as the 'recognitionModel' used by the target faceId array, face list or large face list.",
+        "summary": "Given query face's faceId, to search the similar-looking faces from a Face List. A 'faceListId' is created by Create Face List.",
+        "description": "Depending on the input the returned similar faces list contains faceIds or persistedFaceIds ranked by similarity.\n\nFind similar has two working modes, \"matchPerson\" and \"matchFace\". \"matchPerson\" is the default mode that it tries to find faces of the same person as possible by using internal same-person thresholds. It is useful to find a known person's other photos. Note that an empty list will be returned if no faces pass the internal thresholds. \"matchFace\" mode ignores same-person thresholds and returns ranked similar faces anyway, even the similarity is low. It can be used in the cases like searching celebrity-looking faces.\n\nThe 'recognitionModel' associated with the query faceId should be the same as the 'recognitionModel' used by the target Face List.",
         "parameters": [
           {
             "name": "body",
@@ -6114,8 +6114,8 @@
     "/findsimilars?_overload=findSimilarFromLargeFaceList": {
       "post": {
         "operationId": "FaceRecognitionOperations_FindSimilarFromLargeFaceList",
-        "summary": "Given query face's faceId, to search the similar-looking faces from a large face list. A 'largeFaceListId' is created by Create large Face List.",
-        "description": "Depending on the input the returned similar faces list contains faceIds or persistedFaceIds ranked by similarity.\n\nFind similar has two working modes, \"matchPerson\" and \"matchFace\". \"matchPerson\" is the default mode that it tries to find faces of the same person as possible by using internal same-person thresholds. It is useful to find a known person's other photos. Note that an empty list will be returned if no faces pass the internal thresholds. \"matchFace\" mode ignores same-person thresholds and returns ranked similar faces anyway, even the similarity is low. It can be used in the cases like searching celebrity-looking faces.\n\nThe 'recognitionModel' associated with the query face's faceId should be the same as the 'recognitionModel' used by the target faceId array, face list or large face list.",
+        "summary": "Given query face's faceId, to search the similar-looking faces from a Large Face List. A 'largeFaceListId' is created by Create Large Face List.",
+        "description": "Depending on the input the returned similar faces list contains faceIds or persistedFaceIds ranked by similarity.\n\nFind similar has two working modes, \"matchPerson\" and \"matchFace\". \"matchPerson\" is the default mode that it tries to find faces of the same person as possible by using internal same-person thresholds. It is useful to find a known person's other photos. Note that an empty list will be returned if no faces pass the internal thresholds. \"matchFace\" mode ignores same-person thresholds and returns ranked similar faces anyway, even the similarity is low. It can be used in the cases like searching celebrity-looking faces.\n\nThe 'recognitionModel' associated with the query faceId should be the same as the 'recognitionModel' used by the target Large Face List.",
         "parameters": [
           {
             "name": "body",
@@ -6208,7 +6208,7 @@
       "post": {
         "operationId": "FaceRecognitionOperations_IdentifyFromDynamicPersonGroup",
         "summary": "1-to-many identification to find the closest matches of the specific query person face from a dynamic person group.",
-        "description": "For each face in the faceIds array, Face Identify will compute similarities between the query face and all the faces in the person group (given by personGroupId) or large person group (given by largePersonGroupId), and return candidate person(s) for that face ranked by similarity confidence. The person group/large person group should be trained to make it ready for identification. See more in PersonGroup - Train and LargePersonGroup - Train.\n\n> [!NOTE]\n> * The algorithm allows more than one face to be identified independently at the same request, but no more than 10 faces.\n> * Each person in the person group/large person group could have more than one face, but no more than 248 faces.\n> * Higher face image quality means better identification precision. Please consider high-quality faces: frontal, clear, and face size is 200x200 pixels (100 pixels between eyes) or bigger.\n> * Number of candidates returned is restricted by maxNumOfCandidatesReturned and confidenceThreshold. If no person is identified, the returned candidates will be an empty array.\n> * Try Face - Find Similar when you need to find similar faces from a face list/large face list instead of a person group/large person group.\n> * The 'recognitionModel' associated with the query faces' faceIds should be the same as the 'recognitionModel' used by the target person group or large person group.",
+        "description": "For each face in the faceIds array, Face Identify will compute similarities between the query face and all the faces in the Dynamic Person Group (given by dynamicPersonGroupId), and return candidate person(s) for that face ranked by similarity confidence.\n> [!NOTE]\n> * The algorithm allows more than one face to be identified independently at the same request, but no more than 10 faces.\n> * Each person could have more than one face, but no more than 248 faces.\n> * Higher face image quality means better identification precision. Please consider high-quality faces: frontal, clear, and face size is 200x200 pixels (100 pixels between eyes) or bigger.\n> * Number of candidates returned is restricted by maxNumOfCandidatesReturned and confidenceThreshold. If no person is identified, the returned candidates will be an empty array.\n> * The Identify operation can only match faces obtained with the same recognition model, that is associated with the query faces.",
         "parameters": [
           {
             "name": "body",
@@ -6288,7 +6288,7 @@
       "post": {
         "operationId": "FaceRecognitionOperations_IdentifyFromLargePersonGroup",
         "summary": "1-to-many identification to find the closest matches of the specific query person face from a large person group.",
-        "description": "For each face in the faceIds array, Face Identify will compute similarities between the query face and all the faces in the person group (given by personGroupId) or large person group (given by largePersonGroupId), and return candidate person(s) for that face ranked by similarity confidence. The person group/large person group should be trained to make it ready for identification. See more in PersonGroup - Train and LargePersonGroup - Train.\n\n> [!NOTE]\n> * The algorithm allows more than one face to be identified independently at the same request, but no more than 10 faces.\n> * Each person in the person group/large person group could have more than one face, but no more than 248 faces.\n> * Higher face image quality means better identification precision. Please consider high-quality faces: frontal, clear, and face size is 200x200 pixels (100 pixels between eyes) or bigger.\n> * Number of candidates returned is restricted by maxNumOfCandidatesReturned and confidenceThreshold. If no person is identified, the returned candidates will be an empty array.\n> * Try Face - Find Similar when you need to find similar faces from a face list/large face list instead of a person group/large person group.\n> * The 'recognitionModel' associated with the query faces' faceIds should be the same as the 'recognitionModel' used by the target person group or large person group.",
+        "description": "For each face in the faceIds array, Face Identify will compute similarities between the query face and all the faces in the Large Person Group (given by largePersonGroupId), and return candidate person(s) for that face ranked by similarity confidence. The large person group should be trained to make it ready for identification. See more in LargePersonGroup - Train.\n> [!NOTE]\n> * The algorithm allows more than one face to be identified independently at the same request, but no more than 10 faces.\n> * Each person could have more than one face, but no more than 248 faces.\n> * Higher face image quality means better identification precision. Please consider high-quality faces: frontal, clear, and face size is 200x200 pixels (100 pixels between eyes) or bigger.\n> * Number of candidates returned is restricted by maxNumOfCandidatesReturned and confidenceThreshold. If no person is identified, the returned candidates will be an empty array.\n> * Try Face - Find Similar when you need to find similar faces from a face list/large face list instead of a person group/large person group.\n> * The 'recognitionModel' associated with the query faces' faceIds should be the same as the 'recognitionModel' used by the target person group or large person group.",
         "parameters": [
           {
             "name": "body",
@@ -6368,7 +6368,7 @@
       "post": {
         "operationId": "FaceRecognitionOperations_IdentifyFromPersonDirectory",
         "summary": "1-to-many identification to find the closest matches of the specific query person face from a person directory personIds array.",
-        "description": "For each face in the faceIds array, Face Identify will compute similarities between the query face and all the faces in the person group (given by personGroupId) or large person group (given by largePersonGroupId), and return candidate person(s) for that face ranked by similarity confidence. The person group/large person group should be trained to make it ready for identification. See more in PersonGroup - Train and LargePersonGroup - Train.\n\n> [!NOTE]\n> * The algorithm allows more than one face to be identified independently at the same request, but no more than 10 faces.\n> * Each person in the person group/large person group could have more than one face, but no more than 248 faces.\n> * Higher face image quality means better identification precision. Please consider high-quality faces: frontal, clear, and face size is 200x200 pixels (100 pixels between eyes) or bigger.\n> * Number of candidates returned is restricted by maxNumOfCandidatesReturned and confidenceThreshold. If no person is identified, the returned candidates will be an empty array.\n> * Try Face - Find Similar when you need to find similar faces from a face list/large face list instead of a person group/large person group.\n> * The 'recognitionModel' associated with the query faces' faceIds should be the same as the 'recognitionModel' used by the target person group or large person group.",
+        "description": "For each face in the faceIds array, Face Identify will compute similarities between the query face and all the faces in the Person Directory Persons (given by personIds), and return candidate person(s) for that face ranked by similarity confidence.\n> [!NOTE]\n> * The algorithm allows more than one face to be identified independently at the same request, but no more than 10 faces.\n> * Each person could have more than one face, but no more than 248 faces.\n> * Higher face image quality means better identification precision. Please consider high-quality faces: frontal, clear, and face size is 200x200 pixels (100 pixels between eyes) or bigger.\n> * Number of candidates returned is restricted by maxNumOfCandidatesReturned and confidenceThreshold. If no person is identified, the returned candidates will be an empty array.\n> * The Identify operation can only match faces obtained with the same recognition model, that is associated with the query faces.",
         "parameters": [
           {
             "name": "body",
@@ -6980,8 +6980,8 @@
     "/verify?_overload=verifyFromLargePersonGroup": {
       "post": {
         "operationId": "FaceRecognitionOperations_VerifyFromLargePersonGroup",
-        "summary": "Verify whether one face belongs to a person in large person group.",
-        "description": "> [!NOTE]\n> * Higher face image quality means better identification precision. Please consider high-quality faces: frontal, clear, and face size is 200x200 pixels (100 pixels between eyes) or bigger.\n> * For the scenarios that are sensitive to accuracy please make your own judgment.\n> * The 'recognitionModel' associated with the query faces' faceIds should be the same as the 'recognitionModel' used by the target face, person group or large person group.",
+        "summary": "Verify whether a face belongs to a person in a Large Person Group.",
+        "description": "> [!NOTE]\n> * Higher face image quality means better identification precision. Please consider high-quality faces: frontal, clear, and face size is 200x200 pixels (100 pixels between eyes) or bigger.\n> * For the scenarios that are sensitive to accuracy please make your own judgment.\n> * The 'recognitionModel' associated with the query face should be the same as the 'recognitionModel' used by the Large Person Group.",
         "parameters": [
           {
             "name": "body",
@@ -6992,7 +6992,7 @@
               "properties": {
                 "faceId": {
                   "$ref": "#/definitions/uuid",
-                  "description": "faceId of the face, comes from Face - Detect."
+                  "description": "The faceId of the face, come from Face - Detect."
                 },
                 "largePersonGroupId": {
                   "type": "string",
@@ -7000,7 +7000,7 @@
                 },
                 "personId": {
                   "$ref": "#/definitions/uuid",
-                  "description": "Specify a certain person in large person group."
+                  "description": "Specify a certain person in Large Person Group."
                 }
               },
               "required": [
@@ -7041,8 +7041,8 @@
     "/verify?_overload=verifyFromPersonDirectory": {
       "post": {
         "operationId": "FaceRecognitionOperations_VerifyFromPersonDirectory",
-        "summary": "Verify whether one face belongs to a person directory person.",
-        "description": "> [!NOTE]\n> * Higher face image quality means better identification precision. Please consider high-quality faces: frontal, clear, and face size is 200x200 pixels (100 pixels between eyes) or bigger.\n> * For the scenarios that are sensitive to accuracy please make your own judgment.\n> * The 'recognitionModel' associated with the query faces' faceIds should be the same as the 'recognitionModel' used by the target face, person group or large person group.",
+        "summary": "Verify whether a face belongs to a person in Person Directory.",
+        "description": "> [!NOTE]\n> * Higher face image quality means better identification precision. Please consider high-quality faces: frontal, clear, and face size is 200x200 pixels (100 pixels between eyes) or bigger.\n> * For the scenarios that are sensitive to accuracy please make your own judgment.\n> * The Verify operation can only match faces obtained with the same recognition model, that is associated with the query face.",
         "parameters": [
           {
             "name": "body",
@@ -7053,7 +7053,7 @@
               "properties": {
                 "faceId": {
                   "$ref": "#/definitions/uuid",
-                  "description": "faceId of the face, comes from Face - Detect."
+                  "description": "The faceId of the face, come from Face - Detect."
                 },
                 "personId": {
                   "type": "string",
@@ -7097,8 +7097,8 @@
     "/verify?_overload=verifyFromPersonGroup": {
       "post": {
         "operationId": "FaceRecognitionOperations_VerifyFromPersonGroup",
-        "summary": "Verify whether one face belongs to a person in person group.",
-        "description": "> [!NOTE]\n> * Higher face image quality means better identification precision. Please consider high-quality faces: frontal, clear, and face size is 200x200 pixels (100 pixels between eyes) or bigger.\n> * For the scenarios that are sensitive to accuracy please make your own judgment.\n> * The 'recognitionModel' associated with the query faces' faceIds should be the same as the 'recognitionModel' used by the target face, person group or large person group.",
+        "summary": "Verify whether a face belongs to a person in a Person Group.",
+        "description": "> [!NOTE]\n> * Higher face image quality means better identification precision. Please consider high-quality faces: frontal, clear, and face size is 200x200 pixels (100 pixels between eyes) or bigger.\n> * For the scenarios that are sensitive to accuracy please make your own judgment.\n> * The 'recognitionModel' associated with the query face should be the same as the 'recognitionModel' used by the Person Group.",
         "parameters": [
           {
             "name": "body",
@@ -7109,7 +7109,7 @@
               "properties": {
                 "faceId": {
                   "$ref": "#/definitions/uuid",
-                  "description": "faceId of the face, comes from Face - Detect."
+                  "description": "The faceId of the face, come from Face - Detect."
                 },
                 "personGroupId": {
                   "type": "string",
@@ -7117,7 +7117,7 @@
                 },
                 "personId": {
                   "$ref": "#/definitions/uuid",
-                  "description": "Specify a certain person in person group."
+                  "description": "Specify a certain person in Person Group."
                 }
               },
               "required": [
