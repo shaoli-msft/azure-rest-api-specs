@@ -17,46 +17,6 @@
       "body": {
         "personId": "85c0c630-c9c9-40f8-8a4e-f9ae4f926ea5"
       }
-    },
-    "400": {
-      "body": {
-        "error": {
-          "code": "BadArgument",
-          "message": "'name' is too long."
-        }
-      }
-    },
-    "401": {
-      "body": {
-        "error": {
-          "code": "401",
-          "message": "Access denied due to invalid subscription key or wrong API endpoint. Make sure to provide a valid key for an active subscription and use a correct regional API endpoint for your resource."
-        }
-      }
-    },
-    "403": {
-      "body": {
-        "error": {
-          "code": "QuotaExceeded",
-          "message": "Person number reached subscription level limit."
-        }
-      }
-    },
-    "415": {
-      "body": {
-        "error": {
-          "code": "BadArgument",
-          "message": "Invalid Media Type."
-        }
-      }
-    },
-    "429": {
-      "body": {
-        "error": {
-          "code": "429",
-          "message": "Rate limit is exceeded."
-        }
-      }
     }
   }
 }

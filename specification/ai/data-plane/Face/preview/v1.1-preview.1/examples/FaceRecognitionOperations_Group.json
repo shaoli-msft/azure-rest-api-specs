@@ -36,38 +36,6 @@
           "fbd2a038-dbff-452c-8e79-2ee81b1aa84e"
         ]
       }
-    },
-    "400": {
-      "body": {
-        "error": {
-          "code": "BadArgument",
-          "message": "Request body is invalid."
-        }
-      }
-    },
-    "401": {
-      "body": {
-        "error": {
-          "code": "401",
-          "message": "Access denied due to invalid subscription key or wrong API endpoint. Make sure to provide a valid key for an active subscription and use a correct regional API endpoint for your resource."
-        }
-      }
-    },
-    "415": {
-      "body": {
-        "error": {
-          "code": "BadArgument",
-          "message": "Invalid Media Type."
-        }
-      }
-    },
-    "429": {
-      "body": {
-        "error": {
-          "code": "429",
-          "message": "Rate limit is exceeded."
-        }
-      }
     }
   }
 }

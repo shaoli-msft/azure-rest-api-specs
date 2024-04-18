@@ -21,46 +21,6 @@
       "headers": {
         "operation-Location": "https://contoso.com/operationstatus"
       }
-    },
-    "400": {
-      "body": {
-        "error": {
-          "code": "BadArgument",
-          "message": "'name' is too long."
-        }
-      }
-    },
-    "401": {
-      "body": {
-        "error": {
-          "code": "401",
-          "message": "Access denied due to invalid subscription key or wrong API endpoint. Make sure to provide a valid key for an active subscription and use a correct regional API endpoint for your resource."
-        }
-      }
-    },
-    "404": {
-      "body": {
-        "error": {
-          "code": "DynamicPersonGroupNotFound",
-          "message": "Dynamic person group was not found."
-        }
-      }
-    },
-    "415": {
-      "body": {
-        "error": {
-          "code": "BadArgument",
-          "message": "Invalid Media Type."
-        }
-      }
-    },
-    "429": {
-      "body": {
-        "error": {
-          "code": "429",
-          "message": "Rate limit is exceeded."
-        }
-      }
     }
   }
 }

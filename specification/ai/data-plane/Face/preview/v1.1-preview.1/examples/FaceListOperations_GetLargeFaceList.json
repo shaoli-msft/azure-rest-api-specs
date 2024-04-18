@@ -14,30 +14,6 @@
         "recognitionModel": "recognition_01",
         "largeFaceListId": "your_large_face_list_id"
       }
-    },
-    "401": {
-      "body": {
-        "error": {
-          "code": "401",
-          "message": "Access denied due to invalid subscription key or wrong API endpoint. Make sure to provide a valid key for an active subscription and use a correct regional API endpoint for your resource."
-        }
-      }
-    },
-    "404": {
-      "body": {
-        "error": {
-          "code": "LargeFaceListNotFound",
-          "message": "Large face list is not found."
-        }
-      }
-    },
-    "429": {
-      "body": {
-        "error": {
-          "code": "429",
-          "message": "Rate limit is exceeded."
-        }
-      }
     }
   }
 }

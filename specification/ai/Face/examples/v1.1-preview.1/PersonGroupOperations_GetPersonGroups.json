@@ -17,38 +17,6 @@
           "personGroupId": "your_person_group_id"
         }
       ]
-    },
-    "400": {
-      "body": {
-        "error": {
-          "code": "BadArgument",
-          "message": "'top' is invalid."
-        }
-      }
-    },
-    "401": {
-      "body": {
-        "error": {
-          "code": "401",
-          "message": "Access denied due to invalid subscription key or wrong API endpoint. Make sure to provide a valid key for an active subscription and use a correct regional API endpoint for your resource."
-        }
-      }
-    },
-    "409": {
-      "body": {
-        "error": {
-          "code": "ConcurrentOperationConflict",
-          "message": "There is a conflict operation on resource <resource-name>, please try later."
-        }
-      }
-    },
-    "429": {
-      "body": {
-        "error": {
-          "code": "429",
-          "message": "Rate limit is exceeded."
-        }
-      }
     }
   }
 }

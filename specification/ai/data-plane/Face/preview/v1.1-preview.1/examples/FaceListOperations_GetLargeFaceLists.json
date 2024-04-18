@@ -17,30 +17,6 @@
           "largeFaceListId": "your_large_face_list_id"
         }
       ]
-    },
-    "400": {
-      "body": {
-        "error": {
-          "code": "BadArgument",
-          "message": "'top' is invalid."
-        }
-      }
-    },
-    "401": {
-      "body": {
-        "error": {
-          "code": "401",
-          "message": "Access denied due to invalid subscription key or wrong API endpoint. Make sure to provide a valid key for an active subscription and use a correct regional API endpoint for your resource."
-        }
-      }
-    },
-    "429": {
-      "body": {
-        "error": {
-          "code": "429",
-          "message": "Rate limit is exceeded."
-        }
-      }
     }
   }
 }

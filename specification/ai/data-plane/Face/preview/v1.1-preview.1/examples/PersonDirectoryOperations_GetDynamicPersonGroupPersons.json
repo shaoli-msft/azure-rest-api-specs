@@ -15,38 +15,6 @@
           "c1d3b745-2548-4abf-b057-a386c9bd52f1"
         ]
       }
-    },
-    "400": {
-      "body": {
-        "error": {
-          "code": "BadArgument",
-          "message": "'start' is not valid person id."
-        }
-      }
-    },
-    "401": {
-      "body": {
-        "error": {
-          "code": "401",
-          "message": "Access denied due to invalid subscription key or wrong API endpoint. Make sure to provide a valid key for an active subscription and use a correct regional API endpoint for your resource."
-        }
-      }
-    },
-    "404": {
-      "body": {
-        "error": {
-          "code": "DynamicPersonGroupNotFound",
-          "message": "Dynamic person group was not found."
-        }
-      }
-    },
-    "429": {
-      "body": {
-        "error": {
-          "code": "429",
-          "message": "Rate limit is exceeded."
-        }
-      }
     }
   }
 }
