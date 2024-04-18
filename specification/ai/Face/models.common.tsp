@@ -278,14 +278,15 @@ alias AddFaceDescriptionInList = """
 alias ListRequestOptionsDescriptionInList = """
 >
 *
-  * "start" parameter (string, optional) is a id value that returned entries have larger ids by string comparison. "start" set to empty to indicate return from the first item.
-  * "top" parameter (int, optional) specifies the number of entries to return. A maximal of 1000 entries can be returned in one call. To fetch more, you can specify "start" with the last returned entry's personId of the current call.
+  * "start" parameter (string, optional) specifies an ID value from which returned entries will have larger IDs based on string comparison. Setting "start" to an empty value indicates that entries should be returned starting from the first item.
+  * "top" parameter (int, optional) determines the maximum number of entries to be returned, with a limit of up to 1000 entries per call. To retrieve additional entries beyond this limit, specify "start" with the personId of the last entry returned in the current call.
 
 > [!TIP]
-> For example, total 5 items with their id: "itemId1", ..., "itemId5".
-> * "start=&top=" will return all 5 items.
-> * "start=&top=2" will return "itemId1", "itemId2".
-> * "start=itemId2&top=3" will return "itemId3", "itemId4", "itemId5".
+>
+> * For example, there are total 5 items with their IDs: "itemId1", ..., "itemId5".
+>   * "start=&top=" will return all 5 items.
+>   * "start=&top=2" will return "itemId1", "itemId2".
+>   * "start=itemId2&top=3" will return "itemId3", "itemId4", "itemId5".
 """;
 
 @doc("The error object.")

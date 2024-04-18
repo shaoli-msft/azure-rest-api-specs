@@ -26,8 +26,10 @@ alias AddLargeFaceListFaceDescription = """
   ${AddFaceDescriptionInList}
 
   > [!NOTE]
-  > * Free-tier subscription quota: 1,000 faces per large face list.
-  > * S0-tier subscription quota: 1,000,000 faces per large face list.
+  >
+  > *
+  >   * Free-tier subscription quota: 1,000 faces per large face list.
+  >   * S0-tier subscription quota: 1,000,000 faces per large face list.
   """;
 
 interface FaceListOperations {
@@ -97,8 +99,10 @@ interface FaceListOperations {
     Find Similar is used for scenario like finding celebrity-like faces, similar face filtering, or as a light way face identification. But if the actual use is to identify person, please use Person Group / Large Person Group and Identify.
 
     > [!NOTE]
-    > * Free-tier subscription quota: 64 large face lists.
-    > * S0-tier subscription quota: 1,000,000 large face lists.
+    >
+    > *
+    >   * Free-tier subscription quota: 64 large face lists.
+    >   * S0-tier subscription quota: 1,000,000 large face lists.
     """)
   @returnsDoc(SuccessfulCallWithEmptyBody)
   createLargeFaceList is FaceCollectionResourceCreateOperation<LargeFaceList>;

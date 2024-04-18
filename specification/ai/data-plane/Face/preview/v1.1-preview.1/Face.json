@@ -790,8 +790,8 @@
     "/dynamicpersongroups": {
       "get": {
         "operationId": "PersonDirectoryOperations_GetDynamicPersonGroups",
-        "summary": "List all existing dynamic person groups by dynamicPersonGroupId along with name and userData.",
-        "description": "Dynamic person groups are stored in alphabetical order of dynamicPersonGroupId.\n>\n*\n  * \"start\" parameter (string, optional) is a id value that returned entries have larger ids by string comparison. \"start\" set to empty to indicate return from the first item.\n  * \"top\" parameter (int, optional) specifies the number of entries to return. A maximal of 1000 entries can be returned in one call. To fetch more, you can specify \"start\" with the last returned entry's personId of the current call.\n\n> [!TIP]\n> For example, total 5 items with their id: \"itemId1\", ..., \"itemId5\".\n> * \"start=&top=\" will return all 5 items.\n> * \"start=&top=2\" will return \"itemId1\", \"itemId2\".\n> * \"start=itemId2&top=3\" will return \"itemId3\", \"itemId4\", \"itemId5\".",
+        "summary": "List all existing Dynamic Person Groups by dynamicPersonGroupId along with name and userData.",
+        "description": "Dynamic Person Groups are stored in alphabetical order of dynamicPersonGroupId.\n>\n*\n  * \"start\" parameter (string, optional) specifies an ID value from which returned entries will have larger IDs based on string comparison. Setting \"start\" to an empty value indicates that entries should be returned starting from the first item.\n  * \"top\" parameter (int, optional) determines the maximum number of entries to be returned, with a limit of up to 1000 entries per call. To retrieve additional entries beyond this limit, specify \"start\" with the personId of the last entry returned in the current call.\n\n> [!TIP]\n>\n> * For example, there are total 5 items with their IDs: \"itemId1\", ..., \"itemId5\".\n>   * \"start=&top=\" will return all 5 items.\n>   * \"start=&top=2\" will return \"itemId1\", \"itemId2\".\n>   * \"start=itemId2&top=3\" will return \"itemId3\", \"itemId4\", \"itemId5\".",
         "parameters": [
           {
             "name": "start",
@@ -814,7 +814,7 @@
         ],
         "responses": {
           "200": {
-            "description": "A successful call returns an array of dynamic person groups and their information (dynamicPersonGroupId, name and userData).",
+            "description": "A successful call returns an array of Dynamic Person Groups and their information (dynamicPersonGroupId, name and userData).",
             "schema": {
               "type": "array",
               "items": {
@@ -846,8 +846,8 @@
     "/dynamicpersongroups/{dynamicPersonGroupId}": {
       "get": {
         "operationId": "PersonDirectoryOperations_GetDynamicPersonGroup",
-        "summary": "Retrieve the information of a dynamic person group, including its name and userData.",
-        "description": "This API returns dynamic person group information only, use PersonDirectory DynamicPersonGroup - List Persons instead to retrieve person information under the dynamic person group.",
+        "summary": "Retrieve the information of a Dynamic Person Group, including its name and userData.",
+        "description": "This API returns Dynamic Person Group information only, use PersonDirectory DynamicPersonGroup - List Persons instead to retrieve person information under the Dynamic Person Group.",
         "parameters": [
           {
             "name": "dynamicPersonGroupId",
@@ -862,7 +862,7 @@
         ],
         "responses": {
           "200": {
-            "description": "A successful call returns the dynamic person group's information.",
+            "description": "A successful call returns the Dynamic Person Group's information.",
             "schema": {
               "$ref": "#/definitions/DynamicPersonGroup"
             }
@@ -888,8 +888,8 @@
       },
       "put": {
         "operationId": "PersonDirectoryOperations_CreateDynamicPersonGroup",
-        "summary": "Creates a new dynamic person group with specified dynamicPersonGroupId, name, and user-provided userData.",
-        "description": "A dynamic person group is a container that references PersonDirectory Person - Create. After creation, use PersonDirectory DynamicPersonGroup - Update to add or remove persons into the dynamic person group.\n\nDynamicPersonGroup and UserData will be stored on server until PersonDirectory DynamicPersonGroup - Delete is called. Use Face - Identify with the dynamicPersonGroupId parameter to identify against persons.\n\nNo image will be stored. Only the person's extracted face feature(s) and userData will be stored on server until PersonDirectory Person - Delete or PersonDirectory Person - Delete Face is called.\n\n'recognitionModel' does not need to be specified with dynamic person groups. Dynamic person groups are references to PersonDirectory Person - Create and therefore work with most all 'recognitionModels'. The faceId's provided during Face - Identify determine the 'recognitionModel' used.",
+        "summary": "Creates a new Dynamic Person Group with specified dynamicPersonGroupId, name, and user-provided userData.",
+        "description": "A Dynamic Person Group is a container that references PersonDirectory Person - Create. After creation, use PersonDirectory DynamicPersonGroup - Update to add or remove persons into the Dynamic Person Group.\n\nDynamicPersonGroup and UserData will be stored on server until PersonDirectory DynamicPersonGroup - Delete is called. Use Face - Identify with the dynamicPersonGroupId parameter to identify against persons.\n\nNo image will be stored. Only the person's extracted face feature(s) and userData will be stored on server until PersonDirectory Person - Delete or PersonDirectory Person - Delete Face is called.\n\n'recognitionModel' does not need to be specified with Dynamic Person Groups. Dynamic Person Groups are references to PersonDirectory Person - Create and therefore work with most all 'recognitionModels'. The faceId's provided during Face - Identify determine the 'recognitionModel' used.",
         "parameters": [
           {
             "name": "dynamicPersonGroupId",
@@ -968,7 +968,7 @@
       },
       "patch": {
         "operationId": "PersonDirectoryOperations_UpdateDynamicPersonGroup",
-        "summary": "Update an existing dynamic person group name, userData, add, or remove persons.",
+        "summary": "Update the name or userData of an existing Dynamic Person Group, and manage its members by adding or removing persons.",
         "description": "The properties keep unchanged if they are not in request body.",
         "parameters": [
           {
@@ -1052,8 +1052,8 @@
       },
       "delete": {
         "operationId": "PersonDirectoryOperations_DeleteDynamicPersonGroup",
-        "summary": "Deletes an existing dynamic person group with specified dynamicPersonGroupId.",
-        "description": "Deleting this dynamic person group only delete the references to persons data. To delete actual person see PersonDirectory Person - Delete.",
+        "summary": "Deletes an existing Dynamic Person Group with specified dynamicPersonGroupId.",
+        "description": "Deleting this Dynamic Person Group only delete the references to persons data. To delete actual person see PersonDirectory Person - Delete.",
         "parameters": [
           {
             "name": "dynamicPersonGroupId",
@@ -1101,8 +1101,8 @@
     "/dynamicpersongroups/{dynamicPersonGroupId}/persons": {
       "get": {
         "operationId": "PersonDirectoryOperations_GetDynamicPersonGroupPersons",
-        "summary": "List all persons in the specified dynamic person group.",
-        "description": "Persons are stored in alphabetical order of personId created in PersonDirectory Person - Create.\n>\n*\n  * \"start\" parameter (string, optional) is a id value that returned entries have larger ids by string comparison. \"start\" set to empty to indicate return from the first item.\n  * \"top\" parameter (int, optional) specifies the number of entries to return. A maximal of 1000 entries can be returned in one call. To fetch more, you can specify \"start\" with the last returned entry's personId of the current call.\n\n> [!TIP]\n> For example, total 5 items with their id: \"itemId1\", ..., \"itemId5\".\n> * \"start=&top=\" will return all 5 items.\n> * \"start=&top=2\" will return \"itemId1\", \"itemId2\".\n> * \"start=itemId2&top=3\" will return \"itemId3\", \"itemId4\", \"itemId5\".",
+        "summary": "List all persons in the specified Dynamic Person Group.",
+        "description": "Persons are stored in alphabetical order of personId created in PersonDirectory Person - Create.\n>\n*\n  * \"start\" parameter (string, optional) specifies an ID value from which returned entries will have larger IDs based on string comparison. Setting \"start\" to an empty value indicates that entries should be returned starting from the first item.\n  * \"top\" parameter (int, optional) determines the maximum number of entries to be returned, with a limit of up to 1000 entries per call. To retrieve additional entries beyond this limit, specify \"start\" with the personId of the last entry returned in the current call.\n\n> [!TIP]\n>\n> * For example, there are total 5 items with their IDs: \"itemId1\", ..., \"itemId5\".\n>   * \"start=&top=\" will return all 5 items.\n>   * \"start=&top=2\" will return \"itemId1\", \"itemId2\".\n>   * \"start=itemId2&top=3\" will return \"itemId3\", \"itemId4\", \"itemId5\".",
         "parameters": [
           {
             "name": "dynamicPersonGroupId",
@@ -1135,7 +1135,7 @@
         ],
         "responses": {
           "200": {
-            "description": "A successful call returns an array of person information in the person directory.",
+            "description": "A successful call returns an array of person information in the Person Directory.",
             "schema": {
               "$ref": "#/definitions/ListPersonResult"
             }
@@ -1642,14 +1642,14 @@
                 "maxNumOfCandidatesReturned": {
                   "type": "integer",
                   "format": "int32",
-                  "description": "The number of top similar faces returned. The valid range is [1, 1000].It defaults to 20.",
+                  "description": "The number of top similar faces returned. The valid range is [1, 1000]. Default value is 20.",
                   "default": 20,
                   "minimum": 1,
                   "maximum": 1000
                 },
                 "mode": {
                   "type": "string",
-                  "description": "Similar face searching mode. It can be 'matchPerson' or 'matchFace'. It defaults to 'matchPerson'.",
+                  "description": "Similar face searching mode. It can be 'matchPerson' or 'matchFace'. Default value is 'matchPerson'.",
                   "default": "matchPerson",
                   "enum": [
                     "matchPerson",
@@ -1775,8 +1775,8 @@
     "/identify": {
       "post": {
         "operationId": "FaceRecognitionOperations_IdentifyFromPersonGroup",
-        "summary": "1-to-many identification to find the closest matches of the specific query person face from a person group.",
-        "description": "For each face in the faceIds array, Face Identify will compute similarities between the query face and all the faces in the Person Group (given by personGroupId), and return candidate person(s) for that face ranked by similarity confidence. The person group should be trained to make it ready for identification. See more in PersonGroup - Train.\n> [!NOTE]\n> * The algorithm allows more than one face to be identified independently at the same request, but no more than 10 faces.\n> * Each person could have more than one face, but no more than 248 faces.\n> * Higher face image quality means better identification precision. Please consider high-quality faces: frontal, clear, and face size is 200x200 pixels (100 pixels between eyes) or bigger.\n> * Number of candidates returned is restricted by maxNumOfCandidatesReturned and confidenceThreshold. If no person is identified, the returned candidates will be an empty array.\n> * Try Face - Find Similar when you need to find similar faces from a face list/large face list instead of a Person Group.\n> * The 'recognitionModel' associated with the query faces' faceIds should be the same as the 'recognitionModel' used by the target Person Group.",
+        "summary": "1-to-many identification to find the closest matches of the specific query person face from a Person Group.",
+        "description": "For each face in the faceIds array, Face Identify will compute similarities between the query face and all the faces in the Person Group (given by personGroupId), and return candidate person(s) for that face ranked by similarity confidence. The Person Group should be trained to make it ready for identification. See more in PersonGroup - Train.\n> [!NOTE]\n>\n> *\n>   * The algorithm allows more than one face to be identified independently at the same request, but no more than 10 faces.\n>   * Each person could have more than one face, but no more than 248 faces.\n>   * Higher face image quality means better identification precision. Please consider high-quality faces: frontal, clear, and face size is 200x200 pixels (100 pixels between eyes) or bigger.\n>   * Number of candidates returned is restricted by maxNumOfCandidatesReturned and confidenceThreshold. If no person is identified, the returned candidates will be an empty array.\n>   * Try Face - Find Similar when you need to find similar faces from a face list/large face list instead of a Person Group.\n>   * The 'recognitionModel' associated with the query faces' faceIds should be the same as the 'recognitionModel' used by the target Person Group.",
         "parameters": [
           {
             "name": "body",
@@ -1796,12 +1796,12 @@
                 },
                 "personGroupId": {
                   "type": "string",
-                  "description": "personGroupId of the target person group, created by PersonGroup - Create. Parameter personGroupId and largePersonGroupId should not be provided at the same time."
+                  "description": "personGroupId of the target Person Group, created by PersonGroup - Create. Parameter personGroupId and largePersonGroupId should not be provided at the same time."
                 },
                 "maxNumOfCandidatesReturned": {
                   "type": "integer",
                   "format": "int32",
-                  "description": "The range of maxNumOfCandidatesReturned is between 1 and 100 (default is 10).",
+                  "description": "The range of maxNumOfCandidatesReturned is between 1 and 100. Default value is 10.",
                   "default": 10,
                   "minimum": 1,
                   "maximum": 100
@@ -1856,7 +1856,7 @@
       "get": {
         "operationId": "FaceListOperations_GetLargeFaceLists",
         "summary": "List large face lists' information of largeFaceListId, name, userData and recognitionModel.",
-        "description": "To get face information inside largeFaceList use LargeFaceList Face - Get.\n\nLarge face lists are stored in alphabetical order of largeFaceListId.\n>\n*\n  * \"start\" parameter (string, optional) is a id value that returned entries have larger ids by string comparison. \"start\" set to empty to indicate return from the first item.\n  * \"top\" parameter (int, optional) specifies the number of entries to return. A maximal of 1000 entries can be returned in one call. To fetch more, you can specify \"start\" with the last returned entry's personId of the current call.\n\n> [!TIP]\n> For example, total 5 items with their id: \"itemId1\", ..., \"itemId5\".\n> * \"start=&top=\" will return all 5 items.\n> * \"start=&top=2\" will return \"itemId1\", \"itemId2\".\n> * \"start=itemId2&top=3\" will return \"itemId3\", \"itemId4\", \"itemId5\".",
+        "description": "To get face information inside largeFaceList use LargeFaceList Face - Get.\n\nLarge face lists are stored in alphabetical order of largeFaceListId.\n>\n*\n  * \"start\" parameter (string, optional) specifies an ID value from which returned entries will have larger IDs based on string comparison. Setting \"start\" to an empty value indicates that entries should be returned starting from the first item.\n  * \"top\" parameter (int, optional) determines the maximum number of entries to be returned, with a limit of up to 1000 entries per call. To retrieve additional entries beyond this limit, specify \"start\" with the personId of the last entry returned in the current call.\n\n> [!TIP]\n>\n> * For example, there are total 5 items with their IDs: \"itemId1\", ..., \"itemId5\".\n>   * \"start=&top=\" will return all 5 items.\n>   * \"start=&top=2\" will return \"itemId1\", \"itemId2\".\n>   * \"start=itemId2&top=3\" will return \"itemId3\", \"itemId4\", \"itemId5\".",
         "parameters": [
           {
             "name": "start",
@@ -1969,7 +1969,7 @@
       "put": {
         "operationId": "FaceListOperations_CreateLargeFaceList",
         "summary": "Create an empty large face list with user-specified largeFaceListId, name, an optional userData and recognitionModel.",
-        "description": "Large face list is a list of faces, up to 1,000,000 faces, and used by Find Similar.\n\nAfter creation, user should use Add Large Face List Face to import the faces and Train Large Face List to make it ready for Find Similar. No image will be stored. Only the extracted face feature(s) will be stored on server until Delete Large Face List is called.\n\nFind Similar is used for scenario like finding celebrity-like faces, similar face filtering, or as a light way face identification. But if the actual use is to identify person, please use Person Group / Large Person Group and Identify.\n\n> [!NOTE]\n> * Free-tier subscription quota: 64 large face lists.\n> * S0-tier subscription quota: 1,000,000 large face lists.",
+        "description": "Large face list is a list of faces, up to 1,000,000 faces, and used by Find Similar.\n\nAfter creation, user should use Add Large Face List Face to import the faces and Train Large Face List to make it ready for Find Similar. No image will be stored. Only the extracted face feature(s) will be stored on server until Delete Large Face List is called.\n\nFind Similar is used for scenario like finding celebrity-like faces, similar face filtering, or as a light way face identification. But if the actual use is to identify person, please use Person Group / Large Person Group and Identify.\n\n> [!NOTE]\n>\n> *\n>   * Free-tier subscription quota: 64 large face lists.\n>   * S0-tier subscription quota: 1,000,000 large face lists.",
         "parameters": [
           {
             "name": "largeFaceListId",
@@ -2169,7 +2169,7 @@
       "get": {
         "operationId": "FaceListOperations_GetLargeFaceListFaces",
         "summary": "List faces' persistedFaceId and userData in a specified large face list.",
-        "description": "Faces are stored in alphabetical order of persistedFaceId created in LargeFaceList Face - Add.\n>\n*\n  * \"start\" parameter (string, optional) is a id value that returned entries have larger ids by string comparison. \"start\" set to empty to indicate return from the first item.\n  * \"top\" parameter (int, optional) specifies the number of entries to return. A maximal of 1000 entries can be returned in one call. To fetch more, you can specify \"start\" with the last returned entry's personId of the current call.\n\n> [!TIP]\n> For example, total 5 items with their id: \"itemId1\", ..., \"itemId5\".\n> * \"start=&top=\" will return all 5 items.\n> * \"start=&top=2\" will return \"itemId1\", \"itemId2\".\n> * \"start=itemId2&top=3\" will return \"itemId3\", \"itemId4\", \"itemId5\".",
+        "description": "Faces are stored in alphabetical order of persistedFaceId created in LargeFaceList Face - Add.\n>\n*\n  * \"start\" parameter (string, optional) specifies an ID value from which returned entries will have larger IDs based on string comparison. Setting \"start\" to an empty value indicates that entries should be returned starting from the first item.\n  * \"top\" parameter (int, optional) determines the maximum number of entries to be returned, with a limit of up to 1000 entries per call. To retrieve additional entries beyond this limit, specify \"start\" with the personId of the last entry returned in the current call.\n\n> [!TIP]\n>\n> * For example, there are total 5 items with their IDs: \"itemId1\", ..., \"itemId5\".\n>   * \"start=&top=\" will return all 5 items.\n>   * \"start=&top=2\" will return \"itemId1\", \"itemId2\".\n>   * \"start=itemId2&top=3\" will return \"itemId3\", \"itemId4\", \"itemId5\".",
         "parameters": [
           {
             "name": "largeFaceListId",
@@ -2233,7 +2233,7 @@
       "post": {
         "operationId": "FaceListOperations_AddLargeFaceListFaceFromUrl",
         "summary": "Add a face to a specified large face list, up to 1,000,000 faces.",
-        "description": "To deal with an image containing multiple faces, input face can be specified as an image with a targetFace rectangle. It returns a persistedFaceId representing the added face. No image will be stored. Only the extracted face feature(s) will be stored on server until LargeFaceList - Delete Face or LargeFaceList - Delete is called.\n\nNote that persistedFaceId is different from faceId generated by Face - Detect.\n>\n*\n  * Higher face image quality means better recognition precision. Please consider high-quality faces: frontal, clear, and face size is 200x200 pixels (100 pixels between eyes) or bigger.\n  * Each person entry can hold up to 248 faces.\n  * JPEG, PNG, GIF (the first frame), and BMP format are supported. The allowed image file size is from 1KB to 6MB.\n  * \"targetFace\" rectangle should contain one face. Zero or multiple faces will be regarded as an error. If the provided \"targetFace\" rectangle is not returned from Face - Detect, there's no guarantee to detect and add the face successfully.\n  * Out of detectable face size (36x36 - 4096x4096 pixels), large head-pose, or large occlusions will cause failures.\n  * The minimum detectable face size is 36x36 pixels in an image no larger than 1920x1080 pixels. Images with dimensions higher than 1920x1080 pixels will need a proportionally larger minimum face size.\n  * Different 'detectionModel' values can be provided. To use and compare different detection models, please refer to https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/how-to/specify-detection-model\n\n> [!NOTE]\n> * Free-tier subscription quota: 1,000 faces per large face list.\n> * S0-tier subscription quota: 1,000,000 faces per large face list.",
+        "description": "To deal with an image containing multiple faces, input face can be specified as an image with a targetFace rectangle. It returns a persistedFaceId representing the added face. No image will be stored. Only the extracted face feature(s) will be stored on server until LargeFaceList - Delete Face or LargeFaceList - Delete is called.\n\nNote that persistedFaceId is different from faceId generated by Face - Detect.\n>\n*\n  * Higher face image quality means better recognition precision. Please consider high-quality faces: frontal, clear, and face size is 200x200 pixels (100 pixels between eyes) or bigger.\n  * Each person entry can hold up to 248 faces.\n  * JPEG, PNG, GIF (the first frame), and BMP format are supported. The allowed image file size is from 1KB to 6MB.\n  * \"targetFace\" rectangle should contain one face. Zero or multiple faces will be regarded as an error. If the provided \"targetFace\" rectangle is not returned from Face - Detect, there's no guarantee to detect and add the face successfully.\n  * Out of detectable face size (36x36 - 4096x4096 pixels), large head-pose, or large occlusions will cause failures.\n  * The minimum detectable face size is 36x36 pixels in an image no larger than 1920x1080 pixels. Images with dimensions higher than 1920x1080 pixels will need a proportionally larger minimum face size.\n  * Different 'detectionModel' values can be provided. To use and compare different detection models, please refer to https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/how-to/specify-detection-model\n\n> [!NOTE]\n>\n> *\n>   * Free-tier subscription quota: 1,000 faces per large face list.\n>   * S0-tier subscription quota: 1,000,000 faces per large face list.",
         "parameters": [
           {
             "name": "largeFaceListId",
@@ -2607,7 +2607,7 @@
       "get": {
         "operationId": "PersonGroupOperations_GetLargePersonGroups",
         "summary": "List all existing large person groups' largePersonGroupId, name, userData and recognitionModel.",
-        "description": "Large person groups are stored in alphabetical order of largePersonGroupId.\n>\n*\n  * \"start\" parameter (string, optional) is a id value that returned entries have larger ids by string comparison. \"start\" set to empty to indicate return from the first item.\n  * \"top\" parameter (int, optional) specifies the number of entries to return. A maximal of 1000 entries can be returned in one call. To fetch more, you can specify \"start\" with the last returned entry's personId of the current call.\n\n> [!TIP]\n> For example, total 5 items with their id: \"itemId1\", ..., \"itemId5\".\n> * \"start=&top=\" will return all 5 items.\n> * \"start=&top=2\" will return \"itemId1\", \"itemId2\".\n> * \"start=itemId2&top=3\" will return \"itemId3\", \"itemId4\", \"itemId5\".",
+        "description": "Large person groups are stored in alphabetical order of largePersonGroupId.\n>\n*\n  * \"start\" parameter (string, optional) specifies an ID value from which returned entries will have larger IDs based on string comparison. Setting \"start\" to an empty value indicates that entries should be returned starting from the first item.\n  * \"top\" parameter (int, optional) determines the maximum number of entries to be returned, with a limit of up to 1000 entries per call. To retrieve additional entries beyond this limit, specify \"start\" with the personId of the last entry returned in the current call.\n\n> [!TIP]\n>\n> * For example, there are total 5 items with their IDs: \"itemId1\", ..., \"itemId5\".\n>   * \"start=&top=\" will return all 5 items.\n>   * \"start=&top=2\" will return \"itemId1\", \"itemId2\".\n>   * \"start=itemId2&top=3\" will return \"itemId3\", \"itemId4\", \"itemId5\".",
         "parameters": [
           {
             "name": "start",
@@ -2720,7 +2720,7 @@
       "put": {
         "operationId": "PersonGroupOperations_CreateLargePersonGroup",
         "summary": "Create a new large person group with user-specified largePersonGroupId, name, an optional userData and recognitionModel.",
-        "description": "A large person group is a container holding the uploaded person data, including the face recognition features. It can hold up to 1,000,000 entities.\n\nAfter creation, use LargePersonGroup Person - Create to add person into the group, and call LargePersonGroup - Train to get this group ready for Face - Identify.\n\nNo image will be stored. Only the person's extracted face feature(s) and userData will be stored on server until LargePersonGroup Person - Delete or LargePersonGroup - Delete is called.\n\n'recognitionModel' should be specified to associate with this large person group. The default value for 'recognitionModel' is 'recognition_01', if the latest model needed, please explicitly specify the model you need in this parameter. New faces that are added to an existing large person group will use the recognition model that's already associated with the collection. Existing face feature(s) in a large person group can't be updated to features extracted by another version of recognition model.\n\n> [!NOTE]\n> * Free-tier subscription quota: 1,000 large person groups.\n> * S0-tier subscription quota: 1,000,000 large person groups.",
+        "description": "A large person group is a container holding the uploaded person data, including the face recognition features. It can hold up to 1,000,000 entities.\n\nAfter creation, use LargePersonGroup Person - Create to add person into the group, and call LargePersonGroup - Train to get this group ready for Face - Identify.\n\nNo image will be stored. Only the person's extracted face feature(s) and userData will be stored on server until LargePersonGroup Person - Delete or LargePersonGroup - Delete is called.\n\n'recognitionModel' should be specified to associate with this large person group. The default value for 'recognitionModel' is 'recognition_01', if the latest model needed, please explicitly specify the model you need in this parameter. New faces that are added to an existing large person group will use the recognition model that's already associated with the collection. Existing face feature(s) in a large person group can't be updated to features extracted by another version of recognition model.\n\n> [!NOTE]\n>\n> *\n>   * Free-tier subscription quota: 1,000 large person groups.\n>   * S0-tier subscription quota: 1,000,000 large person groups.",
         "parameters": [
           {
             "name": "largePersonGroupId",
@@ -2919,7 +2919,7 @@
       "get": {
         "operationId": "PersonGroupOperations_GetLargePersonGroupPersons",
         "summary": "List all persons' information in the specified large person group, including personId, name, userData and persistedFaceIds of registered person faces.",
-        "description": "Persons are stored in alphabetical order of personId created in LargePersonGroup Person - Create.\n>\n*\n  * \"start\" parameter (string, optional) is a id value that returned entries have larger ids by string comparison. \"start\" set to empty to indicate return from the first item.\n  * \"top\" parameter (int, optional) specifies the number of entries to return. A maximal of 1000 entries can be returned in one call. To fetch more, you can specify \"start\" with the last returned entry's personId of the current call.\n\n> [!TIP]\n> For example, total 5 items with their id: \"itemId1\", ..., \"itemId5\".\n> * \"start=&top=\" will return all 5 items.\n> * \"start=&top=2\" will return \"itemId1\", \"itemId2\".\n> * \"start=itemId2&top=3\" will return \"itemId3\", \"itemId4\", \"itemId5\".",
+        "description": "Persons are stored in alphabetical order of personId created in LargePersonGroup Person - Create.\n>\n*\n  * \"start\" parameter (string, optional) specifies an ID value from which returned entries will have larger IDs based on string comparison. Setting \"start\" to an empty value indicates that entries should be returned starting from the first item.\n  * \"top\" parameter (int, optional) determines the maximum number of entries to be returned, with a limit of up to 1000 entries per call. To retrieve additional entries beyond this limit, specify \"start\" with the personId of the last entry returned in the current call.\n\n> [!TIP]\n>\n> * For example, there are total 5 items with their IDs: \"itemId1\", ..., \"itemId5\".\n>   * \"start=&top=\" will return all 5 items.\n>   * \"start=&top=2\" will return \"itemId1\", \"itemId2\".\n>   * \"start=itemId2&top=3\" will return \"itemId3\", \"itemId4\", \"itemId5\".",
         "parameters": [
           {
             "name": "largePersonGroupId",
@@ -2983,7 +2983,7 @@
       "post": {
         "operationId": "PersonGroupOperations_CreateLargePersonGroupPerson",
         "summary": "Create a new person in a specified large person group. To add face to this person, please call LargePersonGroup PersonFace - Add.",
-        "description": "> [!NOTE]\n> * Free-tier subscription quota:\n>   * 1,000 persons in all large person groups.\n> * S0-tier subscription quota:\n>   * 1,000,000 persons per large person group.\n>   * 1,000,000 large person groups.\n>   * 1,000,000,000 persons in all large person groups. ",
+        "description": "> [!NOTE]\n>\n> *\n>   * Free-tier subscription quota:\n>     * 1,000 persons in all large person groups.\n>   * S0-tier subscription quota:\n>     * 1,000,000 persons per large person group.\n>     * 1,000,000 large person groups.\n>     * 1,000,000,000 persons in all large person groups. ",
         "parameters": [
           {
             "name": "largePersonGroupId",
@@ -3680,7 +3680,7 @@
       "get": {
         "operationId": "PersonGroupOperations_GetPersonGroups",
         "summary": "List person groups' personGroupId, name, userData and recognitionModel.",
-        "description": "Person groups are stored in alphabetical order of personGroupId.\n>\n*\n  * \"start\" parameter (string, optional) is a id value that returned entries have larger ids by string comparison. \"start\" set to empty to indicate return from the first item.\n  * \"top\" parameter (int, optional) specifies the number of entries to return. A maximal of 1000 entries can be returned in one call. To fetch more, you can specify \"start\" with the last returned entry's personId of the current call.\n\n> [!TIP]\n> For example, total 5 items with their id: \"itemId1\", ..., \"itemId5\".\n> * \"start=&top=\" will return all 5 items.\n> * \"start=&top=2\" will return \"itemId1\", \"itemId2\".\n> * \"start=itemId2&top=3\" will return \"itemId3\", \"itemId4\", \"itemId5\".",
+        "description": "Person groups are stored in alphabetical order of personGroupId.\n>\n*\n  * \"start\" parameter (string, optional) specifies an ID value from which returned entries will have larger IDs based on string comparison. Setting \"start\" to an empty value indicates that entries should be returned starting from the first item.\n  * \"top\" parameter (int, optional) determines the maximum number of entries to be returned, with a limit of up to 1000 entries per call. To retrieve additional entries beyond this limit, specify \"start\" with the personId of the last entry returned in the current call.\n\n> [!TIP]\n>\n> * For example, there are total 5 items with their IDs: \"itemId1\", ..., \"itemId5\".\n>   * \"start=&top=\" will return all 5 items.\n>   * \"start=&top=2\" will return \"itemId1\", \"itemId2\".\n>   * \"start=itemId2&top=3\" will return \"itemId3\", \"itemId4\", \"itemId5\".",
         "parameters": [
           {
             "name": "start",
@@ -3793,7 +3793,7 @@
       "put": {
         "operationId": "PersonGroupOperations_CreatePersonGroup",
         "summary": "Create a new person group with specified personGroupId, name, user-provided userData and recognitionModel.",
-        "description": "A person group is a container holding the uploaded person data, including face recognition features.\n\nAfter creation, use PersonGroup Person - Create to add persons into the group, and then call PersonGroup - Train to get this group ready for Face - Identify.\n\nNo image will be stored. Only the person's extracted face feature(s) and userData will be stored on server until PersonGroup Person - Delete or PersonGroup - Delete is called.\n\n'recognitionModel' should be specified to associate with this person group. The default value for 'recognitionModel' is 'recognition_01', if the latest model needed, please explicitly specify the model you need in this parameter. New faces that are added to an existing person group will use the recognition model that's already associated with the collection. Existing face feature(s) in a person group can't be updated to features extracted by another version of recognition model.\n\n> [!NOTE]\n> * Free-tier subscription quota: 1,000 person groups. Each holds up to 1,000 persons.\n> * S0-tier subscription quota: 1,000,000 person groups. Each holds up to 10,000 persons.\n> * to handle larger scale face identification problem, please consider using LargePersonGroup.",
+        "description": "A person group is a container holding the uploaded person data, including face recognition features.\n\nAfter creation, use PersonGroup Person - Create to add persons into the group, and then call PersonGroup - Train to get this group ready for Face - Identify.\n\nNo image will be stored. Only the person's extracted face feature(s) and userData will be stored on server until PersonGroup Person - Delete or PersonGroup - Delete is called.\n\n'recognitionModel' should be specified to associate with this person group. The default value for 'recognitionModel' is 'recognition_01', if the latest model needed, please explicitly specify the model you need in this parameter. New faces that are added to an existing person group will use the recognition model that's already associated with the collection. Existing face feature(s) in a person group can't be updated to features extracted by another version of recognition model.\n\n> [!NOTE]\n>\n> *\n>   * Free-tier subscription quota: 1,000 person groups. Each holds up to 1,000 persons.\n>   * S0-tier subscription quota: 1,000,000 person groups. Each holds up to 10,000 persons.\n>   * to handle larger scale face identification problem, please consider using LargePersonGroup.",
         "parameters": [
           {
             "name": "personGroupId",
@@ -3992,7 +3992,7 @@
       "get": {
         "operationId": "PersonGroupOperations_GetPersonGroupPersons",
         "summary": "List all persons' information in the specified person group, including personId, name, userData and persistedFaceIds of registered person faces.",
-        "description": "Persons are stored in alphabetical order of personId created in PersonGroup Person - Create.\n>\n*\n  * \"start\" parameter (string, optional) is a id value that returned entries have larger ids by string comparison. \"start\" set to empty to indicate return from the first item.\n  * \"top\" parameter (int, optional) specifies the number of entries to return. A maximal of 1000 entries can be returned in one call. To fetch more, you can specify \"start\" with the last returned entry's personId of the current call.\n\n> [!TIP]\n> For example, total 5 items with their id: \"itemId1\", ..., \"itemId5\".\n> * \"start=&top=\" will return all 5 items.\n> * \"start=&top=2\" will return \"itemId1\", \"itemId2\".\n> * \"start=itemId2&top=3\" will return \"itemId3\", \"itemId4\", \"itemId5\".",
+        "description": "Persons are stored in alphabetical order of personId created in PersonGroup Person - Create.\n>\n*\n  * \"start\" parameter (string, optional) specifies an ID value from which returned entries will have larger IDs based on string comparison. Setting \"start\" to an empty value indicates that entries should be returned starting from the first item.\n  * \"top\" parameter (int, optional) determines the maximum number of entries to be returned, with a limit of up to 1000 entries per call. To retrieve additional entries beyond this limit, specify \"start\" with the personId of the last entry returned in the current call.\n\n> [!TIP]\n>\n> * For example, there are total 5 items with their IDs: \"itemId1\", ..., \"itemId5\".\n>   * \"start=&top=\" will return all 5 items.\n>   * \"start=&top=2\" will return \"itemId1\", \"itemId2\".\n>   * \"start=itemId2&top=3\" will return \"itemId3\", \"itemId4\", \"itemId5\".",
         "parameters": [
           {
             "name": "personGroupId",
@@ -4056,7 +4056,7 @@
       "post": {
         "operationId": "PersonGroupOperations_CreatePersonGroupPerson",
         "summary": "Create a new person in a specified person group. To add face to this person, please call PersonGroup PersonFace - Add.",
-        "description": "> [!NOTE]\n> * Free-tier subscription quota:\n>   * 1,000 persons in all person groups.\n> * S0-tier subscription quota:\n>   * 10,000 persons per person group.\n>   * 1,000,000 person groups.\n>   * 100,000,000 persons in all person groups.",
+        "description": "> [!NOTE]\n>\n> *\n>   * Free-tier subscription quota:\n>     * 1,000 persons in all person groups.\n>   * S0-tier subscription quota:\n>     * 10,000 persons per person group.\n>     * 1,000,000 person groups.\n>     * 100,000,000 persons in all person groups.",
         "parameters": [
           {
             "name": "personGroupId",
@@ -4708,8 +4708,8 @@
     "/persons": {
       "get": {
         "operationId": "PersonDirectoryOperations_GetPersons",
-        "summary": "List all persons' information in person directory, including personId, name, and userData.",
-        "description": "Persons are stored in alphabetical order of personId created in PersonDirectory Person - Create.\n>\n*\n  * \"start\" parameter (string, optional) is a id value that returned entries have larger ids by string comparison. \"start\" set to empty to indicate return from the first item.\n  * \"top\" parameter (int, optional) specifies the number of entries to return. A maximal of 1000 entries can be returned in one call. To fetch more, you can specify \"start\" with the last returned entry's personId of the current call.\n\n> [!TIP]\n> For example, total 5 items with their id: \"itemId1\", ..., \"itemId5\".\n> * \"start=&top=\" will return all 5 items.\n> * \"start=&top=2\" will return \"itemId1\", \"itemId2\".\n> * \"start=itemId2&top=3\" will return \"itemId3\", \"itemId4\", \"itemId5\".",
+        "summary": "List all persons' information in Person Directory, including personId, name, and userData.",
+        "description": "Persons are stored in alphabetical order of personId created in PersonDirectory Person - Create.\n>\n*\n  * \"start\" parameter (string, optional) specifies an ID value from which returned entries will have larger IDs based on string comparison. Setting \"start\" to an empty value indicates that entries should be returned starting from the first item.\n  * \"top\" parameter (int, optional) determines the maximum number of entries to be returned, with a limit of up to 1000 entries per call. To retrieve additional entries beyond this limit, specify \"start\" with the personId of the last entry returned in the current call.\n\n> [!TIP]\n>\n> * For example, there are total 5 items with their IDs: \"itemId1\", ..., \"itemId5\".\n>   * \"start=&top=\" will return all 5 items.\n>   * \"start=&top=2\" will return \"itemId1\", \"itemId2\".\n>   * \"start=itemId2&top=3\" will return \"itemId3\", \"itemId4\", \"itemId5\".",
         "parameters": [
           {
             "name": "start",
@@ -4732,7 +4732,7 @@
         ],
         "responses": {
           "200": {
-            "description": "A successful call returns an array of personIds contain in the dynamic person group.",
+            "description": "A successful call returns an array of Person Directory Persons contained in the Dynamic Person Group.",
             "schema": {
               "type": "array",
               "items": {
@@ -4762,7 +4762,7 @@
       },
       "post": {
         "operationId": "PersonDirectoryOperations_CreatePerson",
-        "description": "Creates a new person in a person directory. To add face to this person, please call PersonDirectory Person - Add Face.",
+        "description": "Creates a new person in a Person Directory. To add face to this person, please call PersonDirectory Person - Add Face.",
         "parameters": [
           {
             "name": "body",
@@ -4831,7 +4831,7 @@
     "/persons/{personId}": {
       "get": {
         "operationId": "PersonDirectoryOperations_GetPerson",
-        "description": "Retrieve a person's name and userData from person directory.",
+        "description": "Retrieve a person's name and userData from Person Directory.",
         "parameters": [
           {
             "name": "personId",
@@ -4931,7 +4931,7 @@
       },
       "delete": {
         "operationId": "PersonDirectoryOperations_DeletePerson",
-        "description": "Delete an existing person from person directory. The persistedFaceId(s), userData, person name and face feature(s) in the person entry will all be deleted.",
+        "description": "Delete an existing person from Person Directory. The persistedFaceId(s), userData, person name and face feature(s) in the person entry will all be deleted.",
         "parameters": [
           {
             "name": "personId",
@@ -4979,8 +4979,8 @@
     "/persons/{personId}/dynamicPersonGroupReferences": {
       "get": {
         "operationId": "PersonDirectoryOperations_GetDynamicPersonGroupReferences",
-        "summary": "List all dynamic person groups a person has been referenced by in person directory.",
-        "description": "Dynamic person groups are stored in alphabetical order of dynamic person group id created in PersonDirectory DynamicPersonGroup - Create.\n>\n*\n  * \"start\" parameter (string, optional) is a id value that returned entries have larger ids by string comparison. \"start\" set to empty to indicate return from the first item.\n  * \"top\" parameter (int, optional) specifies the number of entries to return. A maximal of 1000 entries can be returned in one call. To fetch more, you can specify \"start\" with the last returned entry's personId of the current call.\n\n> [!TIP]\n> For example, total 5 items with their id: \"itemId1\", ..., \"itemId5\".\n> * \"start=&top=\" will return all 5 items.\n> * \"start=&top=2\" will return \"itemId1\", \"itemId2\".\n> * \"start=itemId2&top=3\" will return \"itemId3\", \"itemId4\", \"itemId5\".",
+        "summary": "List all Dynamic Person Groups a person has been referenced by in Person Directory.",
+        "description": "Dynamic Person Groups are stored in alphabetical order of Dynamic Person Group ID created in PersonDirectory DynamicPersonGroup - Create.\n>\n*\n  * \"start\" parameter (string, optional) specifies an ID value from which returned entries will have larger IDs based on string comparison. Setting \"start\" to an empty value indicates that entries should be returned starting from the first item.\n  * \"top\" parameter (int, optional) determines the maximum number of entries to be returned, with a limit of up to 1000 entries per call. To retrieve additional entries beyond this limit, specify \"start\" with the personId of the last entry returned in the current call.\n\n> [!TIP]\n>\n> * For example, there are total 5 items with their IDs: \"itemId1\", ..., \"itemId5\".\n>   * \"start=&top=\" will return all 5 items.\n>   * \"start=&top=2\" will return \"itemId1\", \"itemId2\".\n>   * \"start=itemId2&top=3\" will return \"itemId3\", \"itemId4\", \"itemId5\".",
         "parameters": [
           {
             "name": "personId",
@@ -5375,7 +5375,7 @@
       },
       "patch": {
         "operationId": "PersonDirectoryOperations_UpdatePersonFace",
-        "description": "Update a person persisted face's userData field.",
+        "description": "Update a persisted face's userData field of a person.",
         "parameters": [
           {
             "name": "personId",
@@ -5477,7 +5477,7 @@
       },
       "delete": {
         "operationId": "PersonDirectoryOperations_DeletePersonFace",
-        "summary": "Delete a face from a person in person directory by specified personId and persistedFaceId.",
+        "summary": "Delete a face from a person in Person Directory by specified personId and persistedFaceId.",
         "description": "Adding/deleting faces to/from a same person will be processed sequentially. Adding/deleting faces to/from different persons are processed in parallel.",
         "parameters": [
           {
@@ -5576,7 +5576,7 @@
       "post": {
         "operationId": "FaceRecognitionOperations_VerifyFaceToFace",
         "summary": "Verify whether two faces belong to a same person.",
-        "description": "> [!NOTE]\n> * Higher face image quality means better identification precision. Please consider high-quality faces: frontal, clear, and face size is 200x200 pixels (100 pixels between eyes) or bigger.\n> * For the scenarios that are sensitive to accuracy please make your own judgment.\n> * The 'recognitionModel' associated with the both faces should be the same.",
+        "description": "> [!NOTE]\n>\n> *\n>   * Higher face image quality means better identification precision. Please consider high-quality faces: frontal, clear, and face size is 200x200 pixels (100 pixels between eyes) or bigger.\n>   * For the scenarios that are sensitive to accuracy please make your own judgment.\n>   * The 'recognitionModel' associated with the both faces should be the same.",
         "parameters": [
           {
             "name": "body",
@@ -6038,14 +6038,14 @@
                 "maxNumOfCandidatesReturned": {
                   "type": "integer",
                   "format": "int32",
-                  "description": "The number of top similar faces returned. The valid range is [1, 1000].It defaults to 20.",
+                  "description": "The number of top similar faces returned. The valid range is [1, 1000]. Default value is 20.",
                   "default": 20,
                   "minimum": 1,
                   "maximum": 1000
                 },
                 "mode": {
                   "type": "string",
-                  "description": "Similar face searching mode. It can be 'matchPerson' or 'matchFace'. It defaults to 'matchPerson'.",
+                  "description": "Similar face searching mode. It can be 'matchPerson' or 'matchFace'. Default value is 'matchPerson'.",
                   "default": "matchPerson",
                   "enum": [
                     "matchPerson",
@@ -6131,14 +6131,14 @@
                 "maxNumOfCandidatesReturned": {
                   "type": "integer",
                   "format": "int32",
-                  "description": "The number of top similar faces returned. The valid range is [1, 1000].It defaults to 20.",
+                  "description": "The number of top similar faces returned. The valid range is [1, 1000]. Default value is 20.",
                   "default": 20,
                   "minimum": 1,
                   "maximum": 1000
                 },
                 "mode": {
                   "type": "string",
-                  "description": "Similar face searching mode. It can be 'matchPerson' or 'matchFace'. It defaults to 'matchPerson'.",
+                  "description": "Similar face searching mode. It can be 'matchPerson' or 'matchFace'. Default value is 'matchPerson'.",
                   "default": "matchPerson",
                   "enum": [
                     "matchPerson",
@@ -6207,8 +6207,8 @@
     "/identify?_overload=identifyFromDynamicPersonGroup": {
       "post": {
         "operationId": "FaceRecognitionOperations_IdentifyFromDynamicPersonGroup",
-        "summary": "1-to-many identification to find the closest matches of the specific query person face from a dynamic person group.",
-        "description": "For each face in the faceIds array, Face Identify will compute similarities between the query face and all the faces in the Dynamic Person Group (given by dynamicPersonGroupId), and return candidate person(s) for that face ranked by similarity confidence.\n> [!NOTE]\n> * The algorithm allows more than one face to be identified independently at the same request, but no more than 10 faces.\n> * Each person could have more than one face, but no more than 248 faces.\n> * Higher face image quality means better identification precision. Please consider high-quality faces: frontal, clear, and face size is 200x200 pixels (100 pixels between eyes) or bigger.\n> * Number of candidates returned is restricted by maxNumOfCandidatesReturned and confidenceThreshold. If no person is identified, the returned candidates will be an empty array.\n> * The Identify operation can only match faces obtained with the same recognition model, that is associated with the query faces.",
+        "summary": "1-to-many identification to find the closest matches of the specific query person face from a Dynamic Person Group.",
+        "description": "For each face in the faceIds array, Face Identify will compute similarities between the query face and all the faces in the Dynamic Person Group (given by dynamicPersonGroupId), and return candidate person(s) for that face ranked by similarity confidence.\n> [!NOTE]\n>\n> *\n>   * The algorithm allows more than one face to be identified independently at the same request, but no more than 10 faces.\n>   * Each person could have more than one face, but no more than 248 faces.\n>   * Higher face image quality means better identification precision. Please consider high-quality faces: frontal, clear, and face size is 200x200 pixels (100 pixels between eyes) or bigger.\n>   * Number of candidates returned is restricted by maxNumOfCandidatesReturned and confidenceThreshold. If no person is identified, the returned candidates will be an empty array.\n>   * The Identify operation can only match faces obtained with the same recognition model, that is associated with the query faces.",
         "parameters": [
           {
             "name": "body",
@@ -6233,7 +6233,7 @@
                 "maxNumOfCandidatesReturned": {
                   "type": "integer",
                   "format": "int32",
-                  "description": "The range of maxNumOfCandidatesReturned is between 1 and 100 (default is 10).",
+                  "description": "The range of maxNumOfCandidatesReturned is between 1 and 100. Default value is 10.",
                   "default": 10,
                   "minimum": 1,
                   "maximum": 100
@@ -6287,8 +6287,8 @@
     "/identify?_overload=identifyFromLargePersonGroup": {
       "post": {
         "operationId": "FaceRecognitionOperations_IdentifyFromLargePersonGroup",
-        "summary": "1-to-many identification to find the closest matches of the specific query person face from a large person group.",
-        "description": "For each face in the faceIds array, Face Identify will compute similarities between the query face and all the faces in the Large Person Group (given by largePersonGroupId), and return candidate person(s) for that face ranked by similarity confidence. The large person group should be trained to make it ready for identification. See more in LargePersonGroup - Train.\n> [!NOTE]\n> * The algorithm allows more than one face to be identified independently at the same request, but no more than 10 faces.\n> * Each person could have more than one face, but no more than 248 faces.\n> * Higher face image quality means better identification precision. Please consider high-quality faces: frontal, clear, and face size is 200x200 pixels (100 pixels between eyes) or bigger.\n> * Number of candidates returned is restricted by maxNumOfCandidatesReturned and confidenceThreshold. If no person is identified, the returned candidates will be an empty array.\n> * Try Face - Find Similar when you need to find similar faces from a face list/large face list instead of a person group/large person group.\n> * The 'recognitionModel' associated with the query faces' faceIds should be the same as the 'recognitionModel' used by the target person group or large person group.",
+        "summary": "1-to-many identification to find the closest matches of the specific query person face from a Large Person Group.",
+        "description": "For each face in the faceIds array, Face Identify will compute similarities between the query face and all the faces in the Large Person Group (given by largePersonGroupId), and return candidate person(s) for that face ranked by similarity confidence. The Large Person Group should be trained to make it ready for identification. See more in LargePersonGroup - Train.\n> [!NOTE]\n>\n> *\n>   * The algorithm allows more than one face to be identified independently at the same request, but no more than 10 faces.\n>   * Each person could have more than one face, but no more than 248 faces.\n>   * Higher face image quality means better identification precision. Please consider high-quality faces: frontal, clear, and face size is 200x200 pixels (100 pixels between eyes) or bigger.\n>   * Number of candidates returned is restricted by maxNumOfCandidatesReturned and confidenceThreshold. If no person is identified, the returned candidates will be an empty array.\n>   * Try Face - Find Similar when you need to find similar faces from a face list/large face list instead of a Person Group/Large Person Group.\n>   * The 'recognitionModel' associated with the query faces' faceIds should be the same as the 'recognitionModel' used by the target Person Group or Large Person Group.",
         "parameters": [
           {
             "name": "body",
@@ -6308,12 +6308,12 @@
                 },
                 "largePersonGroupId": {
                   "type": "string",
-                  "description": "largePersonGroupId of the target large person group, created by LargePersonGroup - Create. Parameter personGroupId and largePersonGroupId should not be provided at the same time."
+                  "description": "largePersonGroupId of the target Large Person Group, created by LargePersonGroup - Create. Parameter personGroupId and largePersonGroupId should not be provided at the same time."
                 },
                 "maxNumOfCandidatesReturned": {
                   "type": "integer",
                   "format": "int32",
-                  "description": "The range of maxNumOfCandidatesReturned is between 1 and 100 (default is 10).",
+                  "description": "The range of maxNumOfCandidatesReturned is between 1 and 100. Default value is 10.",
                   "default": 10,
                   "minimum": 1,
                   "maximum": 100
@@ -6368,7 +6368,7 @@
       "post": {
         "operationId": "FaceRecognitionOperations_IdentifyFromPersonDirectory",
         "summary": "1-to-many identification to find the closest matches of the specific query person face from a person directory personIds array.",
-        "description": "For each face in the faceIds array, Face Identify will compute similarities between the query face and all the faces in the Person Directory Persons (given by personIds), and return candidate person(s) for that face ranked by similarity confidence.\n> [!NOTE]\n> * The algorithm allows more than one face to be identified independently at the same request, but no more than 10 faces.\n> * Each person could have more than one face, but no more than 248 faces.\n> * Higher face image quality means better identification precision. Please consider high-quality faces: frontal, clear, and face size is 200x200 pixels (100 pixels between eyes) or bigger.\n> * Number of candidates returned is restricted by maxNumOfCandidatesReturned and confidenceThreshold. If no person is identified, the returned candidates will be an empty array.\n> * The Identify operation can only match faces obtained with the same recognition model, that is associated with the query faces.",
+        "description": "For each face in the faceIds array, Face Identify will compute similarities between the query face and all the faces in the Person Directory Persons (given by personIds), and return candidate person(s) for that face ranked by similarity confidence.\n> [!NOTE]\n>\n> *\n>   * The algorithm allows more than one face to be identified independently at the same request, but no more than 10 faces.\n>   * Each person could have more than one face, but no more than 248 faces.\n>   * Higher face image quality means better identification precision. Please consider high-quality faces: frontal, clear, and face size is 200x200 pixels (100 pixels between eyes) or bigger.\n>   * Number of candidates returned is restricted by maxNumOfCandidatesReturned and confidenceThreshold. If no person is identified, the returned candidates will be an empty array.\n>   * The Identify operation can only match faces obtained with the same recognition model, that is associated with the query faces.",
         "parameters": [
           {
             "name": "body",
@@ -6398,7 +6398,7 @@
                 "maxNumOfCandidatesReturned": {
                   "type": "integer",
                   "format": "int32",
-                  "description": "The range of maxNumOfCandidatesReturned is between 1 and 100 (default is 10).",
+                  "description": "The range of maxNumOfCandidatesReturned is between 1 and 100. Default value is 10.",
                   "default": 10,
                   "minimum": 1,
                   "maximum": 100
@@ -6453,7 +6453,7 @@
       "post": {
         "operationId": "FaceListOperations_AddLargeFaceListFace",
         "summary": "Add a face to a specified large face list, up to 1,000,000 faces.",
-        "description": "To deal with an image containing multiple faces, input face can be specified as an image with a targetFace rectangle. It returns a persistedFaceId representing the added face. No image will be stored. Only the extracted face feature(s) will be stored on server until LargeFaceList - Delete Face or LargeFaceList - Delete is called.\n\nNote that persistedFaceId is different from faceId generated by Face - Detect.\n>\n*\n  * Higher face image quality means better recognition precision. Please consider high-quality faces: frontal, clear, and face size is 200x200 pixels (100 pixels between eyes) or bigger.\n  * Each person entry can hold up to 248 faces.\n  * JPEG, PNG, GIF (the first frame), and BMP format are supported. The allowed image file size is from 1KB to 6MB.\n  * \"targetFace\" rectangle should contain one face. Zero or multiple faces will be regarded as an error. If the provided \"targetFace\" rectangle is not returned from Face - Detect, there's no guarantee to detect and add the face successfully.\n  * Out of detectable face size (36x36 - 4096x4096 pixels), large head-pose, or large occlusions will cause failures.\n  * The minimum detectable face size is 36x36 pixels in an image no larger than 1920x1080 pixels. Images with dimensions higher than 1920x1080 pixels will need a proportionally larger minimum face size.\n  * Different 'detectionModel' values can be provided. To use and compare different detection models, please refer to https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/how-to/specify-detection-model\n\n> [!NOTE]\n> * Free-tier subscription quota: 1,000 faces per large face list.\n> * S0-tier subscription quota: 1,000,000 faces per large face list.",
+        "description": "To deal with an image containing multiple faces, input face can be specified as an image with a targetFace rectangle. It returns a persistedFaceId representing the added face. No image will be stored. Only the extracted face feature(s) will be stored on server until LargeFaceList - Delete Face or LargeFaceList - Delete is called.\n\nNote that persistedFaceId is different from faceId generated by Face - Detect.\n>\n*\n  * Higher face image quality means better recognition precision. Please consider high-quality faces: frontal, clear, and face size is 200x200 pixels (100 pixels between eyes) or bigger.\n  * Each person entry can hold up to 248 faces.\n  * JPEG, PNG, GIF (the first frame), and BMP format are supported. The allowed image file size is from 1KB to 6MB.\n  * \"targetFace\" rectangle should contain one face. Zero or multiple faces will be regarded as an error. If the provided \"targetFace\" rectangle is not returned from Face - Detect, there's no guarantee to detect and add the face successfully.\n  * Out of detectable face size (36x36 - 4096x4096 pixels), large head-pose, or large occlusions will cause failures.\n  * The minimum detectable face size is 36x36 pixels in an image no larger than 1920x1080 pixels. Images with dimensions higher than 1920x1080 pixels will need a proportionally larger minimum face size.\n  * Different 'detectionModel' values can be provided. To use and compare different detection models, please refer to https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/how-to/specify-detection-model\n\n> [!NOTE]\n>\n> *\n>   * Free-tier subscription quota: 1,000 faces per large face list.\n>   * S0-tier subscription quota: 1,000,000 faces per large face list.",
         "consumes": [
           "application/octet-stream"
         ],
@@ -6981,7 +6981,7 @@
       "post": {
         "operationId": "FaceRecognitionOperations_VerifyFromLargePersonGroup",
         "summary": "Verify whether a face belongs to a person in a Large Person Group.",
-        "description": "> [!NOTE]\n> * Higher face image quality means better identification precision. Please consider high-quality faces: frontal, clear, and face size is 200x200 pixels (100 pixels between eyes) or bigger.\n> * For the scenarios that are sensitive to accuracy please make your own judgment.\n> * The 'recognitionModel' associated with the query face should be the same as the 'recognitionModel' used by the Large Person Group.",
+        "description": "> [!NOTE]\n>\n> *\n>   * Higher face image quality means better identification precision. Please consider high-quality faces: frontal, clear, and face size is 200x200 pixels (100 pixels between eyes) or bigger.\n>   * For the scenarios that are sensitive to accuracy please make your own judgment.\n>   * The 'recognitionModel' associated with the query face should be the same as the 'recognitionModel' used by the Large Person Group.",
         "parameters": [
           {
             "name": "body",
@@ -7042,7 +7042,7 @@
       "post": {
         "operationId": "FaceRecognitionOperations_VerifyFromPersonDirectory",
         "summary": "Verify whether a face belongs to a person in Person Directory.",
-        "description": "> [!NOTE]\n> * Higher face image quality means better identification precision. Please consider high-quality faces: frontal, clear, and face size is 200x200 pixels (100 pixels between eyes) or bigger.\n> * For the scenarios that are sensitive to accuracy please make your own judgment.\n> * The Verify operation can only match faces obtained with the same recognition model, that is associated with the query face.",
+        "description": "> [!NOTE]\n>\n> *\n>   * Higher face image quality means better identification precision. Please consider high-quality faces: frontal, clear, and face size is 200x200 pixels (100 pixels between eyes) or bigger.\n>   * For the scenarios that are sensitive to accuracy please make your own judgment.\n>   * The Verify operation can only match faces obtained with the same recognition model, that is associated with the query face.",
         "parameters": [
           {
             "name": "body",
@@ -7098,7 +7098,7 @@
       "post": {
         "operationId": "FaceRecognitionOperations_VerifyFromPersonGroup",
         "summary": "Verify whether a face belongs to a person in a Person Group.",
-        "description": "> [!NOTE]\n> * Higher face image quality means better identification precision. Please consider high-quality faces: frontal, clear, and face size is 200x200 pixels (100 pixels between eyes) or bigger.\n> * For the scenarios that are sensitive to accuracy please make your own judgment.\n> * The 'recognitionModel' associated with the query face should be the same as the 'recognitionModel' used by the Person Group.",
+        "description": "> [!NOTE]\n>\n> *\n>   * Higher face image quality means better identification precision. Please consider high-quality faces: frontal, clear, and face size is 200x200 pixels (100 pixels between eyes) or bigger.\n>   * For the scenarios that are sensitive to accuracy please make your own judgment.\n>   * The 'recognitionModel' associated with the query face should be the same as the 'recognitionModel' used by the Person Group.",
         "parameters": [
           {
             "name": "body",
