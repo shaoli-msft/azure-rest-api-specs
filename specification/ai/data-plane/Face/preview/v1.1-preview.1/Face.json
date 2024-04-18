@@ -379,7 +379,7 @@
       "post": {
         "operationId": "LivenessSessionOperations_CreateLivenessSession",
         "summary": "Create a new detect liveness session.",
-        "description": "A session is best for client device scenarios where developers want to authorize a client device to perform only a liveness detection without granting full access to their resource. Created sessions have a limited life span and only authorize clients to perform the desired action before access is expired.\n\nPermissions includes...\n>\n*\n  * Ability to call /detectLiveness/singleModal for up to 3 reties.\n  * A token lifetime of 10 minutes.\n\n> [!NOTE]\n> Client access can be revoked by deleting the session using the Delete Liveness Session operation. To retrieve a result, use the Get Liveness Session. To audit the individual requests that a client has made to your resource, use the List Liveness Session Audit Entries.",
+        "description": "A session is best for client device scenarios where developers want to authorize a client device to perform only a liveness detection without granting full access to their resource. Created sessions have a limited life span and only authorize clients to perform the desired action before access is expired.\n\nPermissions includes...\n>\n*\n  * Ability to call /detectLiveness/singleModal for up to 3 retries.\n  * A token lifetime of 10 minutes.\n\n> [!NOTE]\n> Client access can be revoked by deleting the session using the Delete Liveness Session operation. To retrieve a result, use the Get Liveness Session. To audit the individual requests that a client has made to your resource, use the List Liveness Session Audit Entries.",
         "parameters": [
           {
             "name": "body",
@@ -425,7 +425,7 @@
           {
             "name": "sessionId",
             "in": "path",
-            "description": "Unique ID to reference this session.",
+            "description": "The unique ID to reference this session.",
             "required": true,
             "type": "string"
           }
@@ -464,7 +464,7 @@
           {
             "name": "sessionId",
             "in": "path",
-            "description": "Unique ID to reference this session.",
+            "description": "The unique ID to reference this session.",
             "required": true,
             "type": "string"
           }
@@ -501,7 +501,7 @@
           {
             "name": "sessionId",
             "in": "path",
-            "description": "Unique ID to reference this session.",
+            "description": "The unique ID to reference this session.",
             "required": true,
             "type": "string"
           },
@@ -611,7 +611,7 @@
       "post": {
         "operationId": "LivenessSessionOperations_CreateLivenessWithVerifySessionWithVerifyImage",
         "summary": "Create a new liveness session with verify. Provide the verify image during session creation.",
-        "description": "A session is best for client device scenarios where developers want to authorize a client device to perform only a liveness detection without granting full access to their resource. Created sessions have a limited life span and only authorize clients to perform the desired action before access is expired.\n\nPermissions includes...\n*\n  * Ability to call /detectLivenessWithVerify/singleModal for up to 3 reties.\n  * A token lifetime of 10 minutes.\n\n> [!NOTE]\n> Client access can be revoked by deleting the session using the Delete Liveness With Verify Session operation. To retrieve a result, use the Get Liveness With Verify Session. To audit the individual requests that a client has made to your resource, use the List Liveness With Verify Session Audit Entries.\n\nRecommended Option: VerifyImage is provided during session creation.",
+        "description": "A session is best for client device scenarios where developers want to authorize a client device to perform only a liveness detection without granting full access to their resource. Created sessions have a limited life span and only authorize clients to perform the desired action before access is expired.\n\nPermissions includes...\n>\n*\n  * Ability to call /detectLivenessWithVerify/singleModal for up to 3 retries.\n  * A token lifetime of 10 minutes.\n\n> [!NOTE]\n>\n> *\n>   * Client access can be revoked by deleting the session using the Delete Liveness With Verify Session operation.\n>   * To retrieve a result, use the Get Liveness With Verify Session.\n>   * To audit the individual requests that a client has made to your resource, use the List Liveness With Verify Session Audit Entries.\n\nRecommended Option: VerifyImage is provided during session creation.",
         "consumes": [
           "multipart/form-data"
         ],
@@ -658,7 +658,7 @@
           {
             "name": "sessionId",
             "in": "path",
-            "description": "Unique ID to reference this session.",
+            "description": "The unique ID to reference this session.",
             "required": true,
             "type": "string"
           }
@@ -697,7 +697,7 @@
           {
             "name": "sessionId",
             "in": "path",
-            "description": "Unique ID to reference this session.",
+            "description": "The unique ID to reference this session.",
             "required": true,
             "type": "string"
           }
@@ -734,7 +734,7 @@
           {
             "name": "sessionId",
             "in": "path",
-            "description": "Unique ID to reference this session.",
+            "description": "The unique ID to reference this session.",
             "required": true,
             "type": "string"
           },
@@ -5867,7 +5867,7 @@
       "post": {
         "operationId": "LivenessSessionOperations_CreateLivenessWithVerifySession",
         "summary": "Create a new liveness session with verify. Client device submits VerifyImage during the /detectLivenessWithVerify/singleModal call.",
-        "description": "A session is best for client device scenarios where developers want to authorize a client device to perform only a liveness detection without granting full access to their resource. Created sessions have a limited life span and only authorize clients to perform the desired action before access is expired.\n\nPermissions includes...\n*\n  * Ability to call /detectLivenessWithVerify/singleModal for up to 3 reties.\n  * A token lifetime of 10 minutes.\n\n> [!NOTE]\n> Client access can be revoked by deleting the session using the Delete Liveness With Verify Session operation. To retrieve a result, use the Get Liveness With Verify Session. To audit the individual requests that a client has made to your resource, use the List Liveness With Verify Session Audit Entries.\n\nAlternative Option: Client device submits VerifyImage during the /detectLivenessWithVerify/singleModal call.\n> [!NOTE]\n> Extra measures should be taken to validate that the client is sending the expected VerifyImage.",
+        "description": "A session is best for client device scenarios where developers want to authorize a client device to perform only a liveness detection without granting full access to their resource. Created sessions have a limited life span and only authorize clients to perform the desired action before access is expired.\n\nPermissions includes...\n>\n*\n  * Ability to call /detectLivenessWithVerify/singleModal for up to 3 retries.\n  * A token lifetime of 10 minutes.\n\n> [!NOTE]\n>\n> *\n>   * Client access can be revoked by deleting the session using the Delete Liveness With Verify Session operation.\n>   * To retrieve a result, use the Get Liveness With Verify Session.\n>   * To audit the individual requests that a client has made to your resource, use the List Liveness With Verify Session Audit Entries.\n\nAlternative Option: Client device submits VerifyImage during the /detectLivenessWithVerify/singleModal call.\n> [!NOTE]\n> Extra measures should be taken to validate that the client is sending the expected VerifyImage.",
         "parameters": [
           {
             "name": "body",
@@ -8516,18 +8516,18 @@
       "properties": {
         "id": {
           "type": "string",
-          "description": "Unique ID to reference this session.",
+          "description": "The unique ID to reference this session.",
           "readOnly": true
         },
         "createdDateTime": {
           "type": "string",
           "format": "date-time",
-          "description": "Session creation time in millisecond from epoch."
+          "description": "DateTime when this session was created."
         },
         "sessionStartDateTime": {
           "type": "string",
           "format": "date-time",
-          "description": "Session started time from session auth token."
+          "description": "DateTime when this session was started by the client."
         },
         "sessionExpired": {
           "type": "boolean",
@@ -8535,23 +8535,23 @@
         },
         "deviceCorrelationId": {
           "type": "string",
-          "description": "Device Correlation Id to use for linking multiple sessions together."
+          "description": "Unique Guid per each end-user device. This is to provide rate limiting and anti-hammering. If 'deviceCorrelationIdSetInClient' is true in this request, this 'deviceCorrelationId' must be null."
         },
         "authTokenTimeToLiveInSeconds": {
           "type": "integer",
           "format": "int32",
-          "description": "Session length in seconds. Range is 60 to 86400 seconds.",
+          "description": "Seconds the session should last for. Range is 60 to 86400 seconds. Default value is 600.",
           "default": 600,
           "minimum": 60,
           "maximum": 86400
         },
         "status": {
           "$ref": "#/definitions/FaceSessionStatus",
-          "description": "The session status."
+          "description": "The current status of the session."
         },
         "result": {
           "$ref": "#/definitions/LivenessSessionAuditEntry",
-          "description": "The last result of session."
+          "description": "The latest session audit result only populated if status == 'ResultAvailable'."
         }
       },
       "required": [
@@ -8568,24 +8568,24 @@
         "id": {
           "type": "integer",
           "format": "int64",
-          "description": "ID of this audit entry."
+          "description": "The unique id to refer to this audit request. Use this id with the 'start' query parameter to continue on to the next page of audit results."
         },
         "sessionId": {
           "type": "string",
-          "description": "Session ID of this audit entry."
+          "description": "The unique sessionId of the created session. It will expire 48 hours after it was created or may be deleted sooner using the corresponding session DELETE operation."
         },
         "requestId": {
           "type": "string",
-          "description": "Request ID in the request header."
+          "description": "The unique requestId that is returned by the service to the client in the 'apim-request-id' header."
         },
         "clientRequestId": {
           "type": "string",
-          "description": "Client request ID in the request header."
+          "description": "The unique clientRequestId that is sent by the client in the 'client-request-id' header."
         },
         "receivedDateTime": {
           "type": "string",
           "format": "date-time",
-          "description": "The UTC date time of the request."
+          "description": "The UTC DateTime that the request was received."
         },
         "request": {
           "$ref": "#/definitions/SessionAuditEntryRequestInfo",
@@ -8597,7 +8597,7 @@
         },
         "digest": {
           "type": "string",
-          "description": "The digest of the request body."
+          "description": "The server calculated digest for this request. If the client reported digest differs from the server calculated digest, then the message integrity between the client and service has been compromised and the result should not be trusted. For more information, see how to guides on how to leverage this value to secure your end-to-end solution."
         }
       },
       "required": [
@@ -8617,24 +8617,24 @@
       "properties": {
         "livenessOperationMode": {
           "$ref": "#/definitions/LivenessOperationMode",
-          "description": "The operation mode for the liveness modal."
+          "description": "Type of liveness mode the client should follow."
         },
         "sendResultsToClient": {
           "type": "boolean",
-          "description": "Whether or not send back the operation response to client."
+          "description": "Whether or not to allow a '200 - Success' response body to be sent to the client, which may be undesirable for security reasons. Default is false, clients will receive a '204 - NoContent' empty body response. Regardless of selection, calling Session GetResult will always contain a response body enabling business logic to be implemented."
         },
         "deviceCorrelationIdSetInClient": {
           "type": "boolean",
-          "description": "Whether or not the device correlation id is set by the client."
+          "description": "Whether or not to allow client to set their own 'deviceCorrelationId' via the Vision SDK. Default is false, and 'deviceCorrelationId' must be set in this request body."
         },
         "deviceCorrelationId": {
           "type": "string",
-          "description": "Device Correlation Id to use for linking multiple sessions together."
+          "description": "Unique Guid per each end-user device. This is to provide rate limiting and anti-hammering. If 'deviceCorrelationIdSetInClient' is true in this request, this 'deviceCorrelationId' must be null."
         },
         "authTokenTimeToLiveInSeconds": {
           "type": "integer",
           "format": "int32",
-          "description": "Session length in seconds. Range is 60 to 86400 seconds.",
+          "description": "Seconds the session should last for. Range is 60 to 86400 seconds. Default value is 600.",
           "default": 600,
           "minimum": 60,
           "maximum": 86400
@@ -8650,24 +8650,24 @@
       "properties": {
         "livenessOperationMode": {
           "$ref": "#/definitions/LivenessOperationMode",
-          "description": "The operation mode for the liveness modal."
+          "description": "Type of liveness mode the client should follow."
         },
         "sendResultsToClient": {
           "type": "boolean",
-          "description": "Whether or not send back the operation response to client."
+          "description": "Whether or not to allow a '200 - Success' response body to be sent to the client, which may be undesirable for security reasons. Default is false, clients will receive a '204 - NoContent' empty body response. Regardless of selection, calling Session GetResult will always contain a response body enabling business logic to be implemented."
         },
         "deviceCorrelationIdSetInClient": {
           "type": "boolean",
-          "description": "Whether or not the device correlation id is set by the client."
+          "description": "Whether or not to allow client to set their own 'deviceCorrelationId' via the Vision SDK. Default is false, and 'deviceCorrelationId' must be set in this request body."
         },
         "deviceCorrelationId": {
           "type": "string",
-          "description": "Device Correlation Id to use for linking multiple sessions together."
+          "description": "Unique Guid per each end-user device. This is to provide rate limiting and anti-hammering. If 'deviceCorrelationIdSetInClient' is true in this request, this 'deviceCorrelationId' must be null."
         },
         "authTokenTimeToLiveInSeconds": {
           "type": "integer",
           "format": "int32",
-          "description": "Session length in seconds. Range is 60 to 86400 seconds.",
+          "description": "Seconds the session should last for. Range is 60 to 86400 seconds. Default value is 600.",
           "default": 600,
           "minimum": 60,
           "maximum": 86400
@@ -8683,11 +8683,11 @@
       "properties": {
         "sessionId": {
           "type": "string",
-          "description": "Unique ID to reference this session."
+          "description": "The unique session ID of the created session. It will expire 48 hours after it was created or may be deleted sooner using the corresponding Session DELETE operation."
         },
         "authToken": {
           "type": "string",
-          "description": "Authorization token for use by the client application"
+          "description": "Bearer token to provide authenication for the Vision SDK running on a client application. This Bearer token has limited permissions to perform only the required action and expires after the TTL time. It is also auditable."
         }
       },
       "required": [
@@ -8701,18 +8701,18 @@
       "properties": {
         "id": {
           "type": "string",
-          "description": "Unique ID to reference this session.",
+          "description": "The unique ID to reference this session.",
           "readOnly": true
         },
         "createdDateTime": {
           "type": "string",
           "format": "date-time",
-          "description": "Session creation time in millisecond from epoch."
+          "description": "DateTime when this session was created."
         },
         "sessionStartDateTime": {
           "type": "string",
           "format": "date-time",
-          "description": "Session started time from session auth token."
+          "description": "DateTime when this session was started by the client."
         },
         "sessionExpired": {
           "type": "boolean",
@@ -8720,12 +8720,12 @@
         },
         "deviceCorrelationId": {
           "type": "string",
-          "description": "Device Correlation Id to use for linking multiple sessions together."
+          "description": "Unique Guid per each end-user device. This is to provide rate limiting and anti-hammering. If 'deviceCorrelationIdSetInClient' is true in this request, this 'deviceCorrelationId' must be null."
         },
         "authTokenTimeToLiveInSeconds": {
           "type": "integer",
           "format": "int32",
-          "description": "Session length in seconds. Range is 60 to 86400 seconds.",
+          "description": "Seconds the session should last for. Range is 60 to 86400 seconds. Default value is 600.",
           "default": 600,
           "minimum": 60,
           "maximum": 86400
@@ -8806,18 +8806,18 @@
       "properties": {
         "id": {
           "type": "string",
-          "description": "Unique ID to reference this session.",
+          "description": "The unique ID to reference this session.",
           "readOnly": true
         },
         "createdDateTime": {
           "type": "string",
           "format": "date-time",
-          "description": "Session creation time in millisecond from epoch."
+          "description": "DateTime when this session was created."
         },
         "sessionStartDateTime": {
           "type": "string",
           "format": "date-time",
-          "description": "Session started time from session auth token."
+          "description": "DateTime when this session was started by the client."
         },
         "sessionExpired": {
           "type": "boolean",
@@ -8825,23 +8825,23 @@
         },
         "deviceCorrelationId": {
           "type": "string",
-          "description": "Device Correlation Id to use for linking multiple sessions together."
+          "description": "Unique Guid per each end-user device. This is to provide rate limiting and anti-hammering. If 'deviceCorrelationIdSetInClient' is true in this request, this 'deviceCorrelationId' must be null."
         },
         "authTokenTimeToLiveInSeconds": {
           "type": "integer",
           "format": "int32",
-          "description": "Session length in seconds. Range is 60 to 86400 seconds.",
+          "description": "Seconds the session should last for. Range is 60 to 86400 seconds. Default value is 600.",
           "default": 600,
           "minimum": 60,
           "maximum": 86400
         },
         "status": {
           "$ref": "#/definitions/FaceSessionStatus",
-          "description": "The session status."
+          "description": "The current status of the session."
         },
         "result": {
           "$ref": "#/definitions/LivenessSessionAuditEntry",
-          "description": "The last result of session."
+          "description": "The latest session audit result only populated if status == 'ResultAvailable'."
         }
       },
       "required": [
@@ -9214,11 +9214,11 @@
       "properties": {
         "url": {
           "type": "string",
-          "description": "The relative URL of the liveness request."
+          "description": "The relative URL and query of the liveness request."
         },
         "method": {
           "type": "string",
-          "description": "The HTTP method of the request."
+          "description": "The HTTP method of the request (i.e., GET, POST, DELETE)."
         },
         "contentLength": {
           "type": "integer",
@@ -9231,7 +9231,7 @@
         },
         "userAgent": {
           "type": "string",
-          "description": "The user agent of the request."
+          "description": "The user agent used to submit the request."
         }
       },
       "required": [
@@ -9246,17 +9246,17 @@
       "properties": {
         "body": {
           "$ref": "#/definitions/LivenessResponseBody",
-          "description": "The response body."
+          "description": "The response body. The schema of this field will depend on the request.url and request.method used by the client."
         },
         "statusCode": {
           "type": "integer",
           "format": "int32",
-          "description": "The HTTP status code of the request."
+          "description": "The HTTP status code returned to the client."
         },
         "latencyInMilliseconds": {
           "type": "integer",
           "format": "int64",
-          "description": "The latency of the request."
+          "description": "The server measured latency for this request in milliseconds."
         }
       },
       "required": [
